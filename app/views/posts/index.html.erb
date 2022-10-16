@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Posts</h1>
+<%= link_to 'home', root_path %>
+<%= link_to 'posts', posts_path %>
+<%# <%= link_to "likes", likes_path %> 
+
+
+
+<hr>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+      <p>
+    <%= post.likes.count %> 
+      <%= (post.likes.count) ==  1 ? '★' : '★' %>  Liked by 
+      <%#= "#{current_user.full_name}"  %>
+
+  </p>
+  <hr>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path %>

@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Posts</h1>
+<%= link_to 'home', root_path%>
+<%= link_to 'posts', posts_path%>
+<%# <%= link_to 'likes', post_like_path(@post) %> 
+
+
+
+
+<% like.each do |like| %>
+<%# <%= render like %> 
+<%= link_to 'Like', like %>
+<%  end %>
+
+  <%# <p>
+<h3><%=  "#{@name}" %> likes this post</h3>
+  </p>
+
+
+</div>
