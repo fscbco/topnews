@@ -1,1 +1,52 @@
+- if user_signed_in?
+    You are signed in as 
+    = current_user.email 
+    = link_to "Sign out", destroy_user_session_path, method: :delete
+- else
+    = form_with url: new_user_session_path, method: :post, local: true do |f| 
+        = f.label :email 
+        = f.select "user[email]", @users.collect { |user| [user.email, user.email] }
+        = f.label :password
+        = f.password_field :"user[password]", autocomplete: "current-password", required: true
+        = f.submit "Log in"
+
 %h1 Welcome to Top News
+- if user_signed_in?
+    %h2 Latest #{@max_stories} Top Stories
+    %table
+        %tbody
+            %tr
+                %th #{@max_stories} Top Story Titles
+                %th Save As Your Favorite
+            - @stories.each do |story|
+                %tr
+                    %td
+                        - if story["url"]
+                            = link_to story["title"], story["url"], target: :_blank
+                        - else 
+                            =# link_to s["title"], "https://news.ycombinator.com/item?id=#{s['id']}", target: :_blank
+                            = link_to story["title"], "#{@hacker_news_story_url}#{story['id']}", target: :_blank
+                    %td
+                        - if current_user.favorites.exists?(story_id: story["id"])
+                            = "Saved as favorite"
+                        - else
+                            = button_to "Save as your favorite", user_favorites_path(current_user), params: { story_id: story["id"]}, method: :post
+                        
+    %h2 Favorite Stories
+    %table
+        %tbody
+            %tr
+                %th Story Title
+                %th Favorited By 
+            - @favorite_stories.uniq.each do |favorite_story|
+                -# s = JSON.parse(favorite_story["story"])
+                - s = favorite_story["story"]
+                - users = favorite_story["users"]
+                %tr
+                    %td
+                        - if s["url"]
+                            = link_to s["title"], s["url"], target: :_blank
+                        - else 
+                            =# link_to s["title"], "https://news.ycombinator.com/item?id=#{s['id']}", target: :_blank
+                            = link_to s["title"], "#{@hacker_news_story_url}#{s['id']}", target: :_blank
+                    %td= "#{users.map { |n| "#{n[0]} #{n[1]}" }.join(", ")}"
