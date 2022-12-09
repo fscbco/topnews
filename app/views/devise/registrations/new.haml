@@ -1,0 +1,27 @@
+%body
+  .px-2.pt-2.lg:py-0
+    %header.grid.lg:grid-rows-1.items-center.max-w-7xl.mx-auto{ class: 'grid-rows-[auto] md:grid-cols-[1fr 1fr] lg:grid-cols-[150px_1fr_1fr]' }
+      = link_to root_path, class: 'md:col-span-2 lg:col-span-1' do
+        = image_tag 'kasheesh-horizontal', alt: 'KASHEESH!', class: 'w-full sm:w-52 mx-atuo'
+      %ul.flex.flex-row.flex-wrap.sm:flex-nowrap.md:flex-nowrap.justify-center.md:justify-start.lg:justify-center.gap-2.my-2
+      %ul.flex.flex-row.flex-wrap.sm:flex-nowrap.justify-end.gap-2.my-2
+        %li.w-full.md:w-fit
+          = link_to 'Sign In', new_user_session_path, class: 'btn px-6 hover:text-kasheeshOrange'
+  = image_tag 'cards-with-lines', class: 'px-4 mx-auto'
+
+  %main.px-4.max-w-lg.mx-auto
+    %h1.text-6xl.text-center.mt-4.mb-12 Sign into Kasheesh!
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'flex flex-col' }) do |f|
+      = render 'devise/shared/error_messages', resource: resource
+
+      = f.label :email
+      = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'Enter your e-mail address', required: true, type: 'text', class: 'field mb-4 rounded'
+      = f.label :password
+      = f.password_field :password, autocomplete: 'new-password', placeholder: 'Enter your password', required: true, type: 'password', class: 'field mb-4 rounded'
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: 'new-password', placeholder: 'Confirm your password', required: true, type: 'password', class: 'field mb-4 rounded'
+      .flex.flex-col.text-center
+        = f.button 'Sign Up', type: 'submit', class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 my-6'
+
+    .flex.flex-col.text-center
+      = render 'devise/shared/links'

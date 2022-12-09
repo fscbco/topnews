@@ -26,7 +26,7 @@
 
     %link{ href: 'https://uploads-ssl.webflow.com/62c45056e8072083b8076813/62c45056e80720625a076853_logo-icon-color32.svg', rel: 'shortcut icon', type: 'image/x-icon' }
   %body.bg-kasheeshOffWhite.font-sans
-    = render partial: 'partials/top_nav_bar'
     %p.notice= notice
-    %p.alert= alert
+    - if alert
+      = render partial: 'partials/alerts', alert: alert
     = yield
