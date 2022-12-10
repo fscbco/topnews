@@ -17,7 +17,33 @@ describe 'PostsController', type: :request do
        get posts_path
 
        expect(response.body).to include existing_post.title
+       expect(response.body).to include existing_post.url
+       expect(response.body).to include existing_post.author
       end
+
+     context 'when a post is starred' do
+       it 'shows who it was starred by' do
+         star = create(:star)
+         get posts_path
+         expect(response.body).to include("#{star.user.first_name} #{star.user.last_name}")
+       end
+     end
+
+     context 'when a post is starred by more than 3 people' do
+       it 'truncates starred by' do
+         post_obj = create(:post)
+         displayed_stars = create_list(:star, 3, post: post_obj)
+         truncated_stars = create_list(:star, 2, post: post_obj)
+         get posts_path
+
+         displayed_stars_names = displayed_stars.map { |star| "#{star.user.first_name} #{star.user.last_name}" }
+         truncated_stars_names = truncated_stars.map { |star| "#{star.user.first_name} #{star.user.last_name}" }
+         expect(response.body).to include(*displayed_stars_names)
+         expect(response.body).to include('and 2 more')
+         expect(response.body).not_to include(*truncated_stars_names)
+       end
+     end
+
 
      context 'when filter params is starred' do
        it 'returns starred posts' do
