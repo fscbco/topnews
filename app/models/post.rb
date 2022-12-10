@@ -8,4 +8,6 @@ class Post < ApplicationRecord
 
   has_many :stars, dependent: :destroy
   has_many :starred_users, class_name: 'User', foreign_key: 'user_id', through: :stars, source: :user
+
+  paginates_per 30 # Match the pagination on HackerNews
 end

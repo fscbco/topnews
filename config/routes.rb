@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+
+  resources :posts, only: %i[index]
+  resources :stars, only: %i[create destroy]
+
+  root to: 'posts#index'
 end

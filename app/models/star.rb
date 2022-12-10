@@ -1,7 +1,7 @@
 class Star < ApplicationRecord
+  validates :user, presence: true, uniqueness: { scope: :post_id }
   validates :post, presence: true
-  validates :user, presence: true
 
-  belongs_to :post
   belongs_to :user
+  belongs_to :post
 end
