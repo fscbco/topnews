@@ -6,5 +6,7 @@ class CreateStars < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :stars, %i[user_id post_id], unique: true # A user can't star a post more than once
   end
 end
