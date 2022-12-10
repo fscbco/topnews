@@ -1,0 +1,55 @@
+.max-w-6xl.mx-auto.px-4
+  .flex.justify-between
+    .flex.space-x-4.py-4
+      %table.table-auto
+        %tbody
+          -# Logic to maintain counts across pages
+          - page = params[:page]&.to_i || 1
+          - starting_index = page == 1 ? 1 : (page - 1) * 30 + 1
+          - @posts.each.with_index(starting_index) do |post, index|
+            %tr
+              %td.text-gray-400
+                = "#{index}."
+              %td
+                - is_already_starred = post.starred_users.include? current_user
+
+                - if is_already_starred
+                  - fill_color = 'text-yellow-400'
+                  - existing_star = post.stars.find { |star| star.user == current_user }
+                  - link = star_path(id: existing_star.id)
+                  - method = :delete
+                - else
+                  - fill_color = 'text-gray-300'
+                  - link = stars_path(post_id: post.id)
+                  - method = :post
+
+                = link_to link, method: method do
+                  %svg.w-5.h-5{ class: fill_color, 'aria-hidden' => 'true', fill: 'currentColor', viewbox: '0 0 20 20', xmlns: 'http://www.w3.org/2000/svg' }
+                    %path{ d: 'M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' }
+
+              %td
+                %span.font-medium
+                  = link_to post.title, post.url
+                %span.text-gray-400.text-sm
+                  - uri = URI(post.url)
+                  = link_to "(#{uri.host})", "#{uri.scheme}://#{uri.host}"
+            %tr
+              %td{ colspan: '2' }
+              %td.text-gray-400.text-xs.pb-4
+                = link_to 'See on HN', "https://news.ycombinator.com/item?id=#{post.hn_id}"
+                |
+                = "by #{post.author} #{time_ago_in_words(post.hn_created_at)} ago"
+                - if post.stars.present?
+                  | Starred by
+                  - user_display_limit = 3
+                  - count = post.starred_users.size
+                  - if count > user_display_limit
+                    - full_names = post.starred_users.first(user_display_limit).map { |user| "#{user.first_name} #{user.last_name}" }
+                    - remaining_count = count - user_display_limit
+                    = full_names.join(', ') + " and #{remaining_count} more"
+                  - else
+                    = post.starred_users.map { |user| "#{user.first_name} #{user.last_name}" }.join(', ')
+          %tr
+            %td{ colspan: '2' }
+            %td.text-gray-400
+              = link_to_next_page @posts, 'More'

@@ -9,7 +9,7 @@
               Kasheesh News
         .hidden.md:flex.items-center.space-x-1
           = link_to 'New', root_path, class: 'py-5 px-3 text-black-700 hover:text-kasheeshOrange'
-          = link_to 'Starred', root_path, class: 'py-5 px-3 text-black-700 hover:text-kasheeshOrange'
+          = link_to 'Starred', root_path(filter: 'starred'), class: 'py-5 px-3 text-black-700 hover:text-kasheeshOrange'
       .hidden.md:flex.items-center.space-x-1
         - if current_user
           = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'py-5 px-3 text-black-700 hover:text-kasheeshOrange'
