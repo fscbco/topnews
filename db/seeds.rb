@@ -15,3 +15,5 @@ User.find_or_initialize_by(email: 'MargeRWilliams@example.com').update({
   last_name: 'Williams',
   password: 'Aechugh1ie'
 })
+
+HackerNews::FetchTopStories.call
