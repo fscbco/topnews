@@ -24,14 +24,15 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 5.0'
+  gem 'shoulda-matchers', '~> 5.0' # One-liner matchers for RSpec
+  gem 'webmock' # Mock external API calls for testing
 end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
-  gem 'factory_bot'
-  gem 'factory_bot_rails'
+  gem 'factory_bot' # Create factories (objects) for testing
+  gem 'factory_bot_rails' # Configures FactoryBot for Rails
   gem 'selenium-webdriver'
 end
 
