@@ -19,6 +19,10 @@ describe 'PostsController', type: :request do
        expect(response.body).to include existing_post.title
        expect(response.body).to include existing_post.url
        expect(response.body).to include existing_post.author
+       expect(response.body).to include "https://news.ycombinator.com/item?id=#{existing_post.hn_id}"
+
+       uri = URI(existing_post.url)
+       expect(response.body).to include "#{uri.scheme}://#{uri.host}"
       end
 
      context 'when a post is starred' do
@@ -43,7 +47,6 @@ describe 'PostsController', type: :request do
          expect(response.body).not_to include(*truncated_stars_names)
        end
      end
-
 
      context 'when filter params is starred' do
        it 'returns starred posts' do
