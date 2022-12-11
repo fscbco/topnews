@@ -17,9 +17,9 @@ class PostsController < ApplicationController
     page = params[:page]&.to_i || 1
     return if page > 1
 
-    # Refresh posts if the last post was fetched more than 1 hour ago
+    # Refresh posts if the last post was fetched more than 3 hours ago
     latest_post = @posts.first
-    return unless latest_post && latest_post.hn_created_at < 1.hour.ago
+    return unless latest_post && latest_post.hn_created_at < 3.hours.ago
 
     HackerNews::FetchTopStories.call
   end
