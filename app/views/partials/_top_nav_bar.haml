@@ -8,8 +8,8 @@
             %span.font-bold.hover:text-kasheeshOrange
               Kasheesh News
         .flex.items-center.space-x-1
-          = link_to 'New', root_path, class: 'py-5 px-3 text-black-700 hover:text-kasheeshOrange'
-          = link_to 'Starred', root_path(filter: 'starred'), class: 'py-5 px-3 text-black-700 hover:text-kasheeshOrange'
+          = link_to 'All', root_path, class: "py-5 px-3 text-black-700 hover:text-kasheeshOrange #{'text-kasheeshOrange' unless params[:filter].present? || params[:search].present?}"
+          = link_to 'Starred', root_path(filter: 'starred'), class: "py-5 px-3 text-black-700 hover:text-kasheeshOrange #{'text-kasheeshOrange' if params[:filter] == 'starred'}"
         .flex.items-center.space-x-1
           = form_tag(posts_path, method: :get) do
             = text_field_tag :search, params[:search], placeholder: 'Search by Title...', class: 'field w-full outline-none text-sm text-gray-700 rounded pr-2 focus:border-kasheeshOrange focus:ring-0 focus:ring-offset-0'
