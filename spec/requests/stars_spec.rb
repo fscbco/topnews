@@ -20,9 +20,20 @@ describe 'StarsController', type: :request do
         expect(star.post_id).to eq post_obj.id
       end
 
-      it 'redirects to root_path' do
-        post stars_path(post_id: post_obj.id)
-        expect(response).to redirect_to root_path
+      context 'when there is an HTTP_REFERER header' do
+        let(:back_path) { '/?page=2'}
+
+        it 'redirects back' do
+          post stars_path(post_id: post_obj.id), headers: { 'HTTP_REFERER': back_path }
+          expect(response).to redirect_to back_path
+        end
+      end
+
+      context 'when there is not an HTTP_REFERER header' do
+        it 'redirects to root_path' do
+          post stars_path(post_id: post_obj.id)
+          expect(response).to redirect_to root_path
+        end
       end
 
       it 'returns a notice' do
@@ -67,9 +78,20 @@ describe 'StarsController', type: :request do
         expect { delete star_path(id: star.id) }.to change(Star, :count).by(-1)
       end
 
-      it 'redirects to root_path' do
-        delete star_path(id: star.id)
-        expect(response).to redirect_to root_path
+      context 'when there is an HTTP_REFERER header' do
+        let(:back_path) { '/?page=2'}
+
+        it 'redirects back' do
+          delete star_path(id: star.id), headers: { 'HTTP_REFERER': back_path }
+          expect(response).to redirect_to back_path
+        end
+      end
+
+      context 'when there is not an HTTP_REFERER header' do
+        it 'redirects to root_path' do
+          delete star_path(id: star.id)
+          expect(response).to redirect_to root_path
+        end
       end
 
       it 'returns a notice' do
