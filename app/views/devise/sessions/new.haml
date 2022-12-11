@@ -15,15 +15,15 @@
       = render 'devise/shared/error_messages', resource: resource
 
       = f.label :email
-      = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'Enter your e-mail address', required: true, type: 'text', class: 'field mb-4 rounded'
+      = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'Enter your e-mail address', required: true, type: 'text', class: 'field mb-4 rounded focus:border-kasheeshOrange focus:ring-0 focus:ring-offset-0'
       = f.label :password
-      = f.password_field :password, autocomplete: 'current-password', placeholder: 'Enter your password', required: true, type: 'password', class: 'field mb-4 rounded'
+      = f.password_field :password, autocomplete: 'current-password', placeholder: 'Enter your password', required: true, type: 'password', class: 'field mb-4 rounded focus:border-kasheeshOrange focus:ring-0 focus:ring-offset-0'
       - if devise_mapping.rememberable?
         .field
-          = f.check_box :remember_me
+          = f.check_box :remember_me, class: 'text-kasheeshOrange rounded focus:border-kasheeshOrange focus:ring-0 focus:ring-offset-0'
           = f.label :remember_me
       .flex.flex-col.text-center
-        = f.button 'Sign In', type: 'submit', class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 my-6'
+        = f.button 'Sign In', type: 'submit', class: 'text-white bg-kasheeshOrange font-medium rounded-lg text-sm px-5 py-2.5 mr-2 my-6'
 
     .flex.flex-col.text-center
       = render 'devise/shared/links'
