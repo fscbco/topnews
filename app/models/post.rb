@@ -1,4 +1,8 @@
 class Post < ApplicationRecord
+  include PgSearch::Model
+
+  pg_search_scope :search_by_title, against: :title
+
   validates :author, presence: true
   validates :hn_created_at, presence: true
   validates :hn_id, presence: true, uniqueness: { case_sensitive: false }

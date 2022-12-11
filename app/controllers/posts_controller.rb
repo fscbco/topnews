@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.includes(:stars, :starred_users).order(hn_created_at: :desc)
     @posts = @posts.where.not(stars: { id: nil }) if params[:filter] == 'starred'
+    @posts = @posts.search_by_title(params[:search]) if params[:search].present?
     @posts = @posts.page(params[:page]).without_count
   end
 

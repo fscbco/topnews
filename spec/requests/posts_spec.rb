@@ -70,6 +70,29 @@ describe 'PostsController', type: :request do
        end
      end
 
+     context 'when search params are provided' do
+       let(:found_title) { 'Awesome Story on Hacker News!' }
+       let(:found_post) { create(:post, title: found_title) }
+       let(:not_found_title) { 'This Has Nothing In Common With found_title!' }
+       let(:not_found_post) {  create(:post, title: not_found_title) }
+
+       before do
+         found_post
+         not_found_post
+       end
+
+       it 'searches by title' do
+         get posts_path(search: 'awesome')
+         expect(response.body).to include(found_post.title)
+         expect(response.body).not_to include(not_found_post.title)
+       end
+
+       it 'renders the search title' do
+         get posts_path(search: 'awesome')
+         expect(response.body).to include('Search results for &quot;awesome&quot;')
+       end
+     end
+
      describe '#fetch_top_stories (after_action)' do
        context 'when the page number is greater than 1' do
          it 'does not refresh top stories' do

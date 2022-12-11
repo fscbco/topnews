@@ -1,4 +1,7 @@
 .max-w-6xl.mx-auto.px-4
+  - if params[:search]
+    %h2.text-3xl.font-bold.py-4
+      = "Search results for \"#{params[:search]}\""
   .flex.justify-between
     .flex.space-x-4.py-4
       %table.table-auto

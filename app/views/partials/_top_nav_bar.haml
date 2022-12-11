@@ -7,10 +7,13 @@
             = image_tag 'https://uploads-ssl.webflow.com/62c45056e8072083b8076813/636b7fcb19f72a5ac4095fed_logo-new-icon-32px.png', alt: 'Kasheesh Logo', width: '25'
             %span.font-bold.hover:text-kasheeshOrange
               Kasheesh News
-        .hidden.md:flex.items-center.space-x-1
+        .flex.items-center.space-x-1
           = link_to 'New', root_path, class: 'py-5 px-3 text-black-700 hover:text-kasheeshOrange'
           = link_to 'Starred', root_path(filter: 'starred'), class: 'py-5 px-3 text-black-700 hover:text-kasheeshOrange'
-      .hidden.md:flex.items-center.space-x-1
+        .flex.items-center.space-x-1
+          = form_tag(posts_path, method: :get) do
+            = text_field_tag :search, params[:search], placeholder: 'Search by Title...', class: 'field w-full outline-none text-sm text-gray-700 rounded pr-2 focus:border-kasheeshOrange focus:ring-0 focus:ring-offset-0'
+      .flex.items-center.space-x-1
         - if current_user
           = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'py-5 px-3 text-black-700 hover:text-kasheeshOrange'
         - else
