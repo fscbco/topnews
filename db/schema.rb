@@ -23,7 +23,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_204638) do
     t.string "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["hn_created_at"], name: "index_posts_on_hn_created_at"
     t.index ["hn_id"], name: "index_posts_on_hn_id", unique: true
+    t.index ["title"], name: "index_posts_on_title"
   end
 
   create_table "stars", force: :cascade do |t|

@@ -1,14 +1,4 @@
 module HackerNews
-  class FetchStoryError < StandardError
-    attr_reader :error
-
-    def initialize(msg: 'error fetching story from HackerNews', error: nil)
-      msg.prepend("#{self.class.name} ")
-      @error = error
-      super
-    end
-  end
-
   class FetchStoryById
     attr_reader :id
 
@@ -26,7 +16,7 @@ module HackerNews
       parsed_response_body = JSON.parse(response.body)
 
       case response
-      when Net::HTTPSuccess
+      when Net::HTTPSuccess, Net::HTTPOK
         parsed_response_body
       else
         raise_error(error: parsed_response_body.dig('error'))
