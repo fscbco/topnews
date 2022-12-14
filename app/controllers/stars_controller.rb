@@ -3,7 +3,7 @@
 class StarsController < ApplicationController
   def create
     @story = Story.find(params[:story_id])
-    @star = Star.new(story: @story, user: current_user)
+    @star = Star.find_or_initialize_by(story: @story, user: current_user)
     if @star.save
       flash[:notice] = "#{@story.title} starred!"
     else
