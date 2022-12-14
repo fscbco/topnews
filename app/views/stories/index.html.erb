@@ -1,6 +1,8 @@
+<h1>Welcome to Top News</h1>
+
 <% @stories.each do |s|%>
-    <div class="row">
-        <%= render partial: 'story', locals: {s: s} %> 
-    </div>
+
+    <%= render partial: 'story', locals: {s: s} %> 
+
     <br>
 <% end %>
