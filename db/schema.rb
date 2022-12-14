@@ -12,9 +12,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_180_228_212_101) do
+ActiveRecord::Schema[7.0].define(version: 20_221_214_005_356) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
+
+  create_table 'stories', force: :cascade do |t|
+    t.bigint 'hacker_news_id', null: false
+    t.string 'by'
+    t.datetime 'published_at'
+    t.string 'title'
+    t.string 'link'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
 
   create_table 'users', force: :cascade do |t|
     t.string 'first_name'

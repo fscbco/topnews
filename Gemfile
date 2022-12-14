@@ -3,11 +3,11 @@
 source 'https://rubygems.org'
 
 ruby File.read('.ruby-version').chomp
-
 gem 'byebug', platforms: %i[mri mingw x64_mingw], group: %i[development test]
 gem 'capybara', group: %i[development test]
 gem 'coffee-rails'
 gem 'devise'
+gem 'httparty'
 gem 'jbuilder'
 gem 'listen', group: :development
 gem 'pg'
