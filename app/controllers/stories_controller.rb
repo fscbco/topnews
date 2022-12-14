@@ -14,7 +14,7 @@ class StoriesController < ApplicationController
   end
 
   def top_stories_ids
-    @top_stories_ids ||= HackerNews.new.top_stories_ids[0..25]
+    @top_stories_ids ||= HackerNews.new.top_stories_ids[0..50]
   end
 
   def missing_stories
