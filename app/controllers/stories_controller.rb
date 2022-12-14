@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
   before_action :update_top_stories, only: :index
 
   def index
-    @stories = Story.where(hacker_news_id: top_stories_ids)
+    @stories = Story.where(hacker_news_id: top_stories_ids).includes(:users)
   end
 
   private

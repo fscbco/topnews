@@ -2,10 +2,11 @@
   <div class="card-body">
     <h5 class="card-title"><%=s.title%></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%=s.by%></h6>
-    <p class="card-text"><%=time_ago_in_words(s.published_at)%> ago</p>
+    <p class="card-text">Published <%=time_ago_in_words(s.published_at)%> ago.
     <% if s.users.any? %>
-      <p class="card-text">starred by <%= s.users.map {|u| u.first_name }.to_sentence%></p>
+      Starred by <%= s.users.map {|u| u.full_name }.to_sentence%>
     <% end %>
+    </p>
     <%= link_to "Read Story", s.link, html_options: { class: "card-link", target: '_blank' }%> 
     <%= button_to "Star Story", story_stars_path(s), method: :post, html_options: { class: "card-link", target: '_blank' }%> 
 
