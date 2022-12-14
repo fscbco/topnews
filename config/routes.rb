@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :stars, only: [:create]
   end
   devise_for :users
-  root to: 'pages#home'
+  root to: 'stories#index'
 end
