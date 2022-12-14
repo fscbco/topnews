@@ -13,7 +13,9 @@
       <ul class="nav justify-content-end">
         <li class="nav-item">
           <% if user_signed_in? %> 
-            <%= button_to "Sign out",  destroy_user_session_path, method: :delete, class: "btn" %>
+            <%= button_to "Sign out",  destroy_user_session_path, method: :delete, class: "btn btn-outline" %> 
+          <% else %>
+            <%= button_to "Sign in", new_user_session_path, class: "btn btn-outline"  %> 
           <% end %>
         </li>
       </ul>
