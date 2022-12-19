@@ -14,4 +14,9 @@ describe User do
       expect(User.new(attrs.except(:password))).to be_invalid
     end
   end
+
+  describe 'validations' do
+    it { should validate_presence_of(:first_name) }
+    it { should validate_presence_of(:last_name) }
+  end
 end
