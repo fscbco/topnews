@@ -10,9 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_18_194400) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feeds", force: :cascade do |t|
+    t.integer "feed_item_id", null: false
+    t.string "source", limit: 32, null: false
+    t.integer "source_id", null: false
+    t.string "title", null: false
+    t.string "url", null: false
+    t.boolean "published", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_item_id", "source_id"], name: "index_feeds_on_feed_item_id_and_source_id", unique: true
+    t.index ["published"], name: "index_feeds_on_published", where: "(published = true)"
+  end
+
+  create_table "user_feeds", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "feed_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_id"], name: "index_user_feeds_on_feed_id"
+    t.index ["user_id"], name: "index_user_feeds_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
