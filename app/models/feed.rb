@@ -1,7 +1,7 @@
 class Feed < ApplicationRecord
   include PagingConcern
 
-  validates :feed_item_id, :published, :source, :title, :url, presence: true
+  validates :feed_item_id, :source, :title, :url, presence: true
   # No idea why :source_id displays as "Source can't be blank" (omits "id").
   validates :source_id, presence: { message: "can't be blank" }
   validates :source, length: { maximum: 32 }
