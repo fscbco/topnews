@@ -1,0 +1,15 @@
+<h2>Recommended News</h2>
+<% if recommended_feed.any? %>
+  <table>
+    <tr>
+      <th>Story</th>
+      <th>Source</th>
+      <th>Actions</th>
+      <th>Recommended By</th>
+    </tr>
+    <%= render recommended_feed.feed_items %>
+  </table>
+  <%= paginate recommended_feed.feed_items %>
+<% else%>
+  <div>Nothing too exciting I guess!</div>
+<% end %>

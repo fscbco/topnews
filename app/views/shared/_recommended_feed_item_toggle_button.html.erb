@@ -1,0 +1,12 @@
+<% if recommended_feed_item.recommended_by_current_user? %>
+  <span class='<%= recommended_feed_item_action_button_container_css_class(recommended_feed_item.id) %>'>
+  <%= button_to 'Unrecommend', {
+    controller: controller.controller_name,
+    action: controller.action_name,
+    id: recommended_feed_item.id,
+    },
+    method: :post,
+    remote: true
+  %>
+  </span>
+<% end%>

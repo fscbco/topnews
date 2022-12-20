@@ -1,0 +1,8 @@
+$(function() {
+  var element = $(".<%= recommended_feed_item_container_css_class(@feed_item.id) %>");
+  <% if @feed_item.recommended_by_user? %>
+    element.replaceWith("<%= j (render @feed_item) %>");
+  <% else %>
+    element.remove();
+  <% end %>
+})

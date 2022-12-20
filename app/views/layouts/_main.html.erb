@@ -1,0 +1,6 @@
+<% if content_for?(:page_header) %>
+  <%= yield :page_header %>
+<% else %>
+  <h1>Welcome</h1>
+<% end %>
+<%= yield :menu if content_for?(:menu) %>

@@ -1,0 +1,10 @@
+<tr class='<%= recommended_feed_item_container_css_class(recommended_feed_item.id) %>'>
+  <td><%= link_to recommended_feed_item.title, recommended_feed_item.url, target: '_blank' %></td>
+  <td><%= recommended_feed_item.source %></td>
+  <td>
+    <%= render 'shared/recommended_feed_item_toggle_button', recommended_feed_item: recommended_feed_item %>
+  </td>
+  <td>
+    <%= recommended_feed_item.recommended_by.sort.join(', ') %>
+  </td>
+</tr>

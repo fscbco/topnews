@@ -1,0 +1,23 @@
+<div class='navbar'>
+  <div class='navbar-item'>
+    <% if controller.controller_name == 'pages' %>
+      Home
+    <% else %>
+      <%= link_to 'Home', root_path %>
+    <% end %>
+  </div>
+  <div class='navbar-item'>
+    <% if controller.controller_name == 'recommended_feeds' %>
+      Recommended News
+    <% else %>
+      <%= link_to 'Recommended News', recommended_news_path %>
+    <% end %>
+  </div>
+  <div class='navbar-item'>
+    <% if controller.controller_name == 'sessions' %>
+      Sign Out
+    <% else %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    <% end %>
+  </div>
+</div>

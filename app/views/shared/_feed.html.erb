@@ -1,0 +1,14 @@
+<h2>Top News</h2>
+<% if feed.any? %>
+  <table>
+    <tr>
+      <th>Story</th>
+      <th>Source</th>
+      <th>Actions</th>
+    </tr>
+    <%= render feed.feed_items %>
+  </table>
+  <%= paginate feed.feed_items %>
+<% else%>
+  <div>No news is good news!</div>
+<% end %>

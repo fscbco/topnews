@@ -1,0 +1,11 @@
+<tr>
+  <td><%= link_to feed_item.title, feed_item.url, target: '_blank' %></td>
+  <td><%= feed_item.source %></td>
+  <td>
+    <% if feed_item.recommended_by_current_user? %>
+      <%= render 'shared/recommended_button', feed_item: feed_item %>
+    <% else %>
+      <%= render 'shared/feed_item_toggle_button', feed_item: feed_item %>
+    <% end %>
+  </td>
+</tr>

@@ -1,0 +1,17 @@
+<%
+button_text = if feed_item.recommended_by_current_user?
+                'Recommended'
+              else
+                'Recommend'
+              end
+%>
+<span class='<%= feed_item_action_button_container_css_class(feed_item.id) %>'>
+<%= button_to button_text, {
+  controller: controller.controller_name,
+  action: controller.action_name,
+  id: feed_item.id
+  },
+  method: :post,
+  remote: true
+%>
+</span>

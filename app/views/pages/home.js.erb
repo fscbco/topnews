@@ -1,0 +1,4 @@
+$(function() {
+  <%# Only update the button; no need to update anything else %>
+  $(".<%= feed_item_action_button_container_css_class(@feed_item.id) %>").html("<%= j (render 'shared/recommended_button', feed_item: @feed_item) %>")
+})
