@@ -20,6 +20,14 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # Not sure why omitting the below entry for development causes connections
+  # to postgres to be unsuccessful, but this points to where the .s.PGSQL.5432 file
+  # is located, where apparently, by default, it is looking here: /var/pgsql_socket/.s.PGSQL.5432.
+  # I was using the Postgres.app downloaded from the Postgres web site to install Postgres 12 which
+  # may have something to do with it. If running this on YOUR machine and there are issues, try
+  # commending this line out.
+  # See https://stackoverflow.com/questions/28925848/error-with-postgresql-datababse-is-the-server-running-locally-and-accepting-co
+  host: /tmp
 
 development:
   <<: *default
@@ -38,14 +46,6 @@ development:
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
   #host: localhost
-  # Not sure why omitting the below entry for development causes connections
-  # to postgres to be unsuccessful, but this points to where the .s.PGSQL.5432 file
-  # is located, where apparently, by default, it is looking here: /var/pgsql_socket/.s.PGSQL.5432.
-  # I was using the Postgres.app downloaded from the Postgres web site to install Postgres 12 which
-  # may have something to do with it. If running this on YOUR machine and there are issues, try
-  # commending this line out.
-  # See https://stackoverflow.com/questions/28925848/error-with-postgresql-datababse-is-the-server-running-locally-and-accepting-co
-  host: /tmp
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
