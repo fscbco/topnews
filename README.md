@@ -25,3 +25,26 @@ When a team member signs in, they will see recent news stories and be able to st
 * As an internal tool for a small team, performance optimization is not a requirement.
 * Be prepared to discuss known performance shortcomings of your solution and potential improvements.
 * UX design here is of little importance. The design can be minimal or it can have zero design at all.
+
+# To run:
+* `$ bundle install`
+
+### Postgres version
+* I used Postgres 12 by installing the Postgres.app, hence the change to the `/Users/gangelo/dev/kasheesh/topnews/config/database.yml` to add `host: /tmp`; see notes
+in that file for explaination; lesser versions than 12 _may_ fail as earlier versions of Postgress (<10?) will not support `ActiveRecord#upsert_all` (i.e. app/sidekiq/pull_feeds_job.rb).
+
+### Redis
+* Redis needs to be installed to support the `sidekiq` job: https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/
+
+### Create and seed the database
+* Run `PullFeedsJob.new.perform` from the rails console (`rails c`) to simulate the nightly top news job; this will seed the `feeds` table with news feeds, or run `rake feed`.
+
+### Start the app
+* `$ bundle exec foreman start` (see `Procfile`)
+ 
+# TODO
+* Add specs
+* Add list of any performance shortcomings and improvements
+
+
+
