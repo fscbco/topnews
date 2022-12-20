@@ -6,10 +6,10 @@ module Feeds
       include Serviceable
       include Sourceable
 
-      def initialize(limit: nil)
-        validate_limit!
-
+      def initialize(limit:)
         @limit = limit
+
+        validate_limit!
 
         super URI("#{BASE_URI}/v0/topstories.json")
       end

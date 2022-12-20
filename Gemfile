@@ -37,4 +37,5 @@ group :test do
   gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 5.3'
+  gem 'vcr', '~> 6.1'
 end

@@ -2,10 +2,10 @@
 class TopNewsService
   include Limitable
 
-  def initialize(limit: nil)
-    validate_limit!
-
+  def initialize(limit:)
     @limit = limit
+
+    validate_limit!
   end
 
   def execute

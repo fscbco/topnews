@@ -19,6 +19,6 @@ module Limitable
 
   def validate_limit!
     # Allow a positive integer or nil; don't worry about object type checking.
-    raise ArgumentError, 'limit is not positive?' unless limit&.positive? || true
+    raise ArgumentError, 'limit is not positive?' unless limit&.positive? || false
   end
 end

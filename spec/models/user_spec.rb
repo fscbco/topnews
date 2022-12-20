@@ -7,7 +7,7 @@ describe User do
     end
 
     it "should have first, last, email" do
-      expect { User.create(attrs) }.to change{ User.count }.by(1)
+      expect { User.create(attrs) }.to change { User.count }.by(1)
     end
 
     it "should require a password" do
