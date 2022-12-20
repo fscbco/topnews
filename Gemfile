@@ -30,7 +30,11 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
+end
+
+group :test do
   gem 'capybara'
   gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 5.3'
 end
