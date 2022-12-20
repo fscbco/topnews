@@ -15,3 +15,9 @@ User.find_or_initialize_by(email: 'MargeRWilliams@example.com').update({
   last_name: 'Williams',
   password: 'Aechugh1ie'
 })
+
+User.find_or_initialize_by(email: 'gangelo@somewhere.com').update({
+  first_name: 'Gene',
+  last_name: 'Angelo',
+  password: 'password'
+})
