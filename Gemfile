@@ -19,6 +19,7 @@ gem 'mini_portile2', '~> 2.8'
 gem 'faraday', '~> 2.7', '>= 2.7.2'
 gem 'jquery-rails', '~> 4.5', '>= 4.5.1'
 gem 'sidekiq', '~> 7.0', '>= 7.0.2'
+gem 'sidekiq-cron', '~> 1.9', '>= 1.9.1'
 gem 'redis', '~> 5.0', '>= 5.0.5'
 # To manage our startup processes
 gem 'foreman', '~> 0.87.2'
