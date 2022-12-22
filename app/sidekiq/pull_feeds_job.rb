@@ -1,6 +1,14 @@
 class PullFeedsJob
   include Sidekiq::Job
 
+  class << self
+    def running?
+      Sidekiq::Workers.new.any? do |_, _, worker|
+        JSON.parse(worker['payload'])['class'] == name
+      end
+    end
+  end
+
   def perform(*args)
     # TODO: Make limit value configurable.
     delete_all_non_recommended!

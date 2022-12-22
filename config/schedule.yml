@@ -1,5 +1,4 @@
 pull_feeds_job:
-  name: 'Nightly Feeds Pull'
   description: 'Updates the feeds table with new feeds from our feed sources'
   cron: '0 0 * * *'
   class: 'PullFeedsJob'
