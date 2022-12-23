@@ -2,8 +2,10 @@
 class TopNewsService
   include Limitable
 
-  def initialize(limit:)
-    @limit = limit
+  DEFAULT_LIMIT = 500
+
+  def initialize(limit: 500)
+    @limit = limit || DEFAULT_LIMIT
 
     validate_limit!
   end

@@ -1,4 +1,12 @@
 module FeedHelper
+  def feed_update_running?
+    @feed_update_running ||= PullFeedsJob.running?
+  end
+
+  def feeds_poll_status_css_class
+    "feeds-poll-status"
+  end
+
   def feed_container_class
     "feed-container"
   end

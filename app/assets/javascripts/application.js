@@ -14,3 +14,4 @@
 //= require turbolinks
 //= require jquery
 //= require_tree .
+//= stub 'poll_feeds'

@@ -1,0 +1,23 @@
+<% content_for :page_title do %>
+  <title>News Update in Progress</title>
+<% end %>
+
+<% content_for :page_header do %>
+  <h1>News Update in Progress</h1>
+<% end %>
+
+<div class='<%= feeds_poll_status_css_class %>'>
+  We&apos;re updating our top news, this should only take a minute!
+  <br>This page will <i>automatically refresh</i> once we&apos;re finished!
+  <br>Thank you for your patience!
+  <br>
+  <br>Working...<span class='feed-poll-spinner' />
+</div>
+
+<script>
+  const feedsRedirectPath = '<%= redirect_path %>';
+  const feedsPollStatusPath = '<%= feeds_poll_status_path %>';
+  const feedsPollSpinnerCssClass = 'feed-poll-spinner';
+  const feedsPollMilliseconds = 5000; <%# Milliseconds to poll the server %>
+</script>
+<%= javascript_include_tag 'poll_feeds', defer: :defer %>

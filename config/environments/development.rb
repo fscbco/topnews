@@ -51,4 +51,11 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # May need to disaple this in production also, as this is causing issues with
+  # scripts included using javascript_include_tag, see:
+  # https://twitter.com/TheRealNooshu/status/1338428793912963076
+  # https://github.com/rails/rails/pull/40882
+  # https://stackoverflow.com/questions/72753525/rails-turbo-link-preload-but-not-used-within-a-few-seconds-from-the-windows
+  config.action_view.preload_links_header = false
 end

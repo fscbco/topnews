@@ -65,9 +65,14 @@ Shoulda::Matchers.configure do |config|
 end
 
 VCR.configure do |config|
-  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  vcr_mode = :once
+  config.configure_rspec_metadata!
+  config.cassette_library_dir = 'fixtures/vcr_cassettes'
   config.hook_into :faraday
   config.default_cassette_options = {
-    :match_requests_on => [:method, :host, :path]
+    match_requests_on: %i[method uri body]
   }
 end
+
+require 'sidekiq/testing'
+Sidekiq::Testing.inline!

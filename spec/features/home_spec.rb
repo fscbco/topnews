@@ -7,13 +7,14 @@ def signed_in_user(user)
   click_button 'Log in'
 end
 
-describe 'The PagesController#home view', type: :feature do
+describe 'HomeController', type: :feature do
   let!(:user) do
     User.create(first_name: 'Gene', last_name: 'Angelo', email: 'gene@angelo.com', password: 'password')
   end
 
   context 'when there are no news feeds' do
     before do
+      allow_any_instance_of(HomeController).to receive(:poll_feeds_job?).and_return(false)
       signed_in_user user
     end
 
@@ -24,16 +25,14 @@ describe 'The PagesController#home view', type: :feature do
   end
 
   context 'when there are news feeds' do
-    before do
-      VCR.use_cassette('run_pull_feeds_job') do
-        PullFeedsJob.new.perform
-      end
-      signed_in_user user
-    end
-
     it "does not display 'No news is good news!'" do
-      expect(page.current_path).to eq root_path
-      expect(page).to_not have_content 'No news is good news!'
+      VCR.use_cassette('top_news_service') do
+        PullFeedsJob.new.perform
+        expect(Feed.any?).to eq true
+        signed_in_user user
+        expect(page.current_path).to eq root_path
+        expect(page).to_not have_content 'No news is good news!'
+      end
     end
   end
 end

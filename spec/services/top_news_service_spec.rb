@@ -16,23 +16,37 @@ RSpec.describe TopNewsService do
   end
 
   describe '#execute' do
-    let(:limit) { 500 }
+    context 'with the default limit' do
+      let(:limit) { nil }
 
-    it 'returns top stories with details' do
-      VCR.use_cassette('top_news_service_execute') do
-        # NOTE: we cannot be sure of the count that will be returned
-        # because we can only process feed items that have all the data
-        # we need to create a Feed object; others are discarded.
-        expect(top_news_service.execute.count == 458).to eq true
+      it 'returns top stories with details' do
+        VCR.use_cassette('top_news_service') do
+          # NOTE:
+          # Q. Why not count == 500?
+          # A. We cannot be sure of the count that will be returned
+          # because we can only process feed items that have all the data
+          # we need to create a Feed object; others are discarded.
+          expect(top_news_service.execute.count).to eq 458
+        end
+      end
+
+      it 'returns the expected top stories with details' do
+        VCR.use_cassette('top_news_service') do
+          top_story = top_news_service.execute.first
+          expect(top_story[:feed_item_id]).to eq (34115747)
+          expect(top_story[:title]).to eq ('Rotary Keyboard')
+          expect(top_story[:url]).to eq ('https://squidgeefish.com/projects/rotary-keyboard/')
+        end
       end
     end
 
-    it 'returns the expected top stories with details' do
-      VCR.use_cassette('top_news_service_execute_expected_top_stories') do
-        top_story = top_news_service.execute.first
-        expect(top_story[:feed_item_id]).to eq (34066824)
-        expect(top_story[:title]).to eq ('Show HN: Obsidian Canvas – An infinite space for your ideas')
-        expect(top_story[:url]).to eq ('https://obsidian.md/canvas')
+    context 'with a non-default limit' do
+      let(:limit) { 100 }
+
+      it 'returns the correct amount of feeds' do
+        VCR.use_cassette('top_news_service') do
+          expect(top_news_service.execute.count).to be <= limit
+        end
       end
     end
   end

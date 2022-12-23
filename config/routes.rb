@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   devise_for :users
-  root to: 'pages#home'
+  root to: 'home#show'
 
-  post '/', to: 'pages#home'
+  post '/', to: 'home#show'
   get '/recommended_news', to: 'recommended_feeds#show', as: :recommended_news
   post '/recommended_news', to: 'recommended_feeds#show', as: :unrecommended_news
+  get '/polls/feeds', to: 'polls#feeds', as: :poll_feeds
+  get '/polls/feeds_poll', to: 'polls#feeds_poll', as: :feeds_poll_status
 end

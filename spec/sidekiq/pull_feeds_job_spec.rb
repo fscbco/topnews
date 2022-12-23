@@ -6,9 +6,9 @@ RSpec.describe PullFeedsJob, type: :job do
 
   context 'when running the job' do
     it 'returns the new feed items' do
-      VCR.use_cassette('run_pull_feeds_job') do
+      VCR.use_cassette('top_news_service') do
         pull_feeds_job
-        expect(Feed.count).to eq 451
+        expect(Feed.count).to eq 458
       end
     end
   end
@@ -19,12 +19,12 @@ RSpec.describe PullFeedsJob, type: :job do
     end
 
     it 'retains the existing recommended feed items' do
-      VCR.use_cassette('run_pull_feeds_job') do
+      VCR.use_cassette('top_news_service') do
         pull_feeds_job
-        expect(Feed.count).to eq 451
+        expect(Feed.count).to eq 458
         user.feeds << Feed.all.sample(10)
         pull_feeds_job
-        expect(Feed.count).to eq 451
+        expect(Feed.count).to eq 458
         expect(Feed.recommended_feed_items.count).to eq 10
       end
     end

@@ -1,7 +1,9 @@
 class RecommendedFeedsController < ApplicationController
   include PageableRecommendedFeedConcern
+  include PollFeedsJobConcern
 
   before_action :authenticate_user!
+  before_action :poll_feeds_job, if: -> { helpers.feed_update_running? }
 
   def show
     respond_to do |format|
