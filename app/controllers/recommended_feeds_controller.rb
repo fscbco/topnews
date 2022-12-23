@@ -5,7 +5,7 @@ class RecommendedFeedsController < ApplicationController
   before_action :authenticate_user!
   before_action :poll_feeds_job, if: -> { helpers.feed_update_running? }
 
-  def show
+  def index
     respond_to do |format|
       format.html { initialize_pageable_recommended_feed }
       format.js {

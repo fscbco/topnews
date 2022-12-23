@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   # force the feed job to run if we have no feeds.
   before_action :poll_feeds_job, if: -> { poll_feeds_job? }
 
-  def show
+  def index
     respond_to do |format|
       format.html {
         initialize_pageable_feed
