@@ -15,10 +15,10 @@ gem 'puma'
 gem 'rails', '~> 7.0.3'
 gem 'redis'
 gem 'rspec-rails'
-gem 'sass-rails'
+gem 'bootstrap'
+gem 'sassc-rails'
 gem 'selenium-webdriver', group: [:development, :test]
 gem 'spring', group: :development
-gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "bootsnap", require: false
 gem 'uglifier'
@@ -44,3 +44,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+gem 'importmap-rails'
+gem 'stimulus-rails'
+gem "turbo-rails", "~> 1.3"

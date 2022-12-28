@@ -18,3 +18,5 @@
 
 .byebug_history
 config/database.yml
+public/assets/*
+bin/*
