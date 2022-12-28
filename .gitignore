@@ -20,3 +20,4 @@
 config/database.yml
 public/assets/*
 bin/*
+vendor/javascript/.keep
