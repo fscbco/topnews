@@ -8,7 +8,15 @@ class Item < ApplicationRecord
     validates :url, presence: true
     
     acts_as_votable
+    after_create_commit :broadcast_update
 
+    def broadcast_update
+      broadcast_prepend_later_to "items",
+        target: "items_list", 
+        partial: "items/itemnew", 
+        locals: { item: self }
+    end
+  
     def voter_names
         self.votes_for.includes(:voter).map { |vote| vote.voter.full_name }.join(', ')
     end

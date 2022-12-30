@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   include ActionView::RecordIdentifier
-  include ActionView::Helpers::TextHelper
-  before_action :refresh_news, only: %i[index]
 
   def index
-    @items = Item.all
+    @items = Item.all.order(id: :desc) do |item|
+      render turbo_stream: turbo_stream.prepend("items", target: "items_list", partial: "items/itemnew", locals: {item: item})
+    end
   end
 
   def vote
@@ -16,8 +16,6 @@ class ItemsController < ApplicationController
       @item.liked_by current_user
     end
 
-    puts pluralize(@item.votes_for.size, 'vote') + " for item #{@item.id}"
-
     @item.broadcast_replace_to "items", partial: "items/itemvote", locals: { item: @item, voted_for: true }, target: dom_id(@item)+'true'
     @item.broadcast_replace_to "items", partial: "items/itemvote", locals: { item: @item, voted_for: false }, target: dom_id(@item)+'false'
     
@@ -25,6 +23,14 @@ class ItemsController < ApplicationController
       format.html {}
     end
   end
+
+  def refeed
+    refresh_news
+
+    head :no_content
+  end
+
+  private
 
   def refresh_news
     NewsClient.new.news_update

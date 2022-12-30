@@ -16,23 +16,29 @@
 
 @import "bootstrap";
 
-.button_to {
-  &,
-  button,
-  div {
-    display: inline;
-  }
-
-  button {
-    padding: 0;
-    padding-bottom: 0.18rem;
-  }
-
-  button:hover {
+#items_list {
+  a:hover {
     text-decoration: underline;
   }
+
+  .button_to {
+    &,
+    button,
+    div {
+      display: inline;
+    }
+
+    button {
+      padding: 0;
+      padding-bottom: 0.18rem;
+    }
+
+    button:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-#items_list a:hover {
-  text-decoration: underline;
-}
+* {
+  font-family: "Verdana";
+ }

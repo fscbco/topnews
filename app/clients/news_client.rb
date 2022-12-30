@@ -42,7 +42,7 @@ class NewsClient
       i.title = data['title']
       i.item_type = data['type']
       url = data['url']
-      i.url = url ? url : 'http://cnn.com'
+      i.url = url ? url : "https://news.ycombinator.com/item?id=#{i.item_id}"
       i.item_created_at = Time.at(data['time']).to_datetime
     end
 

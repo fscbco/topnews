@@ -1,4 +1,6 @@
-<li id="<%= dom_id(item)+voted_for.to_s %>" class="list-group-item d-flex justify-content-between align-items-start border-0">
+<li id="<%= dom_id(item)+voted_for.to_s %>" 
+    <%= "data-user-target=newitem" if local_assigns[:target] %>
+    class="list-group-item d-flex justify-content-between align-items-start border-0">
     <div class="ms-2 me-auto">
         <div class="fw-bold"><a href='<%= item.url %>' class='nav-link'><%= item.title %></a></div>
         <small>

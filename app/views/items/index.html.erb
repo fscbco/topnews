@@ -1,4 +1,6 @@
   <%= turbo_stream_from "items" %>
-  <ul id="items_list" class="list-group">
-    <%= render @items %>
-  </ul>
+  <%= turbo_frame_tag "items" do %>
+    <ul id="items_list" class="list-group" data-user='<%= Current.user.id %>' data-controller='user'>
+      <%= render @items %>
+    </ul>
+  <% end %>
