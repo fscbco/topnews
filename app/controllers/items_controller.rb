@@ -25,7 +25,13 @@ class ItemsController < ApplicationController
   end
 
   def refeed
-    refresh_news
+    @msg = refresh_news
+
+    if @msg[0] == ' '
+      Turbo::StreamsChannel.broadcast_replace_to "status", partial: "partials/notice", locals: { notice: @msg }, target: 'notice'
+    else
+      Turbo::StreamsChannel.broadcast_replace_to "status", partial: "partials/alert", locals: { alert: @msg }, target: 'alert'
+    end
 
     head :no_content
   end

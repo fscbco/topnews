@@ -9,6 +9,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+  <%= turbo_stream_from "status" %>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">IntraNews App</a>
@@ -27,7 +28,7 @@
           </li>
           <span class="navbar-text"><em><small><%= [current_user.first_name, current_user.last_name].join(' ') %></small></em></span> 
           <li class="nav-item">
-            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-link nav-link btn-inline' %>
           </li>
         <% else %>
           <li class="nav-item">
@@ -42,12 +43,8 @@
   </div>
 </nav>
     <div class="container ">
-      <p class="notice text-info">
-        <%= notice %>
-      </p>
-      <p class="alert text-danger">
-        <%= alert %>
-      </p>
+      <%= render partial: "partials/notice", notice: notice %>
+      <%= render partial: "partials/alert", alert: alert %>
       <%= yield %>
     </div>
   </body>

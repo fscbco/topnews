@@ -1,4 +1,5 @@
 require 'httparty'
+include ActionView::Helpers::TextHelper
 
 class NewsClient
   include HTTParty
@@ -9,18 +10,31 @@ class NewsClient
   end
 
   def news_update
-    response = self.class.get('/topstories.json')
-    ids = JSON.parse(response.body)
-
-    case response.code
-    when 200
-      ids.each do |id|
-        next if Item.find_by(item_id: id)
-        item = news_item(id)
-        create_item(item)
-      end
-    else
-      raise StandardError, "#{self.class.name}: #{response.error}"
+    @response = {}
+    begin
+      HTTParty.get('http://google.com')
+      @response = self.class.get('/topstories.json')
+      ids = JSON.parse(@response.body)
+  
+      case @response.code
+      when 200
+        @batch = 0
+        ids.each do |id|
+          next if Item.find_by(item_id: id)
+          item = news_item(id)
+          create_item(item)
+          @batch+=1
+        end
+        " "+pluralize(@batch, "item")+" loaded from source"
+      when 204
+        " no new news"
+      else
+        "code response #{@response.code}"
+      end  
+    rescue HTTParty::Error
+      "continue voting with logged items.  http error: #{e.message}"
+    rescue StandardError => e
+      "continue voting with logged items.  std error: #{e.message}"  #{self.class.name}: #{@response?.error}"
     end
   end
 
@@ -31,7 +45,7 @@ class NewsClient
     when 200
       JSON.parse(response.body)
     else
-      raise StandardError, "#{self.class.name}: #{response.error}"
+      raise StandardError, "#{self.class.name}: #{response?.error}"
     end
   end
 
