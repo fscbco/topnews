@@ -48,3 +48,4 @@ end
 gem 'importmap-rails'
 gem 'stimulus-rails'
 gem "turbo-rails", "~> 1.3"
+gem 'pagy', '~> 6.0' 

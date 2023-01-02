@@ -1,17 +1,19 @@
 class ItemsController < ApplicationController
   include ActionView::RecordIdentifier
-
+  
   def index
     @sort = params[:sort].to_i
 
     if @sort == 1
-      @items = Item.all.order(cached_votes_total: :desc) do |item|
-          render turbo_stream: turbo_stream.prepend("items", target: "items_list", partial: "items/itemnew", locals: {item: item})
-      end
+      @pagy, @items = pagy(Item.all.order(cached_votes_total: :desc))
+      #  do |item|
+      #     render turbo_stream: turbo_stream.prepend("items", target: "items_list", partial: "items/itemnew", locals: {item: item})
+      # end
     else
-      @items = Item.all.order(id: :desc) do |item|
-        render turbo_stream: turbo_stream.prepend("items", target: "items_list", partial: "items/itemnew", locals: {item: item})
-      end
+      @pagy, @items = pagy(Item.all.order(id: :desc))
+      # do |item|
+      #   render turbo_stream: turbo_stream.prepend("items", target: "items_list", partial: "items/itemnew", locals: {item: item})
+      # end
     end
     @sort = 1 - @sort
   end

@@ -4,4 +4,5 @@
     <ul id="items_list" class="list-group" data-user='<%= Current.user.id %>' data-controller='user'>
       <%= render @items %>
     </ul>
+    <%== pagy_bootstrap_nav(@pagy) %>
   <% end %>
