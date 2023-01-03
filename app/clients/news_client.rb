@@ -12,7 +12,6 @@ class NewsClient
   def news_update
     @response = {}
     begin
-      HTTParty.get('http://google.com')
       @response = self.class.get('/topstories.json')
       ids = JSON.parse(@response.body)
   

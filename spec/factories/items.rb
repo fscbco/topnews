@@ -7,4 +7,10 @@ FactoryBot.define do
     item_type { 'story' }
     url { 'http://example.com' }
   end
+
+  trait :carrying_votes do
+    after(:create) do |item|
+      create_list(:vote, 2, votable: item)
+    end
+  end
 end
