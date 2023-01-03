@@ -1,3 +1,9 @@
+Please run `redis-server` 
+before `rails s`
+   
+   
+---
+
 # Top News: Internal Team News Feed
 
 In order to evaluate your stengths as a developer, we are requesting you complete a brief take-home code challenge that involves some work on the full web stack. We expect this to take 2 to 4 hours of your time. After developing your solution, please submit a Pull Request on Github and we will discuss your code on a screenshare at the next interview.
@@ -25,3 +31,61 @@ When a team member signs in, they will see recent news stories and be able to st
 * As an internal tool for a small team, performance optimization is not a requirement.
 * Be prepared to discuss known performance shortcomings of your solution and potential improvements.
 * UX design here is of little importance. The design can be minimal or it can have zero design at all.
+
+---
+
+## Architecture Notes
+
+### Renaming
+
+> Story => Item  
+> Star => Vote
+
+### Initialize
+
+by syncing up with NewsClient::ids.each { |id| save NewsClient::item(id) }  
+preferably asynchronous (loading n of N items should be easy since all ids are retrieved first)
+
+### Navbar
+
+- Session
+- Button: Countdown until HY Refeed (click to Refeed now)
+- Stats: Users Votes Items AgedOff
+
+### Item Controller
+
+- index method serves html list items
+- vote for Item, then broadcast others (after user clicks + next to vote count)
+- unvote for item, then broadcast others (after user clicks - next to vote count)
+
+### Turbo Stream (**AC**)
+
+- update item row with vote from others
+  - item id, user id, name
+- add item from Refeed/Refresh button
+  - new item from Refeed adds item id to cache/db, attaches user id via Stimulus
+
+### Refresh (on top of NewsClient)
+
+    new items =
+    NewsClient:ids
+        .filter(where id not in cache/db)
+        .each { |id| NewsClient:item(id) }
+
+### Feed Window/Item Retention Policy
+
+1.  Retain locally all items forever
+2.  Current Top Item Match (losing old votes)
+3.  Retain only those with a vote
+4.  Retain within time window (cache policy)
+
+### List in browser
+
+Row contains (styled to match HN)
+
+1.  Item details
+2.  "apply" or "rescind" vote link
+3.  Vote count before Author
+4.  Voter names listed after vote link
+
+Sort on (vote count | item retrieved) descending
