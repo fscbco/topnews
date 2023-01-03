@@ -16,5 +16,10 @@ module Topnews
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    config.after_initialize do
+      Rails.application.load_tasks # <---
+      Rake::Task['hacker_news:retrieve'].invoke
+    end
   end
 end
