@@ -1,5 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require "webmock/rspec"
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
@@ -14,6 +16,10 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+# This line disables HTTP requests, with the exception of HTTP requests
+# to localhost.
+WebMock.disable_net_connect!(allow_localhost: true)
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -49,7 +55,8 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 
   config.include Devise::Test::IntegrationHelpers, type: :request
-
+  config.include Devise::Test::IntegrationHelpers, type: :system
+  
   # start by truncating all the tables but then use the faster transaction strategy the rest of the time.
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

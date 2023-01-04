@@ -1,5 +1,5 @@
 require 'rails_helper'
-require './spec/support/client_helpers'
+require 'support/client_helpers'
 
 RSpec.configure do |c|
     c.include ClientHelpers
