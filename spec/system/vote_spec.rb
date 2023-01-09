@@ -5,8 +5,7 @@ RSpec.describe "Votes", type: :system do
         driven_by(:selenium_chrome_headless)
     end
     
-    # need container to run these tests  'rails spec' spawns blocking browser instances
-    xit 'allows users to vote and concurrent other users to see that vote' do
+    it 'allows users to vote and concurrent other users to see that vote' do
         user = create(:user)
         other = create(:user)
         item = create(:item)
@@ -48,5 +47,7 @@ RSpec.describe "Votes", type: :system do
         expect(page).to have_content("apply your vote")
     end
 
-
+    after do
+        Capybara.current_session.quit
+    end
 end
