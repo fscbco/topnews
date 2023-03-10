@@ -5,9 +5,9 @@ RSpec.describe FavoritePolicy, type: :policy do
   second_user = User.create(email: 'test@test.com', password: 'secure_password')
 
   first_post = Post.create(hacker_news_post_id: 2)
-  first_favorite = Favorite.create(user_id: user.id, post_id: first_post.id)
-
   second_post = Post.create(hacker_news_post_id: 3)
+  
+  first_favorite = Favorite.create(user_id: user.id, post_id: first_post.id)
   second_favorite = Favorite.create(user_id: second_user.id, post_id: second_post.id)
 
   
