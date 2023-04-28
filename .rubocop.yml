@@ -2,6 +2,10 @@ Layout/LineLength:
   Exclude:
    - 'config/initializers/devise.rb'
 
+Metrics/BlockLength:
+  Exclude:
+   - 'db/schema.rb'
+
 Metrics/MethodLength:
   Exclude:
    - 'db/migrate/20180228212101_devise_create_users.rb'
