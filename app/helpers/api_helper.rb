@@ -3,7 +3,7 @@
 module ApiHelper
   STORY_URL = 'https://hacker-news.firebaseio.com/v0/item/'
   TOP_STORIES_URL = 'https://hacker-news.firebaseio.com/v0/topstories.json'
-  NUM_OF_STORIES = 50
+  NUM_OF_STORIES = 10
 
   def self.fetch_full_stories
     story_ids = fetch_top_stories_ids

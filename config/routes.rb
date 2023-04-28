@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'stories/index'
+  # get 'stories/index'
   devise_for :users
-  root to: 'stories#index'
+  resources :stories
 end

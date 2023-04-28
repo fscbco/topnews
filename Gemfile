@@ -13,6 +13,7 @@ gem 'listen', group: :development
 gem 'pg'
 gem 'pry-rails'
 gem 'puma'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'rails', '~> 7.0.3'
 gem 'rspec-rails'
 gem 'rubocop'
