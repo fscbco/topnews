@@ -1,0 +1,16 @@
+.App {
+  /* text-align: center; */
+}
+.stories-block {
+  display: grid;
+}
+
+.story-card {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 20px;
+  background-color: aquamarine;
+  border: 2px;
+  border-style: dashed;
+}
