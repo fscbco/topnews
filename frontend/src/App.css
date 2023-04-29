@@ -1,8 +1,22 @@
 .App {
-  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+.login-block {
+  margin: 20px;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .stories-block {
   display: grid;
+  width: 70%;
 }
 
 .story-card {

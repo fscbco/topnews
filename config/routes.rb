@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   # get 'stories/index'
   devise_for :users
   resources :stories
+
+  get '/fetch_current_user', to: 'users#fetch_current_user'
 end

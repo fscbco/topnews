@@ -2,10 +2,10 @@
 
 class StoriesController < ApplicationController
   include ApiHelper
+  before_action :authenticate_user!
 
   def index
-    # probably don't need this as an instance variable
-    @stories = ApiHelper.fetch_full_stories
-    render json: @stories
+    stories = ApiHelper.fetch_full_stories
+    render json: stories
   end
 end
