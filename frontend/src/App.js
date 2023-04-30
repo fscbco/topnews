@@ -38,13 +38,12 @@ function App() {
     const response = await fetch(`${URL}/fetch_current_user`, {
       headers: new Headers({
         "Authorization": `Basic ${base64.encode(`${userEmail}:${userPassword}`)}`
-      })})
+    })})
 
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`
         throw new Error(message);
     }
-    // add error handling
 
     const currentUser = await response.json()
     setCurentUser(currentUser)
