@@ -1,4 +1,8 @@
 class StarsController < ApplicationController
+
+    before_action :set_story, only: %i[create]
+    before_action :set_star, only: %i[destroy]
+
     def create
         star = Star.new(user: current_user, story: @story)
         if star.save
@@ -6,7 +10,7 @@ class StarsController < ApplicationController
         else
             flash[:alert] = star.errors.full_messages.to_sentence if star.errors
         end
-        redirect_back(fallback_location: root_path)
+        redirect_to root_path
     end
 
     def destroy
@@ -15,7 +19,7 @@ class StarsController < ApplicationController
         else
             flash[:alert] = star.errors.full_messages.to_sentence if star.errors
         end
-        redirect_back(fallback_location: root_path)
+        redirect_to root_path
     end
 
 
