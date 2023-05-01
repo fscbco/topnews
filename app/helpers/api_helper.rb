@@ -30,7 +30,7 @@ module ApiHelper
 
     if response.is_a?(Net::HTTPSuccess)
       story = JSON.parse(response.body)
-      create_story(story)
+      self.create_story(story)
     else
       Rails.logger.error("Unable to fetch story: #{response.code} - #{response.message}")
       raise 'Unable to fetch story'
@@ -38,7 +38,9 @@ module ApiHelper
   end
 
   def self.create_story(story)
-    # change to find_or_create_by?
-    Story.create(hn_id: story['id'], title: story['title'], url: story['url'])
+    Story.find_or_create_by!(hn_id: story['id']) do |story_db|
+      story_db.title = story['title']
+      story_db.url = story['url']
+    end
   end
 end

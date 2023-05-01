@@ -6,4 +6,4 @@ Rails.application.routes.draw do
   resources :stories
 
   get '/fetch_current_user', to: 'users#fetch_current_user'
-end
+  post '/star_story', to: 'stories#star_story'

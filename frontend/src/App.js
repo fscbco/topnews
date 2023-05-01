@@ -11,6 +11,8 @@ function App() {
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
   const [stories, setStories] = useState([])
+  const [starredStories, setStarredStories] = useState([])
+  const [starredStoriesMode, setStarredStoriesMode] = useState(false)
 
   useEffect(() => {
     if (currentUser) fetchStoriesJSON()
@@ -21,12 +23,10 @@ function App() {
   }
 
   const logout = async () => {
-    
     const response = await fetch(`${URL}/users/sign_out`, {
       method: "DELETE"
     })
 
-    console.log(response)
     if (!response.ok) {
       const message = `An error has occured: ${response.status}`
       throw new Error(message)
@@ -47,7 +47,6 @@ function App() {
 
     const currentUser = await response.json()
     setCurentUser(currentUser)
-    console.log(currentUser)
   }
 
   const fetchStoriesJSON = async () => {
@@ -65,12 +64,50 @@ function App() {
     setStories(stories)
   }
 
+  const starStory = async (storyId) => {
+    const response = await fetch(`${URL}/star_story`, {
+      method: "POST",
+      headers: new Headers({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization": `Basic ${base64.encode(`${userEmail}:${userPassword}`)}`
+      }),
+      body: JSON.stringify({ story_id: storyId }),
+      })
+
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`
+        throw new Error(message);
+    } else {
+      // make it easier and faster
+      fetchStoriesJSON()
+    }
+  }
+
+  const showAllStories = () => {
+    setStarredStoriesMode(false)
+  }
+
+  const showOnlyStarredStories = () => {
+    let starredStories = stories.filter(story => story.starred)
+    setStarredStories(starredStories)
+    setStarredStoriesMode(true)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <div></div>
       </header>
-      <HomePage currentUser={currentUser} stories={stories}/>
+      <HomePage 
+        currentUser={currentUser} 
+        stories={stories}
+        starredStories={starredStories}
+        starStory={starStory}
+        starredStoriesMode={starredStoriesMode}
+        showOnlyStarredStories={showOnlyStarredStories}
+        showAllStories={showAllStories}
+      />
       <Login 
         currentUser={currentUser} 
         loginUser={loginUser} 

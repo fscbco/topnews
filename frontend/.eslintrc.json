@@ -17,5 +17,7 @@
         "react" 
     ],
     "rules": {
+        // either add all prop types to get rid of the warning, or keep it off for MVP
+        "react/prop-types": "off" 
     }
 }
