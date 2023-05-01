@@ -24,7 +24,13 @@ function HomePage(props) {
                 <ul>
                     {
                         stories.map(story => {
-                            return <Story key={story.id} story={story} starStory={props.starStory} currentUser={props.currentUser}/>
+                            return <Story 
+                                key={story.id} 
+                                story={story} 
+                                starStory={props.starStory} 
+                                currentUser={props.currentUser}
+                                starredStoriesMode={props.starredStoriesMode}
+                            />
                         })
                     }
                 </ul>

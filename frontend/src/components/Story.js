@@ -16,8 +16,10 @@ function Story(props) {
         let names = []
         let starredbyUsers = starredBy()
         starredbyUsers.map(user => names.push(user.first_name))
-        let uniqueNames = [...new Set(names)]
-        return uniqueNames
+        let uniqueNamesArr = [...new Set(names)]
+        let uniqueNamesStr = ''
+        uniqueNamesArr.forEach((name) => uniqueNamesStr += name += ' ')
+        return uniqueNamesStr
     }
 
     const isCurrentUserStarred = () => {
@@ -26,7 +28,7 @@ function Story(props) {
             let starredByMe = starredbyUsers.find((user) => {
                 return user.id === props.currentUser.id
             }) 
-            return starredByMe
+            return !!starredByMe
         }
         return false
     }
@@ -41,11 +43,19 @@ function Story(props) {
                 <div><a href={props.story.url}>{props.story.url}</a></div>
             </div>
             <div>
-                {!starredByCurrentUser ? 
-                    <img src="https://img.icons8.com/ios/50/null/star--v1.png" width={44} height={44} onClick={(e) => handleStar(e)}/> :
+                { props.starredStoriesMode ? 
                     <div className='star-section'>
                         <img src="https://img.icons8.com/fluency/48/null/star.png" onClick={(e) => handleStar(e)}/>
-                        <p>Starred by: {userNames}</p>
+                        <p className='starred-text'>Starred by: {userNames}</p>
+                    </div> : 
+                    <div>
+                        { !starredByCurrentUser ? 
+                            <img src="https://img.icons8.com/ios/50/null/star--v1.png" width={44} height={44} onClick={(e) => handleStar(e)}/> :
+                            <div className='star-section'>
+                                <img src="https://img.icons8.com/fluency/48/null/star.png" onClick={(e) => handleStar(e)}/>
+                                <p className='starred-text'>Starred by: {userNames}</p>
+                            </div>
+                        }
                     </div>
                 }
             </div>

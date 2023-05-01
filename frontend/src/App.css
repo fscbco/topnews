@@ -16,7 +16,7 @@
 
 .stories-block {
   display: grid;
-  width: 70%;
+  width: 80%;
 }
 
 .stories-links {
@@ -50,6 +50,13 @@
 }
 
 .star-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 90px;
+}
+
+.starred-text {
   display: flex;
   flex-direction: column;
   align-items: flex-end;

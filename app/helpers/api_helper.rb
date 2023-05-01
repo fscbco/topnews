@@ -3,7 +3,7 @@
 module ApiHelper
   STORY_URL = 'https://hacker-news.firebaseio.com/v0/item/'
   TOP_STORIES_URL = 'https://hacker-news.firebaseio.com/v0/topstories.json'
-  NUM_OF_STORIES = 10
+  NUM_OF_STORIES = 20
 
   def self.fetch_full_stories
     story_ids = fetch_top_stories_ids
@@ -16,7 +16,7 @@ module ApiHelper
 
     if response.is_a?(Net::HTTPSuccess)
       json = JSON.parse(response.body)
-      json.first(NUM_OF_STORIES)
+      json.last(NUM_OF_STORIES)
 
     else
       Rails.logger.error("Unable to fetch top stories: #{response.code} - #{response.message}")

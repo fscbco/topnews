@@ -7,3 +7,4 @@ Rails.application.routes.draw do
 
   get '/fetch_current_user', to: 'users#fetch_current_user'
   post '/star_story', to: 'stories#star_story'
+end
