@@ -30,7 +30,7 @@ module ApiHelper
 
     if response.is_a?(Net::HTTPSuccess)
       story = JSON.parse(response.body)
-      self.create_story(story)
+      create_story(story)
     else
       Rails.logger.error("Unable to fetch story: #{response.code} - #{response.message}")
       raise 'Unable to fetch story'

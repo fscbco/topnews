@@ -9,7 +9,7 @@ function Login(props) {
         props.setUserPassword(e.target.value)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = () => {
         props.loginUser()
     }
 
@@ -28,7 +28,7 @@ function Login(props) {
             <div className="login-form">
                 <input type='email' name='email' value={props.userEmail} onChange={(e) => handleEmailChange(e)} placeholder='Enter Your Email'/>
                 <input type='password' name='password' value={props.userPassword} onChange={(e) => handlePasswordChange(e)} placeholder='Enter Your Password'/>
-                <button className="login-button" type="primary" onClick={(e) => handleSubmit(e)} >Login</button>
+                <button className="login-button" type="primary" onClick={() => handleSubmit()} >Login</button>
             </div>
             }
         </div>

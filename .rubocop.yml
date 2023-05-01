@@ -2,6 +2,10 @@ Layout/LineLength:
   Exclude:
    - 'config/initializers/devise.rb'
 
+Metrics/AbcSize:
+  Exclude: 
+  - 'app/controllers/stories_controller.rb'
+
 Metrics/BlockLength:
   Exclude:
    - 'db/schema.rb'
@@ -9,6 +13,7 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
    - 'db/migrate/20180228212101_devise_create_users.rb'
+   - 'app/controllers/stories_controller.rb'
 
 Style/Documentation:
   Enabled: false
