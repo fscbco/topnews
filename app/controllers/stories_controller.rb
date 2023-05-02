@@ -4,10 +4,6 @@ class StoriesController < ApplicationController
         @stories = HackerNews.get_list_of_top_stories_api().first(25)
     end
 
-    def show
-        @stories = HackerNews.get_list_of_top_stories_api()
-    end
-
     def starred
         @stories = Story.select('stories.*, COUNT(stories.id) AS star_count')
                             .joins(:stars)
