@@ -1,7 +1,8 @@
 class StoriesController < ApplicationController
 
     def index
-        @stories = HackerNews.get_list_of_top_stories_api().first(25)
+        @limit = 25
+        @stories = HackerNews.get_list_of_top_stories_api().first(@limit)
     end
 
     def starred
