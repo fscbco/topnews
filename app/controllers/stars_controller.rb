@@ -10,7 +10,7 @@ class StarsController < ApplicationController
         else
             flash[:alert] = star.errors.full_messages.to_sentence if star.errors
         end
-        redirect_to root_path
+        redirect_back_or_to(root_path)
     end
 
     def destroy
@@ -19,7 +19,7 @@ class StarsController < ApplicationController
         else
             flash[:alert] = star.errors.full_messages.to_sentence if star.errors
         end
-        redirect_to root_path
+        redirect_back_or_to(root_path)
     end
 
 

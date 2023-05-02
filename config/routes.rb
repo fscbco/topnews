@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'stories#index'
   resources :stories
   resources :stars, only: [:create, :destroy]
+  get "/starred", to: 'stories#starred'
 
 end

@@ -1,0 +1,39 @@
+.fa-star {
+  position: left;
+  font-size: 100%;
+  margin-top: 10px;
+}
+
+.starred { color: yellow; }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+.post{
+border: 1px solid black;
+}

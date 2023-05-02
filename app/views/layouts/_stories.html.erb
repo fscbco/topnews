@@ -1,0 +1,22 @@
+<div class="container">
+    <% @stories.each do |story| %>
+    <div class="post">
+      <% if starred_by_user(story)%>
+        <%=link_to raw("<i class='fa fa-star starred'></i>"), star_path(starred_by_user(story)), method: :delete %>
+          <%else%>
+          <%=link_to raw("<i class='far fa-star'></i>"), stars_path(story: story), method: :post %>
+        <%end%>
+      <h3><%= story.title%> </h3>
+      <p> Author: <%= story.by%></p>
+      <p><%= link_to story.url, story.url, class: "text-success" %></th>
+      <% if story.stars.any? %>
+        <p> Starred by: <br>
+          <% story.stars.each do |star| %>
+            <%=star.user.first_name%>  <%=star.user.last_name%>
+            <br>
+          <% end %> 
+        </p>
+      <% end %> 
+    </div>
+    <% end %>
+  </div>
