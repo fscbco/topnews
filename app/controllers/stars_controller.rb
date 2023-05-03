@@ -34,6 +34,4 @@ class StarsController < ApplicationController
     def set_story
         @story = Story.find(params[:story])
     end
-
-
 end
