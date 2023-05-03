@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :stories
   resources :stars, only: [:create, :destroy]
   get "/starred", to: 'stories#starred'
+  get "/top", to: 'stories#index'
 
 end
