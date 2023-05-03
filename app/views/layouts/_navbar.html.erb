@@ -1,5 +1,5 @@
 <ul>
   <li><a href="/top">Top News</a></li>
   <li><a href="/starred">Team Starred News</a></li>
-  <li style="float:right"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+  <li style="float:right"><%= link_to "Log Out #{current_user.first_name} #{current_user.last_name}" , destroy_user_session_path, method: :delete %></li>
 </ul>
