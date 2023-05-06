@@ -22,3 +22,4 @@ gem 'uglifier'
 gem 'web-console', group: :development
 gem 'httparty'
 gem 'tailwindcss-rails'
+gem 'will_paginate'
