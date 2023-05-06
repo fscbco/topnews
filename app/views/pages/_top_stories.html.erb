@@ -1,0 +1,10 @@
+<% @top_stories.each do |story| %>
+    <div class="bg-white p-4 my-2 rounded shadow">
+      <h3 class="text-xl font-bold mb-2">
+        <%= link_to story["title"], story["url"], target: "_blank", rel: "noopener noreferrer" %>
+      </h3>
+      <p class="text-gray-500">
+        <%= story["score"] %> points by <%= story["by"] %> | <%= time_ago_in_words(Time.at(story["time"])) %> ago
+      </p>
+    </div>
+  <% end %>
