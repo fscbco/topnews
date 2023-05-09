@@ -20,6 +20,6 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
-gem 'httparty'
+gem 'http'
 gem 'tailwindcss-rails'
 gem 'will_paginate'
