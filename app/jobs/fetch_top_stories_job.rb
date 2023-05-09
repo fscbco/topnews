@@ -9,7 +9,7 @@ class FetchTopStoriesJob < ApplicationJob
     return unless response.status.success?
 
     top_story_ids = JSON.parse(response.body.to_s)
-    top_story_ids.first(10).each do |story_id|
+    top_story_ids.first(50).each do |story_id|
       fetch_and_save_story(story_id)
     end
   end
