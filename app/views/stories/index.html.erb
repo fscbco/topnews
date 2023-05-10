@@ -26,6 +26,7 @@
 </ul>
 </div>
 <div class="mt-6">
+<% if @flagged_stories.any? %>
   <h2 class="text-2xl font-bold mb-4">Flagged Stories</h2>
   <ul>
     <% @flagged_stories.each do |flagged_story_data| %>
@@ -43,6 +44,7 @@
       </li>
     <% end %>
   </ul>
+  <% end %>
 </div>
 
 </div>
