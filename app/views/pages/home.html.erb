@@ -1,7 +1,1 @@
 <h1>Welcome to Top News</h1>
-<% if user_signed_in? %>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
-<% end %>
-<div id="top-stories-container">
-  <%= render 'top_stories' %>
-</div>
