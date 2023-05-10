@@ -15,12 +15,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_09_133633) do
   enable_extension "plpgsql"
 
   create_table "flagged_stories", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "story_id", null: false
+    t.bigint "users_id", null: false
+    t.bigint "stories_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["story_id"], name: "index_feed.flagged_stories_on_story_id"
-    t.index ["user_id"], name: "index_feed.flagged_stories_on_user_id"
+    t.index ["stories_id"], name: "index_flagged_stories_on_stories_id"
+    t.index ["users_id"], name: "index_flagged_stories_on_users_id"
   end
 
   create_table "stories", force: :cascade do |t|
@@ -50,6 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_09_133633) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "flagged_stories", "stories"
-  add_foreign_key "flagged_stories", "users"
+  add_foreign_key "flagged_stories", "stories", column: "stories_id"
+  add_foreign_key "flagged_stories", "users", column: "users_id"
 end

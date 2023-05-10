@@ -23,3 +23,9 @@ gem 'web-console', group: :development
 gem 'http'
 gem 'tailwindcss-rails'
 gem 'will_paginate'
+gem 'factory_bot_rails'
+
+group :test do
+    gem 'shoulda-matchers', '~> 4.0'
+    gem 'webmock'
+  end
