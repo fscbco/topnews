@@ -1,0 +1,29 @@
+<div>
+	<% if user_signed_in? %> 
+	 <span> Welcome <%= current_user.email %>  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+	  
+	<% else %>
+	  <%= button_to "Sign in", new_user_session_path %> 
+	<% end %>
+</div>
+
+<br>
+
+<%= button_to "Show Favourites", favourite_stories_path, method: :get %>
+
+<% @stories.each do |story| %>
+<div>
+	 <p>
+	 	<span><a href="<%= story["url"] %>"><%= story['title'] %> </a> 
+		    
+		</span>
+		<% if story.favourite_stories.where(user: current_user).blank? %>
+			<span  style="background: green; color: white"> <%= link_to 'Add to favourites', add_to_favourites_path(story_id: story['id']) %></span>
+		<% else %>
+			<span style="background: red; color: white">. <%= link_to 'Remove from favourites', remove_to_favourites_path(story_id: story['id']) %></span>
+
+		<%end %>
+	</p>
+</div>
+
+<%end%>

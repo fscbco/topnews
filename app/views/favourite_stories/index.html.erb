@@ -1,0 +1,16 @@
+<h1>Favorite Stories</h1>
+
+<%= button_to "Show Stories", root_path, method: :get %>
+
+<% @f_stories.each do |story, count| %>
+	<% user_names = story.favourite_stories.map(&:user).compact.map(&:first_name) %>
+
+  <% first_user = user_names.first %>
+  <% other_users = user_names.size - 1 %>
+  <% more_users = other_users > 0 ? "and #{other_users} more" : "" %>
+
+  <p>
+    <a href="<%= story.url %>"><%= story.title %></a>
+    by <%= first_user %> <%= more_users %>
+  </p>
+<% end %>
