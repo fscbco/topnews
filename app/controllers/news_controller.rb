@@ -2,11 +2,12 @@ class NewsController < ApplicationController
   before_action :load_news, only: [:index]
 
   def index
-    @news = load_news
+    @news = Rails.cache.fetch('stories', expires_in: 30.minutes) do
+      load_news
+    end
   end
 
   private
-  
   def load_news
     top_ten_news_ids.map do |id|
       story_url = "https://hacker-news.firebaseio.com/v0/item/#{id}.json"
@@ -20,11 +21,10 @@ class NewsController < ApplicationController
   end
 
   def all_news_ids
-    @all_news_ids ||= api_call("https://hacker-news.firebaseio.com/v0/topstories.json")
+    api_call("https://hacker-news.firebaseio.com/v0/topstories.json")
   end
 
   def api_call (url)
     JSON.parse(Net::HTTP.get(URI.parse(url)))
   end
-
 end
