@@ -3,9 +3,9 @@ class NewsController < ApplicationController
       @news = News.find(params[:id])
       @news.update(flagged: true)
       ActionCable.server.broadcast('news_flags', { article_id: @article.id })
-      redirect_to @article, notice: 'News flagged successfully.'
+      redirect_to @news, notice: 'News flagged successfully.'
     end
-    def news:
-    end
+    # def news:
+    # end
   end
   

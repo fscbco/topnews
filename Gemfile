@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby File.read('.ruby-version').chomp
+ruby '3.1.2'
 
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], group: [:development, :test]
 gem 'capybara', group: [:development, :test]
@@ -20,3 +20,4 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+gem 'whenever', require: false

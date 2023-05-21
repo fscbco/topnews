@@ -1,2 +1,11 @@
 <h1>Welcome to Top News</h1>
+<table>
+    <tbody>
+        <% @data.each do |news_entry| %>
+            <tr>
+                <td><%= news_entry %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
 <%= button_to "Log Out", destroy_user_session_path, :method => :delete %>
