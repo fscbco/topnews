@@ -8,11 +8,10 @@ class FlaggedStoriesController < ApplicationController
 
   # GET /flagged_stories/1 or /flagged_stories/1.json
   def show
-  end
-
-  # GET /flagged_stories/new
-  def new
-    @flagged_story = FlaggedStory.new
+    if @flagged_story
+      picks
+      users_flagged_story
+    end
   end
 
   # GET /flagged_stories/1/edit
@@ -25,11 +24,14 @@ class FlaggedStoriesController < ApplicationController
 
     respond_to do |format|
       if @flagged_story.save
-        format.html { redirect_to flagged_story_url(@flagged_story), notice: "Flagged story was successfully created." }
-        format.json { render :show, status: :created, location: @flagged_story }
 
+        @pick = Pick.new(:user_id => current_user.id, :flagged_story_id => @flagged_story.id)
+
+        if @pick.save
+          format.html { redirect_to flagged_story_url(@flagged_story), notice: "Flagged story was successfully created." }
+          format.json { render :show, status: :created, location: @flagged_story }
+        end
         # also create pick table
-
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @flagged_story.errors, status: :unprocessable_entity }
@@ -70,4 +72,16 @@ class FlaggedStoriesController < ApplicationController
     def flagged_story_params
       params.require(:flagged_story).permit(:title, :by, :external_id, :score, :url)
     end
+
+    def picks
+      @picks= @flagged_story.picks
+    end
+
+    def users_flagged_story
+      @picks.map do |p|
+      id = p.user_id
+      user = User.find_by(id: id)
+      user.first_name
+    end
+  end
 end

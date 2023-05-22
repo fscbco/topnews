@@ -19,4 +19,11 @@
     <%= flagged_story.score %>
   </p>
 
+  <% if params[:action] == 'show' %>
+    <p>
+      <strong>Users who picked the story:</strong>
+      <%= @users_flagged_story%>
+    </p>
+  <% end %>
+
 </div>
