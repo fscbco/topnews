@@ -1,0 +1,42 @@
+<%= form_with(model: flagged_story) do |form| %>
+  <% if flagged_story.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(flagged_story.errors.count, "error") %> prohibited this flagged_story from being saved:</h2>
+
+      <ul>
+        <% flagged_story.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :by, style: "display: block" %>
+    <%= form.text_field :by %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :external_id, style: "display: block" %>
+    <%= form.text_field :external_id %>
+  </div>
+
+  <div>
+    <%= form.label :score, style: "display: block" %>
+    <%= form.text_field :score %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

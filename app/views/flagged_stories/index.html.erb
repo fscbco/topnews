@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Flagged stories</h1>
+
+<div id="flagged_stories">
+  <% @flagged_stories.each do |flagged_story| %>
+    <%= render flagged_story %>
+    <p>
+      <%= link_to "Show this flagged story", flagged_story %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New flagged story", new_flagged_story_path %>
