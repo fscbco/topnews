@@ -1,3 +1,0 @@
-1. bundle exec sidekiq in a terminal window
-2. rails server in a separate terminal window
-3. Navigate to localhost:3000
