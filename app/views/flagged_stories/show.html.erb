@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @flagged_story %>
+
+<div>
+  <%= link_to "Edit this flagged story", edit_flagged_story_path(@flagged_story) %> |
+  <%= link_to "Back to flagged stories", flagged_stories_path %>
+
+  <%= button_to "Destroy this flagged story", @flagged_story, method: :delete %>
+</div>

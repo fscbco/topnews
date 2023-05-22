@@ -2,12 +2,20 @@
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta http-equiv="refresh" content="500" />
     <title>Top News</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <nav>
+      <div>
+        <ul><%= link_to "Home", root_path %></ul>
+        <ul><%= link_to "Hacker News", news_path %></ul>
+        <ul><%= link_to "Flagged stories", flagged_stories_path %></ul>
+      </div>
+    </nav>
     <p class="notice">
       <%= notice %>
     </p>

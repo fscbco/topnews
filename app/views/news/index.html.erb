@@ -1,0 +1,28 @@
+<h1>Listed Hacker News</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Save</th>
+      <th>Story by</th>
+      <th>Title</th>
+      <th>URL</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @news.each do |story| %>
+      <tr>
+        <td>
+          <span>
+            <%= button_to '+', {:controller => "flagged_stories", :action => "create"} , :method=>:post, params: { flagged_story: { :title=> story["title"], :by=> story["by"], :external_id=> story["id"], :score=> story["score"], :url=> story["url"]}}  %>
+          </span>
+        </td>
+        <td><%= story["by"] %></td>
+        <td><%= story["title"] %></td>
+        <td><%= story["url"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
