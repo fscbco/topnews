@@ -8,8 +8,13 @@ I never used ROR to write front end code. It was interesting, and I learned alot
 * The stories chosen by the team members should display. It can be a separate page or the same page, the choice is yours.
 * Each story should show the name of the team member or members who flagged it.
 
-I used low level caching - I did not think that it was necessary to save the entire stories in the database since we want to continusly update list. There were other options that I would consider such as polling, push-notification, crone job and socket. But, I thought the cashe is most effienct for the scale of this project.
+I used caching - I did not think that it was necessary to save the entire stories in the database since we want to continusly update list.
 
+# How I would improve
+- instead of using the meta tag to refresh. I would use a gem such as "whenever" or javascript to execute polling.
+- Understanding that polling might not be scaliable and effieicient, in real life, I would implement socket to fetch when there is a new story in HackerNews
+- I would like to imrpove better error handling
+- I would write unit tests for every functionalities I implemented
 ## out of scope
 * performance optimization
 * UX design
