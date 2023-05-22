@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :flagged_stories, through: :pick
+  has_many :picks
+  has_many :flagged_stories, through: :picks
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

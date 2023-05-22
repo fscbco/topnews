@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_221954) do
   create_table "flagged_stories", force: :cascade do |t|
     t.string "title"
     t.string "by"
-    t.integer "external_id"
+    t.integer "external_id", null: false, unique: true
     t.integer "score"
     t.string "url"
     t.datetime "created_at", null: false
