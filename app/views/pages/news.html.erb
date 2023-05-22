@@ -1,9 +1,20 @@
 <h1>Welcome to Top News</h1>
+<h2>Latest Top Stories</h2>
 <table>
     <tbody>
-        <% @data.each do |news_entry| %>
+        <% @top_stories.each do |news_entry| %>
             <tr>
-                <td><%= news_entry %></td>
+                <td><%= link_to "" + news_entry.title, news_entry.url %> - <%= link_to "Flag", flag_news_path(news_entry.id, current_user.id), method: :patch %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<h2>Flagged Stories</h2>
+<table>
+    <tbody>
+        <% @flagged_stories.each do |news_entry| %>
+            <tr>
+                <td><%= link_to "" + news_entry.title, news_entry.url %> - Flagged by: <%= news_entry.names %></td>
             </tr>
         <% end %>
     </tbody>

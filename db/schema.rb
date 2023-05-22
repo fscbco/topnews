@@ -17,8 +17,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_014404) do
   create_table "news", force: :cascade do |t|
     t.string "title"
     t.string "url"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_news_on_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "names", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,5 +41,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_014404) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "news", "users"
 end
