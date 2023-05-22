@@ -8,6 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <nav>
+      <div>
+        <ul><%= link_to "Home", root_path %></ul>
+        <ul><%= link_to "Hacker News", news_path %></ul>
+        <ul><%= link_to "Flagged stories", flagged_stories_path %></ul>
+      </div>
+    </nav>
     <p class="notice">
       <%= notice %>
     </p>
