@@ -25,3 +25,10 @@ When a team member signs in, they will see recent news stories and be able to st
 * As an internal tool for a small team, performance optimization is not a requirement.
 * Be prepared to discuss known performance shortcomings of your solution and potential improvements.
 * UX design here is of little importance. The design can be minimal or it can have zero design at all.
+
+Steps to Run:
+1. run rails db:migrate
+2. run rails server
+
+Performance shortcomings:
+1. Page loads takes time due to synchronous API calling of 20 top news articles.
