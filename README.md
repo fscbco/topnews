@@ -25,3 +25,12 @@ When a team member signs in, they will see recent news stories and be able to st
 * As an internal tool for a small team, performance optimization is not a requirement.
 * Be prepared to discuss known performance shortcomings of your solution and potential improvements.
 * UX design here is of little importance. The design can be minimal or it can have zero design at all.
+
+
+Step by step execution:
+
+- Create an internal sign in page for users using devise gem. Gemfile was updated to reflect the latest version.
+- Call two Hackernews API's to fetch -  a.List of top stories and b.Show story details. Both are documented in a GitHub repo as seen here - https://github.com/HackerNews/API
+- To view the list of news, app/views was updated to show a welcome page with requested urls.
+- Users, once signed in, can upvote news items by using the Upvote button.
+- Upvote button functionality is yet to be completed. The idea is to display the number of upvotes and username by the side in a separate page.
