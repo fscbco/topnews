@@ -6,9 +6,7 @@ class Upvote < ApplicationRecord
     belongs_to :story
     belongs_to :voteable, polymorphic: true
 
-    validates :value, inclusion: { in: [-1, 1], message: "%{value} is not a valid vote." }
-      
-    after_save :update_post
+    validates :value, inclusion: { in: [-1, 1], message: "%{value} is not a valid vote." } 
     
     def up_vote?
         value == 1
@@ -16,12 +14,6 @@ class Upvote < ApplicationRecord
     
     def down_vote?
         value == -1
-    end
-    
-    private
-    
-    def update_post
-        post.update_rank
     end
 end
   

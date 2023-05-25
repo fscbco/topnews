@@ -3,7 +3,7 @@
 class NewsFeedService
     def self.fetch_top_news
       response = HTTParty.get('https://hacker-news.firebaseio.com/v0/topstories.json')
-      return JSON.parse(response.body)[0..10] if response.code == 200
+      return JSON.parse(response.body)[0..24] if response.code == 200
       return if responose.code == 404 || return if respose.code == 500
       nil
     end
