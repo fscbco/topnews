@@ -20,7 +20,7 @@ gem "sassc-rails"
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], group: [:development, :test]
 gem 'coffee-rails'
 gem 'haml'
-gem 'jquery-rails'
+#gem 'jquery-rails'
 gem 'listen', group: :development
 gem 'pg'
 gem 'pry-rails'
@@ -29,6 +29,8 @@ gem 'spring', group: :development
 gem 'turbolinks'
 gem 'uglifier'
 gem 'will_paginate'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'jquery-rails',             '~> 4.3', '>= 4.3.5'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
