@@ -31,6 +31,7 @@ gem 'uglifier'
 gem 'will_paginate'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'jquery-rails',             '~> 4.3', '>= 4.3.5'
+gem 'acts_as_votable'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

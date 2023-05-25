@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+</nav>
+
+<div class="text-center">
+<p class="notice"></p>
+<p class="alert"></p>
+</div>
+<div class="d-flex justify-content-center">
+<div class="sm-container">
+<h1 class="text-center mb-4">Welcome to Top News</h1>
+<style>
+table, th, td {
+  border: 1px solid white;
+  border-style: dotted;
+}
+th, td {
+  background-color: #FFFFE0;
+}
+</style>
+</head>
+<body>
+
+<h2>Top Hacker News Stories</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Title</th>
+    <th> Upvote </th>
+    <th>URL</th> 
+    <th>Author</th>
+  </tr>
+  <tbody><br>
+  <% @stories.each do |story| %>
+    <tr>
+    <td><%= story["title"] %></td>
+    <td>
+<%= button_to "Upvote!", { action: "upvote" }, method: :post, controller: "stories", id: story["id"] %>
+</td>
+
+    
+    <td>
+    <p>      </p>
+    
+      <%= link_to story["url"], story["url"] %>
+
+    </td>
+      <td><%= story["by"] %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+
+
+</body>
+</html>
