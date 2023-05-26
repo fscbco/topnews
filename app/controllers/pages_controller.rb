@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
 		@stories = Story.order("created_at desc").limit(10)
 		likes_query = Like.where(story_id: @stories.map{ |s| s.hn_id })
-		@users = User.find(likes_query.map{ |l| l.user_id }).map{ |u| [u.id, "#{u.first_name} #{u.last_name}"]}.to_h
+		@users = User.find(likes_query.map{ |l| l.user_id }.uniq).map{ |u| [u.id, "#{u.first_name} #{u.last_name}"]}.to_h
 		@likes = likes_query.group_by{ |l| l[:story_id] }
 		@you_like = likes_query.where(user_id: current_user.id).map{ |l| l[:story_id] }
 	end

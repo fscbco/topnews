@@ -2,10 +2,6 @@ class HackerNews
 	
 	class << self
 		HACKER_NEWS_ROOT = 'https://hacker-news.firebaseio.com/v0'.freeze
-		
-		def root
-			request(path: HACKER_NEWS_ROOT)
-		end
 
 		def top_stories
 			request(path: "#{HACKER_NEWS_ROOT}/topstories.json")
