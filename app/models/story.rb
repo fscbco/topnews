@@ -1,9 +1,4 @@
 class Story < ApplicationRecord
-
-	def like(user_id:)
-#		Like.new(user_id: user_id, story_id: hn_id)
-	end
-
 	class << self
 		def ingest
 			ids = JSON.parse(HackerNews.top_stories)[0..10]
