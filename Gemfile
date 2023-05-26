@@ -13,6 +13,7 @@ gem 'pry-rails'
 gem 'puma'
 gem 'rails', '~> 7.0.3'
 gem 'rspec-rails'
+gem 'rufus-scheduler'
 gem 'sass-rails'
 gem 'selenium-webdriver', group: [:development, :test]
 gem 'spring', group: :development

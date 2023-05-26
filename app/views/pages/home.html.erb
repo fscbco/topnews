@@ -1,1 +1,17 @@
 <h1>Welcome to Top News</h1>
+<% @stories.each do |story| %>
+	<h3><a href=<%= story.hn_url %>><%= story.hn_title %></a></h3>
+	<small>by <%= story.hn_by %></small>
+	<% if @you_like.include? story.hn_id %>
+		<br /><small>- You like this!</small>
+	<% end %>
+	<% @likes[story.hn_id]&.each do |like| %>
+		<% next if like.user_id == current_user.id %>
+		<br /><small><%= "- #{ @users[like.user_id] } likes this!" %></small>
+	<% end %>
+	<p><%= story.hn_text %></p>
+	<% unless @you_like.include? story.hn_id %>
+		<%= button_to "like", controller: "pages", action: "like", id: story.hn_id %>
+	<% end %>
+	<hr>
+<% end %>
