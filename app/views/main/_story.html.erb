@@ -1,0 +1,23 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">
+      <a href="<%= story['url'] %>" target="_blank" rel="noopener noreferrer"><%= story['title'] %></a>
+    </h5>
+    <h6 class="card-subtitle mb-2 text-muted">By <%= story['by'] %></h6>
+    <p class="card-text"><%= Time.at(story['time']).strftime("%B %d, %Y at %I:%M %p") %></p>
+
+    <% if user_signed_in? %>
+      <% if !story_bookmarked?(story['id']) %>
+        <%= form_with(url: bookmarks_path) do |form| %>
+        <%= form.hidden_field :story_id, value: story['id'] %>
+        <%= form.submit "Share story" %>
+        <% end %>
+      <% end %>
+
+      <% if story_bookmarked?(story['id']) %>
+        <%= button_to 'Un-Share story', bookmark_path(story['id']), method: :delete, class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

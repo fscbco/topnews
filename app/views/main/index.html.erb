@@ -1,0 +1,11 @@
+<div class ="d-flex align-items-center justify-content-center">
+<h1>Welcome to Top News!</h1>
+</div>
+
+<h2>Current top Hacker News stories</h2>
+
+<div style="overflow-y: auto; width: 100%; max-height: 100vh;">
+  <% @top_stories.each do |story| %>
+    <%= render partial: 'story', locals: { story: story } %>
+  <% end %>
+</div>

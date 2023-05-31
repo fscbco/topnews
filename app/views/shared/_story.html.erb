@@ -1,0 +1,17 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">
+      <% if story[:story_info].present? %>
+        <a href="<%= story[:story_info]['url'] %>" target="_blank" rel="noopener noreferrer"><%= story[:story_info]['title'] %></a>
+        <h6 class="card-subtitle mb-2 text-muted">By <%= story[:story_info]['by'] %></h6>
+        <p class="card-text"><%= Time.at(story[:story_info]['time']).strftime("%B %d, %Y at %I:%M %p") %></p>
+        <p class="card-text">Shared count: <%= story[:count] %></p>
+      <% end %>
+    
+    <% if story[:users].present? %>
+      <p class="card-text">Shared by: <%= story[:users].join(', ') %></p>
+    <% else %>
+      <p class="card-text">Shared by: <%= story[:user] %></p>
+    <% end %>
+  </div>
+</div>

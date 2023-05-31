@@ -20,3 +20,5 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+gem 'faraday', '~> 2.7'
+gem 'concurrent-ruby'
