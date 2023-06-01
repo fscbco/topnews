@@ -1,9 +1,27 @@
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <h1>Recent Hacker News</h1>
 
 <ul>
   <% @news_stories.each do |story| %>
     <li>
       <%= link_to "#{story[:title]}", story[:url] %>
+       - 
+      <%= link_to 'Upvote', article_upvote_path(article_id: story[:id], title: story[:title], url: story[:url]), method: :post %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Upvoted by your Team (or you!)</h2>
+
+<ul>
+  <% @articles.each do |upvoted_article| %>
+    <li>
+      <%= link_to "#{upvoted_article.title}", upvoted_article.url %>
+       - Upvoted by
+      <% upvoted_article.upvoters.each_with_index do |upvoter, index| %>
+        <%= "#{upvoter.first_name} #{upvoter.last_name}" %>
+        <%= "," unless index == upvoted_article.upvoters.size - 1 %>
+      <% end %>
     </li>
   <% end %>
 </ul>

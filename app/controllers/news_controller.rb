@@ -5,6 +5,7 @@ class NewsController < ApplicationController
 
   def index
     @news_stories = fetch_news_stories
+    @articles = Article.includes(:upvoters).all
   end
 
   private
