@@ -1,1 +1,9 @@
-<h1>News index</h1>
+<h1>Recent Hacker News</h1>
+
+<ul>
+  <% @news_stories.each do |story| %>
+    <li>
+      <%= link_to "#{story[:title]}", story[:url] %>
+    </li>
+  <% end %>
+</ul>
