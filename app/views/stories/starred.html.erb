@@ -1,0 +1,10 @@
+<h1 class="p-4">Starred News Stories</h1>
+
+<%= render partial: 'stories/story_list',
+            locals: { stories: @stories } %>
+
+<div class="text-right">
+  <%= paginate @stories, window: 2 %>
+  <%= page_entries_info @stories, entry_name: 'starred story' %>
+</div>
+

@@ -1,17 +1,17 @@
-require 'rails_helper'
+require "rails_helper"
 
-describe User do
-  context "creating a new user" do
-    let(:attrs) do
-      { first_name: :foo, last_name: :bar, email: 'f@b.c', password: 'foobar123' }
-    end
+RSpec.describe User, :type => :model do
 
-    it "should have first, last, email" do
-      expect { User.create(attrs) }.to change{ User.count }.by(1)
-    end
+  describe 'associations' do
+    it { should have_many(:user_stories) }
+    it { should have_many(:stories).through(:user_stories) }
+  end
 
-    it "should require a password" do
-      expect(User.new(attrs.except(:password))).to be_invalid
+  describe "#name" do
+    it "returns user first and last name" do
+      u = create(:user, first_name: "Anh", last_name: "Larusso")
+      expect(u.name).to eq("Anh Larusso")
     end
   end
 end
+

@@ -22,3 +22,14 @@ gem 'uglifier'
 gem 'web-console', group: :development
 
 gem "tailwindcss-rails", "~> 2.0"
+# Http Requests [https://github.com/httprb/http]
+gem "http"
+# Pagination [https://github.com/kaminari/kaminari]
+gem "kaminari"
+
+group :development, :test do
+  gem "factory_bot_rails"
+  gem "shoulda-matchers"
+  gem "webmock"
+  gem "faker"
+end

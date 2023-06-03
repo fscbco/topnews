@@ -1,0 +1,14 @@
+<div class="text-right pb-6">
+  <% if user_signed_in? %>
+    <% if request.path == starred_stories_path %>
+      <%= link_to 'Top Stories', root_path, class: "btn white" %>
+    <% else %>
+      <%= link_to 'Starred Stories', starred_stories_path, class: "btn white" %>
+    <% end %>
+    <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "btn primary" %>
+  <% else %>
+    <%= link_to 'Sign Up', new_user_registration_path, class: "btn primary #{'hidden' if request.path == new_user_registration_path }" %>
+    <%= link_to 'Login', new_user_session_path, class: "btn white #{'hidden' if request.path == new_user_session_path }" %>
+  <% end %>
+</div>
+
