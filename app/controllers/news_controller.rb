@@ -22,7 +22,9 @@ class NewsController < ApplicationController
     end
 
     like = story.likes.build(user: current_user)
-    like.save
+    if like.save
+      redirect_to root_path, notice: "You liked a story!"
+    end
   end
 
   private
