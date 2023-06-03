@@ -8,7 +8,7 @@ class NewsController < ApplicationController
     request = URI("https://hacker-news.firebaseio.com/v0/topstories.json")
     response = Net::HTTP.get(request)
     external_story_ids = JSON.parse(response)
-    
+
     @stories = external_story_ids.first(10).map { |id| fetch_story(id) }
     @liked_stories = Story.with_likes
   end
@@ -22,11 +22,7 @@ class NewsController < ApplicationController
     end
 
     like = story.likes.build(user: current_user)
-    if like.save
-      redirect_to root_path, notice: 'Story liked!'
-    else
-      redirect_to root_path, alert: 'You already liked this story!'
-    end
+    like.save
   end
 
   private
