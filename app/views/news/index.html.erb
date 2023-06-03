@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-end mb-2">
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+</div>
+<h3 class="text-center m-3">Welcome to Top News</h3>
+
+<div class="row justify-content-between">
+  <div class="col-7">
+    <h5>Recent Stories</h5>
+    <% @stories.each do |story| %>
+      <div class="card mt-2 p-1">
+        <div class="card-subtitle text-body-secondary"> <%= story['title'] %> </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <p class="float-left m-0">Story by: <%= story['by'] %></p>
+          </div>
+
+          <div class="d-flex align-items-stretch">
+            <a href="<%= story['url'] %>" target="_blank">
+              <img width="30" height="30" src="https://img.icons8.com/bubbles/50/literature.png" alt="pixel-heart"/>
+            </a>
+            <%= button_to 'Like', like_story_path(story['id']), method: :post %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-4">
+    <h5>Company Favorites</h5>
+    <% @liked_stories.each do |story| %>
+      <div class="card mt-2 p-1">
+        <div class="card-subtitle text-body-secondary"> <%= story.title %> </div>
+        <small> Liked by : <%= story.get_likes.join(",") %> </small>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
