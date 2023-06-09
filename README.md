@@ -32,7 +32,7 @@ So I might've gone a little overkill with the assignment here...
 
 Essentially there's a rails API stood up behind a react frontend
 
-To install, first run bundle install, create the db as usual, etc. Then run yarn to install the frontend dependencies.
+To install, first run bundle install, create the db as usual, etc (or just use `bin/setup`). Then run yarn to install the frontend dependencies.
 
 To run, call `bin/dev`, which will spin up the rails and node servers.
 
