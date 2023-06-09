@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+    <h1>Welcome to Top News</h1>
+    <div> Hello <%= current_user.first_name + " " + current_user.last_name %> </div>
+    <h2>Recent Top Stories</h2>
+    <div>
+    <% @stories.each do |story| %>
+        <div><%= story.title %></div>
+        <div><%= story.author %></div>
+        <div><%= story.url %></div>
+        <div><%= story.time_posted %></div>
+    <% end %>
+    </div> 
+<% else %>
+    <%= redirect_to new_user_session_path %> 
+<% end %>

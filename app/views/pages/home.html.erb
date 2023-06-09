@@ -1,7 +1,5 @@
 <% if user_signed_in? %>
-    <h1>Welcome to Top News</h1>
-    <div> Hello <%= current_user.first_name + " " + current_user.last_name %> </div>
-    <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+    <%= redirect_to root_path %>
 <% else %>
-    <%= redirect_to new_user_session_path %> 
+    <%= redirect_to new_user_session_path %>
 <% end %>
