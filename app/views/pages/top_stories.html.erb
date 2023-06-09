@@ -3,12 +3,22 @@
     <div> Hello <%= current_user.first_name + " " + current_user.last_name %> </div>
     <h2>Recent Top Stories</h2>
     <div>
-    <% @stories.each do |story| %>
-        <div><%= story.title %></div>
-        <div><%= story.author %></div>
-        <div><%= story.url %></div>
-        <div><%= story.time_posted %></div>
-    <% end %>
+    <table>
+        <tr>
+            <th><b>Title</b></th>
+            <th><b>Author</b></th>
+            <th><b>Posted</b></th>
+            <th><b>Save</b></th>
+        </tr>
+        <% @stories.each do |story| %>
+            <tr>
+                <td><%= link_to story.title, story.url %></td>
+                <td><%= story.author %></td>
+                <td><%= story.time_posted %></td>
+                <td><%= button_to "Save Story", story.url %></td>
+            </tr>
+        <% end %>
+    </table>
     </div> 
 <% else %>
     <%= redirect_to new_user_session_path %> 
