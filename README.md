@@ -25,3 +25,21 @@ When a team member signs in, they will see recent news stories and be able to st
 * As an internal tool for a small team, performance optimization is not a requirement.
 * Be prepared to discuss known performance shortcomings of your solution and potential improvements.
 * UX design here is of little importance. The design can be minimal or it can have zero design at all.
+
+# Submission Details
+
+So I might've gone a little overkill with the assignment here...
+
+Essentially there's a rails API stood up behind a react frontend
+
+To install, first run bundle install, create the db as usual, etc. Then run yarn to install the frontend dependencies.
+
+To run, call `bin/dev`, which will spin up the rails and node servers.
+
+From here, navigate to localhost:3000 to see the app. 
+
+Everything including account creation is handled via the UI. It's still pretty minimal, so there aren't things like descriptions for 422 errors on network calls, but it should be pretty straightforward to use.
+
+First pageload is very slow (like 10+ seconds), since it's loading the full list of 500 stories. After that, the requests are cached and the stories are saved as models. In a production environment, this would probably be more optimized, and possibly done in the background by a worker process. I played around with using multithreading to speed up the initial load, but it had a tendency to fight with the server/db over TCP connections and crash out if the max TCP connections were reached. I'm sure there's a better way to do it, but I didn't want to spend too much time on it. 
+
+Enjoy!
