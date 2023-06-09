@@ -8,6 +8,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <header>
+      <ul class="navBar">
+        <li><%= link_to "Top Stories", root_path %></li>
+        <li><%= link_to "Saved Stories", "/saved-stories" %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% end %>
+      </ul>
+    </header>
     <p class="notice">
       <%= notice %>
     </p>
