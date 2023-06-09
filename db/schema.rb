@@ -56,6 +56,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_164103) do
 
   add_foreign_key "likes", "stories"
   add_foreign_key "likes", "users"
-  add_foreign_key "team_memberships", "teams"
-  add_foreign_key "team_memberships", "users"
 end
