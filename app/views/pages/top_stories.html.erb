@@ -15,7 +15,11 @@
                 <td><%= link_to story.title, story.url %></td>
                 <td><%= story.author %></td>
                 <td><%= story.time_posted %></td>
-                <td><%= button_to "Save Story", story.url %></td>
+                <% if StorySave.exists?(user_id: current_user.id, api_id: story.api_id) %>
+                    <td>Saved</td>
+                <% else %>
+                    <td><%= button_to "Save Story", save_story_path, method: :post, params: { api_id: story.api_id } %></td>
+                <% end %>
             </tr>
         <% end %>
     </table>
