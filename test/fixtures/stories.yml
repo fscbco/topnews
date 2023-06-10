@@ -1,0 +1,11 @@
+one:
+  title: 'Story One'
+  url: 'https://storyone.com'
+  hacker_news_story_id: 980190962
+  starred: false
+
+two:
+  title: 'Story Two'
+  url: 'https://storytwo.com'
+  hacker_news_story_id: 2
+  starred: false

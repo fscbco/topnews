@@ -1,0 +1,43 @@
+<html>
+<head>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+      }
+      h1 {
+          color: #333;
+      }
+      .button {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+      }
+      .story {
+          margin-bottom: 20px;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+      }
+      .story p {
+          margin: 0;
+      }
+  </style>
+</head>
+<body>
+<h1>Welcome to Top News</h1>
+
+<% @top_stories.each do |story| %>
+  <div class="story">
+    <h2><%= story['title'] %></h2>
+    <p><%= link_to 'Read More', story['url'], target: '_blank' %></p>
+  </div>
+<% end %>
+</body>
+</html>
