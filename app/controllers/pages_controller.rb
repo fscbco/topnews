@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     
     def top_stories
         top_story_ids = top_stories_ids = call_api("https://hacker-news.firebaseio.com/v0/topstories.json")
-        @stories = get_stories_from_ids(top_story_ids, 50)
+        @stories = get_stories_from_ids(top_story_ids, 25)
     end
     
     def saved_stories
