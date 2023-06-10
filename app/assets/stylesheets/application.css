@@ -24,3 +24,7 @@
     display: inline;
     margin-right: 20px;
 }
+
+.storyTable td {
+    padding: 10px;
+}
