@@ -1,0 +1,13 @@
+one:
+  first_name: 'Lauren'
+  last_name: 'Albert'
+  email: 'test1@example.com'
+  encrypted_password: '1234'
+  sign_in_count: 1
+
+two:
+  first_name: 'Schmauren'
+  last_name: 'Albertson'
+  email: 'test2@example.com'
+  encrypted_password: '12345'
+  sign_in_count: 1
