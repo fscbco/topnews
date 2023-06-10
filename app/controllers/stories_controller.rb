@@ -8,6 +8,16 @@ class StoriesController < ApplicationController
     redirect_to root_path
   end
 
+
+  def star
+    @story = Story.find_by(hacker_news_story_id: params[:id])
+    @story.star_by(current_user)
+    redirect_to root_path
+  rescue ActiveRecord::RecordNotFound => e
+    flash[:error] = "Story not found: #{e.message}"
+    redirect_to root_path
+  end
+
   private
 
   def fetch_stories

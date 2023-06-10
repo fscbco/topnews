@@ -37,6 +37,9 @@
   <div class="story">
     <h2><%= story['title'] %></h2>
     <p><%= link_to 'Read More', story['url'], target: '_blank' %></p>
+    <%= button_to star_story_path(id: story['id']), method: :post, class: 'button' do %>
+      <%= fa_icon 'star', text: 'Star' %>
+  <% end %>
   </div>
 <% end %>
 </body>

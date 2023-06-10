@@ -6,6 +6,11 @@ class UserTest < ActiveSupport::TestCase
     assert_respond_to user, :user_stories
   end
 
+  test "should have many starred_stories" do
+    user = User.new
+    assert_respond_to user, :starred_stories
+  end
+
   test "should have Devise modules" do
     user = User.new
     assert user.respond_to?(:email)

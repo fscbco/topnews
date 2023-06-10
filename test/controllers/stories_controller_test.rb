@@ -16,6 +16,15 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should star a story" do
+    StoriesController.any_instance.stubs(:fetch_stories).returns([@story])
+
+    assert_difference('@story.user_stories.count') do
+      post star_story_url(@story)
+    end
+    assert_redirected_to root_path
+  end
+
   test "should handle error when fetching top stories" do
     StoriesController.any_instance.stubs(:fetch_stories).raises(StandardError, "Failed to fetch stories")
 
@@ -24,4 +33,12 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "An error occurred while saving new stories: Failed to fetch stories", flash[:error]
   end
 
+
+  test "should handle error when starring a story" do
+    Story.stubs(:find_by).raises(ActiveRecord::RecordNotFound)
+
+    post star_story_url(@story)
+    assert_redirected_to root_path
+    assert_match(/Story not found/, flash[:error])
+  end
 end
