@@ -33,6 +33,13 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "An error occurred while saving new stories: Failed to fetch stories", flash[:error]
   end
 
+  test "should handle error when retrieving starred stories" do
+    Story.expects(:includes).raises(StandardError, "Failed to retrieve starred stories")
+
+    get starred_stories_url
+    assert_redirected_to root_path
+    assert_equal "An error occurred while retrieving the starred stories: Failed to retrieve starred stories", flash[:error]
+  end
 
   test "should handle error when starring a story" do
     Story.stubs(:find_by).raises(ActiveRecord::RecordNotFound)

@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   resources :stories do
     member do
       post 'star'
-end
+    end
 
+    collection do
+      get 'starred'
+    end
   end
 
   # Catch-all route for handling unmatched routes
   match "*path", to: "errors#not_found", via: :all
 end
+

@@ -29,4 +29,10 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     assert @story.reload.starred?
     assert @story.starring_users.include?(@user)
   end
+
+  test "should get starred stories" do
+    get starred_stories_url
+    assert_response :success
+    assert_select "h1", "Starred Stories"
+  end
 end

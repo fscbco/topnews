@@ -31,19 +31,22 @@
   </style>
 </head>
 <body>
-<h1>Welcome to Top News</h1>
+<h1>Starred Stories</h1>
 
-<div style="text-align: right;">
-  <%= link_to 'Go to Starred', starred_stories_path, class: 'button' %>
-</div>
-<% @top_stories.each do |story| %>
+<% @starred_stories.each do |story| %>
   <div class="story">
-    <h2><%= story['title'] %></h2>
-    <p><%= link_to 'Read More', story['url'], target: '_blank' %></p>
-    <%= button_to star_story_path(id: story['id']), method: :post, class: 'button' do %>
-      <%= fa_icon 'star', text: 'Star' %>
-  <% end %>
+    <h2><%= story.title %></h2>
+    <p><%= link_to 'Read More', story.url, target: '_blank' %></p>
+    <p>Starred by: <%= story.user_stories.map { |us| "#{us.user.first_name} #{us.user.last_name}" }.join(', ') %></p>
   </div>
 <% end %>
+
+<div style="text-align: right;">
+  <%= will_paginate @starred_stories, previous_label: 'Previous', next_label: 'Next', class: 'button' %>
+</div>
+
+<div style="text-align: center;">
+  <%= link_to 'Back to All Stories', stories_path, class: 'button' %>
+</div>
 </body>
 </html>

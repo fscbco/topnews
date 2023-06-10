@@ -8,6 +8,12 @@ class StoriesController < ApplicationController
     redirect_to root_path
   end
 
+  def starred
+    @starred_stories = Story.includes(user_stories: :user).starred.paginate(page: params[:page], per_page: 10)
+  rescue StandardError => e
+    flash[:error] = "An error occurred while retrieving the starred stories: #{e.message}"
+    redirect_to root_path
+  end
 
   def star
     @story = Story.find_by(hacker_news_story_id: params[:id])
