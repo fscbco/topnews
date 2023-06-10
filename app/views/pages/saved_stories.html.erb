@@ -1,1 +1,28 @@
-<h1>Saved Stories</h1>
+<% if user_signed_in? %>
+    <div> Hello <%= current_user.first_name + " " + current_user.last_name %> </div>
+    <h2>Saved Stories</h2>
+    <div>
+    <table class="storyTable">
+        <tr>
+            <th><b>Title</b></th>
+            <th><b>Author</b></th>
+            <th><b>Posted</b></th>
+            <th><b>Saved by</b></th>
+        </tr>
+        <% @saved_stories.each do |saved_story| %>
+            <tr>
+                <td><%= link_to saved_story.title, saved_story.url %></td>
+                <td><%= saved_story.author %></td>
+                <td><%= saved_story.time_posted %></td>
+                <td>
+                    <% saved_story.users.each do |user| %>
+                        <div><%= user.first_name + " " + user.last_name %></div>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+    </div> 
+<% else %>
+    <%= redirect_to new_user_session_path %> 
+<% end %>

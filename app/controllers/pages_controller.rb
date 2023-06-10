@@ -7,6 +7,8 @@ class PagesController < ApplicationController
     end
     
     def saved_stories
+        saved_story_api_ids = StorySave.distinct.pluck(:api_id)
+        @saved_stories = Story.where(api_id: saved_story_api_ids)
     end
 
     def save_story
