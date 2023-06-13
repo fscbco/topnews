@@ -8,29 +8,21 @@ class HackerNewsService
   base_uri 'https://hacker-news.firebaseio.com/v0'
 
   def new_stories
-      response = self.class.get('/newstories.json')
-    if response.success?
-      JSON.parse(response.body)
-    else
-      # This would be a great place for some logging
-      []
-    end
+    stories('/newstories.json')
   end
 
   def top_stories
-    response = self.class.get('/topstories.json')
-    if response.success?
-      JSON.parse(response.body)
-    else
-      # This would be a great place for some logging
-      []
-    end
+    stories('/topstories.json')
   end
 
   def best_stories
-    response = self.class.get('/beststories.json')
+    stories('/beststories.json')
+  end
+
+  def stories(path)
+    response = self.class.get(path)
     if response.success?
-      JSON.parse(response.body)
+      JSON.parse(response.body)[0..100]
     else
       # This would be a great place for some logging
       []

@@ -9,7 +9,7 @@ class Story < ApplicationRecord
     # This is a good place to put any extra validation/builder logic if needed
     filtered_input = story_input.slice(:id, :title, :text, :url, :score, :by, :descendants, :time)
     filtered_input[:time] = Time.at(story_input[:time]) if story_input.key?(:time)
-    Story.create!(filtered_input)
+    Story.find_or_initialize_by(id: filtered_input[:id]).update_mutable(filtered_input)
   end
 
   def update_mutable(story_input)
@@ -17,6 +17,7 @@ class Story < ApplicationRecord
     self.title = story_input[:title] if story_input.key?(:title)
     self.descendants = story_input[:descendants] if story_input.key?(:descendants)
     self.time = story_input[:time] if story_input.key?(:time)
+    self.score = story_input[:score] if story_input.key?(:score)
     self.url = story_input[:url] if story_input.key?(:url)
     self.text = story_input[:text] if story_input.key?(:text)
     self.save!
@@ -51,6 +52,7 @@ class Story < ApplicationRecord
     ids ||= HackerNewsService.instance.top_stories
     # I usually don't like to convert relations to arrays, but this
     # will let us merge in the new models we're creating below
+
     stories = Story.where(id: ids).to_a
     found_ids = stories.map(&:id)
     ids.filter { |id| !found_ids.include?(id) }.each do |id|
@@ -67,5 +69,14 @@ class Story < ApplicationRecord
       story_input = HackerNewsService.instance.get_story(id)
       Story.update_mutable(story_input) if story_input
     end
+  end
+
+  def self.preload_stories
+    top_ids = HackerNewsService.instance.top_stories
+    new_ids = HackerNewsService.instance.new_stories
+    best_ids = HackerNewsService.instance.best_stories
+    Thread.new { self.get_stories(top_ids) }
+    Thread.new { self.get_stories(new_ids) }
+    Thread.new { self.get_stories(best_ids) }
   end
 end

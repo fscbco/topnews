@@ -4,6 +4,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import Grid from '@mui/material/Unstable_Grid2';
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 
 
 function Story({ user, id, title, url, score, liked, liked_by = [], likeCallback, setOpenLogin }) {
@@ -28,6 +29,7 @@ function Story({ user, id, title, url, score, liked, liked_by = [], likeCallback
     };
 
     return (
+        <Box sx={{ width: '100%', minWidth: '100%' }}>
         <Grid container spacing={2}>
             <Grid xs={1}>
                 <Box>
@@ -35,8 +37,7 @@ function Story({ user, id, title, url, score, liked, liked_by = [], likeCallback
                 </Box>
             </Grid>
             <Grid xs={1}>
-                <Box><h2>{score}</h2></Box>
-                points
+                <Box><h3>{score} points</h3></Box>
             </Grid>
 
             <Grid xs={7}>
@@ -52,6 +53,7 @@ function Story({ user, id, title, url, score, liked, liked_by = [], likeCallback
                 <Box>({truncate(checked_url, 22)})</Box>
             </Grid>
         </Grid>
+        </Box>
     )
 }
 
