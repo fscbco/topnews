@@ -1,1 +1,35 @@
-<h1>Welcome to Top News</h1>
+<% if user_signed_in? %>
+ <div> Welcome <%= current_user.name %> </div> 
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= button_to "Sign in", new_user_session_path %>
+<% end %>
+
+<% if user_signed_in? %>
+<div class="stories">
+  <div class="top_stories">
+    <h1>Welcome to Top News</h1>
+    <% top_stories.each do |story| %>
+      <div class="story">
+        <%= link_to story["title"], story["url"] %>
+        <% if story["flagged"] == false %>
+          <%= link_to '<i class="flag fa fa-flag"></i>'.html_safe, flag_page_path(story['id'], type: "flag"), title: 'flag story', method: :put %>
+        <% else %>
+          <%= link_to '<i class="unflag fa fa-flag"></i>'.html_safe, flag_page_path(story['id'], type: "unflag"), title: 'unflag story', method: :put %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="flagged_stories">
+    <h1>Flagged By Your Team</h1>
+    <% @flagged_stories.each do |flag_story| %>
+      <div class="story">
+        <%= link_to flag_story["title"], flag_story["url"] %>
+        <p class="flagged_by">Flagged by <%= flag_story["flagged_by"] %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% else %>
+  <h1>Please sign in to view the top stories</h1>
+<% end %>
