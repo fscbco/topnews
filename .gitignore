@@ -17,3 +17,10 @@
 /yarn-error.log
 
 .byebug_history
+.bundle
+vendor/bundle
+.ansible
+.terraforom
+.puppet
+.chef
+.DS_Store
