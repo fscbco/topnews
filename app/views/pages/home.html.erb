@@ -14,10 +14,12 @@
             <div class="rank">
                 <%= index + 1 %>
             </div>
-            <% if story.users.include?(@current_user) %>
-                <%= button_to "Unsave", user_stories_path(story_id: story.id ), method: :delete %>
-            <% else %>
-                <%= button_to "Save", user_stories_path(story_id: story.id ), method: :post %>
+            <% if current_user %>
+                <% if story.users.include?(current_user) %>
+                    <%= button_to "Unsave", user_stories_path(story_id: story.id ), method: :delete %>
+                <% else %>
+                    <%= button_to "Save", user_stories_path(story_id: story.id ), method: :post %>
+                <% end %>
             <% end %>
         </div>
         <div class="details">
@@ -35,11 +37,14 @@
     </div>
 <% end %>
 
-<% if @current_user %>
+<% if current_user %>
     <h2>Saved Stories</h2>
     <% if @user_stories %>
         <% @user_stories.each do |story| %>
             <div class="story">
+                <div class="left_column">
+                    <%= button_to "Unsave", user_stories_path(story_id: story.id ), method: :delete %>
+                </div>
                 <div class="details">
                     <div>Title: <%= story.title %></div>
                     <div>Author: <%= story.author %></div>
@@ -47,7 +52,7 @@
                         <div>URL: <a href=<%= story.url %> target="_blank"><%= story.url %></a></div>
                     <% end %>
                     <div>Date: <%= Time.at(story.source_time.to_i) %></div>
-                    <% other_users = story.users - [@current_user] %>
+                    <% other_users = story.users - [current_user] %>
                     <% if other_users.present? %>
                         <div>Also Saved by: <%= other_users.map(&:full_name).join(", ") %></div>
                     <% end %>
