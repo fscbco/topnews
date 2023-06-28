@@ -10,8 +10,15 @@
 
 <% @hacker_news_stories.each_with_index do |story, index| %>
     <div class="story">
-        <div class="rank">
-            <%= index + 1 %>
+        <div class="left_column">
+            <div class="rank">
+                <%= index + 1 %>
+            </div>
+            <% if story.users.include?(@current_user) %>
+                <%= button_to "Unsave", user_stories_path(story_id: story.id ), method: :delete %>
+            <% else %>
+                <%= button_to "Save", user_stories_path(story_id: story.id ), method: :post %>
+            <% end %>
         </div>
         <div class="details">
             <div>Title: <%= story.title %></div>
@@ -29,7 +36,7 @@
 <% end %>
 
 <% if @current_user %>
-    <h2>My Stories</h2>
+    <h2>Saved Stories</h2>
     <% if @user_stories %>
         <% @user_stories.each do |story| %>
             <div class="story">

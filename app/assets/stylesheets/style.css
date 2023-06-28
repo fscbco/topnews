@@ -4,10 +4,16 @@
     flex-direction: row;
 }
 
-.rank {
+.left_column {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+
+.rank {
+    margin-bottom: 4px;
 }
 
 .details {
