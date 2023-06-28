@@ -10,9 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_211459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "sources", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "author", null: false
+    t.string "url"
+    t.string "external_id", null: false
+    t.bigint "source_id", null: false
+    t.string "source_time", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["external_id", "source_id"], name: "index_stories_on_external_id_and_source_id", unique: true
+    t.index ["source_id"], name: "index_stories_on_source_id"
+  end
+
+  create_table "top_stories", force: :cascade do |t|
+    t.string "external_ids", null: false, array: true
+    t.bigint "source_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["source_id"], name: "index_top_stories_on_source_id"
+  end
+
+  create_table "user_stories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "story_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["story_id"], name: "index_user_stories_on_story_id"
+    t.index ["user_id"], name: "index_user_stories_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
