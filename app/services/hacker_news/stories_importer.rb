@@ -13,7 +13,7 @@ module HackerNews
         end
 
         def call
-            return true if top_story_ids.map(&:to_s).sort == TopStory.latest.external_ids.sort
+            return true if top_story_ids.map(&:to_s).sort == TopStory.latest_external_ids_from_hacker_news_cache.sort
 
             ActiveRecord::Base.transaction do
                 # We're assuming HN returns max of 500 ids at a time. We should batch ids if max is more.
