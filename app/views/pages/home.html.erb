@@ -17,16 +17,39 @@
             <div>Title: <%= story.title %></div>
             <div>Author: <%= story.author %></div>
             <% if story.url %>
-                
                 <div>URL: <a href=<%= story.url %> target="_blank"><%= story.url %></a></div>
             <% end %>
             <div>Date: <%= Time.at(story.source_time.to_i) %></div>
+            <% if story.users.present? %>
+                <div>Saved by: <%= story.users.map(&:full_name).join(", ") %></div>
+            <% end %>
             <div class="line" /> </div>
         </div>
     </div>
 <% end %>
 
-<% if current_user %>
+<% if @current_user %>
     <h2>My Stories</h2>
+    <% if @user_stories %>
+        <% @user_stories.each do |story| %>
+            <div class="story">
+                <div class="details">
+                    <div>Title: <%= story.title %></div>
+                    <div>Author: <%= story.author %></div>
+                    <% if story.url %>
+                        <div>URL: <a href=<%= story.url %> target="_blank"><%= story.url %></a></div>
+                    <% end %>
+                    <div>Date: <%= Time.at(story.source_time.to_i) %></div>
+                    <% other_users = story.users - [@current_user] %>
+                    <% if other_users.present? %>
+                        <div>Also Saved by: <%= other_users.map(&:full_name).join(", ") %></div>
+                    <% end %>
+                    <div class="line" /> </div>
+                </div>
+            </div>
+        <% end %>
+    <% else %>
+        <div>None</div>
+    <% end %>
 <% end %>
 
