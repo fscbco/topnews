@@ -1,0 +1,10 @@
+<h1>Top Stories</h1>
+
+<ul>
+  <% @top_stories.each do |story_id| %>
+    <li>
+      <%= link_to "Flag", flag_story_path(id: story_id), method: :post %>
+      <%= link_to story_title(story_id), story_url(story_id) %>
+    </li>
+  <% end %>
+</ul>

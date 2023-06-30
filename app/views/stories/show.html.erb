@@ -1,0 +1,5 @@
+<h1><%= @story.title %></h1>
+<p><%= @story.url %></p>
+<p>Flagged: <%= @story.flagged %></p>
+<p>Flagged by user ID: <%= @story.flagged_by %></p>
+<p>Flagged by: <%= @story.flagged_by ? User.find(@story.flagged_by).first_name : 'Unknown' %></p>
