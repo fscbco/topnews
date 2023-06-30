@@ -14,6 +14,7 @@ gem 'puma'
 gem 'rails', '~> 7.0.3'
 gem 'rspec-rails'
 gem 'sass-rails'
+gem 'httparty'
 gem 'selenium-webdriver', group: [:development, :test]
 gem 'spring', group: :development
 gem 'turbolinks'
