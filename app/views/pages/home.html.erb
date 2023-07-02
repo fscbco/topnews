@@ -1,1 +1,18 @@
 <h1>Welcome to Top News</h1>
+<table>
+    <thead>    
+        <th>Title</th>
+        <th>Author</th>
+        <th>Published</th>
+        <th> </th>
+    </thead>
+    <tbody>
+        <% @stories.each do |story| %>
+            <tr>
+                <td><%= link_to story.title, story.url %></td>
+                <td><%= story.author %></td>
+                <td><%= story.time %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
