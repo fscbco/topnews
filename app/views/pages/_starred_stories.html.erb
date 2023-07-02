@@ -1,0 +1,4 @@
+<td><%= link_to story.title, story.url %></td>
+<td><%= story.author %></td>
+<td><%= story.time %></td>
+<td>Starred by: <br> <%= story.users.map{|u| u.familiar_name}.join(', <br>') %></td>

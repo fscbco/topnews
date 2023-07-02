@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :stars
   has_many :stories, through: :stars
+
+  def familiar_name
+    return "#{first_name} #{last_name.first}."
+  end
 end

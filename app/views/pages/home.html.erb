@@ -1,4 +1,5 @@
 <h1>Welcome to Top News</h1>
+<%= link_to 'All Stories', root_path %> | <%= link_to 'Starred Stories', root_path(filter: 'starred') %>
 <table>
     <thead>    
         <th>Title</th>
@@ -10,11 +11,12 @@
     <tbody>
         <% @stories.each do |story| %>
             <tr>
-                <td><%= link_to story.title, story.url %></td>
-                <td><%= story.author %></td>
-                <td><%= story.time %></td>
-                <td><%= story.users.count %> have starred this story</td>
-                <td><%= link_to 'Star this Story', star_article_path(story_id: story.id, user_id: current_user.id), method: :post %></td>
+                <% if params['filter'] == 'starred' %>
+                    <%= render partial: 'starred_stories', locals: {story: story} %>
+                <% else %>
+                    <%= render partial: 'all_stories', locals: {story: story} %>
+                <% end %>
+                <%= render partial: 'star_storry', locals: {story: story} %>
             </tr>
         <% end %>
     </tbody>

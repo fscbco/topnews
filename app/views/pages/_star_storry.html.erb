@@ -1,0 +1,5 @@
+<% if story.users.include?(current_user) %>
+    <td><%= link_to 'Unstar this Story', star_article_path(story_id: story.id, user_id: current_user.id), method: :post %></td>
+<% else %>
+    <td><%= link_to 'Star this Story', star_article_path(story_id: story.id, user_id: current_user.id), method: :post %></td>
+<% end %>
