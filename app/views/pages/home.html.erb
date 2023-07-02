@@ -5,6 +5,7 @@
         <th>Author</th>
         <th>Published</th>
         <th> </th>
+        <th> </th>
     </thead>
     <tbody>
         <% @stories.each do |story| %>
@@ -12,6 +13,8 @@
                 <td><%= link_to story.title, story.url %></td>
                 <td><%= story.author %></td>
                 <td><%= story.time %></td>
+                <td><%= story.users.count %> have starred this story</td>
+                <td><%= link_to 'Star this Story', star_article_path(story_id: story.id, user_id: current_user.id), method: :post %></td>
             </tr>
         <% end %>
     </tbody>
