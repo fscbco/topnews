@@ -7,7 +7,11 @@ class ArticleStarer < ApplicationService
     def call
         user = User.find(@user_id)
         story = Story.find(@story_id)
-        user.stories << story
+        if user.stories.include?(story)
+            user.stories.delete(story)
+        else
+            user.stories << story
+        end
     end
 
 end
