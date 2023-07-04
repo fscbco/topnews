@@ -16,30 +16,43 @@ class StoriesController < ApplicationController
 end
 
 def flag
- @story_id = params[:id]
- story_details = HackerNewsApi.get_story_details(@story_id)
+ @story = find_or_initialize_story
+ return redirect_to stories_path, alert: "Story not found" unless @story
 
- if story_details.present?
-   @story = Story.find_or_initialize_by(story_id: @story_id)
+ return redirect_to stories_path, alert: "Story not saved" unless save_story_and_flag
 
-   if @story.new_record?
-     @story.title = story_details['title']
-     @story.url = story_details['url']
-     @story.flagged = true
-     @story.flagged_by = current_user.id
-     @story.user_id = current_user.id
-     @story.save
-   end
-
-   if @story.persisted?
-     redirect_to story_path(@story)
-   else
-     puts @story.errors.full_messages
-     redirect_to stories_path, alert: "Story not flagged"
-   end
+ if flag_already_exists?
+   redirect_to story_path(@story), alert: "You have already flagged this story"
  else
-   redirect_to stories_path, alert: "Story not found"
+   redirect_to story_path(@story)
  end
+end
+
+private
+
+def find_or_initialize_story
+ story_details = HackerNewsApi.get_story_details(params[:id])
+ return if story_details.blank?
+
+ story = Story.find_or_initialize_by(story_id: params[:id])
+ if story.new_record?
+   story.title = story_details['title']
+   story.url = story_details['url']
+   story.user_id = current_user.id
+   story.save
+ end
+ story
+end
+
+def save_story_and_flag
+ return unless @story.persisted?
+
+ @flag = current_user.flags.build(story: @story)
+ @flag.save
+end
+
+def flag_already_exists?
+ @flag.errors[:user].include?("has already been taken")
 end
 
 def flagged
