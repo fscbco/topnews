@@ -3,7 +3,7 @@
 <ul>
   <% @top_stories.each do |story_id| %>
     <li>
-      <%= link_to "Flag", flag_story_path(id: story_id), method: :post %>
+      <%= link_to "&#9733;".html_safe, flag_story_path(id: story_id), method: :post, title: "Flag" %>
       <%= link_to story_title(story_id), story_url(story_id) %>
     </li>
   <% end %>
