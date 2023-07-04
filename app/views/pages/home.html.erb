@@ -1,9 +1,9 @@
 <h1>Welcome to Top News</h1>
 <%= link_to 'All Stories', root_path %> | <%= link_to 'Starred Stories', root_path(filter: 'starred') %>
-<table>
+<table >
     <thead>    
-        <th>Title</th>
-        <th>Author</th>
+        <th  class="td">Title</th>
+        <th class="td">Author</th>
         <th>Published</th>
         <th> </th>
         <th> </th>
@@ -16,7 +16,7 @@
                 <% else %>
                     <%= render partial: 'all_stories', locals: {story: story} %>
                 <% end %>
-                <%= render partial: 'star_storry', locals: {story: story} %>
+                <%= render partial: 'star_story', locals: {story: story} %>
             </tr>
         <% end %>
     </tbody>
