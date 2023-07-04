@@ -1,10 +1,39 @@
+<style>
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  .star-icon {
+    margin-right: 10px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #00BFFF;
+    text-decoration: none;
+  }
+</style>
+
 <h1>Top Stories</h1>
 
 <ul>
   <% @top_stories.each do |story_id| %>
     <li>
-      <%= link_to "&#9733;".html_safe, flag_story_path(id: story_id), method: :post, title: "Flag" %>
+      <%= link_to "&#9733;".html_safe, flag_story_path(id: story_id), method: :post, title: "Flag", class:"star-icon" %>
       <%= link_to story_title(story_id), story_url(story_id) %>
     </li>
   <% end %>
 </ul>
+
+
+ <div class="flagged-stories">
+   <h1><%= link_to "Flagged Stories", flagged_stories_path %></h1>
+ </div>
