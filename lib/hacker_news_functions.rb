@@ -12,6 +12,6 @@ module HackerNewsFunctions
     end
 
     def get_item_resource(id)
-        get_hacker_news("item/#{story_id}")
+        get_hacker_news("item/#{id}")
     end
 end

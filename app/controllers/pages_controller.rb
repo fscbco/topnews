@@ -5,11 +5,10 @@ class PagesController < ApplicationController
 
 private
     def set_stories
-        
         if params['filter'].present?
-            @stories = Story.joins(:stars).includes(:stars, :users)
+            @stories = Story.joins(:stars).order(story_id: :desc).limit(100).includes(:stars, :users)
             return
         end
-        @stories = Story.all.order(story_id: :desc).limit(100)
+        @stories = Story.order(story_id: :desc).includes(:stars, :users)
     end
 end
