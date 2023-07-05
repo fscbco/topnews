@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_01_164112) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "stories", force: :cascade do |t|
+    t.string "source_url"
+    t.string "image_url"
+    t.string "username"
+    t.text "content"
+    t.integer "user_id"
+    t.string "title"
+    t.boolean "is_starred"
+    t.integer "stars"
+    t.float "ranking"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "starred_by"
+    t.string "author"
+    t.string "url"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"

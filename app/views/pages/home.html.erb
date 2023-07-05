@@ -1,1 +1,7 @@
-<h1>Welcome to Top News</h1>
+<% @stories.each do |story| %>
+  <div class="story" id="story_<%= story['id'] %>">
+    <h2><%= link_to story['title'], story['url'] %></h2>
+    <p>By <%= story['by'] %></p>
+    <%= button_to "Star",'/starred_stories', id: story['id'], user_id: current_user.id, title: story['title'], method: :post %>
+  </div>
+<% end %>
