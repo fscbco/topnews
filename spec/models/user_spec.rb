@@ -14,4 +14,12 @@ describe User do
       expect(User.new(attrs.except(:password))).to be_invalid
     end
   end
+
+  describe '#familiar_name' do
+    let(:user) {User.new(first_name: 'Test', last_name: 'Name')}
+
+    it 'returns the users first name and last initial' do
+      expect(user.familiar_name).to eq('Test N.')
+    end
+  end
 end
