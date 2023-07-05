@@ -3,12 +3,7 @@ require 'spec_helper'
 require 'factory_bot'
 require 'ffaker'
 
-FactoryBot.define do
-  factory :user do
-    email { "user_#{rand(999999).to_s}@example.org" }
-    password { 'eeMaev2shai'}
-  end
-end
+
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
