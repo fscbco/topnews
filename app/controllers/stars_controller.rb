@@ -5,6 +5,7 @@ class StarsController < ApplicationController
         redirect_to '/'
     end
 
+private
     def star_params
         params.permit(:user_id, :story_id)
     end
