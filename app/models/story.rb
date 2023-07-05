@@ -5,7 +5,8 @@ class Story < ApplicationRecord
  has_many :flagging_users, through: :flags, source: :user
 
  validates :story_id, uniqueness: true
+ validates :title, presence: true
+ validates :url, presence: true
 
  attribute :flagged, :boolean, default: false
- attribute :flagged_by, :integer
 end

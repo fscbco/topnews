@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_182049) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "story_id"
+    t.string "story_id"
     t.integer "user_id"
     t.boolean "flagged"
   end
