@@ -5,6 +5,9 @@ class PagesController < ApplicationController
         order = external_story_ids.each_with_index.to_h
         @hacker_news_stories = stories.sort_by{ |story| order[story.external_id] }
 
-        @user_stories = current_user.stories.from_hacker_news.includes(:users) if current_user
+        return unless current_user
+
+        @user_stories = current_user.stories.from_hacker_news.includes(:users) 
+        @saved_stories = Story.from_hacker_news.joins(:user_stories).includes(:users)
     end
 end
