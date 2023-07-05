@@ -1,1 +1,19 @@
-<h1>Flagged News</h1>
+<h1>Flagged Stories</h1>
+
+<% @flagged_stories_data.each do |story| %>
+  <div>
+    <h1><%= story[:title] %></h1>
+    <p><%= story[:url] %></p>
+
+    <% if story[:flags]&.any? %>
+      <p>This story has been flagged by:</p>
+      <ul>
+        <% story[:flags].each do |flag| %>
+          <li><%= flag[:user][:first_name] %> <%= flag[:user][:last_name] %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No flags found for this story.</p>
+    <% end %>
+  </div>
+<% end %>
