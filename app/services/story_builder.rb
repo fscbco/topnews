@@ -3,20 +3,26 @@ class StoryBuilder < ApplicationService
     include HackerNewsFunctions
 
     def call
-        story_ids = get_top_story_ids
-        
-        story_ids.each do |story_id|
-            unless Story.exists?(story_id: story_id)
+        get_top_story_ids.each do |story_id|
+            unless story_exists?(story_id)
                 res = get_item_resource(story_id)
-                
-                Story.create(
-                    author: res['by'],
-                    story_id: story_id,
-                    time: Time.at(res['time']).to_datetime,
-                    title: res['title'],
-                    url: res['url']
-                )
+                create_story(res)
             end
         end
+    end
+
+private
+    def story_exists?(story_id)
+        Story.exists?(story_id: story_id)
+    end
+
+    def create_story(response)
+        Story.create(
+                    author: response['by'],
+                    story_id: response['id'],
+                    time: Time.at(response['time']).to_datetime,
+                    title: response['title'],
+                    url: response['url']
+                )
     end
 end
