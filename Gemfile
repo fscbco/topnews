@@ -16,6 +16,7 @@ gem 'rspec-rails'
 gem 'sass-rails'
 gem 'httparty'
 gem 'selenium-webdriver', group: [:development, :test]
+gem 'shoulda-matchers', group: :test
 gem 'spring', group: :development
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
