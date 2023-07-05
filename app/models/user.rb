@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :stars
-  has_many :stories, through: :stars
+  has_many :stories, through: :stars, dependent: :destroy
 
   def familiar_name
     return "#{first_name} #{last_name.first}."
