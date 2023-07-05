@@ -4,4 +4,8 @@ class StarsController < ApplicationController
         ArticleStarer.call(star_params['user_id'], star_params['story_id'])
         redirect_to '/'
     end
+
+    def star_params
+        params.permit(:user_id, :story_id)
+    end
 end
