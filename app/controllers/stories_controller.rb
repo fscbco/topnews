@@ -56,8 +56,8 @@ class StoriesController < ApplicationController
 
    story = Story.find_or_initialize_by(story_id: params[:id])
    if story.new_record?
-     story.title = story_details[:title]
-     story.url = story_details[:url]
+     story.title = story_details['title']
+     story.url = story_details['url']
      story.user_id = current_user.id
      story.save
    end
