@@ -1,5 +1,5 @@
 <h1>Welcome to Top News</h1>
-<%= link_to 'All Stories', root_path %> | <%= link_to 'Starred Stories', root_path(filter: 'starred') %> | <%= link_to 'Fetch New Stories', fetch_stories_path, remote: true %>
+<%= render partial: 'pages/nav_bar' %>
 <table >
     <thead>    
         <th  class="td">Title</th>

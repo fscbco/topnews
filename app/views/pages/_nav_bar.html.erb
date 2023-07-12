@@ -1,0 +1,4 @@
+<%= link_to 'All Stories', root_path %> | 
+<%= link_to 'Starred Stories', root_path(filter: 'starred') %> | 
+<%= link_to 'Fetch New Stories', fetch_stories_path, remote: true %> 
+<%= raw "| #{link_to 'Logout', destroy_user_session_path, method: :delete}" if current_user  %>
