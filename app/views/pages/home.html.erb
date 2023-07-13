@@ -11,7 +11,12 @@
 
         <div style="margin-left: 10px;">
           <%= form_with url: starred_stories_path, method: :post do |form| %>
-            <%= form.hidden_field :story_id, value: story[:id] %>
+            <%# stories schema %>
+            <%= form.hidden_field :title, value: story[:title] %>
+            <%= form.hidden_field :url, value: story[:url] %>
+            <%= form.hidden_field :hn_url, value: story[:hn_url] %>
+            <%= form.hidden_field :hn_id, value: story[:id] %>
+
             <%= form.hidden_field :user_id, value: current_user.id %>
             <%= form.submit 'Star' %>
           <% end %>
@@ -19,4 +24,22 @@
       </li>
     <% end %>
   </ul>
+
+  <h2>Starred Stories</h2>
+  <% if @starred_stories.empty? %>
+    <p>There are no starred stories yet.</p>
+  <% else %>
+    <ul>
+      <% @starred_stories.each do |starred_story| %>
+        <li style="display: flex; align-items: center;">
+          <%= link_to starred_story.story.title, starred_story.story.hn_url, target: "_blank", style: "margin-right: 5px;" %> |
+          <%= link_to 'Source', starred_story.story.url, target: "_blank", style: "margin-left: 5px; margin-right: 5px;" %>
+
+          <div style="margin-left: 10px;">
+            Starred by: <%= starred_story.user.name %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>

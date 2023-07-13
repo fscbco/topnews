@@ -34,5 +34,7 @@ class PagesController < ApplicationController
         hn_url: "https://news.ycombinator.com/item?id=#{id}"
       }
     end
+
+    @starred_stories = StarredStory.includes(:user, :story)
   end
 end
