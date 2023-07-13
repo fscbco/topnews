@@ -2,3 +2,13 @@
 
 <h1>Welcome to Top News</h1>
 
+<% if user_signed_in? %>
+  <ul>
+    <% @stories.each do |story| %>
+      <li>
+        <%= link_to story[:title], story[:hn_url], target: "_blank" %> |
+        <%= link_to 'Source', story[:url], target: "_blank" %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
