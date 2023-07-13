@@ -26,6 +26,7 @@ class PagesController < ApplicationController
       # Parse the JSON response into a Ruby hash and return it from the block
       story = JSON.parse(story_response)
 
+      # Return a hash with the story's details
       {
         id: id,
         title: story['title'],
