@@ -5,9 +5,17 @@
 <% if user_signed_in? %>
   <ul>
     <% @stories.each do |story| %>
-      <li>
-        <%= link_to story[:title], story[:hn_url], target: "_blank" %> |
-        <%= link_to 'Source', story[:url], target: "_blank" %>
+      <li style="display: flex; align-items: center;">
+        <%= link_to story[:title], story[:hn_url], target: "_blank", style: "margin-right: 5px;" %> |
+        <%= link_to 'Source', story[:url], target: "_blank", style: "margin-left: 5px; margin-right: 5px;" %>
+
+        <div style="margin-left: 10px;">
+          <%= form_with url: starred_stories_path, method: :post do |form| %>
+            <%= form.hidden_field :story_id, value: story[:id] %>
+            <%= form.hidden_field :user_id, value: current_user.id %>
+            <%= form.submit 'Star' %>
+          <% end %>
+        </div>
       </li>
     <% end %>
   </ul>
