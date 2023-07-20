@@ -1,1 +1,16 @@
 <h1>Welcome to Top News</h1>
+<h3><%= link_to "Starred Stories", 'stars' %></h3>
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+<ul>
+<% @stories.each do |story|  %>
+<li id= <%="#{story.id}"%>>
+  <a href=<%=story.url%> ><%= story.title %> </a>
+  <% if story.starred %>
+    <%= button_to "Unstar Story", "unstar_story/#{story.starred_id}", method: :post %>
+  <% else %>
+    <%= button_to "Star Story", "star_story/#{story.id}", method: :post %>
+  <% end %>
+</li>
+<br/>
+<% end %>
+</ul>

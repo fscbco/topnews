@@ -1,0 +1,16 @@
+<h1>Starred Stories!</h1>
+<h3><%= link_to "Home", '/' %></h3>
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+<% @stories.each do |story|  %>
+<ul>
+<li>
+  <a href=<%=story.url%> ><%= story.title %> </a>
+  <%='⭐'* story.stars.count%>
+  starred by <%= story.users.pluck('first_name').join(', ') %>
+  <% star = current_user.stars.find_by(story: story) %>
+  <% if star %>
+    <%= button_to "Unstar Story", "unstar_story/#{star.id}", method: :post %>
+  <% end %>
+</li>
+</ul>
+<% end %>
