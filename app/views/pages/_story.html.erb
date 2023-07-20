@@ -1,3 +1,6 @@
+<% @empty_star = embedded_svg('star.svg') %>
+<% @filled_star = embedded_svg('star-filled.svg') %>
+
 <div>
   <p>Index: <%= story_counter + 1 %></p>
   <p>Title: <%= story["title"] %></p>
@@ -5,4 +8,45 @@
   <p>Score: <%= story["score"] %></p>
   <p>Link: <%= story["url"] %></p>
   <p>Date: <%= story["time"] %></p>
+  <p>Starred by: FOO </p>
+  <div style="display: flex" class="star-group">
+    <div class="empty-star" style="width: 1%">
+      <%= embedded_svg('star.svg') %>
+    </div>
+    <div class="filled-star" style="width: 1%; display: none">
+      <%= embedded_svg('star-filled.svg') %>
+    </div>
+  </div>
+  <div style="display: flex" class="star-group">
+    <div class="empty-star" style="width: 1%">
+      <%= embedded_svg('star.svg') %>
+    </div>
+    <div class="filled-star" style="width: 1%; display: none">
+      <%= embedded_svg('star-filled.svg') %>
+    </div>
+  </div>
 </div>
+
+<script>
+  function toggleVisibility(group, event) {
+    if (group.children[0].style.display === "none") {
+      group.children[0].style.display = "flex";
+      group.children[1].style.display = "none";
+    } else {
+      group.children[0].style.display = "none";
+      group.children[1].style.display = "flex";
+    }
+  }
+
+  const starGroups = document.getElementsByClassName("star-group")
+
+
+  for (var i = 0; i < starGroups.length; i++) {
+    const starGroup = starGroups[i];
+
+    starGroup.addEventListener('click', (event) => {
+      toggleVisibility(starGroup, event);
+    });
+  }
+
+</script>
