@@ -6,3 +6,19 @@
 <% end %>
 
 <h1>Welcome to Top News</h1>
+
+
+<% @most_recent_articles.each do |headline| %>
+  <div> <%= headline.title %> <a href=<%= headline.url%>>link</a> </div> 
+  <% if headline.favorites > 0 %>
+    <div> Number of likes: <%= headline.favorites %> </div>
+    <% array_of_emails = headline.user_favorite.map { |favorite| favorite.user.email} %>
+    <div> Favorited by: <%= array_of_emails.join(", ") %> </div>
+  <% end %>
+  <% if @favorited_headlines.include?(headline.id) %>
+    <div> Thank you for voting! </div>
+  <% else %>
+   <%= button_to 'Like', like_path(headline), method: :put %>
+  <% end %>
+  <br>
+<% end %>

@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_19_225851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "headlines", force: :cascade do |t|
+    t.string "external_id"
+    t.string "url", null: false
+    t.string "title", null: false
+    t.integer "favorites", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["external_id"], name: "index_headlines_on_external_id", unique: true
+  end
+
+  create_table "user_favorites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "headline_id"
+    t.index ["headline_id"], name: "index_user_favorites_on_headline_id"
+    t.index ["user_id"], name: "index_user_favorites_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -33,4 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "user_favorites", "headlines"
+  add_foreign_key "user_favorites", "users"
 end
