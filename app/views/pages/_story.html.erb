@@ -3,20 +3,12 @@
 
 <div>
   <p>Index: <%= story_counter + 1 %></p>
-  <p>Title: <%= story["title"] %></p>
-  <p>By: <%= story["by"] %></p>
-  <p>Score: <%= story["score"] %></p>
-  <p>Link: <%= story["url"] %></p>
-  <p>Date: <%= story["time"] %></p>
-  <p>Starred by: FOO </p>
-  <div style="display: flex" class="star-group">
-    <div class="empty-star" style="width: 1%">
-      <%= embedded_svg('star.svg') %>
-    </div>
-    <div class="filled-star" style="width: 1%; display: none">
-      <%= embedded_svg('star-filled.svg') %>
-    </div>
-  </div>
+  <p>id: <%= story.story_id %></p>
+  <p>Title: <%= story.title %></p>
+  <p>By: <%= story.author %></p>
+  <p>Score: <%= story.score %></p>
+  <p>Link: <%= story.url %></p>
+  <p>Date: <%= story.time %></p>
   <div style="display: flex" class="star-group">
     <div class="empty-star" style="width: 1%">
       <%= embedded_svg('star.svg') %>
@@ -39,7 +31,6 @@
   }
 
   const starGroups = document.getElementsByClassName("star-group")
-
 
   for (var i = 0; i < starGroups.length; i++) {
     const starGroup = starGroups[i];
