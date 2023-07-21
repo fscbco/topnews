@@ -2,13 +2,9 @@ class PagesController < ApplicationController
 
   def home
     # TODO: make sure you handle errors here
-    url = "https://hacker-news.firebaseio.com/v0/topstories.json"
-    uri = URI(url)
-    response = Net::HTTP.get(uri)
-    story_ids = JSON.parse(response)
+    story_ids = call_api("https://hacker-news.firebaseio.com/v0/topstories.json")
 
     # TODO: put a caching mechanism here for efficiency if time permits
-
     non_persisted_stories = story_ids.map(&:to_s) - Story.where(story_id: story_ids).pluck(:story_id)
     non_persisted_stories.first(10).each { |story_id| create_story(story_id) }
 
@@ -18,10 +14,8 @@ class PagesController < ApplicationController
   private
 
   def create_story(story_id)
-    url = "https://hacker-news.firebaseio.com/v0/item/#{story_id}.json"
-    uri = URI(url)
-    response = Net::HTTP.get(uri)
-    params = create_story_params(JSON.parse(response))
+    story_response = call_api("https://hacker-news.firebaseio.com/v0/item/#{story_id}.json")
+    params = create_story_params(story_response)
     Story.create!(params)
   end
 
@@ -31,5 +25,11 @@ class PagesController < ApplicationController
     params["story_id"] = params.delete("id")
     params["time"] = Time.at(params.delete("time")).to_datetime
     params
+  end
+
+  def call_api(url)
+    uri = URI(url)
+    response = Net::HTTP.get(uri)
+    JSON.parse(response)
   end
 end
