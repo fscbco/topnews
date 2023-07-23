@@ -9,6 +9,11 @@
   <p>Score: <%= story.score %></p>
   <p>Link: <%= story.url %></p>
   <p>Date: <%= story.time %></p>
+  <% if story.starrables.exists? %>
+    <p>Starred by: 
+      <%= display_starred_by_emails_of_other_users(story.starrables) %>
+    </p>
+  <% end %>
   <div style="display: flex" class="star-group">
     <div class="empty-star" style="width: 1%">
       <%= embedded_svg('star.svg') %>

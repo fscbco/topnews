@@ -14,4 +14,12 @@ module ApplicationHelper
 
     raw doc
   end
+
+  def display_starred_by_emails_of_other_users(stars)
+    user_emails = stars.map do |star|
+      star.user.email
+    end - [current_user.email]
+
+    user_emails.join(", ")
+  end
 end

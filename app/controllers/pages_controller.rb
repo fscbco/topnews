@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     non_persisted_stories = story_ids.map(&:to_s) - Story.where(story_id: story_ids).pluck(:story_id)
     non_persisted_stories.first(10).each { |story_id| create_story(story_id) }
 
-    @stories = Story.where(story_id: story_ids)
+    @stories = Story.includes(starrables: :user).where(story_id: story_ids)
   end
 
   private
