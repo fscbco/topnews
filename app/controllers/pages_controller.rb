@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     non_persisted_stories.first(10).each { |story_id| create_story(story_id) }
 
     @stories = Story.includes(starrables: :user).where(story_id: story_ids)
+    @current_user_stories = @stories.joins(:starrables).where(starrables: {user_id: current_user.id})
   end
 
   private

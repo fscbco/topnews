@@ -1,5 +1,5 @@
-<% @empty_star = embedded_svg('star.svg') %>
-<% @filled_star = embedded_svg('star-filled.svg') %>
+<% starred = @current_user_stories.include?(story) %>
+<% user_emails = display_starred_by_emails_of_other_users(story.starrables) %>
 
 <div>
   <p>Index: <%= story_counter + 1 %></p>
@@ -9,17 +9,17 @@
   <p>Score: <%= story.score %></p>
   <p>Link: <%= story.url %></p>
   <p>Date: <%= story.time %></p>
-  <% if story.starrables.exists? %>
+  <% if user_emails.present? %>
     <p>Starred by: 
-      <%= display_starred_by_emails_of_other_users(story.starrables) %>
+      <%= user_emails %>
     </p>
   <% end %>
-  <div style="display: flex" class="star-group">
-    <div class="empty-star" style="width: 1%">
-      <%= embedded_svg('star.svg') %>
-    </div>
-    <div class="filled-star" style="width: 1%; display: none">
+  <div id=<%= "#{story.id}" %> style="display: flex" class="star-group">
+    <div class="filled-star" style="width: 1%; display: <%= starred ? "flex" : "none" %>">
       <%= embedded_svg('star-filled.svg') %>
+    </div>
+    <div class="empty-star" style="width: 1%; display: <%= starred ? "none" : "flex" %>">
+      <%= embedded_svg('star.svg') %>
     </div>
   </div>
 </div>
@@ -44,5 +44,4 @@
       toggleVisibility(starGroup, event);
     });
   }
-
 </script>
