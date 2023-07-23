@@ -1,19 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-    <title>Top News</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <p class="notice">
-      <%= notice %>
-    </p>
-    <p class="alert">
-      <%= alert %>
-    </p>
-    <%= yield %>
-  </body>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+  <title>Top News</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<!-- Modern News Website Navigation Bar -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <h1 class="navbar-logo">Top News</h1>
+      </div>
+      <div class="navbar-links">
+        <ul>
+          <li><%= link_to 'Home', top_stories_index_path %></li>
+          <li><%= link_to 'Flagged Stories', flagged_stories_path %></li>
+          <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'sign-out' %>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<p class="notice">
+  <%= notice %>
+</p>
+<p class="alert">
+  <%= alert %>
+</p>
+<%= yield %>
+</body>
 </html>

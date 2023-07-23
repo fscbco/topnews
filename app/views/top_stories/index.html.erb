@@ -1,0 +1,18 @@
+<script>
+  setTimeout(function() {
+    location.reload();
+  }, 300000);
+</script>
+
+<h1>Top Hacker News Stories</h1>
+
+<!-- Story Cards -->
+<% @top_stories.each do |story| %>
+  <div class="card">
+    <h2 class="card-title"><%= link_to story.title, story.url, target: '_blank', class: 'card-link' %></h2>
+    <p class="card-content">(Stars: <%= story.star_count %>)</p>
+    <% if user_signed_in? %>
+      <%= link_to "Star", star_top_story_path(story), method: :post %>
+    <% end %>
+  </div>
+<% end %>
