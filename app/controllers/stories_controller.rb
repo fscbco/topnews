@@ -16,7 +16,6 @@ class StoriesController < ApplicationController
 
   def starred
     @starred_stories = Story.joins(:starrables)
-    @current_user_stories = @starred_stories.where(starrables: {user_id: current_user.id})
   end
 
   private

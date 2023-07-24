@@ -1,5 +1,5 @@
-<% starred = @current_user_stories.include?(story) %>
-<% user_emails = display_starred_by_emails_of_other_users(story.starrables) %>
+<% starred = @current_user_stories&.include?(story) %>
+<% user_emails = can_star ? display_starred_by_emails_without_current_user(story.starrables) : display_starred_by_emails(story.starrables) %>
 
 <div>
   <p>Index: <%= story_counter + 1 %></p>
@@ -14,12 +14,14 @@
       <%= user_emails %>
     </p>
   <% end %>
-  <div id=<%= "#{story.id}" %> style="display: flex" class="star-group">
-    <div class="filled-star" style="width: 1%; display: <%= starred ? "flex" : "none" %>">
-      <%= embedded_svg('star-filled.svg') %>
+  <% if can_star %>
+    <div id=<%= "#{story.id}" %> style="display: flex" class="star-group">
+      <div class="filled-star" style="width: 1%; display: <%= starred ? "flex" : "none" %>">
+        <%= embedded_svg('star-filled.svg') %>
+      </div>
+      <div class="empty-star" style="width: 1%; display: <%= starred ? "none" : "flex" %>">
+        <%= embedded_svg('star.svg') %>
+      </div>
     </div>
-    <div class="empty-star" style="width: 1%; display: <%= starred ? "none" : "flex" %>">
-      <%= embedded_svg('star.svg') %>
-    </div>
-  </div>
+  <% end %>
 </div>

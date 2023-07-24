@@ -4,4 +4,4 @@
 
 <h1>Welcome to Top News</h1>
 
-<%= render partial: "story", collection: @stories %>
+<%= render partial: "story", collection: @stories, locals: { can_star: true } %>
