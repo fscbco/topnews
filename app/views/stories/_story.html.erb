@@ -1,14 +1,20 @@
 <% starred = @current_user_stories&.include?(story) %>
-<% user_emails = can_star ? display_starred_by_emails_without_current_user(story.starrables) : display_starred_by_emails(story.starrables) %>
+<% user_emails = display_starred_by_emails(story.starrables, can_star) %>
 
-<div>
-  <p>Index: <%= story_counter + 1 %></p>
-  <p>id: <%= story.story_id %></p>
-  <p>Title: <%= story.title %></p>
-  <p>By: <%= story.author %></p>
-  <p>Score: <%= story.score %></p>
-  <p>Link: <%= story.url %></p>
-  <p>Date: <%= story.time %></p>
+<div class="story">
+  <div class="story-info">
+    <p><%= story_counter + 1 %>.</p>
+    <% if story.url %>
+      <a class="story-link" href="<%= story.url %>" target="_blank"><%= story.title %></a>
+    <% else %>
+      <p><%= story.title %></p>
+    <% end %>
+  </div>
+  <div class="story-details">
+    <p>By: <%= story.author %></p>
+    <p>Score: <%= story.score %></p>
+    <p>Date: <%= story.time.strftime("%m/%d/%Y") %></p>
+  </div>
   <% if user_emails.present? %>
     <p>Starred by: 
       <%= user_emails %>
@@ -16,10 +22,10 @@
   <% end %>
   <% if can_star %>
     <div id=<%= "#{story.id}" %> style="display: flex" class="star-group">
-      <div class="filled-star" style="width: 1%; display: <%= starred ? "flex" : "none" %>">
+      <div class="filled-star" style="width: 3%; display: <%= starred ? "flex" : "none" %>">
         <%= embedded_svg('star-filled.svg') %>
       </div>
-      <div class="empty-star" style="width: 1%; display: <%= starred ? "none" : "flex" %>">
+      <div class="empty-star" style="width: 3%; display: <%= starred ? "none" : "flex" %>">
         <%= embedded_svg('star.svg') %>
       </div>
     </div>

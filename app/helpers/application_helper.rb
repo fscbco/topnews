@@ -1,10 +1,14 @@
 module ApplicationHelper
-  def embedded_svg(filename, options = {})
+  def find_asset(filename)
     assets = Rails.application.assets
-    asset = assets.find_asset(filename)
+    assets.find_asset(filename)
+  end
 
-    if asset
-      file = asset.source.force_encoding("UTF-8")
+  def embedded_svg(filename, options = {})
+    asset_file = find_asset(filename)
+
+    if asset_file
+      file = asset_file.source.force_encoding("UTF-8")
       doc = Nokogiri::HTML::DocumentFragment.parse file
       svg = doc.at_css "svg"
       svg["class"] = options[:class] if options[:class].present?
@@ -15,17 +19,13 @@ module ApplicationHelper
     raw doc
   end
 
-  def display_starred_by_emails_without_current_user(stars)
+  def display_starred_by_emails(stars, show_current_user = true)
     user_emails = stars.map do |star|
       star.user.email
-    end - [current_user.email]
+    end
 
-    user_emails.join(", ")
-  end
-
-  def display_starred_by_emails(stars)
-    user_emails = stars.map do |star|
-      star.user.email
+    if show_current_user
+      user_emails = user_emails - [current_user.email]
     end
 
     user_emails.join(", ")

@@ -14,7 +14,31 @@
  *= require_self
  */
 
+html {
+  font-family: Tahoma, sans-serif;
+}
+
+a, p {
+  margin: .2rem;
+}
+
 .nav-button {
   font-size: large;
   padding-top: 1rem;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px solid red;
+  padding-bottom: .3rem;
+}
+
+.story-info {
+  display: flex;
+}
+
+.story-details {
+  display: flex;
+  flex-direction: column;
 }

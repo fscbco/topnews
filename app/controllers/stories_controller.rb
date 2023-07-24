@@ -32,7 +32,7 @@ class StoriesController < ApplicationController
   end
 
   def starred
-    @starred_stories = Story.joins(:starrables)
+    @starred_stories = Story.joins(:starrables).distinct
   end
 
   private

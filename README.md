@@ -20,7 +20,7 @@ When a team member signs in, they will see recent news stories and be able to st
 * This list does not necessarily need to be the current live list, but it should be a recent and continuously updated list. ⚠️ _Implement a caching mechanism if time allows_
 * The number of stories displayed is up to you. ➡️ _Showing top 20_
 * The user should be able to star a story. The mechanism and display is up to you: flag, star, upvote, pick, etc. The UX is your choice. ✅
-* The stories chosen by the team members should display. It can be a separate page or the same page, the choice is yours.
+* The stories chosen by the team members should display. It can be a separate page or the same page, the choice is yours. ✅
 * Each story should show the name of the team member or members who flagged it. ✅
 * As an internal tool for a small team, performance optimization is not a requirement.
 * Be prepared to discuss known performance shortcomings of your solution and potential improvements.
@@ -29,4 +29,4 @@ When a team member signs in, they will see recent news stories and be able to st
 ## Issues
 
 * Seems that Spring is complaining about cached classes while running rspec. If you have time look into seeing if this can be resolved. 
- -> More on this. Had to run Spring stop once because Spring was hanging. Very annoying.
+ -> Solution: fixed in the test env file
