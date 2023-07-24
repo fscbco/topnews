@@ -5,9 +5,9 @@ class StarsController < ApplicationController
     respond_to do |format|
       format.json { render json: { star: @star } }
     end
-  rescue => error
+  rescue ActiveRecord::RecordInvalid => error
     respond_to do |format|
-      format.json { render json: { error: error.message} , status: :bad_request }
+      format.json { render json: { error: error.message } , status: :bad_request }
     end
   end
   
