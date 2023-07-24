@@ -1,0 +1,7 @@
+<div class="nav-button">
+  <%= link_to "Starred Stories", starred_path, method: :get %>
+</div>
+
+<h1>Welcome to Top News</h1>
+
+<%= render partial: "story", collection: @stories %>

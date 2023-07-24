@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  function toggle(group, event) {
+  function toggle(group) {
     const csrfToken = document.getElementsByName('csrf-token')[0].content;
 
     const isStarred = group.children[0].style.display === "flex";
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const starGroup = starGroups[i];
   
     starGroup.addEventListener('click', (event) => {
-      toggle(starGroup, event);
+      toggle(starGroup);
     });
   }
 })

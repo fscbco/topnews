@@ -1,15 +1,22 @@
-class PagesController < ApplicationController
-
+class StoriesController < ApplicationController
   def home
     # TODO: make sure you handle errors here
     story_ids = call_api("https://hacker-news.firebaseio.com/v0/topstories.json")
 
     # TODO: put a caching mechanism here for efficiency if time permits
     non_persisted_stories = story_ids.map(&:to_s) - Story.where(story_id: story_ids).pluck(:story_id)
+    
+    # Continuously adds 10 of the non_persisted_stories to the database
+    # TODO: pagination would make sense here
     non_persisted_stories.first(10).each { |story_id| create_story(story_id) }
 
     @stories = Story.includes(starrables: :user).where(story_id: story_ids)
     @current_user_stories = @stories.joins(:starrables).where(starrables: {user_id: current_user.id})
+  end
+
+  def starred
+    @starred_stories = Story.joins(:starrables)
+    @current_user_stories = @starred_stories.where(starrables: {user_id: current_user.id})
   end
 
   private

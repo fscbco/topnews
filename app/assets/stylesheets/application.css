@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.nav-button {
+  font-size: large;
+  padding-top: 1rem;
+}
