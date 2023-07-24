@@ -1,17 +1,4 @@
 <h1>Flagged Hacker News Stories</h1>
-
-<!-- Navigation Links -->
-<nav>
-  <% if user_signed_in? %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'sign-out' %>
-  <% end %>
-  <ul>
-    <li><%= link_to 'Home', top_stories_index_path %></li>
-    <li><%= link_to 'Flagged Stories', flagged_stories_path %></li>
-  </ul>
-</nav>
-
-<!-- Story Cards -->
 <% @flagged_stories.each do |story| %>
   <div class="card">
     <h2 class="card-title"><%= link_to story.title, story.url, target: '_blank', class: 'card-link' %></h2>
