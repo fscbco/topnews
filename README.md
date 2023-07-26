@@ -15,7 +15,7 @@ When a team member signs in, they will see recent news stories and be able to st
 
 ## Requirements
 
-* Users should sign in/out. (We have created a User model for you, the system has been pre-populated with several users.)
+* Users should sign in/out via front-end UI. (We have created a User model for you, the system has been pre-populated with several users.)
 * Users should come to a page and see a list of current top Hacker News stories. (This list does not necessarily need to be the current live list, but it should be a recent and continuously updated list.)
 * The number of stories displayed is up to you. (But zero, however numerical, is not a number you may choose for this purpose.)
 * The user should be able to star a story. The mechanism and display is up to you: flag, star, upvote, pick, etc. The UX is your choice.
