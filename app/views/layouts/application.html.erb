@@ -8,10 +8,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-<%= render :partial => '_nav' %>
     <p class="notice">
       <%= notice %>
     </p>
+    <% if current_user %>
+   <nav> <a href="/users/sign_out">Logout <%= current_user.email %></a></nav>
+    <% end %>
     <p class="alert">
       <%= alert %>
     </p>

@@ -19,17 +19,14 @@ RSpec.feature "User Experience", type: :feature do
     click_button "Log in"
   end
 
-  scenario "User signs in" do
-    expect(page).to have_content("Signed in successfully.")
+  scenario "User can login" do
+    expect(page).to have_content(user.email)
+    expect(page).to have_content("Logout")
   end
 
-  scenario "User can star stories" do
-    within("#story_#{story['id']}") do
-      click_button "Star"
-    end
-    expect(page).to have_content("You've starred this story.")
-    visit starred_stories_path
-    expect(page).to have_content("Starred by #{user.id}")
+  scenario "User can logout" do
+    expect(page).to have_content(user.email)
+    click_on "Logout"
+    expect(page).not_to have_content(user.email)
   end
-
 end

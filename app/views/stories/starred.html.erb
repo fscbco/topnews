@@ -1,9 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Starred</h1>
-
+<h1>Welcome back, <%= current_user.email %>!</h1>
+<h3>Here are your starred stories...</h3>
 <div id="stories">
-  <% @starred_stories.each do |story| %>
+  <% @stories.each do |story| %>
     <%= render story %>
     <p>
 

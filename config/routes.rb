@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :stories
-  get  '/starred_stories'    => 'starred_stories#index'
-  post    '/starred_stories'    => 'starred_stories#create',     as: 'starred_stories_path'
-  root to: 'pages#home'
-
+  get  '/stories'    => 'stories#index'
+  get  '/starred_stories'    => 'stories#starred'
+  post    '/starred_stories'    => 'stories#create',     as: 'starred_stories_path'
+  root to: 'stories#starred'
+  get  '/logout'    => 'devise/sessions#destroy'
 end

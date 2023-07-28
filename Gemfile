@@ -11,7 +11,7 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'puma'
-
+gem 'sqlite3'
 group  :development do
   gem 'spring', group: :development
   gem 'pry-rails'
