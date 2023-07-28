@@ -4,11 +4,10 @@
 
 <div id="stories">
   <% @stories.each do |story| %>
-    <%= render story %>
+    <h1><%= story['title'] %></h1>
     <p>
-      <%= link_to "Show this story", story %>
-    <p>Starred by <%= story.user_id %></p>
-
+      <%= link_to "Show this story", story['url'] %>
+    <p>Starred by <%= story['user_id']%></p>
     </p>
   <% end %>
 </div>

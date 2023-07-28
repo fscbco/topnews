@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Routes', type: :routing do
   describe 'PagesController' do
 
-    it 'routes GET / to stories#starred' do
-      expect(get: '/').to route_to('stories#starred')
+    it 'routes GET / to stories#index' do
+      expect(get: '/').to route_to('stories#index')
     end
   end
 

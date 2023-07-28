@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get  '/stories'    => 'stories#index'
   get  '/starred_stories'    => 'stories#starred'
   post    '/starred_stories'    => 'stories#create',     as: 'starred_stories_path'
-  root to: 'stories#starred'
+  root to: 'stories#index'
   get  '/logout'    => 'devise/sessions#destroy'
 end

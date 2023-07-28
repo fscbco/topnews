@@ -1,7 +1,8 @@
 class StoriesController < ApplicationController
 
   def index
-    @stories = Story.first(10)
+    # @stories = Story.first(10)
+    @stories = HackerNewsService.new.top_stories
   end
 
   def starred

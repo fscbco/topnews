@@ -1,0 +1,8 @@
+<h1>Stories</h1>
+
+<% @stories.each do |starred_story| %>
+  <div class="story" id="story_<%= starred_story.id %>">
+    <h2><%= link_to starred_story.story.title, starred_story.story.url %></h2>
+    <p>Starred by <%= starred_story.user.name %></p>
+  </div>
+<% end %>
