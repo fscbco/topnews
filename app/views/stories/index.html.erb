@@ -1,15 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Stories</h1>
+<h1>New Stories</h1>
 
 <div id="stories">
   <% @stories.each do |story| %>
     <h1><%= story['title'] %></h1>
     <p>
-      <%= link_to "Show this story", story['url'] %>
-    <p>Starred by <%= story['user_id']%></p>
+      <%= link_to "Visit Link", story['url'] %>
     </p>
+    <%= link_to "Star Story", "stories/#{story['id']}" %>
   <% end %>
 </div>
 
-<%= link_to "New story", new_story_path %>

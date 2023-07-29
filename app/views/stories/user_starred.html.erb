@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>My Stories</h1>
+
+<div id="stories">
+  <% @stories.each do |story| %>
+    <h1><%= story.title || "?" %></h1>
+    <p>
+      <%= link_to "Visit Link", story.url %>
+    <p>Updated <%= story.updated_at %></p>
+    </p>
+  <% end %>
+</div>
+

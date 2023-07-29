@@ -12,7 +12,12 @@
       <%= notice %>
     </p>
     <% if current_user %>
-   <nav> <a href="/users/sign_out">Logout <%= current_user.email %></a></nav>
+  <h3>Welcome back, <%= current_user.email %> (<a style="text-align:right" href="/users/sign_out">Logout</a>)</h3>
+   <nav style="background-color: gray; color:white">
+ <a href="/starred" >** STARRED **</a> |
+     <a href="/starred" >** ALL STORIES**</a>
+
+   </nav>
     <% end %>
     <p class="alert">
       <%= alert %>

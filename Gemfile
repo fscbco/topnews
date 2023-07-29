@@ -38,3 +38,4 @@ group :development, :test do
   gem 'ffaker'
   gem 'factory_bot_rails'
 end
+gem 'metainspector'

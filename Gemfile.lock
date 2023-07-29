@@ -103,6 +103,8 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
     erubi (1.12.0)
     execjs (2.8.1)
@@ -111,6 +113,25 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faraday (2.7.10)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-cookie_jar (0.0.7)
+      faraday (>= 0.8.0)
+      http-cookie (~> 1.0.0)
+    faraday-encoding (0.0.5)
+      faraday
+    faraday-follow_redirects (0.3.0)
+      faraday (>= 1, < 3)
+    faraday-gzip (1.0.0)
+      faraday (>= 1.0)
+      zlib (~> 2.1)
+    faraday-http-cache (2.5.0)
+      faraday (>= 0.8)
+    faraday-net_http (3.0.2)
+    faraday-retry (2.2.0)
+      faraday (~> 2.0)
+    fastimage (2.2.7)
     ffaker (2.21.0)
     ffi (1.15.5)
     formatador (1.1.0)
@@ -136,6 +157,8 @@ GEM
     guard-sidekiq (0.1.0)
       guard (>= 2)
       sidekiq
+    http-cookie (1.0.5)
+      domain_name (~> 0.5)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -158,10 +181,23 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    metainspector (5.15.0)
+      addressable (~> 2.8.4)
+      faraday (~> 2.5)
+      faraday-cookie_jar (~> 0.0)
+      faraday-encoding (~> 0.0)
+      faraday-follow_redirects (~> 0.3)
+      faraday-gzip (>= 0.1, < 2.0)
+      faraday-http-cache (~> 2.5)
+      faraday-retry (~> 2.0)
+      fastimage (~> 2.2)
+      nesty (~> 1.0)
+      nokogiri (~> 1.13)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.18.1)
     nenv (0.3.0)
+    nesty (1.0.2)
     net-imap (0.3.6)
       date
       net-protocol
@@ -253,6 +289,7 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.1)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -295,6 +332,9 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.2)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -310,6 +350,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.8)
+    zlib (2.1.1)
 
 PLATFORMS
   arm64-darwin-22
@@ -329,6 +370,7 @@ DEPENDENCIES
   guard-sidekiq
   jbuilder
   listen
+  metainspector
   pg
   pry-rails
   puma
