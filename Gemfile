@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '3.2.2'
 # ruby File.read('.ruby-version').chomp
 gem 'dotenv'
 gem 'rails', '~> 7.0.3'
@@ -39,3 +40,5 @@ group :development, :test do
   gem 'factory_bot_rails'
 end
 gem 'metainspector'
+gem 'administrate'
+
