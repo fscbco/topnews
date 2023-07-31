@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :stories
+      resources :users
+
+      root to: "stories#index"
+    end
   devise_for :users
   resources :stories
   get  '/stories'    => 'stories#index'
