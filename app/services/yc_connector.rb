@@ -14,8 +14,8 @@ class YcConnector
     HTTParty.get("#{service_url}/item/#{item_id}.json").body
   end
 
-  def build_feed
-    item_ids = get_stories.first(10)
+  def build_feed(page:)
+    item_ids = get_stories[((10 * page) - 10)...10 * page]
     @feed = item_ids.map {|item_id| JSON.parse(load_item(item_id))}
   end
 
@@ -34,19 +34,5 @@ class YcConnector
     else
       "newstories"
     end
-  end
-
-  def set_last_item_fetched item_id
-    Redis.current.set("last_item_fetched", item_id)
-  end
-
-  def last_item_fetched
-    @item ||= Redis.current.get("last_item_fetched")
-  end
-end
-
-class YCConnectorError < StandardError
-  def initialize(message)
-    super(message)
   end
 end
