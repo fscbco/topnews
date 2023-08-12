@@ -20,3 +20,8 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+gem 'httparty'
+gem 'json'
+gem 'pry'
+
+gem "tailwindcss-rails", "~> 2.0"
