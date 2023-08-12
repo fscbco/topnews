@@ -58,13 +58,13 @@
 
       <div class="basis-2/5 mx-5 overflow-auto" style="max-height: 800px">
         <h3 class="m-2 text-center font-bold pb-6"> Liked Posts </h3>
-        <% @liked_feed.each do |f| %>
+        <% @liked_feed.each do |item_id, items| %>
           <div class="h-32 rounded-lg bg-gray-100 p-2 mb-5">
             <div class="relative pl-16">
             <dt class="text-base font-semibold leading-7 text-gray-900">
-              Liked by <i><%= f.user.name %></i>
+              Liked by <i><%= user_name_list(items) %></i>
             </dt>
-            <dd class="mt-2 text-base leading-7 text-gray-600"> <%= f.title %> </dd>
+            <dd class="mt-2 text-base leading-7 text-gray-600"> <%= items.first.title %> </dd>
             </div>
           </div>
         <% end %>
