@@ -7,7 +7,7 @@ class YcConnector
   end
 
   def get_stories
-    @item_ids ||= HTTParty.get("#{service_url}/#{@feed_type}.json")
+    @_item_ids ||= HTTParty.get("#{service_url}/#{@feed_type}.json")
   end
 
   def load_item item_id
