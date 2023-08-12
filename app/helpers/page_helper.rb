@@ -4,7 +4,8 @@ module PageHelper
   end
 
   def count_verbiage items
-    items.count > 2 ? " & #{items.count - 2} #{'other'.pluralize}" : ""
+    reduced_count = items.count - 2
+    items.count > 2 ? " & #{reduced_count} #{'other'.pluralize(reduced_count)}" : ""
   end
 
   def user_name_list items
