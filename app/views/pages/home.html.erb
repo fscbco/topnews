@@ -1,1 +1,16 @@
 <h1>Welcome to Top News</h1>
+
+<% if user_signed_in? %>
+    <ul>
+        <% @articles.map do |article| %>
+            <li><%= link_to article['title'], article['hn_url']  %> <span><%= button_to "Flag", stories_path({
+                :user_id => current_user.id, 
+                :id => article['id'], 
+                :title => article['title'],
+                :hn_url => article['hn_url'],
+                :url => article['url']
+            }) %></span></li>
+        <% end %>
+    </ul>
+    <%= link_to "Flagged Stories", stories_path %>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Flagged Stories</h1>
+<% if user_signed_in? %>
+    <ul>
+        <% @flagged_stories.map do |flagged_story| %>
+            <li><%= link_to flagged_story[:story][:title], flagged_story[:story][:hn_url]  %>
+            <span> 
+                flagged by <%= flagged_story[:users] %>   
+            </span></li>
+        <% end %>
+    </ul>
+<% end %>
+<%= link_to "Top Stories", root_path %>
