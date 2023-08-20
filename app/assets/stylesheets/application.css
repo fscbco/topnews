@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+/*
+  Added a micro bit of CSS to improve readability
+*/
+.wrap {
+  max-width: 60rem;
+  margin: auto;
+}
+
+.post-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.divider {
+  margin: 1rem 0;
+}
