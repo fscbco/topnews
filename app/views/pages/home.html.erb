@@ -3,11 +3,11 @@
   <%- if user_signed_in? %>
     <%= link_to "Sign out", destroy_user_session_path, method: 'delete' %>
   <% end %>
-  <!-- TODO: For time, I threw "everything" in here. I would move this below to a partial or a better place -->
-  <!-- to match ownership of Favorite. Also skipping all JS/making a AJAX call, allowing "unfavoriting" -->
+  <!-- TODO: For time, I threw "everything" in the homepage. I'd probably move to a partial.
+       Also skipped all JS/making a AJAX call, allowing "unfavoriting" -->
   <% @top_stories.each do |top_story| %>
     <div>
-      <p class="post-title"><%= top_story['title'] %></p>
+      <a href="<%= top_story['url'] %>"><p class="post-title"><%= top_story['title'] %></p></a>
       <p>Score: <%= top_story['score'] %></p>
       <p>Submitted by: <%= top_story['by'] %></p>
       <%- unless favorited_by(top_story['id']).empty? %>
