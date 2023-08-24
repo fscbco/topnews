@@ -11,5 +11,23 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe FavoritesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # TODO: with more time would add spec helpers to easier test helpers that rely on current_user to test has_favorited?
+  describe "favorited_by?" do
+    context 'when users have favorited post' do
+      before do
+        Favorite.create!( { post_id: 1, user: User.create(first_name: 'Gojo', last_name: 'Satoru', email: 'f@b.c', password: 'foobar123') })
+        Favorite.create!( { post_id: 1, user: User.create(first_name: 'Nanami', last_name: 'Kento', email: 'g@h.b', password: 'foobar123') })
+      end
+
+      it 'returns full names separated by a comma' do
+        expect(helper.favorited_by(1)).to eq('Gojo Satoru, Nanami Kento')
+      end
+    end
+
+    context 'when no users have favorited a post' do
+      it 'returns an empty string' do
+        expect(helper.favorited_by(2)).to eq('')
+      end
+    end
+  end
 end
