@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe User do
   context "creating a new user" do
+    # Ideally would use something like Fabricate to create models for tests
     let(:attrs) do
       { first_name: :foo, last_name: :bar, email: 'f@b.c', password: 'foobar123' }
     end

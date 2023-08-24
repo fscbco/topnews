@@ -1,1 +1,25 @@
-<h1>Welcome to Top News</h1>
+<main>
+  <h1>Welcome to Top News</h1>
+  <%- if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, method: 'delete' %>
+  <% end %>
+  <!-- TODO: For time, I threw "everything" in the homepage. I'd probably move to a partial.
+       Also skipped all JS/making a AJAX call, allowing "unfavoriting" -->
+  <% @top_stories.each do |top_story| %>
+    <div>
+      <a href="<%= top_story['url'] %>"><p class="post-title"><%= top_story['title'] %></p></a>
+      <p>Score: <%= top_story['score'] %></p>
+      <p>Submitted by: <%= top_story['by'] %></p>
+      <%- unless favorited_by(top_story['id']).empty? %>
+        <p>Favorited by: <%= favorited_by(top_story['id']) %></p>
+      <% end %>
+      <%- if !has_favorited?(top_story['id']) %>
+        <%= form_with url: "/favorite", method: :post do |form| %>
+          <%= form.hidden_field :post_id, value: top_story['id'] %>
+          <%= form.submit "Favorite" %>
+        <% end %>
+      <% end %>
+      <hr class="divider">
+    </div>
+  <% end %>
+</main>
