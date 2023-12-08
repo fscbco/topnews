@@ -4,6 +4,4 @@ Rails.application.routes.draw do
   resource :likes, only: [:create]
   root to: 'stories#index'
 
-
-  mount GoodJob::Engine => '/good_job'
 end

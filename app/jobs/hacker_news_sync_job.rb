@@ -1,4 +1,4 @@
-#this job pulls story data from hacker news and stories it locally
+#This job pulls story data from hacker news and stories it locally
 #upon completion it schedules another job for an hour later
 
 require 'net/http'
@@ -10,9 +10,9 @@ class HackerNewsSyncJob < ApplicationJob
   end
 
   def perform
-    uri = URI('https://hacker-news.firebaseio.com/v0/topstories.json')
-    response = Net::HTTP.get_response(uri)
-    if response.is_a?(Net::HTTPSuccess)
+    begin
+      uri = URI('https://hacker-news.firebaseio.com/v0/topstories.json')
+      response = Net::HTTP.get_response(uri)
       top_story_ids = JSON.parse(response.body)
       story_hashes = []
       top_story_ids.each do |id|
@@ -23,10 +23,10 @@ class HackerNewsSyncJob < ApplicationJob
       end
       Story.upsert_all(story_hashes, unique_by: :hacker_news_id)
       Story.where.not(hacker_news_id: top_story_ids).update_all(top: false)
-    else
-      puts "Failed to fetch top stories. HTTP Status: #{response.code}"
-      return nil
+    rescue => e
+      #would report this to whatever error reporting
+      #mechanism we have running, but supress it here to ensure it gets recued for an hour
+      Rails.logger.error "Hacker Job Exception: #{e.message}"
     end
-    
   end
 end
