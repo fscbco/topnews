@@ -1,0 +1,43 @@
+<h1>welcome to top news </h1>
+<%= link_to "All Stories", root_path %>
+
+<%= link_to "Reccomended Stories", root_path(filter: {liked: true}) %>
+<% if @stories %>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Reccomended By </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @stories.each do |story| %>
+        <tr>
+          <td>
+            <%= link_to story.title , story.url.blank? ? "https://news.ycombinator.com/item?id=#{story.hacker_news_id}" : story.url%>
+          </td>
+          <td>
+            <ul>
+            <% story.users.each do |user| %>
+             <li>
+               <%= "#{user.first_name} #{user.last_name}" %>
+             </li>
+            <% end%>
+            </ul>
+          </td>
+          <td>
+            <% unless story.users.include?(current_user) %>
+              <%= form_with(url: likes_path, method: :post) do |form| %>
+                <%= form.hidden_field :story_id, value: story.id %>
+              <%= form.submit "Like" %>
+            <% end %>
+            <%end%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+<%== pagy_info(@pagy) %>
+<% end %>
