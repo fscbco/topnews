@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_15_020153) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["hacker_news_id"], name: "index_hacker_news_stories_on_hacker_news_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

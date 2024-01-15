@@ -6,18 +6,25 @@ class HackerNewsGateway
   def top_stories(count = 10)
     # Fetch all top story ids, truncate to requested number
     ids = @api.top_story_ids[0...count]
-    # Initialize story objects
-    @api.fetch_stories(ids).map { |s| find_or_create_story(s) }
+
+    # Fetch the story details corresponding to those ids
+    stories = @api.fetch_stories(ids)
+      # Filter down to actual stories; ads are included in topstories endpoint
+      .filter { |s| s["type"] == "story" }
+      # Convert the deserialized JSON into a hash we can use to create a record
+      .map { |s| prepare_for_upsert(s) }
+
+    HackerNewsStory.upsert_all(stories, unique_by: :hacker_news_id)
+    HackerNewsStory.where(hacker_news_id: ids).all
   end
 
   private
 
-  def find_or_create_story(hash)
+  def prepare_for_upsert(hash)
     hash.transform_keys!(&:to_sym)
     args = hash.slice(:by, :score, :title, :url)
     args[:time] = Time.at(hash[:time])
-    HackerNewsStory
-      .create_with(args)
-      .find_or_create_by(hacker_news_id: hash[:id])
+    args[:hacker_news_id] = hash[:id]
+    args
   end
 end
