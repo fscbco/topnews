@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "HackerNewsGateway" do
-  describe "top_stories" do
+  describe "top_story_ids" do
     let(:api) do
       stub = double("HackerNewsApi")
       allow(stub).to receive(:top_story_ids) { [1,2,3] }
@@ -22,20 +22,27 @@ describe "HackerNewsGateway" do
 
     subject { HackerNewsGateway.new(api) }
 
-    it "returns a collection of HackerNewsStory objects" do
-      expect(subject.top_stories).to all(be_a(HackerNewsStory))
+    it "returns a list of top ids" do
+      expect(subject.top_story_ids).to be_instance_of(Array)
     end
 
     it "filters out ads" do
-      expect(subject.top_stories.size).to be(2)
+      expect(subject.top_story_ids.size).to be(2)
     end
 
-    it "transforms the epoch time to a ActiveSupport::TimeWithZone object" do
-      expect(subject.top_stories[0].time).to be_instance_of(ActiveSupport::TimeWithZone)
+    it "upserts the retrieved stories" do
+      expect(HackerNewsStory).to receive(:upsert_all)
+        .with([
+          {hacker_news_id: 1, by: "Jane", score: 1, time: Time.at(111111111), title: 
+          "Story 1", url: "http://storyone.com"},
+          {hacker_news_id: 2, by: "John", score: 2, time: Time.at(111111112), title: 
+          "Story 2", url: "http://storytwo.com"}
+        ], unique_by: :hacker_news_id)
+      subject.top_story_ids
     end
 
     it "only returns the number of stories I request" do
-      expect(subject.top_stories(1).size).to be(1)
+      expect(subject.top_story_ids(1).size).to be(1)
     end
   end
 end
