@@ -13,7 +13,7 @@
       ago
       |
       <%= link_to "Like", like_story_path(s), method: :post %>
-      <%- if s.users.count > 0 %>
+      <%- if s.users.size > 0 %>
         | Liked by
         <%= s.users.map(&:full_name).join(", ") %>
       <% end %>
