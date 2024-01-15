@@ -18,6 +18,7 @@ gem 'sass-rails'
 gem 'selenium-webdriver', group: [:development, :test]
 gem 'spring', group: :development
 gem 'turbolinks'
+gem 'typhoeus'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
