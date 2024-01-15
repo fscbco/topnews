@@ -7,14 +7,17 @@ class HackerNewsGateway
     # Fetch all top story ids, truncate to requested number
     ids = @api.top_story_ids[0...count]
     # Initialize story objects
-    @api.fetch_stories(ids).map { |s| initialize_story(s) }
+    @api.fetch_stories(ids).map { |s| find_or_create_story(s) }
   end
 
   private
 
-  def initialize_story(hash)
+  def find_or_create_story(hash)
     hash.transform_keys!(&:to_sym)
-    args = hash.slice(:by, :id, :score, :title, :url)
-    HackerNewsStory.new(time: Time.at(hash[:time]), **args)
+    args = hash.slice(:by, :score, :title, :url)
+    args[:time] = Time.at(hash[:time])
+    HackerNewsStory
+      .create_with(args)
+      .find_or_create_by(hacker_news_id: hash[:id])
   end
 end

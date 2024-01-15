@@ -15,11 +15,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_15_020153) do
   enable_extension "plpgsql"
 
   create_table "hacker_news_stories", force: :cascade do |t|
+    t.integer "hacker_news_id"
     t.string "by"
     t.integer "score"
     t.datetime "time"
     t.string "title"
     t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
