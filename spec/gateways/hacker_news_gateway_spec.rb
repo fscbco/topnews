@@ -28,6 +28,7 @@ describe "HackerNewsGateway" do
 
     it "filters out ads" do
       expect(subject.top_story_ids.size).to be(2)
+      expect(subject.top_story_ids).to eq([1,2])
     end
 
     it "upserts the retrieved stories" do
