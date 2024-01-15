@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_15_020153) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hacker_news_stories", force: :cascade do |t|
+    t.string "by"
+    t.integer "score"
+    t.datetime "time"
+    t.string "title"
+    t.string "url"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"

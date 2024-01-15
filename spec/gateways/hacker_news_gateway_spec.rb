@@ -26,8 +26,8 @@ describe "HackerNewsGateway" do
       expect(subject.top_stories[0]).to be_instance_of(HackerNewsStory)
     end
 
-    it "transforms the epoch time to a Time object" do
-      expect(subject.top_stories[0].time).to be_instance_of(Time)
+    it "transforms the epoch time to a ActiveSupport::TimeWithZone object" do
+      expect(subject.top_stories[0].time).to be_instance_of(ActiveSupport::TimeWithZone)
     end
 
     it "only returns the number of stories I request" do

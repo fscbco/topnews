@@ -1,11 +1,3 @@
-class HackerNewsStory
-  attr_accessor :id, :by, :score, :time, :title, :url
-
-  def initialize(id:, by:, score:, time:, title:, url:)
-    @id, @by, @score, @time, @title, @url = id, by, score, time, title, url
-  end
-end
-
 class HackerNewsGateway
   def initialize(api=HackerNewsApi)
     @api = api
