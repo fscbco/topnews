@@ -14,4 +14,9 @@ describe User do
       expect(User.new(attrs.except(:password))).to be_invalid
     end
   end
+
+  it "has a full name" do
+    user = User.new(first_name: "John", last_name: "Doe")
+    expect(user.full_name).to eq("John Doe")
+  end
 end

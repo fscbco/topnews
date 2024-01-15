@@ -16,8 +16,8 @@ RSpec.feature "Like a story", type: :feature do
     sign_in(user)
     visit "/stories"
     expect(page).to have_text("Vector Databases: A Technical Primer")
-    expect(page).to_not have_text("Liked by #{user.first_name}")
+    expect(page).to_not have_text("Liked by #{user.full_name}")
     click_link("Like", match: :first)
-    expect(page).to have_text("Liked by #{user.first_name}")
+    expect(page).to have_text("Liked by #{user.full_name}")
   end
 end

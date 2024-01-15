@@ -15,9 +15,7 @@
       <%= link_to "Like", like_story_path(s), method: :post %>
       <%- if s.users.count > 0 %>
         | Liked by
-        <%- s.users.each do |u| %>
-          <%= s.users.map(&:first_name).join(", ") %>
-        <% end %>
+        <%= s.users.map(&:full_name).join(", ") %>
       <% end %>
     </p>
   </li>
