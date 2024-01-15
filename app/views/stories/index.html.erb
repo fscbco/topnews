@@ -3,13 +3,13 @@
 <%- @stories.each do |s| %>
   <li>
     <p>
-      <%= link_to s[:title], s[:url] %>
+      <%= link_to s.title, s.url %>
       <br/>
-      <%= s[:score] %>
+      <%= s.score %>
       points by
-      <%= s[:by] %>
+      <%= s.by %>
       |
-      <%= time_ago_in_words(Time.at(s[:time])) %>
+      <%= time_ago_in_words(Time.at(s.time)) %>
       ago
     </p>
   </li>
