@@ -12,5 +12,7 @@ RSpec.feature "View top stories", type: :feature do
     sign_in(user)
     visit "/stories"
     expect(page).to have_text("Welcome to Top News")
+    expect(page).to have_text("Vcc – The Vulkan Clang Compiler")
+    expect(page).to have_text("Wikihouse: Open-Source Houses")
   end
 end

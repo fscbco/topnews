@@ -1,1 +1,17 @@
 <h1>Welcome to Top News</h1>
+<ol>
+<%- @stories.each do |s| %>
+  <li>
+    <p>
+      <%= link_to s[:title], s[:url] %>
+      <br/>
+      <%= s[:score] %>
+      points by
+      <%= s[:by] %>
+      |
+      <%= time_ago_in_words(Time.at(s[:time])) %>
+      ago
+    </p>
+  </li>
+<%- end %>
+</ol>
