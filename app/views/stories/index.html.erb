@@ -9,7 +9,7 @@
       points by
       <%= s.by %>
       |
-      <%= time_ago_in_words(Time.at(s.time)) %>
+      <%= time_ago_in_words(s.time) %>
       ago
       |
       <%= link_to "Like", like_story_path(s), method: :post %>
