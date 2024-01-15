@@ -14,6 +14,10 @@ module Topnews
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.autoload_paths << "#{root}/app/gateways"
+    config.autoload_paths << Rails.root.join('app/gateways')
+    config.autoload_paths << Rails.root.join('lib')
+    %w[assets tasks].each do |subdirectory|
+      Rails.autoloaders.main.ignore("#{Rails.root}/lib/#{subdirectory}")
+    end
   end
 end
