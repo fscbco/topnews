@@ -1,0 +1,12 @@
+<ul class="flex flex-wrap items-center justify-center text-gray-900 dark:text-white">
+    <li>
+        <a href="/" class="me-4 hover:underline md:me-6">Top Stories</a>
+    </li>
+    <li>
+        <a href="/user_stories" class="me-4 hover:underline md:me-6">Team Selected Stories</a>
+    </li>
+</ul>
+</br>
+<ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700flex">
+  <%= render partial: 'shared/story', collection: @stories %>
+</ul>

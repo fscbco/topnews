@@ -1,0 +1,23 @@
+current directory: /Users/dkitchenerable/code/topnews/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.18/ext/mri
+/Users/dkitchenerable/.rvm/rubies/ruby-3.1.2/bin/ruby -I /Users/dkitchenerable/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240115-35880-nopgut.rb extconf.rb
+creating Makefile
+
+current directory: /Users/dkitchenerable/code/topnews/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.18/ext/mri
+make DESTDIR\= clean
+
+current directory: /Users/dkitchenerable/code/topnews/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.18/ext/mri
+make DESTDIR\=
+compiling bcrypt_ext.c
+compiling crypt_blowfish.c
+gcc  -D__SKIP_GNU -I/opt/homebrew/opt/postgresql@15/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -c -o x86.o x86.S
+compiling crypt_gensalt.c
+compiling wrapper.c
+wrapper.c:182:60: warning: declaration of 'struct crypt_data' will not be visible outside of this function [-Wvisibility]
+char *crypt_r(const char *key, const char *setting, struct crypt_data *data)
+                                                           ^
+1 warning generated.
+linking shared-object bcrypt_ext.bundle
+
+current directory: /Users/dkitchenerable/code/topnews/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.18/ext/mri
+make DESTDIR\= install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 bcrypt_ext.bundle ./.gem.20240115-35880-zbd7hs
