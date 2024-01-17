@@ -14,4 +14,8 @@ describe User do
       expect(User.new(attrs.except(:password))).to be_invalid
     end
   end
+
+  describe 'associations' do
+    it { should have_many(:user_stories)}
+  end
 end

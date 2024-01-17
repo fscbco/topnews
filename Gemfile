@@ -22,3 +22,7 @@ gem 'uglifier'
 gem 'web-console', group: :development
 gem 'httparty'
 gem 'tailwindcss-rails'
+
+group :test do
+  gem 'shoulda-matchers', '~> 6.0'
+end
