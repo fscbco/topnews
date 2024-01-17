@@ -7,7 +7,11 @@
             <a href="<%= story.url %>" class="hover:underline"><%= story.title %></a>
          </p>
          <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-             <%= link_to "Like", user_stories_path(story.id), method: :post %>
+            <% if story.user_stories.pluck(:user_id).include?(current_user.id) == false %>
+              <%= link_to "Like", user_stories_path(story.id), method: :post %>
+            <% else %>
+              liked by you
+            <% end %>
          </p>
       </div>
    </div>
