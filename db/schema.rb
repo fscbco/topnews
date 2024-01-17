@@ -22,12 +22,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_17_322435) do
   end
 
   create_table "user_stories", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "stories_id"
+    t.bigint "user_id"
+    t.bigint "story_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["stories_id"], name: "index_user_stories_on_stories_id"
-    t.index ["users_id"], name: "index_user_stories_on_users_id"
+    t.index ["story_id"], name: "index_user_stories_on_story_id"
+    t.index ["user_id"], name: "index_user_stories_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,6 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_17_322435) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "user_stories", "stories", column: "stories_id"
-  add_foreign_key "user_stories", "users", column: "users_id"
+  add_foreign_key "user_stories", "stories"
+  add_foreign_key "user_stories", "users"
 end

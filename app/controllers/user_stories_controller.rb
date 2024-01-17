@@ -1,6 +1,6 @@
 class UserStoriesController < ApplicationController
   def index
-    @user_stories = NewsService.fetch_stories
+    @user_stories = NewsService.fetch_user_stories
   end
 
   def create

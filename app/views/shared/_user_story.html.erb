@@ -7,7 +7,8 @@
             <a href="<%= user_story.url %>" class="hover:underline"><%= user_story.title %></a>
          </p>
          <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-            Like
+           Liked by:
+            <%= user_story.user_stories.collect { |us| us.user.first_name }.join(',') %>
          </p>
       </div>
    </div>
