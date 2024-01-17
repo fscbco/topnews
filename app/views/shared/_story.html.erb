@@ -10,7 +10,7 @@
             <% if story.user_stories.pluck(:user_id).include?(current_user.id) == false %>
               <%= link_to "Like", user_stories_path(story.id), method: :post %>
             <% else %>
-              liked by you
+              
             <% end %>
          </p>
       </div>

@@ -4,7 +4,7 @@ class HackerNewsClient
 
   def fetch_story_ids
     res = self.class.get("/v0/topstories.json?print=pretty")
-    JSON.parse(res.body)[0..10]
+    JSON.parse(res.body)[0..9]
   end
 
   def fetch_story(id)

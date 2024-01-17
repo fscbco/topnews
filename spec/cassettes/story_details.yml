@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39020365.json?print=pretty
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 17 Jan 2024 04:13:57 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '895'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "by" : "virgildotcodes",
+          "descendants" : 340,
+          "id" : 39020365,
+          "kids" : [ 39022677, 39021447, 39021359, 39021552, 39021813, 39022106, 39021409, 39022008, 39022854, 39021614, 39021839, 39023028, 39021281, 39023070, 39020809, 39023072, 39021324, 39021567, 39022559, 39022337, 39021461, 39020382, 39022970, 39022184, 39022740, 39021814, 39021972, 39021804, 39022605, 39021830, 39021205, 39021938, 39021687, 39022137, 39021961, 39022068, 39022643, 39021811, 39022885, 39021181, 39021584, 39021517, 39022376, 39021889, 39021350, 39021300, 39021202, 39021183, 39021788, 39021144, 39021210, 39021260, 39021220, 39022628, 39021171, 39021276 ],
+          "score" : 246,
+          "time" : 1705445923,
+          "title" : "US developers can offer non-app store purchasing, Apple still collect commission",
+          "type" : "story",
+          "url" : "https://www.macrumors.com/2024/01/16/us-app-store-alternative-purchase-option/"
+        }
+    http_version:
+  recorded_at: Wed, 17 Jan 2024 04:13:57 GMT
+recorded_with: VCR 5.1.0

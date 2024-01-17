@@ -27,4 +27,6 @@ group :test do
   gem 'shoulda-matchers', '~> 6.0'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
+  gem 'vcr', '~> 5.0'
+  gem 'webmock', '~> 3.7', '>= 3.7.6'
 end
