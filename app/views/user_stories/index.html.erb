@@ -1,12 +1,15 @@
+<div class="sticky top-0">
 <ul class="flex flex-wrap items-center justify-center text-gray-900 dark:text-white">
     <li>
         <a href="/" class="me-4 hover:underline md:me-6">Top Stories</a>
     </li>
     <li>
-        <a href="/user_stories" class="me-4 hover:underline md:me-6">Team Selected Stories</a>
+        <a href="/user_stories" class="me-4 underline md:me-6">Team Selected Stories</a>
     </li>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 </ul>
-</br>
+</div>
+<hr class="my-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
 <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700flex">
   <%= render partial: 'shared/user_story', collection: @user_stories %>
 </ul>
