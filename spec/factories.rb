@@ -4,4 +4,9 @@ FactoryBot.define do
     last_name  { 'Doe' }
     email { 'john@email_provider.com' }
   end
+
+  factory :story do
+    title { 'example story' }
+    url  { 'example.com' }
+  end
 end

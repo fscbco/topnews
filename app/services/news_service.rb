@@ -27,7 +27,7 @@ end
 private
 
 def need_refresh?
-  Story.last.created_at.to_date != Time.now.utc.to_date
+  Story.last&.created_at&.to_date != Time.now.utc.to_date
 end
 
 def insert_latest_stories
