@@ -3,10 +3,16 @@ FactoryBot.define do
     first_name { 'John' }
     last_name  { 'Doe' }
     email { 'john@email_provider.com' }
+    password { 'Password1' }
   end
 
   factory :story do
-    title { 'example story' }
-    url  { 'example.com' }
+    sequence(:title) { |n| "hacker#{n}" }
+    sequence(:url) { |n| "www.#{n}" }
+  end
+
+  factory :user_story do
+    story
+    user
   end
 end

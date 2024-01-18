@@ -11,7 +11,7 @@ class NewsService
   end
 
   def self.fetch_user_stories
-    user_stories = Story.all.order(id: :desc)
+    Story.joins(:user_stories).order(id: :desc)
   end
 
   def self.create_new_like(story_id:, user_id:)
