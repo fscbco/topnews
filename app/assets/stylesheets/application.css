@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ .story {
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.story-title {
+  margin-bottom: 5px;
+}
+
+.story-info {
+  color: #777;
+  margin-bottom: 5px;
+}
