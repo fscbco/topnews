@@ -1,4 +1,5 @@
 class SessionsController < Devise::SessionsController
+  # Display welcome message when user successfully signs in
   def create
     super do |resource|
       if resource.persisted?

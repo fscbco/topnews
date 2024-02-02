@@ -1,4 +1,15 @@
 <div class="story">
   <h3 class="story-title"><%= link_to story['title'], story['url'] %></h3>
   <p class="story-info">By: <%= story['by'] %> | Score: <%= story['score'] %></p>
+
+  <button class="star-button"
+          data-story-id="<%= story['id'] %>"
+          data-story-title="<%= story['title'] %>"
+          data-story-url="<%= story['url'] %>"
+          data-story-score="<%= story['score'] %>"
+          data-story-time="<%= story['time'] %>"
+          data-starred="<%= current_user.starred_stories.include?(story) %>">
+    <%= current_user.starred_stories.include?(story) ? 'Unstar' : 'Star' %>
+  </button>
 </div>
+

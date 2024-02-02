@@ -1,0 +1,13 @@
+<div class="story">
+  <h3 class="story-title"><%= link_to starred_story.title, starred_story.url %></h3>
+  <p class="story-info">By: <%= starred_story.by %> | Score: <%= starred_story.score %></p>
+
+  <div class="starring-users">
+    <h4>Starring Users:</h4>
+    <ul>
+      <% starred_story.starring_users.each do |user| %>
+        <li><%= "#{user.first_name} #{user.last_name}" %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

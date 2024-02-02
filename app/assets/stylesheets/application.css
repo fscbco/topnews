@@ -28,3 +28,20 @@
   color: #777;
   margin-bottom: 5px;
 }
+
+.starring-users h4 {
+  display: inline; 
+  margin-right: 5px;
+}
+
+.starring-users ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: inline; 
+}
+
+.starring-users li {
+  margin-right: 5px; 
+  display: inline-block; 
+}

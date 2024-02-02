@@ -10,13 +10,16 @@
   <body>
     <nav>
       <%= link_to 'Home', root_path %>
+      <%= link_to 'Starred Stories', starred_stories_path %>
       
       <% if user_signed_in? %>
+        <%= current_user.first_name + ' ' + current_user.last_name %>
         <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Sign In', new_user_session_path %>
       <% end %>
     </nav>
+
     <p class="notice">
       <%= notice %>
     </p>
@@ -24,5 +27,11 @@
       <%= alert %>
     </p>
     <%= yield %>
+
+    <% if current_user %>
+      <div id="user-data" data-user-id="<%= current_user.id %>" data-auth-token="<%= form_authenticity_token.to_s %>"></div>    
+    <% end %>
+    
+    <%= javascript_include_tag 'starring' %>
   </body>
 </html>
