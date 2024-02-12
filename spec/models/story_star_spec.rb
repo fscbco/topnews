@@ -20,5 +20,11 @@ RSpec.describe StoryStar, type: :model do
     it "is valid with an external_id, title and author" do
       expect { StoryStar.create(attrs) }.to change{ StoryStar.count }.by(1)
     end
+
+    it "can not be created twice for the same user/story combo" do
+      StoryStar.create!(attrs)
+
+      expect { StoryStar.create(attrs) }.to raise_error { PG::UniqueViolation }
+    end
   end
 end
