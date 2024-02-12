@@ -4,13 +4,15 @@
   <tr>
     <th>Title</th>
     <th>Author</th>
+    <th></th>
     <th>Stars</th>
   </tr>
   <% @stories.each do |story| %>
     <tr>
       <td><%= story.title %></td>
       <td><%= story.author %></td>
-      <td><%= story.starred_by_users.map(&:email).join(", ") %></td>
+      <td><%= story.starred_by_users.include?(current_user) ? "⭐" :  button_to("Star", story_stars_url, method: :post, params: {story_id: story.id }) %></td>
+      <td><%= story.starred_by_users.map(&:first_name).join(", ") %></td>
     </tr>
   <% end %>
 </table>
