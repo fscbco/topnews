@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Story, type: :model do
   context "creating a new story" do
     let(:attrs) do
-      { external_id: "asdf", title: "Foo Bar", author: "Baz Bot" }
+      { external_id: "asdf", title: "Foo Bar", author: "Baz Bot", url: "foobar.net" }
     end
 
     it "should require external_id" do

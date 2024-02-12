@@ -5,7 +5,7 @@ RSpec.describe StoryStar, type: :model do
     let(:attrs) do
       {
         user: User.create!(email: "u@gmail.com", password: "password1"),
-        story: Story.create!(external_id: "1", author: "a", title: "b")
+        story: Story.create!(external_id: "1", author: "a", title: "b", url: "c")
       }
     end
 

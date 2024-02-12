@@ -10,7 +10,8 @@ class FetchTopStories
       Story.create!(
         external_id: story_id,
         author: story_details["by"],
-        title: story_details["title"]
+        title: story_details["title"],
+        url: story_details["url"],
       )
     end
   end
