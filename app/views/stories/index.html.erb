@@ -4,11 +4,13 @@
   <tr>
     <th>Title</th>
     <th>Author</th>
+    <th>Stars</th>
   </tr>
   <% @stories.each do |story| %>
     <tr>
       <td><%= story.title %></td>
       <td><%= story.author %></td>
+      <td><%= story.starred_by_users.map(&:email).join(", ") %></td>
     </tr>
   <% end %>
 </table>
