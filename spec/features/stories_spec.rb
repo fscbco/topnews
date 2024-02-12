@@ -22,13 +22,13 @@ describe "stories" do
 
     visit("/")
 
-    js_story_row = find("tr", text: js_story.title)
+    js_story_row = find("#all-news tr", text: js_story.title)
 
     expect(js_story_row).not_to have_content(user1.email)
 
     js_story_row.click_on("Star")
 
-    js_story_row = find("tr", text: js_story.title)
+    js_story_row = find("#top-news tr", text: js_story.title)
 
     expect(page).to have_content("Story successfully starred!")
     expect(js_story_row).to have_content(user1.first_name)
@@ -46,7 +46,7 @@ describe "stories" do
 
     visit("/")
 
-    js_story_row = find("tr", text: js_story.title)
+    js_story_row = find("#top-news tr", text: js_story.title)
 
     expect(js_story_row).to have_content(user1.first_name)
     expect(js_story_row).to have_content(user2.first_name)
