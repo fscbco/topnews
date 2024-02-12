@@ -1,0 +1,14 @@
+<h1>Welcome to Top News</h1>
+
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+  </tr>
+  <% @stories.each do |story| %>
+    <tr>
+      <td><%= story.title %></td>
+      <td><%= story.author %></td>
+    </tr>
+  <% end %>
+</table>

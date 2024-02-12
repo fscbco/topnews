@@ -8,15 +8,9 @@ describe "visiting the app's home page" do
   end
 
   scenario "after having logged in" do
-    password = "password123"
-    email = "user@gmail.com"
-    user = User.create!(email: email, password: password)
+    user = User.create!(email: "user@gmail.com", password: "password123")
 
-    visit("users/sign_in")
-
-    fill_in("Email", with: email)
-    fill_in("Password", with: password)
-    click_button("Log in")
+    log_in(user)
 
     expect(page).to have_content("Signed in successfully")
     expect(page).to have_content("Welcome to Top News")
