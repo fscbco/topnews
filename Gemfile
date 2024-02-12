@@ -12,9 +12,11 @@ gem 'pg'
 gem 'pry-rails'
 gem 'puma'
 gem 'rails', '~> 7.0.3'
+gem 'httparty'
 gem 'rspec-rails'
 gem 'sass-rails'
 gem 'selenium-webdriver', group: [:development, :test]
+gem 'webmock', group: [:test]
 gem 'spring', group: :development
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
