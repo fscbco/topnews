@@ -9,7 +9,7 @@
   </tr>
   <% @top_stories.each do |story| %>
     <tr>
-      <td><%= story.title %></td>
+      <td><%= link_to(story.title, story.url, target: "_blank") %></td>
       <td><%= story.author %></td>
       <td><%= story.starred_by_users.map(&:first_name).join(", ") %></td>
     </tr>
@@ -28,7 +28,7 @@
   </tr>
   <% @stories.each do |story| %>
     <tr>
-      <td><%= story.title %></td>
+      <td><%= story.url ? link_to(story.title, story.url, target: "_blank") : story.title %></td>
       <td><%= story.author %></td>
       <td><%= story.starred_by_users.include?(current_user) ? "⭐" :  button_to("Star", story_stars_url, method: :post, params: {story_id: story.id }) %></td>
     </tr>
