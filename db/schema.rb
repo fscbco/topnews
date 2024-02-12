@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_12_213604) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_12_214607) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_12_213604) do
     t.string "author", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "url", null: false
+    t.string "url"
     t.index ["external_id"], name: "index_stories_on_external_id", unique: true
   end
 
