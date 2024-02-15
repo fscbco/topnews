@@ -2,7 +2,19 @@
   <h1>Top News of the Day</h1>
     <div class="user-info">
       <p>Hi, <%= @user.first_name %> <%= @user.last_name %>!</p>
-      <%= link_to "Stories", stories_path %>
+      <ul>
+<% @stories.each do |story| %>
+  <li>
+    <%= story.story_id %>
+    <%= story.by %>
+    <%= story.text %>
+    <%= story.url %>
+    <%= story.score %>
+    <%= story.time %>
+
+  </li>
+<% end %>
+</ul>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
     </div>
     <% else %>

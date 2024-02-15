@@ -11,7 +11,7 @@ class Story < ApplicationRecord
       score: self.score,
       time: self.time
     )
-    hr_news.get_story(self.id)
+    hr_news.get_story(story_id: self.id)
   end
 
 end
