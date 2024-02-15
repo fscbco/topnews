@@ -68,6 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    attr_extras (6.2.5)
     bcrypt (3.1.18)
     bindex (0.8.1)
     builder (3.2.4)
@@ -91,6 +92,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.10)
+    crack (0.4.5)
+      rexml
     crass (1.0.6)
     devise (4.8.1)
       bcrypt (~> 3.0)
@@ -102,9 +105,14 @@ GEM
     digest (3.1.0)
     erubi (1.11.0)
     execjs (2.8.1)
+    faraday (2.7.1)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hashdiff (1.0.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
@@ -208,6 +216,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.1)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -243,6 +252,7 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    vcr (6.1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -250,6 +260,10 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webmock (3.8.3)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
@@ -262,10 +276,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  attr_extras
   byebug
   capybara
   coffee-rails
   devise
+  faraday
   jbuilder
   listen
   pg
@@ -279,7 +295,9 @@ DEPENDENCIES
   turbolinks
   tzinfo-data
   uglifier
+  vcr
   web-console
+  webmock
 
 RUBY VERSION
    ruby 3.1.2p20

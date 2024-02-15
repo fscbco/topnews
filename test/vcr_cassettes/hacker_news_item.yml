@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39382092.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 15 Feb 2024 15:06:19 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '307'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"gradus_ad","descendants":15,"id":39382092,"kids":[39383096,39383428,39383373,39383169,39383166],"score":34,"time":1708001657,"title":"Quantitative
+        test of guns germs and steel cultural transmission hypothesis","type":"story","url":"https://phys.org/news/2024-02-eurasia-dominant-east-west-axis.html"}'
+  recorded_at: Thu, 15 Feb 2024 15:06:19 GMT
+recorded_with: VCR 6.1.0
