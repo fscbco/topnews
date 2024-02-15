@@ -1,8 +1,7 @@
 class StoriesController < ApplicationController
 
   def index
-    top_stories_ids = HackerRankNewsService.new.get_top_stories(15)
-    @stories = Story.where(top_stories_ids)
+    @stories = Story.find(HackerRankNews.new.get_top_stories.first(10))
   end
 
 end

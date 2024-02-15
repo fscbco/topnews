@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :stories, only: %i[index]
   devise_for :users
+  resources :stories, only: :index
   root to: 'pages#home'
 end
