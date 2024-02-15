@@ -1,5 +1,13 @@
 {
   "name": "topnews",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@hotwired/turbo-rails": "^8.0.2"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  }
 }

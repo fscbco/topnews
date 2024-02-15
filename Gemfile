@@ -10,6 +10,7 @@ gem 'devise'
 gem 'faraday'
 gem 'jbuilder'
 gem 'listen', group: :development
+gem "memo_wise"
 gem 'pg'
 gem 'pry-rails'
 gem 'puma'
@@ -18,7 +19,7 @@ gem 'rspec-rails'
 gem 'sass-rails'
 gem 'selenium-webdriver', group: [:development, :test]
 gem 'spring', group: :development
-gem 'turbolinks'
+gem 'turbo-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
@@ -28,3 +29,8 @@ group :test do
   gem 'webmock'
 end
 
+
+# Use Redis for Action Cable
+gem "redis", "~> 4.0"
+
+gem "jsbundling-rails", "~> 1.3"
