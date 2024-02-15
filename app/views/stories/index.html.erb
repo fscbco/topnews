@@ -1,0 +1,8 @@
+<ul>
+<%= @stories.each do |story| %>
+  <li>
+    <%= story["title"] %>
+    <%= story["text"] %>
+  </li>
+<% end %>
+</ul>

@@ -7,6 +7,7 @@ gem 'capybara', group: [:development, :test]
 gem 'coffee-rails'
 gem 'devise'
 gem 'jbuilder'
+gem 'httparty'
 gem 'listen', group: :development
 gem 'pg'
 gem 'pry-rails'
