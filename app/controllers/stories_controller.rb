@@ -1,5 +1,8 @@
 class StoriesController < ApplicationController
+
   def index
-    @stories = Story.where(hr_news_story: true)
+    top_stories_ids = HackerRankNewsService.new.get_top_stories(15)
+    @stories = Story.where(top_stories_ids)
   end
+
 end

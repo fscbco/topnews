@@ -1,12 +1,10 @@
-
 <% if user_signed_in? %>
   <h1>Top News of the Day</h1>
     <div class="user-info">
-      <p>Hi, <%= current_user.first_name %>!</p>
+      <p>Hi, <%= @user.first_name %> <%= @user.last_name %>!</p>
       <%= link_to "Stories", stories_path %>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
     </div>
-    
     <% else %>
     <h1>Welcome to Top News</h1>
       <p><%= link_to "Sign in", new_user_session_path %> to continue.</p>
