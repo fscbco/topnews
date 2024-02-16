@@ -29,3 +29,11 @@ li {
   margin: 5px;
   padding: 0;
 }
+
+.user-info {
+  text-align: center;
+  padding: 10px;
+  /* background-color: #f2f2f2; */
+  border-top: 3px solid #e6e6e6;
+  border-bottom: 3px solid #e6e6e6;
+}
