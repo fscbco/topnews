@@ -2,21 +2,32 @@
   <h1>Top News of the Day</h1>
     <div class="user-info">
       <p>Hi, <%= @user.first_name %> <%= @user.last_name %>!</p>
-      <ul>
-<% @stories.each do |story| %>
-  <li>
-    <%= story.story_id %>
-    <%= story.by %>
-    <%= story.text %>
-    <%= story.url %>
-    <%= story.score %>
-    <%= story.time %>
-
-  </li>
-<% end %>
-</ul>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-    </div>
+      </div>
+      <% @stories.each do |story| %>
+      <div class="story">
+        <ul>
+          <li>
+            <h2><%= story.title %></h2>
+          </li>
+          <li>
+            <%= link_to"Read More", story.url %>
+          </li>
+          <li>
+            <% story.by %>
+          </li>
+          <li>
+          <%= story.text %>
+          </li>
+          <li>
+            <%= story.score %>
+          </li>
+          <li>
+            <%= story.time %>
+          </li>
+        </ul>
+      </div>
+      <% end %>
     <% else %>
     <h1>Welcome to Top News</h1>
       <p><%= link_to "Sign in", new_user_session_path %> to continue.</p>

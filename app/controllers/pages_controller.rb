@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def index
     @user = current_user
-
-    @stories = Story.where(HackerRankNews.new.get_top_stories.first(25).include?(:story_id))
+    HrNewsService.fetch_and_update_stories(25)
+    @stories = Story.limit(25).order("created_at DESC")
   end
 end
