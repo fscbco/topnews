@@ -1,5 +1,6 @@
 <%= turbo_frame_tag "story_#{@story.id}" do %>
 <div>
   <%= link_to @story.title, @story.url %>
+  <%= render "like", story_id: @story.id %>
 </div>
 <% end %>
