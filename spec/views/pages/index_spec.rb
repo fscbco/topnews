@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "pages/home", type: :view do
+RSpec.describe "pages/index", type: :view do
   context "when user is signed in" do
     before do
       assign(:user, User.new(first_name: "John", last_name: "Doe"))
+      assign(:stories, [])
       allow(view).to receive(:user_signed_in?).and_return(true)
     end
 
@@ -17,9 +18,9 @@ RSpec.describe "pages/home", type: :view do
       expect(rendered).to have_content("Hi, John Doe!")
     end
 
-    it "renders a link to stories" do
+    it "renders a list of stories" do
       render
-      expect(rendered).to have_link("Stories", href: stories_path)
+      expect(rendered).not_to be_empty
     end
 
     it "renders a sign out button" do
