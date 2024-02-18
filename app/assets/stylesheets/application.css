@@ -23,10 +23,14 @@ li {
   list-style-type: none;
 }
 
+h4 {
+  margin: 0;
+}
+
 .story {
   border: 1px solid #e6e6e6;
   border-radius: 10px;
-  margin: 5px;
+  margin: 5px 20%;
   padding: 0;
 }
 

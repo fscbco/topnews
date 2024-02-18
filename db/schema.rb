@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_15_150412) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_18_121840) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,9 +21,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_150412) do
     t.text "text"
     t.string "url"
     t.integer "score"
-    t.integer "time"
+    t.timestamptz "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "story_type"
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,21 +8,31 @@
       <div class="story">
         <ul>
           <li>
-            <h2><%= story.title %></h2>
+            <div class="story-title">
+              <h4><%= story.title %></h4>
+              <%= link_to"Read More", story.url %>
+            </div>
           </li>
           <li>
-            <%= link_to"Read More", story.url %>
+            <label>Posted By:</label>
+            <% if story.by.present? %>
+            <%= story.by %>
+            <% else %>
+            Anonymous
+            <% end %>
           </li>
           <li>
-            <% story.by %>
+            <% if story.text.present? %>
+            <label>Story:</label>
+            <%= story.text %>
+            <% end %>
           </li>
           <li>
-          <%= story.text %>
-          </li>
-          <li>
+            <label>Score:</label>
             <%= story.score %>
           </li>
           <li>
+            <label>Posted At:</label>
             <%= story.time %>
           </li>
         </ul>
