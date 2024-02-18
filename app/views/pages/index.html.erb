@@ -36,6 +36,12 @@
             <%= story.time %>
           </li>
         </ul>
+        <% recommendation = current_user.recommendations.find_by(story: story) %>
+        <% if recommendation %>
+        <%= button_to "Remove from Recommendations", story_recommendations_path(story_id: story.id, id: recommendation.id), method: :delete %>
+        <% else %>
+        <%= button_to "Recommend", story_recommendations_path(story_id: story.id), method: :post %>
+        <% end %>
       </div>
       <% end %>
     <% else %>
