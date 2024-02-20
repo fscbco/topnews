@@ -13,3 +13,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener('turbolinks:load', function () {
+  console.log('Turbolinks has loaded the page');
+  
+});

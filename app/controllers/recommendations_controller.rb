@@ -2,7 +2,7 @@ class RecommendationsController < ApplicationController
   before_action :set_story, only: [:create, :destroy]
 
   def create
-    @recommend = Recommendation.create(user: current_user, story: @story)
+    @recommended = Recommendation.create(user: current_user, story: @story)
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
       format.js
@@ -10,8 +10,8 @@ class RecommendationsController < ApplicationController
   end
 
   def destroy
-    @recommend = Recommendation.find_by(user: current_user, story: Story.find(params[:story_id]))
-    @recommend.destroy if @recommend.present?
+    @recommended = Recommendation.find_by(user: current_user, story: Story.find(params[:story_id]))
+    @recommended.destroy if @recommended.present?
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
       format.js

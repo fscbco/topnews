@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
   <div class="user-info">
-    <h1>Recommended Stories</h1>
+  <h1>Recommended Stories</h1>
+  <p>Hi, <%= @user.first_name %> <%= @user.last_name %>!</p>
       <%= link_to "Back to Top Stories", root_path %>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
   </div>
@@ -51,9 +52,8 @@
       <% recommendation = current_user.recommendations.find_by(story: story) %>
       <% if recommendation %>
         <%= button_to "Remove Recommendation",
-          story_recommendation_path(story_id: story.id, id: recommendation.id),
+          story_unrecommended_path(story_id: story.id, id: recommendation.id),
           method: :delete,
-          remote: true,
           class: "recommend",
           id: "remove-recommend-button-#{story.story_id}" %>
       <% end %>

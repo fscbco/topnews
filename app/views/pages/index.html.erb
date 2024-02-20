@@ -50,18 +50,10 @@
         <% end %>
       </ul>
       <% recommendation = current_user.recommendations.find_by(story: story) %>
-      <% if recommendation %>
-        <%= button_to "Remove from Recommendations",
-          story_recommendation_path(story_id: story.id, id: recommendation.id),
-          method: :delete,
-          remote: true,
-          class: "recommend",
-          id: "remove-recommend-button-#{story.story_id}" %>
-      <% else %>
+      <% if !recommendation %>
         <%= button_to "Recommend",
-          story_recommendations_path(story_id: story.id),
+          story_recommended_path(story_id: story.id),
           method: :post,
-          remote: true,
           class: "recommend",
           id: "recommend-button-#{story.story_id}" %>
       <% end %>

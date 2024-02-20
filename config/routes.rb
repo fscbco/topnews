@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   end
 
   get 'recommendations', to: 'pages#recommend', as: 'recommendations'
+  post 'pages/:story_id/recommendations', to: 'recommendations#create', as: 'story_recommended'
+  delete 'pages/:story_id/recommendations', to: 'recommendations#destroy', as: 'story_unrecommended'
   root to: 'pages#index'
 end
