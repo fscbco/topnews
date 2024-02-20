@@ -1,0 +1,33 @@
+let recommendationsList = document.getElementById('recommendations-list');
+let recommendation = document.getElementById('recommendation-' + storyId);
+recommendationsList.appendChild(recommendation);
+
+let removeRecommendBtn = document.getElementById('remove-recommend-button-<%= @story.story_id %>');
+
+removeRecommendBtn.outerHTML =
+  '<%= j button_to "Recommend",
+      story_recommendations_path(story_id: @story.story_id),
+      method: :post,
+      remote: true,
+      class: "recommend" %>';
+
+let recommendationsCount = document.getElementById('recommendations-count-<%= @story.story_id %>');
+if (recommendationsCount) {
+  recommendationsCount.innerText = parseInt(recommendationsCount.innerText) - 1;
+}
+
+let recommendBtn = document.getElementById('recommend-button-<%= @story.story_id %>');
+let recommendationsList = document.getElementById('recommendations-list-<%= @story.story_id %>');
+
+if (recommendBtn) {
+  recommendBtn.id = "remove-recommend-button-<%= @story.story_id %>";
+  recommendBtn.value = "Remove from Recommendations";
+  recommendBtn.setAttribute('formaction', '<%= story_recommendation_path(story_id: @story.id, id: @recommend.id) %>');
+  recommendBtn.setAttribute('formmethod', 'post');
+}
+
+if (recommendationsList) {
+  let newRecommendation = document.createElement('li');
+  newRecommendation.innerHTML = '<%= @recommend.user.first_name %> <%= @recommend.user.last_name %>';
+  recommendationsList.appendChild(newRecommendation);
+}
