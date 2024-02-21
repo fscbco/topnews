@@ -7,6 +7,13 @@ class FeedController < ApplicationController
   end
 
   def details(id:)
-    HTTParty.get("https://hacker-news.firebaseio.com/v0/item/#{id}.json")
+    story = Story.find_by(hacker_news_id: id)
+    if story.present?
+      story
+    else
+      raw_data = HTTParty.get("https://hacker-news.firebaseio.com/v0/item/#{id}.json").to_h
+      hacker_news_id = raw_data.dig("id")
+      story = Story.create(hacker_news_id: hacker_news_id, raw_data: raw_data)
+    end
   end
 end

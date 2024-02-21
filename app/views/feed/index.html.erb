@@ -1,7 +1,7 @@
 <% @top_stories.each do |id| %>
   <% story = details(id: id) %>
-  <h3><%= story.dig("title") %></h3>
-  <h4>By <%= story.dig("by") %></h4>
-  <h4>URL <%= story.dig("url") %></h4>
+  <h3><%= story.raw_data.dig("title") %></h3>
+  <h4>By <%= story.raw_data.dig("by") %></h4>
+  <h4>URL <%= story.raw_data.dig("url") %></h4>
   <%= "----------------------------" %>
 <% end %>
