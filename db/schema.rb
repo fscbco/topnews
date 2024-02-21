@@ -15,8 +15,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_21_025304) do
   enable_extension "plpgsql"
 
   create_table "likes", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "story_id"
+    t.bigint "user_id", null: false
+    t.bigint "story_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["story_id"], name: "index_likes_on_story_id"

@@ -1,0 +1,431 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/topstories.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4447'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: "[39447041,39444500,39446537,39443965,39443679,39449424,39449748,39444282,39448154,39446617,39449713,39418536,39443972,39442368,39446591,39438811,39441677,39427016,39448223,39444364,39446853,39445713,39449789,39426753,39420056,39440025,39442344,39440808,39426569,39446563,39449890,39444995,39449887,39441088,39446814,39439655,39449969,39446355,39445997,39442400,39418106,39449769,39436095,39442298,39446789,39449335,39448542,39439505,39442296,39443574,39438908,39439771,39444165,39440179,39443283,39446866,39440503,39440480,39447947,39447342,39448128,39448296,39439678,39438842,39429370,39439986,39439782,39443548,39436277,39428880,39440034,39442273,39442347,39444519,39450046,39444674,39447650,39446305,39443418,39449272,39428728,39427172,39446317,39435397,39446282,39419054,39448174,39446699,39442429,39438657,39418817,39436358,39439680,39446214,39437424,39448021,39444882,39420966,39418707,39426631,39447982,39449925,39439236,39444595,39436252,39443913,39432085,39427265,39430349,39436623,39428609,39418810,39437948,39435486,39445145,39443362,39428677,39436621,39424688,39440604,39447577,39434271,39440354,39428002,39430027,39427202,39425706,39435458,39436445,39438491,39434701,39438965,39435262,39431809,39430434,39432876,39428047,39431100,39443927,39447921,39436238,39440804,39427775,39430320,39440712,39440689,39445674,39448495,39434566,39445029,39436979,39426341,39428409,39440028,39433120,39428640,39440303,39426712,39448398,39418283,39445161,39428766,39419210,39438222,39438129,39440006,39433231,39420453,39439894,39433104,39422778,39442549,39420111,39435391,39427876,39428466,39423407,39436399,39420769,39435102,39433451,39422238,39434727,39447939,39448362,39420385,39421618,39429627,39443762,39430095,39437873,39437160,39434448,39428646,39437387,39442409,39435320,39418107,39426209,39426310,39430336,39439012,39438998,39441115,39435159,39418632,39419917,39438837,39433674,39433339,39438735,39429299,39442151,39425181,39438577,39435483,39419195,39438372,39445503,39422588,39424527,39425430,39435319,39427940,39429322,39441524,39433561,39442787,39429160,39426975,39435542,39420336,39437814,39420720,39432199,39431438,39433153,39439747,39421043,39432349,39418468,39430858,39440296,39434417,39421838,39438944,39423949,39448329,39438155,39427630,39433109,39431130,39420543,39420505,39436449,39426370,39418530,39439295,39425492,39418841,39446234,39437211,39435763,39435717,39423077,39430200,39446944,39428922,39423978,39442072,39421153,39440161,39425086,39429282,39434792,39426452,39431943,39444530,39435923,39432585,39445942,39444144,39419098,39435769,39442009,39419126,39419010,39420290,39438539,39439279,39418855,39418102,39430496,39440310,39440294,39437540,39436416,39435913,39418741,39425062,39439836,39428511,39430133,39421090,39428385,39418830,39422068,39442361,39418909,39422399,39438002,39439502,39429808,39432843,39442117,39422417,39427479,39439463,39422916,39432893,39419172,39419111,39433129,39439077,39426462,39427897,39437310,39430678,39424566,39434180,39437036,39420622,39435897,39429266,39430401,39430901,39434513,39418056,39435955,39430585,39435890,39443207,39435800,39435759,39443467,39427092,39418196,39422320,39438370,39442140,39441822,39435244,39431630,39442917,39420834,39434416,39430925,39437336,39420864,39433882,39430894,39439515,39436759,39433292,39427687,39437142,39426434,39432380,39439240,39425996,39435972,39440423,39443154,39428546,39425741,39426779,39418412,39418386,39421527,39435138,39425161,39439746,39423323,39435043,39421519,39440192,39420845,39428253,39424132,39420060,39433117,39419087,39439064,39441013,39423621,39419048,39423887,39435889,39418583,39420660,39441160,39431164,39439859,39436933,39424955,39439090,39424174,39440374,39429254,39421590,39440854,39423576,39422869,39425822,39427821,39424316,39426788,39434403,39426379,39421572,39436207,39426107,39419555,39434411,39425988,39433281,39418508,39420319,39420686,39432561,39435287,39443414,39429245,39433835,39424765,39427981,39435634,39428852,39422515,39421997,39421708,39432331,39426361,39420621,39430730,39430449,39434803,39427091,39428368,39434987,39422356,39424405,39430748,39435942,39424548,39422726,39430800,39442102,39419086,39432851,39438542,39430409,39425065,39420466,39427360,39419774,39427778,39422528,39420181,39422315,39424565,39427749,39425510,39421839,39419558,39433709,39425085,39418894,39430189,39421129,39420564,39439545,39429460,39422364,39420614,39427346,39428343,39434991,39433901,39442181,39438230,39422157,39441399,39426879]"
+  recorded_at: Wed, 21 Feb 2024 04:26:07 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39447041.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '375'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"jviide","descendants":107,"id":39447041,"kids":[39447451,39448254,39447503,39447324,39447212,39449999,39447339,39447112,39448871,39449351,39447481,39448285,39449013,39448405,39447682,39447279,39448313,39448889,39447289,39449593,39449492,39449521,39448044],"score":422,"time":1708463900,"title":"Kagi
+        Sidekick (alpha)","type":"story","url":"https://sidekick.kagi.com/"}'
+  recorded_at: Wed, 21 Feb 2024 04:26:07 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39444500.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '895'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"Josely","descendants":603,"id":39444500,"kids":[39446015,39447691,39446121,39444804,39444960,39449819,39447037,39449664,39445992,39448697,39444897,39450074,39444888,39446330,39447565,39447175,39444802,39445560,39445441,39449717,39447293,39445888,39445693,39446525,39445113,39448685,39445012,39445007,39445607,39447494,39449378,39447225,39446320,39447389,39446644,39446341,39446530,39449006,39448092,39446392,39446798,39446390,39447688,39445659,39446649,39446194,39445575,39446517,39449594,39448308,39449117,39445344,39445064,39447083,39445627,39444828,39447196,39449178,39446727,39445734,39445718,39444761,39445365,39445345,39446257,39448374,39446256,39449497,39445018,39449033,39448005,39445447,39445557,39445205],"score":1007,"time":1708452065,"title":"Keep
+        your phone number private with Signal usernames","type":"story","url":"https://signal.org/blog/phone-number-privacy-usernames/"}'
+  recorded_at: Wed, 21 Feb 2024 04:26:07 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39446537.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '342'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"nrabulinski","descendants":43,"id":39446537,"kids":[39448891,39447350,39449495,39448259,39449072,39448077,39449922,39449246,39447703,39448880,39449369,39447831,39447704,39447801,39448518,39446945,39448127,39449262],"score":326,"time":1708461252,"title":"LED
+        Matrix Earrings","type":"story","url":"https://mitxela.com/projects/ledstud"}'
+  recorded_at: Wed, 21 Feb 2024 04:26:07 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39443965.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '250'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"davidbarker","descendants":23,"id":39443965,"kids":[39444717,39445013,39444762,39449055,39447752],"score":438,"time":1708449630,"title":"Let''s
+        Build the GPT Tokenizer [video]","type":"story","url":"https://www.youtube.com/watch?v=zduSFxRajkE"}'
+  recorded_at: Wed, 21 Feb 2024 04:26:07 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39443679.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '447'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"greghn","descendants":303,"id":39443679,"kids":[39443994,39445795,39444187,39444259,39444011,39449867,39447602,39444037,39443872,39444088,39444360,39448649,39444670,39448004,39446520,39445033,39444821,39446219,39444207,39443860,39445052,39444485],"score":427,"time":1708448383,"title":"SSDs
+        have become fast, except in the cloud","type":"story","url":"http://databasearchitects.blogspot.com/2024/02/ssds-have-become-ridiculously-fast.html"}'
+  recorded_at: Wed, 21 Feb 2024 04:26:07 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39449424.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '230'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"cebert","descendants":3,"id":39449424,"kids":[39450118,39450113,39449517],"score":32,"time":1708481487,"title":"If
+        Architects had to work like Programmers","type":"story","url":"http://www.gksoft.com/a/fun/architects.html"}'
+  recorded_at: Wed, 21 Feb 2024 04:26:08 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39449748.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '291'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"jonbaer","descendants":12,"id":39449748,"kids":[39450067,39450052,39450125,39450001],"score":42,"time":1708485194,"title":"Japan
+        Bets $67B to Become a Global Chip Powerhouse Once Again","type":"story","url":"https://finance.yahoo.com/news/japan-bets-67-billion-become-210013021.html"}'
+  recorded_at: Wed, 21 Feb 2024 04:26:08 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39444282.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '261'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"todsacerdoti","descendants":19,"id":39444282,"kids":[39448114,39448248,39449188,39449882,39449121,39449253,39448042],"score":195,"time":1708451105,"title":"Planner
+        programming blows my mind","type":"story","url":"https://www.hillelwayne.com/post/picat/"}'
+  recorded_at: Wed, 21 Feb 2024 04:26:08 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39448154.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '293'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"dr_kiszonka","descendants":20,"id":39448154,"kids":[39449345,39448651,39449428,39449635,39449445,39448256,39449484],"score":59,"time":1708470357,"title":"Video
+        Game Module for Flipper Zero","type":"story","url":"https://shop.flipperzero.one/products/video-game-module-for-flipper-zero"}'
+  recorded_at: Wed, 21 Feb 2024 04:26:08 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/39446617.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 Feb 2024 04:26:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '473'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"flexiondotorg","descendants":123,"id":39446617,"kids":[39447489,39446994,39446931,39447084,39446973,39450064,39449658,39449896,39446813,39448919,39447666,39447068,39448414,39447370,39446919,39448998,39446836,39447778,39447093,39448361,39447301,39449295,39448249,39448246,39448234,39446957,39448767],"score":154,"time":1708461692,"title":"Exodus
+        Bitcoin Wallet: $490k swindle","type":"story","url":"https://popey.com/blog/2024/02/exodus-bitcoin-wallet-490k-swindle/"}'
+  recorded_at: Wed, 21 Feb 2024 04:26:08 GMT
+recorded_with: VCR 6.2.0
