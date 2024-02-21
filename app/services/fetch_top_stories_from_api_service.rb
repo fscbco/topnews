@@ -8,6 +8,8 @@ class FetchTopStoriesFromApiService
   end
 
   def call
-    HTTParty.get("https://hacker-news.firebaseio.com/v0/topstories.json").first(limit)
+    Rails.cache.fetch("top-#{limit}-stories", expires_in: 15.minutes) do
+      HTTParty.get("https://hacker-news.firebaseio.com/v0/topstories.json").first(limit)
+    end
   end
 end

@@ -21,3 +21,9 @@ gem "turbolinks"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "uglifier"
 gem "web-console", group: :development
+
+group :test do
+  gem "vcr"
+  gem "webmock"
+  gem "guard-rspec", require: false
+end
