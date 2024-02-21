@@ -1,12 +1,4 @@
 <% @top_stories.each do |id| %>
   <% story = details(id: id) %>
-  <h3><%= story.title %></h3>
-  <h4>By <%= story.by %></h4>
-  <h4>URL <%= story.url %></h4>
-  <%= "----------------------------" %>
-  <% if story.likes.pluck(:user_id).include?(current_user.id) %>
-    <%= button_to 'Like', "#", disabled: true %>
-  <% else %>
-    <%= button_to 'Like', likes_path(story_id: story.id), method: :post %>
-  <% end %>
+  <%= render partial: "story", locals: { story: story} %>
 <% end %>

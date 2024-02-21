@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :feed
   resources :likes
+  resources :liked_stories
 end
