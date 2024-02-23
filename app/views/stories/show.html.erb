@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "story_#{@story.id}" do %>
+<div>
+  <%= link_to @story.title, @story.url %>
+</div>
+<% end %>
