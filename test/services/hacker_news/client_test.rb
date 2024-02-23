@@ -13,7 +13,7 @@ class HackerNews::ClientTest < ActiveSupport::TestCase
   test "item" do
     VCR.use_cassette("hacker_news_item") do
       client = HackerNews::Client.new
-      response = client.item(39382092)
+      response = client.item(HACKER_NEWS_ITEM_ID)
 
       assert_equal 200, response.status
     end

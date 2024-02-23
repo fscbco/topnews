@@ -17,7 +17,6 @@ gem 'puma'
 gem 'rails', '~> 7.0.3'
 gem 'rspec-rails'
 gem 'sass-rails'
-gem 'selenium-webdriver', group: [:development, :test]
 gem 'spring', group: :development
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -25,6 +24,10 @@ gem 'uglifier'
 gem 'web-console', group: :development
 
 group :test do
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "selenium-webdriver"
+  gem "webdrivers"
   gem 'vcr'
   gem 'webmock'
 end
