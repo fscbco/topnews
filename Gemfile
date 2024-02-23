@@ -6,7 +6,7 @@ gem "attr_extras"
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'coffee-rails'
-gem 'devise'
+gem 'devise', '~> 4.9'
 gem 'faraday'
 gem 'jbuilder'
 gem 'listen', group: :development
