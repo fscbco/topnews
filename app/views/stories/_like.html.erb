@@ -1,6 +1,7 @@
 <%# locals: (story_id:) -%>
 <%= turbo_frame_tag "like_story_#{story_id}" do %>
   <%= Like.get_users(story_id) %>
-  <%= button_to 'Like', story_likes_path(story_id), method: :post%>
+  <%= button_to 'Like', story_likes_path(story_id), method: :post, form: { style: "display: inline;"} %>
+  <br>
   <br>
 <% end %>
