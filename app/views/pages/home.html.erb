@@ -1,1 +1,18 @@
 <h1>Welcome to Top News</h1>
+<%= link_to "See Favorites", favorites_path %>
+<div class="card-container">
+    <% @articles.each do |a| %>
+        <div class="card">
+        <%= link_to a do %>
+            <h4><%= a.title %></h4>
+            <p><%= a.author %></p>
+        <% end %>
+        <% if @user %>
+            <%= link_to "Favorite", "/articles/#{a.id}/favorite", method: :post %>
+        <% end %>
+        <% if @user.articles.find_by_id(a.id) %>
+            <p>Star</p>
+        <% end %>
+        </div>
+    <% end %>
+</div>

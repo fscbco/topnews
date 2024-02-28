@@ -1,0 +1,15 @@
+<h1>Favorites of Top News</h1>
+<%= link_to "home", root_path %>
+<div class="card-container">
+    <% @favorites.each do |a| %>
+        <div class="card">
+            <%= link_to a do %>
+                <h4><%= a.title %></h4>
+                <p><%= a.author %></p>
+            <% end %>
+            <% a.users.each do |u| %>
+                <p><%= u.first_name %> <%= u.last_name %></p>
+            <% end %>
+        </div>
+    <% end %>
+</div>

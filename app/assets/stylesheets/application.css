@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ .card-container { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+ .card { 
+    background-color: aqua;
+    margin-bottom: 10px;
+    min-width: 500px;
+ }
