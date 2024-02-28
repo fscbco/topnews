@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
   def index
     @story_ids = Like.all.pluck(:story_id)
     @story_ids += HackerNews::TopStoriesService.new.call.first(20)
-    @story_ids.uniq
+    @story_ids.uniq!
   end
 
   def show
