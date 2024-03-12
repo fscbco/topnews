@@ -14,7 +14,7 @@ class Article < ApplicationRecord
                 article_data = Net::HTTP.get(URI.parse("https://hacker-news.firebaseio.com/v0/item/#{a}.json"))
                 article_data = JSON.parse(article_data).symbolize_keys
                 # create article in db
-                Article.create(
+                article = Article.create(
                     author: article_data[:by], 
                     article_foreign_id: a,
                     score: article_data[:score],
@@ -25,6 +25,7 @@ class Article < ApplicationRecord
                     url: article_data[:url]
                 )
             end
+            article
         end
         articles
     end

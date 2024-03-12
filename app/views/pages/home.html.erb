@@ -3,7 +3,7 @@
 <div class="card-container">
     <% @articles.each do |a| %>
         <div class="card">
-        <%= link_to a do %>
+        <%= link_to article_path(a) do %>
             <h4><%= a.title %></h4>
             <p><%= a.author %></p>
         <% end %>
