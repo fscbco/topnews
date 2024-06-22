@@ -96,7 +96,6 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    csv (3.3.0)
     date (3.3.4)
     devise (4.9.4)
       bcrypt (~> 3.0)
@@ -111,10 +110,6 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashdiff (1.1.0)
-    httparty (0.22.0)
-      csv
-      mini_mime (>= 1.0.0)
-      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.12.0)
@@ -137,8 +132,6 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitest (5.16.3)
-    multi_xml (0.7.1)
-      bigdecimal (~> 3.1)
     net-imap (0.4.13)
       date
       net-protocol
@@ -281,7 +274,6 @@ DEPENDENCIES
   capybara
   coffee-rails
   devise
-  httparty
   jbuilder
   listen
   pg
