@@ -13,7 +13,31 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require "vcr"
+require "webmock"
+
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails_helper'
+
 RSpec.configure do |config|
+  config.fixture_path = File.expand_path "fixtures", __dir__
+
+  config.before( :suite ) do
+    VCR.insert_cassette( "all_tests", record: :new_episodes )
+  end
+
+  config.around( :each, :vcr ) do |example|
+    cassette_name = example.metadata[ :full_description ].underscore.tr( " ", "_" )
+    VCR.use_cassette( cassette_name, record: :new_episodes ) do
+      example.run
+    end
+  end
+
+  config.after( :suite ) do
+    VCR.eject_cassette
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

@@ -247,6 +247,7 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    vcr (6.2.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -287,6 +288,7 @@ DEPENDENCIES
   turbolinks
   tzinfo-data
   uglifier
+  vcr
   web-console
   webmock
 
