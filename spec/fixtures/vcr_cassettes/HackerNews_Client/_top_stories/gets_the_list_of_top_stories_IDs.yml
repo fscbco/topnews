@@ -1,0 +1,90 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/123.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 22 Jun 2024 15:31:00 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '318'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"beau","descendants":0,"id":123,"kids":[22449649,33749],"score":8,"time":1171923673,"title":"Design
+        Quotations: &#34;And if in fact you do know the exact cost and the exact schedule,
+        chances are that the technology is obsolete.&#34;","type":"story","url":"http://design.caltech.edu/erik/Misc/design_quotes.html"}'
+  recorded_at: Sat, 22 Jun 2024 15:31:00 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/456.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 22 Jun 2024 15:31:00 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '181'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"staunch","id":456,"kids":[15044],"parent":363,"text":"Definitely
+        search. I use reddit''s search feature all the time to find old articles.","time":1172121320,"type":"comment"}'
+  recorded_at: Sat, 22 Jun 2024 15:31:00 GMT
+recorded_with: VCR 6.2.0

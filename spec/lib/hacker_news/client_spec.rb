@@ -10,6 +10,12 @@ describe HackerNews::Client, type: :lib do
   
   describe "#top_stories" do
     before do
+      # This is some kind of double-dipping here:
+      # once I decided not to return a list of IDs for `top_stories`,
+      # stubbing the request broke since I was making multiple requests.
+      # So, here I stub the first of these requests to limit the number of stories
+      # returned then let VCR interrupt and mimic the additional requests per story.
+      # Ideally, you only want one of these two but HN defaults to 500 stories!!!
       stub_request( :get, url )
       .with(
         headers: {
@@ -19,26 +25,28 @@ describe HackerNews::Client, type: :lib do
           "Host"=>"hacker-news.firebaseio.com",
           "User-Agent"=>"Ruby"
         },
-        )
-        .to_return( status: 200, body: mocked_response.to_json, headers: { "Content-Type" => "application/json" } )
+      )
+      .to_return( status: 200, body: [ 123, 456 ].to_json, headers: { "Content-Type" => "application/json" } )
     end
-    
-    let( :mocked_response ) { [ 1, 2, 3, 4 , 5 ] }
+
     let :url do
       "https://hacker-news.firebaseio.com/v0/topstories.json"
     end
 
-    it "gets the list of top stories IDs" do
+    it "gets the list of top stories IDs", :vcr do
       response = api.top_stories
 
-      expect( response ).to match_array( mocked_response )
+      expect( response ).to contain_exactly(
+        an_object_having_attributes( id: 123, type: "story", score: 8, by: "beau" ),
+        an_object_having_attributes( id: 456, type: "comment", parent: 363, by: "staunch" ),
+      )
     end
   end
 
   describe "#story" do
     let :mocked_response do
       {
-        by: "dhouston",
+        by: "hsanchez",
         descendants: 321,
         id: 123,
         kids: [ 8934, 8943, 8876 ],
@@ -73,17 +81,15 @@ describe HackerNews::Client, type: :lib do
       it "gets the story for the given id" do
         response = api.story( story_id )
 
-        expect( [ response ].map( &:deep_symbolize_keys ) ).to contain_exactly(
-          hash_including(
-            by: "dhouston",
-            descendants: 321,
-            id: 123,
-            kids: match_array( [ 8934, 8943, 8876 ] ),
-            score: 104,
-            title: "Silly title",
-            type: "story",
-            url: "http://www.google.com",
-          ),
+        expect( response ).to have_attributes(
+          by: "hsanchez",
+          descendants: 321,
+          id: 123,
+          kids: match_array( [ 8934, 8943, 8876 ] ),
+          score: 104,
+          title: "Silly title",
+          type: "story",
+          url: "http://www.google.com",
         )
       end
     end
@@ -108,7 +114,7 @@ describe HackerNews::Client, type: :lib do
       it "returns an empty result for the given id" do
         response = api.story( story_id )
 
-        expect( response ).to eq( "" )
+        expect( response ).to be_nil
       end
     end
   end

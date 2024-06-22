@@ -26,11 +26,18 @@ module HackerNews
     end
   
     def story id
-      _send_request( "item/#{ id }.json" )
+      response = _send_request( "item/#{ id }.json" )
+      return if response == ""
+
+      Story.new response
     end
   
-    def top_stories
-      _send_request( "topstories.json" )
+    def top_stories limit: 10
+      # Don't like this; in fact, I hate it but it is neccessary as the HN topstories endpoint
+      # returns only the IDs
+      _send_request( "topstories.json" ).slice( 0...limit ).map do |story_id|
+        story story_id
+      end
     end
 
     private
