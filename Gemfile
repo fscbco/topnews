@@ -4,6 +4,7 @@ ruby File.read('.ruby-version').chomp
 
 gem 'coffee-rails'
 gem 'devise'
+gem 'draper'
 gem 'jbuilder'
 gem 'pg'
 gem 'pry-rails'
@@ -23,6 +24,8 @@ end
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
+  gem 'factory_bot_rails'
+  gem "ffaker"
   gem 'rspec-rails'
   gem 'selenium-webdriver'
 end
