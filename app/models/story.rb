@@ -6,20 +6,20 @@ class Story
   include ActiveModel::Model
   include Draper::Decoratable
 
-  attr_accessor :id, 
+  attr_accessor :id,
     :by,
     :dead,
     :deleted,
-    :descendants, 
+    :descendants,
     :kids,
     :parent,
     :parts,
     :poll,
-    :score, 
+    :score,
     :text,
-    :time, 
-    :title, 
-    :type, 
+    :time,
+    :title,
+    :type,
     :url
 
   def self.from_json json
