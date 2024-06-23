@@ -2,6 +2,7 @@
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'devise'
 
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../../config/environment", __FILE__)
@@ -63,4 +64,10 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
+  
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Warden::Test::Helpers
+  config.after :each do
+    Warden.test_reset!
+  end
 end
