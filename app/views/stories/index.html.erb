@@ -1,0 +1,84 @@
+
+<div class="container px-4 py-5" id="featured-3">
+  <h2 class="pb-2 border-bottom">Top Stories</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Type</th>
+        <th scope="col">Score</th>
+        <th scope="col">Created date</th>
+        <th scope="col">Flagged</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @top_stories.each do |story| %>
+        <tr>
+          <td><%= link_to story.title, story_path( story.id ) %></td>
+          <td><%= story.by %></td>
+          <td><%= story.type %></td>
+          <td><%= story.score %></td>
+          <td><%= story.created_on %></td>
+          <td><%= story.flagged_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% if @team_stories.present? %>
+  <div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">Team Stories</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Type</th>
+          <th scope="col">Score</th>
+          <th scope="col">Created date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @team_stories.each do |story| %>
+          <tr>
+            <td><%= link_to story.title, story_path( story.id ) %></td>
+            <td><%= story.by %></td>
+            <td><%= story.type %></td>
+            <td><%= story.score %></td>
+            <td><%= story.created_on %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+
+<% if @my_stories.present? %>
+  <div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">My Stories</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Type</th>
+          <th scope="col">Score</th>
+          <th scope="col">Created date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @my_stories.each do |story| %>
+          <tr>
+            <td><%= link_to story.title, story_path( story.id ) %></td>
+            <td><%= story.by %></td>
+            <td><%= story.type %></td>
+            <td><%= story.score %></td>
+            <td><%= story.created_on %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

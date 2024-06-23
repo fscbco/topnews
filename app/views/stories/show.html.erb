@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @story.title %></h5>
+      <p class="card-text">
+        <%= @story.text %>
+      </p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>By:</strong> <%= @story.by %></li>
+        <li class="list-group-item"><strong>Score:</strong> <%= @story.score %></li>
+        <li class="list-group-item"><strong>Time:</strong> <%= @story.created_on %></li>
+        <% if @story.flagged_by.present? %>
+          <li class="list-group-item"><strong>Flagged by:</strong> <%= @story.flagged_by %></li>
+        <% end %>
+        <!-- Add more attributes as needed -->
+      </ul>
+
+      <div class="row pt-4">
+        <div class="col-auto">
+          <% if @story.url.present? %>
+            <a href="<%= @story.url %>" class="btn btn-success" target="_blank">Read More</a>
+          <% end %>
+        </div>
+        <div class="col-auto">
+          <%= button_to flag_story_path( @story.id ), method: :post, class: "btn btn-primary" do %>
+            <i class="bi bi-hand-thumbs-up"></i> Like
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="<%= stories_path %>" class="btn-primary"><< Back</a>
+</div>
