@@ -23,14 +23,15 @@ end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara'
   gem 'factory_bot_rails'
-  gem "ffaker"
-  gem 'rspec-rails'
-  gem 'selenium-webdriver'
 end
 
 group :test do
-  gem 'webmock'
+  gem 'capybara'
+  gem "ffaker"
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
   gem 'vcr'
+  gem 'webmock'
+  gem 'webdrivers'
 end
