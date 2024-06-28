@@ -31,4 +31,6 @@ Steps I took:
 
 - Create the Table, migrate and seed it
 - install Tailwind CSS
-- Run bin/dev
+- Run bin/dev to start server
+- ran rails generate devise:views to create the default Devise views
+- ran rails generate devise:controllers users to create the users controller
