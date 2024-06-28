@@ -22,3 +22,6 @@ gem 'uglifier'
 gem 'web-console', group: :development
 
 gem "tailwindcss-rails", "~> 2.6"
+
+gem "faker", "~> 3.4"
+gem "factory_bot_rails", "~> 6.4"
