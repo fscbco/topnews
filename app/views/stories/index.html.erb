@@ -1,4 +1,16 @@
-<div>
-  <h1 class="font-bold text-4xl">Stories#index</h1>
-  <p>Find me in app/views/stories/index.html.erb</p>
+<div class="m-8">
+  <h1 class="font-bold text-4xl">Top Stories</h1>
+  <ul>
+    <% @stories.each do |story| %>
+      <li class="text-xl py-2 max-w-[50rem]">
+        <div class="flex flex-col justify-start">
+          <%= link_to story.title, story.url, class: 'hover:text-white' %>
+          <div class="flex flex-row text-lg">
+            <span class="text-gray-100 pr-4">From: (<%= story.author %>)</span>
+            <span class="text-gray-100 pl-4">Posted: <%= time_ago_in_words(story.created_at) %> ago</span>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Story < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :users, through: :likes
@@ -7,4 +9,6 @@ class Story < ApplicationRecord
   validates :time, presence: true
   validates :title, presence: true
   validates :url, presence: true
+
+  scope :newest_first, -> { order(time: :desc) }
 end

@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :story do
-    hacker_news_id { 1 }
+    hacker_news_id { Faker::Number.between(from: 1, to: 30) }
     author { Faker::Name.name }
     time { Date.today }
     title { 'Peter Piper picked a peck of pickled pepper' }

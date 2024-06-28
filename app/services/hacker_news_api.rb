@@ -11,8 +11,10 @@ class HackerNewsApi
     # fetch only max_stories number of stories
     story_ids = @fetcher.top_stories_ids[0...@max_stories]
     threads = create_fetch_threads(story_ids)
-
     join_threads(threads)
+
+    stories_data = threads.map(&:value).compact
+    save_stories(stories_data)
   end
 
   def save_stories(stories_data)

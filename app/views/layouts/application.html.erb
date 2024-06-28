@@ -8,13 +8,22 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body class="bg-gradient-to-r from-cyan-500 to-blue-500 ">
+    <nav class="flex justify-between bg-gray-800 p-4">
+      <div>
+        <a href="/" class="text-white">Top News</a>
+      </div>
+      <div>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "text-white" %>
+      </div>
+    </nav>
+    <%= yield %>
     <p class="notice">
       <%= notice %>
     </p>
     <p class="alert">
       <%= alert %>
     </p>
-    <%= yield %>
+
   </body>
 </html>

@@ -5,6 +5,16 @@ require 'rails_helper'
 RSpec.describe Story, type: :model do
   let(:story) { create(:story) }
 
+  describe '.newest_first' do
+    let!(:story1) { create(:story, time: 1.day.ago) }
+    let!(:story2) { create(:story, time: 2.days.ago) }
+    let!(:story3) { create(:story, time: Time.now) }
+
+    it 'returns stories sorted by time in descending order' do
+      expect(Story.newest_first).to eq([story3, story1, story2])
+    end
+  end
+
   describe 'associations' do
     it 'has many likes' do
       association = described_class.reflect_on_association(:likes)
@@ -33,7 +43,7 @@ RSpec.describe Story, type: :model do
       Story.create!(hacker_news_id: 1, author: 'Author', time: Time.now, title: 'Title', url: 'http://example.com')
       new_story = Story.new(hacker_news_id: 1, author: 'Author', time: Time.now, title: 'Title', url: 'http://example.com')
       expect(new_story).not_to be_valid
-      expect(new_story.errors[:hacker_news_id]).to include("has already been taken")
+      expect(new_story.errors[:hacker_news_id]).to include('has already been taken')
     end
 
     it 'is not valid without an author' do

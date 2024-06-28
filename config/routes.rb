@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'stories/index'
-  get 'stories/like'
   devise_for :users
-  root to: 'pages#home'
+  root to: 'stories#index'
 end
