@@ -1,0 +1,16 @@
+<div class="flex flex-row">
+  <%= link_to like_story_path(story), method: :post do %>
+    <i class="fas fa-thumbs-up"></i>
+    <%= story.likes.size %>
+  <% end %>
+  <div class="mx-2">
+    <% if story.likes.size > 0 %>
+      liked by:
+      <% liked_by_users = story.likes.map(&:user) %>
+      <% if liked_by_users.include?(current_user) %>
+        you<%= ', ' unless liked_by_users.reject { |user| user == current_user }.empty? %>
+      <% end %>
+      <%= liked_by_users.reject { |user| user == current_user }.map(&:fullname).join(', ') %>
+    <% end %>
+  </div>
+</div>

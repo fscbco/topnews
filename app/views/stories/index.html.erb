@@ -4,10 +4,15 @@
     <% @stories.each do |story| %>
       <li class="text-xl py-2 max-w-[50rem]">
         <div class="flex flex-col justify-start">
-          <%= link_to story.title, story.url, class: 'hover:text-white' %>
+          <%= link_to story.title, story.url, class: 'hover:text-white', target: :_blank %>
           <div class="flex flex-row text-lg">
             <span class="text-gray-100 pr-4">From: (<%= story.author %>)</span>
             <span class="text-gray-100 pl-4">Posted: <%= time_ago_in_words(story.created_at) %> ago</span>
+          </div>
+          <div>
+            <%= turbo_frame_tag "like_#{story.hacker_news_id}" do %>
+              <%= render 'stories/likes', story: story %>
+            <% end %>
           </div>
         </div>
       </li>
