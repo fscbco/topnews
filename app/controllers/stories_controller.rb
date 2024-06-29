@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-# StoriesController handles actions related to stories, including listing and liking stories.
+# StoriesController handles actions related to stories, including
+# listing and liking stories.
 class StoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :load_stories
@@ -14,7 +15,8 @@ class StoriesController < ApplicationController
 
   # Handles liking a story.
   #
-  # If the current user has not already liked the story, it creates a like and updates the page.
+  # If the current user has not already liked the story, it creates a
+  # like and updates the page.
   #
   # @return [void]
   def like
