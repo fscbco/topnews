@@ -17,7 +17,7 @@
         <tr>
           <td><%= link_to story.title, story_path( story.id ) %></td>
           <td><%= story.by %></td>
-          <td><%= story.type %></td>
+          <td><%= story.story_type %></td>
           <td><%= story.score %></td>
           <td><%= story.created_on %></td>
           <td><%= story.flagged_count %></td>
@@ -45,7 +45,7 @@
           <tr>
             <td><%= link_to story.title, story_path( story.id ) %></td>
             <td><%= story.by %></td>
-            <td><%= story.type %></td>
+            <td><%= story.story_type %></td>
             <td><%= story.score %></td>
             <td><%= story.created_on %></td>
           </tr>
@@ -73,7 +73,7 @@
           <tr>
             <td><%= link_to story.title, story_path( story.id ) %></td>
             <td><%= story.by %></td>
-            <td><%= story.type %></td>
+            <td><%= story.story_type %></td>
             <td><%= story.score %></td>
             <td><%= story.created_on %></td>
           </tr>

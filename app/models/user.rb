@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :flagged_stories
+  has_many :stories, through: :flagged_stories
 end

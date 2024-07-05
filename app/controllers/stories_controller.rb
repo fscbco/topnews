@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @top_stories = HackerNews::Client.top_stories.map( &:decorate )
+    @top_stories = Story.not_deleted.not_dead.take( 20 ).map( &:decorate )
     @team_stories = _team_stories
     @my_stories = _my_stories if current_user.present?
   end
@@ -23,17 +23,10 @@ class StoriesController < ApplicationController
   private
 
   def _my_stories
-    current_user
-      .flagged_stories
-      .pluck( :story_id )
-      .uniq.map { |id| HackerNews::Client.story( id ).decorate }
+    current_user.stories.decorate
   end
 
   def _team_stories
-    FlaggedStory
-      .all
-      .select( "story_id" )
-      .distinct.pluck( :story_id )
-      .map { |id| HackerNews::Client.story( id ).decorate }
+    Story.where.associated( :flagged_stories ).decorate
   end
 end
