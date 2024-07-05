@@ -1,0 +1,11 @@
+<h1>Top Stories</h1>
+
+<% @stories.each do |story| %>
+  <div style="display: flex; margin-bottom: 5px">
+    <%= link_to "★", story.toggle_star_path, method: :post, style: "text-decoration: none; font-size: 20px; margin-right: 2px; color: #{story.star_color}" %>
+    <div>
+      <a style="display: block" target="_open" href="<%= story.url %>"><%= story.title %></a>
+      <span>by <%= story.by %> - <%= story.formatted_created_at %></span>
+    </div>
+  </div>
+<% end %>
