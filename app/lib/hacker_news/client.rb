@@ -19,6 +19,10 @@ module HackerNews
       def top_stories
         new.top_stories
       end
+    
+      def top_story_ids
+        new.top_story_ids
+      end
     end
 
     def initialize version: 0
@@ -29,7 +33,8 @@ module HackerNews
       response = _send_request( "item/#{ id }.json" )
       return if response == ""
 
-      Story.new response
+      # can't use the identifier `type` in ActiveRecord
+      Story.new( response.except( "type" ) ).tap { |s| s.story_type = response[ "type" ] }
     end
   
     def top_stories limit: 10
@@ -38,6 +43,10 @@ module HackerNews
       _send_request( "topstories.json" ).slice( 0...limit ).map do |story_id|
         story story_id
       end
+    end
+  
+    def top_story_ids
+      _send_request( "topstories.json" )
     end
 
     private
