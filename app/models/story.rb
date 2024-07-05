@@ -1,41 +1,13 @@
 # frozen_string_literal: true
 
-require "json"
-
-class Story
-  include ActiveModel::Model
+class Story < ApplicationRecord
   include Draper::Decoratable
 
-  attr_accessor :id,
-    :by,
-    :dead,
-    :deleted,
-    :descendants,
-    :kids,
-    :parent,
-    :parts,
-    :poll,
-    :score,
-    :text,
-    :time,
-    :title,
-    :type,
-    :url
+  has_many :flagged_stories
+  has_many :users, through: :flagged_stories
 
-  def self.from_json json
-    begin
-      new JSON.parse( json )
-    rescue JSON::ParserError, TypeError
-      Rails.logger.error( "Failed to parse JSON" )
-    end
-  end
-
-  def flagged_by
-    @flagged_by ||= 
-      User
-        .joins( :flagged_stories )
-        .where( flagged_stories: { story_id: self.id } )
-  end
+  scope :not_deleted, -> { where deleted: [ nil, false ] }
+  scope :not_dead, -> { where dead: [ nil, false ] }
 
   def flag! user:
     FlaggedStory.find_or_create_by( story_id: id, user: user )

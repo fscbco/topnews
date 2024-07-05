@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_22_184811) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_03_052647) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,24 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_22_184811) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_flagged_stories_on_user_id"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "by"
+    t.boolean "dead"
+    t.boolean "deleted"
+    t.integer "descendants"
+    t.integer "kids", default: [], array: true
+    t.integer "parts", default: [], array: true
+    t.integer "poll"
+    t.string "url"
+    t.integer "score"
+    t.string "title"
+    t.string "story_type"
+    t.integer "time"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
