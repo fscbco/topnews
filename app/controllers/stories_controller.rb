@@ -11,7 +11,7 @@ class StoriesController < ApplicationController
   end
 
   def show
-    @story = HackerNews::Client.story( params[ :id ] ).decorate
+    @story = Story.find( params[ :id ] ).decorate
   end
 
   def flag

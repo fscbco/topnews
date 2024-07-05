@@ -3,7 +3,9 @@
 class Story < ApplicationRecord
   include Draper::Decoratable
 
-  has_many :flagged_stories
+  belongs_to :parent, class_name: "Story", optional: true
+  has_many :stories, class_name: "Story", foreign_key: "parent_id"
+  has_many :flagged_stories, dependent: :destroy
   has_many :users, through: :flagged_stories
 
   scope :not_deleted, -> { where deleted: [ nil, false ] }

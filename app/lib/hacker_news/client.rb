@@ -30,7 +30,10 @@ module HackerNews
       return if response == ""
 
       # can't use the identifier `type` in ActiveRecord
-      Story.new( response.except( "type" ) ).tap { |s| s.story_type = response[ "type" ] }
+      Story.new( response.except( "type", "parent" ) ).tap do |s| 
+        s.story_type = response[ "type" ]
+        s.parent_id = response[ "parent" ]
+      end
     end
   
     def top_stories limit: 10
