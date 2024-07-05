@@ -4,19 +4,7 @@ require 'rails_helper'
 
 RSpec.describe StoryDecorator do
   let :story do
-    Story.new(
-      {
-        by: "hsanchez",
-        descendants: 321,
-        id: 123,
-        kids: [ 8934, 8943, 8876 ],
-        score: 104,
-        title: "Silly title",
-        type: "story",
-        url: "http://www.google.com",
-        time: 1719060558,
-      }
-    )
+    build :story
   end
 
   let :decorator do
@@ -40,16 +28,17 @@ RSpec.describe StoryDecorator do
 
     context "when the story has been flagged" do
       before do
-        FactoryBot.create :flagged_story, user: mike, story_id: story.id
-        FactoryBot.create :flagged_story, user: rosa, story_id: story.id
+        story.save!
+        create :flagged_story, user: mike, story_id: story.id
+        create :flagged_story, user: rosa, story_id: story.id
       end
     
       let :mike do
-        FactoryBot.create :user, first_name: "Mike"
+        create :user, first_name: "Mike"
       end
       
       let :rosa do
-        FactoryBot.create :user, first_name: "Rosa"
+        create :user, first_name: "Rosa"
       end
 
       it { is_expected.to eq( "Mike and Rosa" ) }
@@ -66,16 +55,17 @@ RSpec.describe StoryDecorator do
 
     context "when the story has been flagged" do
       before do
-        FactoryBot.create :flagged_story, user: mike, story_id: story.id
-        FactoryBot.create :flagged_story, user: rosa, story_id: story.id
+        story.save!
+        create :flagged_story, user: mike, story_id: story.id
+        create :flagged_story, user: rosa, story_id: story.id
       end
     
       let :mike do
-        FactoryBot.create :user, first_name: "Mike"
+        create :user, first_name: "Mike"
       end
       
       let :rosa do
-        FactoryBot.create :user, first_name: "Rosa"
+        create :user, first_name: "Rosa"
       end
 
       it { is_expected.to eq( 2 ) }

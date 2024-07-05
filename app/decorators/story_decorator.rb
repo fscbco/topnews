@@ -8,10 +8,10 @@ class StoryDecorator < Draper::Decorator
   end
 
   def flagged_by
-    object.flagged_by.pluck( :first_name ).to_sentence
+    object.users.pluck( :first_name ).to_sentence
   end
 
   def flagged_count
-    object.flagged_by.size
+    object.users.size
   end
 end
