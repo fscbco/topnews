@@ -12,6 +12,6 @@ class Story < ApplicationRecord
   scope :not_dead, -> { where dead: [ nil, false ] }
 
   def flag! user:
-    FlaggedStory.find_or_create_by( story_id: id, user: user )
+    user.flagged_stories.find_or_create_by( story_id: id, user: user )
   end
 end

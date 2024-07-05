@@ -36,7 +36,7 @@ module HackerNews
       end
     end
   
-    def top_stories limit: 10
+    def top_stories
       _send_request( "topstories.json" )
     end
 

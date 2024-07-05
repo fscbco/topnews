@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
   end
 
   def flag
-    story = HackerNews::Client.story( params[ :id ] )
+    story = Story.find( params[ :id ] )
     story.flag! user: current_user
 
     redirect_to stories_path
