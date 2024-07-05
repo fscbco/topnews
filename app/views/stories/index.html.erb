@@ -13,15 +13,17 @@
       </tr>
     </thead>
     <tbody>
-      <% @top_stories.each do |story| %>
-        <tr>
-          <td><%= link_to story.title, story_path( story.id ) %></td>
-          <td><%= story.by %></td>
-          <td><%= story.story_type %></td>
-          <td><%= story.score %></td>
-          <td><%= story.created_on %></td>
-          <td><%= story.flagged_count %></td>
-        </tr>
+      <%= cache @top_stories do %>
+        <% @top_stories.each do |story| %>
+          <tr>
+            <td><%= link_to story.title, story_path( story.id ) %></td>
+            <td><%= story.by %></td>
+            <td><%= story.story_type %></td>
+            <td><%= story.score %></td>
+            <td><%= story.created_on %></td>
+            <td><%= story.flagged_count %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
