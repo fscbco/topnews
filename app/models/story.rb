@@ -17,6 +17,12 @@ Story = Struct.new(:id, :title, :url, :by, :created_at, keyword_init: true) do
     top_ids(n).map { |id| load(id) }
   end
 
+  def self.starred
+    ids = StoryStar.select(:story_id).distinct.pluck(:story_id)
+
+    ids.map { |id| load(id) }
+  end
+
   def starred_by?(user)
     user.story_stars.exists?(story_id: id)
   end

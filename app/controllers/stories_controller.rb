@@ -8,6 +8,15 @@ class StoriesController < ApplicationController
     @stories = decorated_stories
   end
 
+  def starred
+    stories = Story.starred
+    decorated_stories = stories.map do |story|
+      StoryDecorator.new(user: current_user, story:)
+    end
+
+    @stories = decorated_stories
+  end
+
   def star
     current_user.story_stars.find_or_create_by(story_id: params[:id])
 
