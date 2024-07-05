@@ -23,6 +23,10 @@ Story = Struct.new(:id, :title, :url, :by, :created_at, keyword_init: true) do
     ids.map { |id| load(id) }
   end
 
+  def starred_by
+    User.joins(:story_stars).where(story_stars: { story_id: id })
+  end
+
   def starred_by?(user)
     user.story_stars.exists?(story_id: id)
   end

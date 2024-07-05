@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user do
-    root to: redirect('/stories/top'), as: :authenticated_root
+    root to: redirect('/stories/top')
   end
 
   unauthenticated do

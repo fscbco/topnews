@@ -16,6 +16,18 @@ class StoryDecorator < SimpleDelegator
     starred_by?(user)
   end
 
+  def starred_by
+    sorted_starred_by = super.sort { |_, u| u == user ? 1 : 0 } # Push current user to the front
+
+    sorted_starred_by.map do |u|
+      if u == user
+        "You"
+      else
+        u.first_name
+      end
+    end
+  end
+
   def toggle_star_path
     starred? ? unstar_story_path(id) : star_story_path(id)
   end
