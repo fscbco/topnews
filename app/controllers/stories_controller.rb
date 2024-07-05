@@ -4,6 +4,7 @@ class StoriesController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
+    # choosing to show 20 only
     @top_stories = Story.not_deleted.not_dead.take( 20 ).map( &:decorate )
     @team_stories = _team_stories
     @my_stories = _my_stories if current_user.present?
@@ -27,6 +28,6 @@ class StoriesController < ApplicationController
   end
 
   def _team_stories
-    Story.where.associated( :flagged_stories ).decorate
+    Story.where.associated( :flagged_stories ).take( 20 ).map( &:decorate )
   end
 end
