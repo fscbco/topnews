@@ -3,7 +3,7 @@
 module Stories
   class ImportService
     def self.run!
-      ::HackerNews::Client.top_story_ids.each do |id|
+      ::HackerNews::Client.top_stories.each do |id|
         if Story.find_by( id: id )
           puts "Story (#{ id }) already exists"
         else

@@ -19,10 +19,6 @@ module HackerNews
       def top_stories
         new.top_stories
       end
-    
-      def top_story_ids
-        new.top_story_ids
-      end
     end
 
     def initialize version: 0
@@ -38,14 +34,6 @@ module HackerNews
     end
   
     def top_stories limit: 10
-      # Don't like this; in fact, I hate it but it is neccessary as the HN topstories endpoint
-      # returns only the IDs
-      _send_request( "topstories.json" ).slice( 0...limit ).map do |story_id|
-        story story_id
-      end
-    end
-  
-    def top_story_ids
       _send_request( "topstories.json" )
     end
 

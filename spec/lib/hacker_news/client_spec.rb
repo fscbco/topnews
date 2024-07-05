@@ -10,12 +10,6 @@ describe HackerNews::Client, type: :lib do
   
   describe "#top_stories" do
     before do
-      # This is some kind of double-dipping here:
-      # once I decided not to return a list of IDs for `top_stories`,
-      # stubbing the request broke since I was making multiple requests.
-      # So, here I stub the first of these requests to limit the number of stories
-      # returned then let VCR interrupt and mimic the additional requests per story.
-      # Ideally, you only want one of these two but HN defaults to 500 stories!!!
       stub_request( :get, url )
       .with(
         headers: {
@@ -33,13 +27,10 @@ describe HackerNews::Client, type: :lib do
       "https://hacker-news.firebaseio.com/v0/topstories.json"
     end
 
-    it "gets the list of top stories IDs", :vcr do
+    it "gets the list of top stories IDs" do
       response = api.top_stories
 
-      expect( response ).to contain_exactly(
-        an_object_having_attributes( id: 123, type: "story", score: 8, by: "beau" ),
-        an_object_having_attributes( id: 456, type: "comment", parent: 363, by: "staunch" ),
-      )
+      expect( response ).to match_array( [ 123, 456 ] )
     end
   end
 
@@ -88,7 +79,7 @@ describe HackerNews::Client, type: :lib do
           kids: match_array( [ 8934, 8943, 8876 ] ),
           score: 104,
           title: "Silly title",
-          type: "story",
+          story_type: "story",
           url: "http://www.google.com",
         )
       end
