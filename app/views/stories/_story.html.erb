@@ -1,0 +1,14 @@
+<div class="story">
+  <h2>
+    <% if current_user.flagged_stories.exists?(story['id']) %>
+      <%= form_with url: story_flag_path(story['id']), method: :delete, local: true, class: 'inline-form' do %>
+        <%= image_tag 'star-gold-icon.png', alt: 'Unflag', data: { confirm: 'Are you sure you want to unflag this story?' }, class: 'flag-icon', onclick: 'this.closest("form").submit()' %>
+      <% end %>
+    <% else %>
+      <%= form_with url: story_flag_path(story['id']), method: :post, local: true, class: 'inline-form' do %>
+        <%= image_tag 'star-empty-icon.png', alt: 'Flag', class: 'flag-icon', onclick: 'this.closest("form").submit()' %>
+      <% end %>
+    <% end %>
+    <a href="<%= story['url'] %>"><%= story['title'] %></a>
+  </h2>
+</div>

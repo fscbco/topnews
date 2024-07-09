@@ -1,0 +1,19 @@
+<h1>Flagged Stories</h1>
+<ul>
+  <% @flagged_stories.each do |story_id, flags| %>
+    <div class="story">
+      <h2>
+        <% if current_user.flagged_stories.exists?(story_id) %>
+          <%= form_with url: story_flag_path(Story.find(story_id)), method: :delete, local: true, class: 'inline-form' do |form| %>
+            <%= image_tag 'star-gold-icon.png', alt: 'Unflag', data: { confirm: 'Are you sure you want to unflag this story?' }, class: 'flag-icon', onclick: 'this.closest("form").submit()' %>
+          <% end %>
+        <% else %>
+          <%= form_with url: story_flag_path(Story.find(story_id)), method: :post, local: true, class: 'inline-form' do %>
+            <%= image_tag 'star-empty-icon.png', alt: 'Flag', class: 'flag-icon', onclick: 'this.closest("form").submit()' %>
+          <% end %>
+        <% end %>
+        <a href="<%= flags.first.story.url %>"><%= flags.first.story.title %></a> &nbsp; - flagged by <%= flags.map(&:user).map(&:name).to_sentence %>
+      </h2>
+    </div>
+  <% end %>
+</ul>
