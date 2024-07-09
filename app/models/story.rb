@@ -7,7 +7,7 @@ Story = Struct.new(:id, :title, :url, :by, :created_at, keyword_init: true) do
     new(
       id:,
       title: details.fetch('title'),
-      url: details.fetch('url'),
+      url: details.fetch('url', "https://news.ycombinator.com/item?id=#{id}"),
       by: details.fetch('by'),
       created_at: Time.at(details.fetch('time'))
     )
