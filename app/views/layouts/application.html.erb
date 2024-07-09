@@ -8,6 +8,19 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <div>
+      <% if current_user %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to 'Latest News Stories', stories_path %>
+    </div>
+    <div>
+      <%= link_to 'Team Favorites', flagged_stories_path %>
+    </div>
     <p class="notice">
       <%= notice %>
     </p>

@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+.story h2 {
+    display: flex;
+    align-items: center;
+}
+
+.inline-form {
+    margin-right: 10px;
+    display: inline;
+}
+
+.flag-icon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
