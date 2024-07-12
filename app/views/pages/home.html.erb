@@ -1,5 +1,10 @@
+
+<div class="p-9 text-center bg-custom-gradient mt-[-20px] h-[25rem] relative">
 <% if user_signed_in? %>
-<h1>Welcome, <%= current_user.first_name %> to Top News!</h1>
+<!-- Current User method is also built in with the DEVISE gem.  You can check out the source code within this link: https://github.com/heartcombo/devise devise/lib/devise/controllers/helpers.rb -->
+<h1 class="text-center text-6xl text-white my-[100px]">Welcome, <%= current_user.first_name %> to Top News!</h1>
 <% else %>
-<h1 class="font-light">Welcome to Top News</h1>
+<h1 class="font-light text-6xl text-white my-[100px]">Welcome to Top News</h1>
 <% end %>
+</div>
+
