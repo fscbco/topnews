@@ -1,12 +1,12 @@
 <div class="flex justify-between w-full items-center py-5 bg-blue-200">
-  <div class="pl-8"><%= link_to 'Top News', root_path, class: "no-underline hover:text-blue-700 hover:underline" %></div>
+  <div class="pl-8"><%= link_to 'Top News', root_path, class: "no-underline hover:text-blue-700 hover:underline text-lg" %></div>
   <div class="pr-8">
-    <%= link_to 'Home', root_path,  class: "p-5 no-underline hover:text-blue-700 hover:underline"%>
+    <%= link_to 'Home', root_path,  class: "p-5 no-underline hover:text-blue-700 hover:underline text-lg"%>
     <!-- user_signed_in? method providded by us within the Devise Gem https://github.com/heartcombo/devise -->
     <% if user_signed_in? %>
-      <%= link_to 'Sign Out', destroy_user_session_path,  class: "p-5 no-underline hover:text-blue-700 hover:underline",  method: :delete %>
+      <%= link_to 'Sign Out', destroy_user_session_path,  class: "p-5 no-underline hover:text-blue-700 hover:underline text-lg",  method: :delete %>
     <% else %>
-      <%= link_to 'Sign In', new_user_session_path,  class: "p-5 no-underline hover:text-blue-700 hover:underline" %>
+      <%= link_to 'Sign In', new_user_session_path,  class: "p-5 no-underline hover:text-blue-700 hover:underline text-lg" %>
     <% end %>
     </div>
   </div>
