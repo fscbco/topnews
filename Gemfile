@@ -22,3 +22,5 @@ gem 'uglifier'
 gem 'web-console', group: :development
 
 gem "tailwindcss-rails", "~> 2.6"
+# gem 'font-awesome-sass', '~> 6.0.0'
+
