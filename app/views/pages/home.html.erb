@@ -1,10 +1,35 @@
-
 <div class="p-9 text-center bg-custom-gradient mt-[-20px] h-[25rem] relative">
-<% if user_signed_in? %>
-<!-- Current User method is also built in with the DEVISE gem.  You can check out the source code within this link: https://github.com/heartcombo/devise devise/lib/devise/controllers/helpers.rb -->
-<h1 class="text-center text-6xl text-white my-[100px]">Welcome, <%= current_user.first_name %> to Top News!</h1>
-<% else %>
-<h1 class="font-light text-6xl text-white my-[100px]">Welcome to Top News</h1>
-<% end %>
+  <% if user_signed_in? %>
+  <!-- Current User method is also built in with the DEVISE gem.  You can check out the source code within this link: https://github.com/heartcombo/devise devise/lib/devise/controllers/helpers.rb -->
+  <h1 class="text-center text-6xl text-white my-[100px]">
+    Welcome <%= current_user.first_name %>,<br />
+    to Top News!
+  </h1>
+  <% else %>
+  <h1 class="font-light text-6xl text-white my-[100px]">Welcome to Top News</h1>
+  <% end %>
 </div>
 
+<% if @data %>
+<div class="py-10">
+  <div class="text-center">
+    <h2>Hacker News Item</h2>
+  </div>
+  <div>
+    <div class="text-center">
+      <div class="font-bold text-[26px]"><%= @data['title'] %></div>
+      <div class="font-semibold text-[22px]">By: <span><%= @data['by'] %></span></div>
+    </div>
+    <div class="w-9/12 mx-auto flex justify-center items-center">
+      <div class="p-3">Score: <span><%= @data['score'] %></span></div>
+      <div class="p-3">
+        <a class="no-underline hover:underline" href="<%= @data['url'] %>">Click HERE to view the article</a>
+      </div>
+    </div>
+  </div>
+</div>
+<% else %>
+<div>
+  <p>No data available or you are not logged in.</p>
+</div>
+<% end %>
