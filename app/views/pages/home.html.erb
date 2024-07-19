@@ -40,6 +40,8 @@
   </div>
 <% end %>
 
+<% if user_signed_in? %>
 <div class="text-center">
     <%= link_to 'Click here to view your starred stories', starred_stories_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125" %>
 </div>
+<%end%>

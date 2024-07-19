@@ -30,7 +30,9 @@ When a team member signs in, they will see recent news stories and be able to st
 
 # Notes from Jeffrey Martinez
 
-Installed the Tailwind CSS Gem for design, there are some files that are automatically created. 
+Installed the Tailwind CSS Gem for design, there are some files that are automatically created. Here are the versions being used for the application. 
+
+Ruby version 3.1.4 & Node version 20.5.0.
 
 TO RUN THE APPLICATION MAKE SURE TO RUN THIS COMMAND:
 
