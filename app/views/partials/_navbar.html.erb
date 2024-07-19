@@ -4,6 +4,7 @@
     <%= link_to 'Home', root_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125"%>
     <!-- user_signed_in? method providded by us within the Devise Gem https://github.com/heartcombo/devise -->
     <% if user_signed_in? %>
+    <%= link_to 'Starred Stories', starred_stories_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125" %>
       <%= link_to 'Sign Out', destroy_user_session_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125",  method: :delete %>
     <% else %>
       <%= link_to 'Sign In', new_user_session_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125" %>

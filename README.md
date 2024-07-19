@@ -27,10 +27,12 @@ When a team member signs in, they will see recent news stories and be able to st
 * UX design here is of little importance. The design can be minimal or it can have zero design at all.
 
 
-Steps I took:
 
-- Create the Table, migrate and seed it
-- install Tailwind CSS
-- Run bin/dev to start server
-- ran rails generate devise:views to create the default Devise views
-- ran rails generate devise:controllers users to create the users controller
+# Notes from Jeffrey Martinez
+
+Installed the Tailwind CSS Gem for design, there are some files that are automatically created. 
+
+TO RUN THE APPLICATION MAKE SURE TO RUN THIS COMMAND:
+
+`bin/dev`
+

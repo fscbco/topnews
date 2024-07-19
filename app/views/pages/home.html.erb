@@ -10,7 +10,7 @@
 </div>
 
 <% if @data %>
-  <div class="pt-10 pb-20">
+  <div class="pt-6 pb-20">
     <div class="text-center">
       <h2 class="hover:text-blue-700 hover:cursor-pointer">Hacker News Item</h2>
     </div>
@@ -27,9 +27,9 @@
       </div>
       <div class="text-center mt-2">
         <% if current_user.stars.exists?(story_id: @data['id']) %>
-          <%= button_to 'Unstar', toggle_star_path(@data['id']), method: :post, class: 'btn btn-warning' %>
+        Click the Star to remove from favorites  <%= button_to '★', toggle_star_path(@data['id']), method: :post, class: 'text-yellow-300 hover:cursor-pointer text-[26px]' %>
         <% else %>
-          <%= button_to 'Star', toggle_star_path(@data['id']), method: :post, class: 'btn btn-primary' %>
+         Click the Star to add to favorites <%= button_to '★', toggle_star_path(@data['id']), method: :post, class: 'text-gray-600 hover:cursor-pointer text-[26px]' %>
         <% end %>
       </div>
     </div>
@@ -39,3 +39,7 @@
     <div class="text-[26px] font-bold text-center">No data is visible at this time. <br>Please make sure to <a class="no-underline hover:underline hover:text-blue-700" href="/users/sign_in">log in</a> to view the most recent stories!</div>
   </div>
 <% end %>
+
+<div class="text-center">
+    <%= link_to 'Click here to view your starred stories', starred_stories_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125" %>
+</div>

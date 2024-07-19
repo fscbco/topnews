@@ -7,7 +7,7 @@
 <% if @starred_stories.any? %>
   <div class="pt-10 pb-20">
     <% @starred_stories.each do |star| %>
-      <div class="mt-5 text-center border-b border-gray-300 pb-5">
+      <div class="mt-5 text-center border-b border-gray-300 pb-5 w-10/12 mx-auto">
         <div class="font-bold text-[26px]"><%= star.story_title %></div>
         <div class="font-semibold text-[22px]">
           Starred by: <span><%= star.user.first_name %> <%= star.user.last_name %></span>
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="text-center mt-2">
-          <%= button_to 'Unstar', toggle_star_path(star.story_id), method: :post, class: 'btn btn-warning' %>
+         Click the Star to remove from favorites  <%= button_to '★', toggle_star_path(star.story_id), method: :post, class: 'text-yellow-300 hover:cursor-pointer text-[26px]' %>
         </div>
       </div>
     <% end %>
