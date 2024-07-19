@@ -1,0 +1,30 @@
+<div class="p-9 text-center bg-custom-gradient mt-[-20px] h-[25rem] relative">
+  <h1 class="text-center text-6xl text-white my-[100px]">
+    Your Starred Stories
+  </h1>
+</div>
+
+<% if @starred_stories.any? %>
+  <div class="pt-10 pb-20">
+    <% @starred_stories.each do |star| %>
+      <div class="mt-5 text-center border-b border-gray-300 pb-5">
+        <div class="font-bold text-[26px]"><%= star.story_title %></div>
+        <div class="font-semibold text-[22px]">
+          Starred by: <span><%= star.user.first_name %> <%= star.user.last_name %></span>
+        </div>
+        <div class="w-9/12 mx-auto flex justify-center items-center">
+          <div class="p-3">
+            <a class="no-underline hover:underline hover:text-blue-700 hover:cursor-pointer" href="<%= star.story_url %>">Click HERE to view the article</a>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <%= button_to 'Unstar', toggle_star_path(star.story_id), method: :post, class: 'btn btn-warning' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="w-9/12 mx-auto pt-10">
+    <div class="text-[26px] font-bold text-center">You haven't starred any stories yet.</div>
+  </div>
+<% end %>

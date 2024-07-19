@@ -1,38 +1,41 @@
 <div class="p-9 text-center bg-custom-gradient mt-[-20px] h-[25rem] relative">
   <% if user_signed_in? %>
-  <!-- Current User method is also built in with the DEVISE gem.  You can check out the source code within this link: https://github.com/heartcombo/devise devise/lib/devise/controllers/helpers.rb -->
-  <h1 class="text-center text-6xl text-white my-[100px]">
-    Welcome <%= current_user.first_name %>,<br />
-    to Top News!
-  </h1>
+    <h1 class="text-center text-6xl text-white my-[100px]">
+      Welcome <%= current_user.first_name %>,<br />
+      to Top News!
+    </h1>
   <% else %>
-  <h1 class="font-light text-6xl text-white my-[100px]">Welcome to Top News</h1>
+    <h1 class="font-light text-6xl text-white my-[100px]">Welcome to Top News</h1>
   <% end %>
 </div>
 
 <% if @data %>
-<div class="pt-10 pb-20">
-  <div class="text-center">
-    <h2 class="hover:text-blue-700 hover:cursor-pointer">Hacker News Item</h2>
-  </div>
-  <div>
+  <div class="pt-10 pb-20">
     <div class="text-center">
-      <div class="font-bold text-[26px]"><%= @data['title'] %></div>
-      <div class="font-semibold text-[22px]">By: <span><%= @data['by'] %></span></div>
+      <h2 class="hover:text-blue-700 hover:cursor-pointer">Hacker News Item</h2>
     </div>
-    <div class="w-9/12 mx-auto flex justify-center items-center">
-      <div class="p-3">Score: <span><%= @data['score'] %></span></div>
-      <div class="p-3">
-        <a class="no-underline hover:underline hover:text-blue-700 hover:cursor-pointer" href="<%= @data['url'] %>">Click HERE to view the article</a>
+    <div>
+      <div class="text-center">
+        <div class="font-bold text-[26px]"><%= @data['title'] %></div>
+        <div class="font-semibold text-[22px]">By: <span><%= @data['by'] %></span></div>
+      </div>
+      <div class="w-9/12 mx-auto flex justify-center items-center">
+        <div class="p-3">Score: <span><%= @data['score'] %></span></div>
+        <div class="p-3">
+          <a class="no-underline hover:underline hover:text-blue-700 hover:cursor-pointer" href="<%= @data['url'] %>">Click HERE to view the article</a>
+        </div>
+      </div>
+      <div class="text-center mt-2">
+        <% if current_user.stars.exists?(story_id: @data['id']) %>
+          <%= button_to 'Unstar', toggle_star_path(@data['id']), method: :post, class: 'btn btn-warning' %>
+        <% else %>
+          <%= button_to 'Star', toggle_star_path(@data['id']), method: :post, class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
-    <div class="text-center">
-        <div>Like <span class="hover:cursor-pointer pl-1"><i class="fas fa-heart"></i></span> </div>
-    </div>
   </div>
-</div>
 <% else %>
-<div class="w-9/12 mx-auto pt-10">
-  <div class="text-[26px] font-bold text-center">No data is visible at this time. <br>Please make sure to <a class="no-underline hover:underline hover:text-blue-700" href="/users/sign_in">log in</a> to view the most recent stories!</div>
-</div>
+  <div class="w-9/12 mx-auto pt-10">
+    <div class="text-[26px] font-bold text-center">No data is visible at this time. <br>Please make sure to <a class="no-underline hover:underline hover:text-blue-700" href="/users/sign_in">log in</a> to view the most recent stories!</div>
+  </div>
 <% end %>
