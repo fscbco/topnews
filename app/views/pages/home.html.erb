@@ -12,19 +12,17 @@
   <tbody>
     <% @stories.each do |story| %>
       <tr>
-        <td><%= link_to story.title, story.url, target: "_blank", rel: "noopener noreferrer" %></td>
+        <td><%= link_to story.title, story.url, target: "_blank", rel: "noopener noreferrer", class: "story-link" %></td>
         <td><%= story.author %></td>
         <td><%= story.score %></td>
         <td>
           <%= story.users.map(&:full_name).join(", ") %>
         </td>
         <td>
-          <% if user_signed_in? %>
-            <% if current_user.recommended_stories.include?(story) %>
-              <%= button_to "Unrecommend", hacker_news_recommendation_path(story.recommendations.find_by(user_id: current_user.id)), method: :delete %>
-            <% else %>
-              <%= button_to "Recommend", hacker_news_recommendations_path(hacker_news_story_id: story.id), method: :post %>
-            <% end %>
+          <% if current_user.recommended_stories.include?(story) %>
+            <%= button_to "Unrecommend", hacker_news_recommendation_path(story.recommendations.find_by(user_id: current_user.id)), method: :delete, class: 'recommend-button'  %>
+          <% else %>
+            <%= button_to "Recommend", hacker_news_recommendations_path(hacker_news_story_id: story.id), method: :post, class: 'recommend-button'  %>
           <% end %>
       </tr>
     <% end %>
