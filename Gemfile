@@ -7,6 +7,10 @@ gem 'sidekiq'
 gem 'whenever', require: false
 gem 'will_paginate'
 
+group :development, :test do
+  gem 'factory_bot_rails'
+end
+
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'coffee-rails'
