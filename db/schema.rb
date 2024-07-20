@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_19_235936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hacker_news_recommendations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "hacker_news_story_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hacker_news_story_id"], name: "index_hacker_news_recommendations_on_hacker_news_story_id"
+    t.index ["user_id", "hacker_news_story_id"], name: "index_one_recommendation_per_user_and_story", unique: true
+    t.index ["user_id"], name: "index_hacker_news_recommendations_on_user_id"
+  end
+
+  create_table "hacker_news_stories", force: :cascade do |t|
+    t.string "author", null: false
+    t.integer "hacker_news_id", null: false
+    t.integer "score", null: false
+    t.integer "hacker_news_timestamp", null: false
+    t.string "title", null: false
+    t.string "url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "recommendations_count", default: 0, null: false
+    t.index ["hacker_news_timestamp"], name: "index_hacker_news_stories_on_hacker_news_timestamp"
+    t.index ["score"], name: "index_hacker_news_stories_on_score"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -33,4 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "hacker_news_recommendations", "hacker_news_stories"
+  add_foreign_key "hacker_news_recommendations", "users"
 end

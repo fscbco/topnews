@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.recommend-button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.story-link {
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.story-link:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.story-link:visited {
+  color: #8e44ad;
+}
