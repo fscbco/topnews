@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_19_232322) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_19_235936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_19_232322) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["hacker_news_story_id"], name: "index_hacker_news_recommendations_on_hacker_news_story_id"
+    t.index ["user_id", "hacker_news_story_id"], name: "index_one_recommendation_per_user_and_story", unique: true
     t.index ["user_id"], name: "index_hacker_news_recommendations_on_user_id"
   end
 
