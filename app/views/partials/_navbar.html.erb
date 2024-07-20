@@ -2,7 +2,6 @@
   <div class="pl-8"><%= link_to 'Top News', root_path, class: "no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125" %></div>
   <div class="pr-8">
     <%= link_to 'Home', root_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125"%>
-    <!-- user_signed_in? method providded by us within the Devise Gem https://github.com/heartcombo/devise -->
     <% if user_signed_in? %>
     <%= link_to 'Starred Stories', starred_stories_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125" %>
       <%= link_to 'Sign Out', destroy_user_session_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125",  method: :delete %>
@@ -12,5 +11,20 @@
     </div>
   </div>
 
+<!-- 
 
-  <!-- Add a scale effect when I hover on the link -->
+Using the Slim Gem:
+
+.flex.justify-between.w-full.items-center.py-5.bg-blue-200
+  .pl-8
+    = link_to 'Top News', root_path, class: "no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125"
+  .pr-8
+    = link_to 'Home', root_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125"
+    - if user_signed_in?
+      = link_to 'Starred Stories', starred_stories_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125"
+      = link_to 'Sign Out', destroy_user_session_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125",  method: :delete
+    - else
+      = link_to 'Sign In', new_user_session_path,  class: "p-5 no-underline hover:text-blue-700 text-lg transform transition duration-200 hover:scale-125"
+
+
+-->

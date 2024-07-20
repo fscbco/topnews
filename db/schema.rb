@@ -36,4 +36,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_19_020617) do
     t.datetime "current_sign_in_at", precision: nil
     t.datetime "last_sign_in_at", precision: nil
     t.inet "current_sign_in_ip"
-    t.inet 
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "stars", "users"
+end
