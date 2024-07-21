@@ -20,3 +20,5 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+
+gem "jsbundling-rails", "~> 1.3"
