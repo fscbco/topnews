@@ -1,0 +1,5 @@
+<ul>
+<% @top_stories.each do |story| %>
+  <li> <%= link_to story["title"], story["url"] %> </li>
+<% end %>
+</ul>
