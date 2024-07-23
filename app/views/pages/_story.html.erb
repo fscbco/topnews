@@ -1,10 +1,13 @@
 
+<%= link_to '⬆️', favorite_create_path(story_id: story.id), method: :post if @logged_in %>
 <%= "#{(index + 1).to_s.rjust(2, "0")}. " %> 
-<% "starring feature, hijack this url and send back javascript?" %>
-<%= link_to story['title'], story['url'], :target => "_blank" %>
+<%= link_to story.title, story.url, :target => "_blank" %>
+<%= "By #{story.by} #{time_ago_in_words(story.time)} ago." %>
 </br>
-<%= "By #{story['by']} #{time_ago_in_words(Time.at(story['time']).to_datetime)} ago." %>
-</br>
-<%= "Starred by: #{['user_1', 'user_2', 'user_3', 'user_4', nil, nil, nil].sample(3).compact.join(", ")}" %>
+
+<%= link_to '⬇️', favorite_destroy_path(story_id: story.id), method: :delete if @logged_in %>
+<% if favorite.present? %>
+    <%= "Liked by: #{favorite}" %>
+<% end %>
 </br>
 </br>

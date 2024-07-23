@@ -1,9 +1,10 @@
 <h1>Welcome to Top News</h1>
+
 <% if @logged_in%>
-<%= button_to "Logout", destroy_user_session_path, method: :delete  %>
-<% else%>
-<%= button_to "Login", new_user_session_path  %>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+<% else %>
+    <%= button_to "Login", new_user_session_path  %>
 <%end%>
-<% @stories.each.with_index do |story, index| %>
-    <%= render "story", story: story, index: index %>
+<% @stories_data.each.with_index do |story_data, index| %>
+    <%= render "story", story: story_data[:story], favorite: story_data[:favorite], index: index %>
 <% end%>
