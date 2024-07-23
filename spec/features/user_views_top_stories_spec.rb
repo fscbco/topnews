@@ -1,8 +1,8 @@
-# spec/features/user_signs_in_spec.rb
+# spec/features/user_views_top_stories_spec.rb
 require 'rails_helper'
 require 'webmock/rspec'
 
-RSpec.describe "User signs in", type: :feature do
+RSpec.describe "User views top stories", type: :feature do
   before do
     # Stub the request to fetch top stories
     stub_request(:get, "https://hacker-news.firebaseio.com/v0/topstories.json")
@@ -24,23 +24,14 @@ RSpec.describe "User signs in", type: :feature do
     end
   end
 
-  scenario "with valid credentials" do
+  scenario "user sees a list of top stories" do
     user = FactoryBot.create(:user)
+    login_as(user, scope: :user)
 
-    visit new_user_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
+    visit top_stories_path
 
-    expect(page).to have_content("Signed in successfully")
-  end
-
-  scenario "with invalid credentials" do
-    visit new_user_session_path
-    fill_in "Email", with: "test@example.com"
-    fill_in "Password", with: "wrongpassword"
-    click_button "Log in"
-
-    expect(page).to have_content("Invalid Email or password")
+    expect(page).to have_content("Story 8863")
+    expect(page).to have_content("Story 8864")
+    expect(page).to have_content("Story 8865")
   end
 end

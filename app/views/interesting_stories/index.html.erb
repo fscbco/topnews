@@ -1,0 +1,10 @@
+<h1>Interesting Stories</h1>
+<div class="interesting-stories">
+  <% @interesting_stories.each do |interesting_story| %>
+    <div class="story">
+      <h2><%= link_to interesting_story.story.title, interesting_story.story.url %></h2>
+      <p>by <%= interesting_story.story.by %> | <%= interesting_story.story.score %> points</p>
+      <p>Marked by: <%= interesting_story.user.email %></p>
+    </div>
+  <% end %>
+</div>

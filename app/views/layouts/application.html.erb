@@ -1,19 +1,91 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-    <title>Top News</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <p class="notice">
-      <%= notice %>
-    </p>
-    <p class="alert">
-      <%= alert %>
-    </p>
-    <%= yield %>
-  </body>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+  <title>Top News</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <style>
+      body {
+          font-family: "Helvetica Neue", Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+      nav {
+          background-color: #f5f2eb;
+          border-bottom: 1px solid #eaeaea;
+          padding: 10px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+      nav ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          align-items: center;
+      }
+      nav ul li {
+          margin-left: 20px;
+      }
+      nav a {
+          text-decoration: none;
+          color: #333;
+          font-weight: bold;
+      }
+      nav a:hover {
+          color: #007bff;
+      }
+      .notice, .alert {
+          color: red;
+          padding: 10px;
+          text-align: center;
+      }
+      .story {
+          border: 1px solid #eaeaea;
+          padding: 10px;
+          margin: 0px;
+          border-radius: 5px;
+      }
+      button {
+          background-color: rgb(139, 155, 69);
+          color: #fff;
+          text-align: center;
+          white-space: nowrap;
+          border-radius: 10px;
+          justify-content: center;
+          align-items: center;
+          max-width: 200px;
+          margin-top: 20px;
+          padding: 5px;
+          font-size: 10px;
+          font-weight: 500;
+          transition: background-color .2s;
+          display: flex;
+          position: relative;
+      }
+
+  </style>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <%= link_to 'Top News', root_path %>
+  </div>
+  <ul>
+    <li><%= link_to 'Top Stories', stories_path %></li>
+    <li><%= link_to 'Interesting Stories', interesting_stories_path %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'Login', new_user_session_path %></li>
+    <% end %>
+  </ul>
+</nav>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<%= yield %>
+</body>
 </html>
