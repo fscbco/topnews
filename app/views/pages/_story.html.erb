@@ -1,0 +1,10 @@
+
+<%= "#{(index + 1).to_s.rjust(2, "0")}. " %> 
+<% "starring feature, hijack this url and send back javascript?" %>
+<%= link_to story['title'], story['url'], :target => "_blank" %>
+</br>
+<%= "By #{story['by']} #{time_ago_in_words(Time.at(story['time']).to_datetime)} ago." %>
+</br>
+<%= "Starred by: #{['user_1', 'user_2', 'user_3', 'user_4', nil, nil, nil].sample(3).compact.join(", ")}" %>
+</br>
+</br>
