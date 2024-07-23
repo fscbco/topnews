@@ -20,3 +20,5 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+gem 'webdrivers', group: [:development, :test]
+gem 'database_cleaner-active_record', group: [:development, :test]
