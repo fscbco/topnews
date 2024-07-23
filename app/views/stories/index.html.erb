@@ -1,0 +1,11 @@
+<!-- app/views/stories/index.html.erb -->
+<h1>Top Stories</h1>
+
+<% @stories.each do |story| %>
+  <div class="story" id="story-<%= story['id'] %>">
+    <h2><%= link_to story['title'], story['url'] %></h2>
+    <p>by <%= story['by'] %></p>
+    <p>Score: <%= story['score'] %></p>
+    <%= button_to "Mark as Interesting", mark_interesting_story_path(story['id']), method: :post %>
+  </div>
+<% end %>
