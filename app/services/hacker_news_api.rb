@@ -17,7 +17,7 @@ class HackerNewsApi
         uri = URI("https://hacker-news.firebaseio.com/v0/item/#{story_id}.json")
         response = response(uri)
 
-        handle_response(response)
+        data = handle_response(response)
     end
 
     def self.response(uri)
