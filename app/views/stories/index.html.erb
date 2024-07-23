@@ -1,0 +1,21 @@
+<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+
+<h1>Top Stories</h1>
+<ul>
+  <% @stories.each do |story| %>
+    <li>
+      <a href="<%= story['url'] %>" target="_blank"><%= story['title'] %></a>
+      <%= button_to 'Mark as Interesting', mark_as_interesting_stories_path(hn_id: story['id'], title: story['title'], url: story['url']), method: :post %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Interesting Stories</h2>
+<ul>
+  <% @interesting_stories.each do |story| %>
+    <li>
+      <a href="<%= story.url %>"><%= story.title %></a> marked by <%= story.users.map(&:first_name).join(', ') %>
+    </li>
+  <% end %>
+</ul>
+
