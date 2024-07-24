@@ -12,6 +12,7 @@ gem 'pg'
 gem 'pry-rails'
 gem 'puma'
 gem 'rails', '~> 7.0.3'
+gem 'rest-client', '~> 2.1' # http rest client
 gem 'rspec-rails'
 gem 'sass-rails'
 gem 'selenium-webdriver', group: [:development, :test]
