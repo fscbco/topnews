@@ -1,0 +1,863 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/topstories.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4501'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: "[41060102,41061755,41061390,41058424,41042929,41058107,41025267,41058292,41036506,41059412,41058671,41056694,41057766,41034297,41044657,41052365,41059148,41056463,41025341,41001744,41052593,41053645,41059821,41053761,41056387,41058194,41049399,41052446,41050055,41053939,41048707,41052371,41012854,41062292,41048194,41062846,41057033,41056391,41063097,41063406,41048777,41057545,41053201,41057199,41060710,41049587,41000844,41063141,41033042,41046773,41060569,41062658,41057249,41046956,41059143,41059342,41045834,41060834,41057302,41018635,41057791,41037532,41060158,41040417,41045176,41048196,41043771,41053383,41060559,41053117,41048677,41042846,41047110,41038552,41046107,41057814,41015400,41062774,41038372,41059057,41049955,41046397,41048979,41045233,41039967,41059791,41036982,41042034,41057361,41001951,41058136,41036216,41046226,41062781,41038188,41022251,41058791,41051697,41037981,41042294,41036462,41058261,41053148,41049016,41043568,41051257,41061495,41058172,41040543,41053364,41055564,41038055,41024664,41053329,41048747,41000760,41029467,41049857,41001550,41059724,41041995,41053650,41057649,41030073,41038586,41051327,41038406,41058867,41031975,41039644,41047502,41052903,41041537,41021351,41061792,41035183,41051780,41050417,41046968,41037065,41037745,41048980,41031112,41039708,41040520,41055947,41063279,41045037,41055906,41059957,41023547,41022653,41053571,41057289,41031960,41029287,41050468,41033005,41041575,41050237,41024358,41049698,41050631,41039213,41057837,41048763,41031037,41014941,41016441,41033209,41024576,41029987,41057535,41026726,41002195,41024005,41043818,41055934,41049562,41024362,41053442,41036231,41055230,41054068,41030862,41021366,41033579,41051938,41036526,41050304,41030716,41052805,41019604,41058616,41013004,41056961,41018135,41024205,41027924,41052908,41035909,41024920,41035597,41051040,41061688,41034738,41056399,41028795,41042123,41002273,41031379,41041846,41061010,41009371,41037177,41037079,41026123,41042252,41055902,41059548,41026214,41049365,41049026,41019561,41025013,41025450,41044262,41021611,41056188,41014806,41016650,41026663,41049934,41040841,41018096,41061904,41024964,41023613,41050584,41014052,41021298,41019777,41047114,41022890,41054059,41031219,41008888,41046511,41026334,41052934,41043077,41053387,41051941,41043410,41035296,41027849,41053265,41045565,41046911,41045507,41049759,41052275,41042877,41052947,41018308,41028407,41050360,41050218,41028190,41049870,41012779,41024382,41041678,41048520,41026741,41045735,41044160,41040635,41023087,41030355,41053327,41050749,41040445,41035405,41036370,41055507,41040783,41009023,41018132,41052449,41028887,41035567,41045487,41015945,41045379,41007403,41016930,41047746,41056971,41039989,41051579,41052110,41007147,41023319,41052672,41015588,41008488,41033667,41039023,41037595,41042513,41027320,41017286,41057889,41007422,41006308,41048772,41046587,41052372,41055638,41050387,41007396,41027265,41052187,41046177,41057325,41019829,41030360,41036283,41009021,41008174,41016854,41035910,41035641,41009803,41007138,41021029,41029117,41023917,41007576,41028571,41021472,41022064,41006565,41017367,41033608,41017172,41057080,41052104,41003055,41049353,41012193,41041916,41000846,41036914,41032825,41052729,41039302,41018677,41052375,41032097,41001969,41052554,41006946,41031837,41051998,41030608,41006552,41037709,41021436,41011877,41049596,41042588,41048148,41037349,41041797,41037299,41044952,41046540,41021173,41016104,41007478,41049656,41037215,41039214,41052619,41037168,41021569,41048620,41016022,41036367,41043371,41040209,41056969,41035785,41056590,41035339,41001780,41017077,41051800,41035081,41000801,41037774,41051532,41030241,41030063,41020909,41043499,41029205,41029803,41051245,41033686,41033652,41051035,41040729,41026594,41033102,41048566,41032864,41012443,41030217,41013905,41016987,41009694,41056249,41005740,41050025,41052558,41001559,41054381,41040900,41026640,41015991,41028470,41036069,41015731,41005181,41048068,41055254,41037468,41029590,41057298,41048778,41041611,41017783,41028849,41030693,41021811,41036078,41030601,41039413,41016768,41051536,41046637,41016190,41029948,41007980,41042753,41031942,41039598,41045954,41012706,41049388,41036818,41039748,41040966,41018445,41044452,41022613,41061158,41031824,41027766,41046479,41027535,41038720,41022085,41018226,41013198,41021967,41050278,41009740,41026480,41053267,41026280,41001941,41047163,41024559,41045070,41056828,41029552,41011521,41018172,41032918,41040494,41036869,41009942,41014817,41025144,41045505,41051061]"
+  recorded_at: Thu, 25 Jul 2024 00:05:13 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41060102.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '740'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"__0x1__","descendants":175,"id":41060102,"kids":[41060617,41061136,41060754,41063500,41060827,41060590,41061267,41062750,41063074,41062406,41062265,41061485,41063377,41063093,41060661,41060960,41060713,41060939,41063090,41062711,41060863,41063245,41061587,41061486,41060742,41061734,41061472,41061110,41062172,41062053,41062199,41061452,41061404,41062336,41062561,41061217,41060575,41062240,41062722,41060826,41061466,41061297,41062365,41061917,41062268,41061468,41062262,41060823,41060757,41060697,41060656,41060796],"score":842,"time":1721845442,"title":"Anyone
+        can access deleted and private repository data on GitHub","type":"story","url":"https://trufflesecurity.com/blog/anyone-can-access-deleted-and-private-repo-data-github"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:13 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41061755.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '316'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"ohjeez","descendants":21,"id":41061755,"kids":[41062744,41062551,41062635,41062307,41062267,41062327],"score":74,"time":1721853349,"title":"Dungeons
+        and Dragons taught me how to write alt text","type":"story","url":"https://ericwbailey.website/published/dungeons-and-dragons-taught-me-how-to-write-alt-text/"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:13 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41061390.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '252'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"kulikalov","descendants":16,"id":41061390,"kids":[41061735,41063196,41061866,41061518,41061529],"score":90,"time":1721851464,"title":"A
+        Multimodal Dataset with One Trillion Tokens","type":"story","url":"https://github.com/mlfoundations/MINT-1T"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:13 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41058424.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '416'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"LinuxBender","descendants":88,"id":41058424,"kids":[41060189,41060220,41060240,41059816,41060188,41062033,41063244,41060092,41063125,41059591,41061409,41061600,41061000,41062619,41058552,41062531,41062995],"score":122,"time":1721837010,"title":"Phish-friendly
+        domain registry \".top\" put on notice","type":"story","url":"https://krebsonsecurity.com/2024/07/phish-friendly-domain-registry-top-put-on-notice/"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:14 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41042929.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '710'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"marban","descendants":402,"id":41042929,"kids":[41043323,41060162,41062945,41063508,41060465,41060464,41063503,41061974,41056325,41051674,41060532,41062989,41059949,41060296,41062459,41061389,41060722,41053003,41054905,41062426,41054168,41053930,41051491,41061791,41054268,41061932,41060400,41052800,41061236,41062502,41062912,41060091,41060531,41061381,41052610,41060723,41062236,41062930,41048017,41052316,41045911,41060912,41043296,41054154,41060436,41060405,41060283,41060071,41059959,41063099],"score":192,"time":1721714079,"title":"Alexa
+        is in millions of households and Amazon is losing billions","type":"story","url":"https://www.wsj.com/tech/amazon-alexa-devices-echo-losses-strategy-25f2581a"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:14 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41058107.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '574'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJieSI6ImRhdmlkYmFya2VyIiwiZGVzY2VuZGFudHMiOjQyMSwiaWQiOjQxMDU4MTA3LCJraWRzIjpbNDEwNTgyMDYsNDEwNTgxOTEsNDEwNTkwNDksNDEwNTg3NDQsNDEwNTgyMTksNDEwNTkyNzEsNDEwNjE0ODAsNDEwNjA0NTUsNDEwNTg3NzQsNDEwNTgzMDksNDEwNTg3MzMsNDEwNTk2NzAsNDEwNjA2MzUsNDEwNTgyMzQsNDEwNTgxODAsNDEwNTgzNDIsNDEwNjIwNDMsNDEwNTkwNjYsNDEwNTg0MDIsNDEwNjE2MzcsNDEwNTkxNTEsNDEwNTkxNzAsNDEwNTg1NjgsNDEwNTg0NDksNDEwNTgxOTgsNDEwNjAwMjEsNDEwNjEzOTQsNDEwNTg3MzksNDEwNTkxMTYsNDEwNTkwMTEsNDEwNjA0NzQsNDEwNTgyODEsNDEwNTgyNDUsNDEwNjI0MjEsNDEwNTkxNjQsNDEwNjA2NTksNDEwNjAxNjUsNDEwNTgyNTYsNDEwNjAyNDYsNDEwNTg2MDYsNDEwNjA2MjUsNDEwNTgzMzFdLCJzY29yZSI6NTM4LCJ0aW1lIjoxNzIxODM1MTQxLCJ0aXRsZSI6IkxhcmdlIEVub3VnaCDigJMgTWlzdHJhbCBBSSIsInR5cGUiOiJzdG9yeSIsInVybCI6Imh0dHBzOi8vbWlzdHJhbC5haS9uZXdzL21pc3RyYWwtbGFyZ2UtMjQwNy8ifQ==
+  recorded_at: Thu, 25 Jul 2024 00:05:14 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41025267.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '249'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"bryanrasmussen","descendants":0,"id":41025267,"score":13,"time":1721571421,"title":"When
+        eyesight fades and climbing provides comfort","type":"story","url":"https://www.lacrux.com/en/videos/when-eyesight-fades-and-climbing-provides-comfort/"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:14 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41058292.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '292'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"indigodaddy","descendants":31,"id":41058292,"kids":[41060563,41059861,41063502,41060073,41058689,41060417],"score":68,"time":1721836326,"title":"Hiding
+        Linux Processes with Bind Mounts","type":"story","url":"https://righteousit.com/2024/07/24/hiding-linux-processes-with-bind-mounts/"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:14 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41036506.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '288'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"achristmascarl","descendants":2,"id":41036506,"kids":[41036583],"score":18,"time":1721666830,"title":"The
+        Puzzle of How Large-Scale Order Emerges in Complex Systems","type":"story","url":"https://www.wired.com/story/the-puzzle-of-how-large-scale-order-emerges-in-complex-systems/"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:14 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41059412.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '277'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"luu","descendants":11,"id":41059412,"kids":[41061630,41062290,41063185,41063089,41062925,41062991],"score":40,"time":1721841644,"title":"Space-filling
+        curves, constructively","type":"story","url":"https://math.andrej.com/2024/01/30/space-filling-curves-constructively/"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:14 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41058671.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '213'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"drones","descendants":19,"id":41058671,"kids":[41062253,41059152],"score":65,"time":1721838178,"title":"Biological
+        Circuit Design by Caltech","type":"story","url":"https://biocircuits.github.io/index.html"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:14 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41056694.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '410'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"_Microft","descendants":117,"id":41056694,"kids":[41057042,41057245,41057666,41056953,41062410,41057064,41062293,41057165,41060962,41057316,41058014,41059847,41057133,41057849],"score":99,"time":1721826401,"title":"Physicists
+        may now have a way to make element 120","type":"story","url":"https://www.newscientist.com/article/2440445-physicists-may-now-have-a-way-to-make-element-120-the-heaviest-ever/"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:15 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41057766.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '263'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJieSI6Imhpc3RvcmllcyIsImRlc2NlbmRhbnRzIjo5LCJpZCI6NDEwNTc3NjYsImtpZHMiOls0MTA2MjU5OCw0MTA2MTU5OSw0MTA1OTYyOSw0MTA1OTQ4OCw0MTA1ODY0Miw0MTA1OTEwOSw0MTA1ODM2NV0sInNjb3JlIjo2NywidGltZSI6MTcyMTgzMzAzNCwidGl0bGUiOiJJbnRlcmFjdGlWZW5uIOKAkyBJbnRlcmFjdGl2ZSBWZW5uIERpYWdyYW1zIiwidHlwZSI6InN0b3J5IiwidXJsIjoiaHR0cHM6Ly9pbnRlcmFjdGl2ZW5uLm5ldC9pbmRleC5odG1sIn0=
+  recorded_at: Thu, 25 Jul 2024 00:05:15 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41034297.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '329'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"zmccormick7","descendants":68,"id":41034297,"kids":[41057738,41056346,41055608,41062463,41055670,41058152,41062742,41055832,41056493,41058159],"score":191,"time":1721655859,"title":"Solving
+        the out-of-context chunk problem for RAG","type":"story","url":"https://d-star.ai/solving-the-out-of-context-chunk-problem-for-rag"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:15 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41044657.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '332'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"todsacerdoti","descendants":10,"id":41044657,"kids":[41061639,41044746,41061199],"score":43,"time":1721731977,"title":"Rediscovering
+        Transaction Processing from History and First Principles","type":"story","url":"https://tigerbeetle.com/blog/2024-07-23-rediscovering-transaction-processing-from-history-and-first-principles"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:15 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41052365.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '637'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"mjaniczek","descendants":261,"id":41052365,"kids":[41057517,41057650,41057038,41057473,41057971,41054584,41054897,41060528,41054352,41061863,41053937,41056524,41059415,41053534,41055621,41053556,41063153,41054094,41054837,41053796,41055178,41060458,41055635,41055159,41053521,41057962,41062506,41056322,41054248,41054127,41054207,41054230,41053351,41054244,41057117,41057146,41053554,41053749,41057489,41055092,41055298,41054275],"score":373,"time":1721779619,"title":"Taking
+        my diabetes treatment into my own hands","type":"story","url":"https://martin.janiczek.cz/2024/07/23/taking-my-diabetes-treatment-into-my-own-hands.html"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:15 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41059148.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2187'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJieSI6InJ5YW5raWNrcyIsImlkIjo0MTA1OTE0OCwic2NvcmUiOjEsInRleHQiOiJZQyBpcyBjby1ob3N0aW5nIGEgUnVieSBNZWV0dXAgb24gQXVndXN0IDEzdGggdG8gYnJpbmcgdG9nZXRoZXIgZmVsbG93IHJ1Ynlpc3RzISBXZeKAmWxsIGhhdmUgdGVjaCB0YWxrcyBmcm9tIFlDIGZvdW5kZXJzIHNoYXJpbmcgdGhlaXIgbm92ZWwgdXNlcyBvZiBSdWJ5IGluIHRoZSB3aWxkIOKAlCBhbmQgaG93IGl04oCZcyBub3QgdGhlIFJ1YnkgeW91IHRyaWVkIDEwKyB5ZWFycyBhZ28uPHA+U3BlYWtlcnMgc28gZmFyOjxwPi0gSmFyZWQgRnJpZWRtYW4gKFlDIEdyb3VwIFBhcnRuZXIgJmFtcDsgU2NyaWJkLCBTMDYpIHdpbGwgZ2l2ZSBhbiBvcGVuaW5nIHRhbGsgYWJvdXQgdGhlIGhpc3Rvcnkgb2Ygc29mdHdhcmUgYXQgWUM6IGhvdyB3ZSBjaG9zZSBSYWlscywgd2hvIHdyb3RlIHRoZSBmaXJzdCBNUiB0byBvdXIgY29kZWJhc2UsIHdoeSBCb29rZmFjZSBpcyBhIFlDIGZvdW5kZXLigJlzIHNlY3JldCB3ZWFwb24sIGFuZCBob3cgUmFpbHMgcG93ZXJzIGFsbCBvZiBZQy48cD4tIERhbmllbCBGYXJpbmEgKFViaWNsb3VkLCBXMjQpIGhhcyBiZWVuIGJ1aWxkaW5nIGluZnJhc3RydWN0dXJlIGNvbnRyb2wgcGxhbmVzIGluIFJ1YnkgZm9yIDEzIHllYXJzIC0gZmlyc3QgYXQgSGVyb2t1IGFuZCBub3cgYXQgVWJpY2xvdWQuIERhbmllbCB3aWxsIHNoYXJlIHNvbWUgd2FyIHN0b3JpZXMsIGFzIHdlbGwgYXMgaGlzIGZpdmUgZmF2b3JpdGUg4oCcZmVhdHVyZXPigJ0gdGhhdCBtYWtlIFJ1YnkgcGFydGljdWxhcmx5IHBvd2VyZnVsIGZvciBidWlsZGluZyBpbmZyYXN0cnVjdHVyZSBjb2RlLjxwPi0gS2Vsc2V5IFBlZGVyc2VuIChDYXBzdWxlLCBTMjIpIGJ1aWx0IENhcHN1bGUgb24gYSBWMSB2ZWN0b3IgZGF0YWJhc2Ugd2l0aCBSYWlscywgUG9zdGdyZXMgYW5kIEFjdGl2ZSBSZWNvcmQgd2l0aCB0aGUgUEdWZWN0b3IgcGx1Z2luLiBTaGXigJlzIGhhcHB5IHRvIHNoYXJlIGxlYXJuaW5ncyBhdCBwaXRmYWxscywgYXMgd2VsbCBhcyBob3cgc2hlIHVzZXMgd2ViaG9va3MgYW5kIHJha2VzIHRvIGF1dG9tYXRlIHdvcmtmbG93cyBhbmQgaGVscCBrZWVwIHRoZSB0ZWFtIHNtYWxsLjxwPi0gS2VpdGggU2NoYWNodCAoTXlzdGVyeS5vcmcsIFMxNykgc3RhcnRlZCBjb2RpbmcgUnVieSBpbiDigJgwNSwgYW5kIGlzIHN0aWxsIGF0IGl0IOKAlCBidWlsZGluZyBDaGF0R1BUIGluIFJhaWxzICh2cyBQeXRob24pIGFuZCBrZWVwaW5nIHVwIHdpdGggc3RpbXVsdXMsIG5ldyBtb3JwaGluZywgYW5kIFR1cmJvIE5hdGl2ZS4gSGXigJlsbCBkbyBzb21lIGxpdmUgY29kaW5nIG9mIHRoZXNlIG5ldyBmZWF0dXJlcywgYW5kIHdhbnRzIHRvIGhlYXIgd2hhdCB5b3UgdGhpbmshPHA+V2UmI3gyNztsbCBiZSBwcm92aWRpbmcgZGlubmVyICZhbXA7IHJlZnJlc2htZW50cyBmb3IgYXR0ZW5kZWVzLCBhbmQgdGhlcmUgd2lsbCBiZSBhbXBsZSBvcHBvcnR1bml0eSB0byBtZWV0IHdpdGggc3BlYWtlcnMsIGZvbGtzIGZyb20gWUMgYW5kIG5ldHdvcmsgYXMgd2VsbC48cD5BbHNvIG5vdGU6IG1hbnkgWUMgY29tcGFuaWVzIGFyZSBoaXJpbmcgZm9yIHJ1YnkgZW5naW5lZXJzIOKAlCBpbmNsdWRpbmcgWSBDb21iaW5hdG9y4oCZcyBTb2Z0d2FyZSBUZWFtLiBBc2sgdXMgYWJvdXQgb3BlbiByb2xlcyE8cD5JZiB5b3XigJlyZSBpbnRlcmVzdGVkLCBwbGVhc2UgUlNWUCBiZWxvdyB0byBqb2luIHVzIC0tIHdlIGhhdmUgbGltaXRlZCBjYXBhY2l0eSwgYnV0IHdlJiN4Mjc7bGwgdHJ5IHRvIGdldCBhcyBtYW55IFJ1Ynlpc3RhcyBpbiB0aGUgcm9vbSBhcyBwb3NzaWJsZS48cD48YSBocmVmPVwiaHR0cHM6JiN4MkY7JiN4MkY7ZXZlbnRzLnljb21iaW5hdG9yLmNvbSYjeDJGO3ljLXJ1YnktbWVldHVwXCIgcmVsPVwibm9mb2xsb3dcIj5odHRwczomI3gyRjsmI3gyRjtldmVudHMueWNvbWJpbmF0b3IuY29tJiN4MkY7eWMtcnVieS1tZWV0dXA8L2E+PHA+TGV0IG1lIGtub3cgaWYgeW91IGhhdmUgcXVlc3Rpb25zLCBhbmQgaG9wZSB0byBzZWUgeW91IGF0IG91ciBuZXcgU0Ygb2ZmaWNlISIsInRpbWUiOjE3MjE4NDA0MDcsInRpdGxlIjoiSm9pbiBZQydzIFJ1YnkgTWVldHVwIG9uIEF1Z3VzdCAxM3RoIGF0IE91ciBOZXcgU0YgSGVhZHF1YXJ0ZXJzIiwidHlwZSI6ImpvYiJ9
+  recorded_at: Thu, 25 Jul 2024 00:05:15 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41056463.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '218'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"el_duderino","descendants":3,"id":41056463,"kids":[41061079,41058193],"score":55,"time":1721824973,"title":"A
+        Multimodal Automated Interpretability Agent","type":"story","url":"https://arxiv.org/abs/2404.14394"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:15 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41025341.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '396'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"kazanins","descendants":156,"id":41025341,"kids":[41062871,41061031,41056644,41061096,41062515,41025913,41063157,41056468,41056434,41062025,41056925,41061221,41063008,41060952,41057085,41056975,41056997,41056450,41057394],"score":78,"time":1721572115,"title":"Why
+        Discover is no American Express","type":"story","url":"https://www.popularfintech.com/p/why-discover-is-no-american-express"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:15 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41001744.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 x86_64) ruby/3.1.2p20
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Jul 2024 00:05:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '269'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"aragonite","descendants":6,"id":41001744,"kids":[41059408,41063130,41059381,41060651],"score":36,"time":1721358379,"title":"Bubble
+        Sort: An archaeological algorithmic analysis (2003) [pdf]","type":"story","url":"https://users.cs.duke.edu/~ola/papers/bubble.pdf"}'
+  recorded_at: Thu, 25 Jul 2024 00:05:16 GMT
+recorded_with: VCR 6.2.0

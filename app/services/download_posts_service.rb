@@ -36,7 +36,5 @@ class DownloadPostsService
         post_author_id: post_author.id
       )
     end
-  rescue StandardError => e
-    binding.pry
   end
 end
