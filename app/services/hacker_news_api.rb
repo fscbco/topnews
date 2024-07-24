@@ -60,7 +60,6 @@ class HackerNewsApi
     def handle_response(response)
         case response.code.to_i
         when 200..299
-            binding.pry
             JSON.parse(response.body)
         when 400..499
             Rails.logger.error("API request failed with code #{response.code}. Bad Request Error, please check request.")
