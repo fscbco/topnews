@@ -13,3 +13,53 @@
  *= require_tree .
  *= require_self
  */
+
+ #main_component {
+    width: 65%;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #f6f6ef;
+    padding-left: 1em;
+    max-width: 1000px;
+ }
+
+ #login_buttons {
+    float: right;
+    margin: 5 auto;
+    padding: 1em;
+ }
+
+ #title {
+    font-size: 3em;
+    color: #ff6600;
+ }
+ #header {
+    padding-bottom: 1em;
+ }
+
+  .story_box {
+    color: grey;
+    padding-bottom: 1em;
+  }
+
+  .arrow {
+    padding-right: .25em;
+    text-decoration: none;
+    color: grey
+  }
+
+  .title_line {
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    color: black
+  }
+
+  .counter {
+    padding-left: .3em;
+    padding-right: .45em;
+  }
+
+  .upvoted {
+    color: orangered !important;
+  }

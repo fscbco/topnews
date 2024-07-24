@@ -1,38 +1,70 @@
-# require 'net/http'
-
 class HackerNewsApi
-    def self.get_current_stories_ids
-        uri = URI("https://hacker-news.firebaseio.com/v0/topstories.json")
-        http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = true
-        request = Net::HTTP::Get.new(uri.request_uri)
-        response = http.request(request)
+    BASE_URL = 'https://hacker-news.firebaseio.com'
+    RETRY_LIMIT = 3
 
-        handle_response(response)
+    class ApiInternalServiceError < StandardError; end
+
+    def initialize
+        @retry_count = RETRY_LIMIT
+    end
+
+    def self.get_current_stories_ids
+        new.get_current_stories_ids
     end
 
     def self.get_story_details(story_id)
-        return nil if story_id.blank?
+        new.get_story_details(story_id)
+    end
+
+    def get_current_stories_ids
+        default_return = []
+        uri = URI("#{BASE_URL}/v0/topstories.json")
+        api_request(uri, default_return)
+    end
+
+    # Return an object with story data
+    def get_story_details(story_id)
+        default_return = {}
+        return default_return if story_id.blank?
         
-        uri = URI("https://hacker-news.firebaseio.com/v0/item/#{story_id}.json")
+        uri = URI("#{BASE_URL}/v0/item/#{story_id}.json")
+        api_request(uri, default_return)
+    end
+
+    private
+
+    def api_request(uri, default_return)
         response = response(uri)
-
-        data = handle_response(response)
-    end
-
-    def self.response(uri)
-        http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = true
-        request = Net::HTTP::Get.new(uri.request_uri)
-        http.request(request)
-    end
-
-    def self.handle_response(response)
-        if response.code == "200"
-            data = JSON.parse(response.body)
+        handle_response(response) || default_return
+    rescue
+        puts "There was an error when attempting to reach #{uri}."
+        if @retry_count > 0
+            puts "Retrying request."
+            @retry_count -= 1
+            retry 
         else
-           puts "API request failed with code #{response.code}"
+            puts "Exceeded maximum retries. Default values returned."
+            Rails.logger.error("API request failed with code #{response.code}")
+            default_return
         end
     end
 
+    def response(uri)
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+        headers = {'Accept': 'application/json'}
+        request = Net::HTTP::Get.new(uri.request_uri, headers)
+        http.request(request)
+    end
+
+    def handle_response(response)
+        case response.code.to_i
+        when 200..299
+            JSON.parse(response.body)
+        when 400..499
+            Rails.logger.info("API request failed with code #{response.code}. Bad Request Error, please check request.")
+        when 500..599
+            raise ApiInternalServiceError
+        end
+    end
 end

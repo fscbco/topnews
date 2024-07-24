@@ -1,10 +1,18 @@
-<h1>Welcome to Top News</h1>
+<div id='main_component'>
+    <div id='header'>
+        <div id="login_buttons">
+            <% if @logged_in%>
+                <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+            <% else %>
+                <%= button_to "Login", new_user_session_path  %>
+            <% end %>
+        </div>
+        <span id='title'>
+            Welcome to Top News
+        </span>
+    </div>
 
-<% if @logged_in%>
-    <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
-<% else %>
-    <%= button_to "Login", new_user_session_path  %>
-<%end%>
-<% @stories_data.each.with_index do |story_data, index| %>
-    <%= render "story", story: story_data[:story], favorite: story_data[:favorite], index: index %>
-<% end%>
+    <% @stories_data.each.with_index do |story_data, index| %>
+        <%= render "story", story: story_data[:story], favorite: story_data[:favorite], count: story_data[:count], favorite_by_user: story_data[:favorite_by_user], index: index %>
+    <% end %>
+</div>
