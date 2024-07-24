@@ -1,5 +1,7 @@
-class StoriesService
+class StoryService
     DEFAULT_NUMBER_OF_STORIES = 15
+
+    attr_reader :user_id
 
     def initialize(user_id = nil)
         @user_id = user_id
@@ -11,13 +13,13 @@ class StoriesService
 
     def get_stories_data
         # Fetch ids of current stories from api
-        stories_ids = HackerNewsApi.get_current_stories_ids
-        story_data(stories_ids).compact
+        stories_ids = get_stories_ids_from_api
+        process_external_story_id_data(stories_ids).compact
     end
 
     private
 
-    def story_data(stories_ids)
+    def process_external_story_id_data(stories_ids)
         stories_ids.first(DEFAULT_NUMBER_OF_STORIES).map do |id| 
             story = find_or_fetch_story(id)
             next unless story
@@ -41,15 +43,15 @@ class StoriesService
     end
 
     # Return a story object or nil if story is not found and api request fail
-    def find_or_fetch_story(story_id)
-        Story.find_by(external_story_id: story_id) || 
-        fetch_and_create_story(story_id) || 
+    def find_or_fetch_story(external_story_id)
+        Story.find_by(external_story_id: external_story_id) || 
+        fetch_and_create_story(external_story_id) || 
         nil
     end
 
     # Call api to get story data and create story if successful
-    def fetch_and_create_story(story_id)
-        fetched_story_data = HackerNewsApi.get_story_details(story_id)
+    def fetch_and_create_story(external_story_id)
+        fetched_story_data = get_story_data_from_api(external_story_id)
         return nil unless fetched_story_data
 
         create_story(fetched_story_data)
@@ -71,7 +73,7 @@ class StoriesService
     def generate_favorite_user_string(usernames)
         count = usernames.count
         output = usernames.first(3)
-        output << " and #{count - 3} more" if count > 3
+        output << "and #{count - 3} more" if count > 3
         output.join(", ")
     end
 
@@ -81,5 +83,13 @@ class StoriesService
 
     def favorite_by_user?(story)
         story.users.find_by(id: @user_id).present?
+    end
+
+    def get_stories_ids_from_api
+        HackerNewsApi.get_current_stories_ids
+    end
+
+    def get_story_data_from_api(external_story_id)
+        HackerNewsApi.get_story_details(external_story_id)
     end
 end
