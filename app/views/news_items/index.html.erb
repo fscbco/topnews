@@ -1,0 +1,15 @@
+<h1>Team Favorites</h1>
+<ul>
+    <% @news_items.each do |news_item| %>
+        <li> <%= news_item.title %> 
+            <p>
+                <% news_item.users.map(&:email).each_with_index do |email,ind| %>
+                    <span>
+                        <% if ind > 0 %>, <% end %>
+                        <%= email %>
+                    </span>
+                <% end%>
+            </p>
+        </li></span>
+    <% end %>
+</ul>

@@ -1,1 +1,14 @@
 <h1>Welcome to Top News</h1>
+<ul>
+    <% @hacker_news_items.each do |news_item| %>
+        <li><%= news_item['title'] %>
+            <% if user_signed_in? %>
+                <% if current_user.news_items.map(&:hacker_news_id).include? news_item.hacker_news_id %>
+                    <p>Liked</p>
+                <% else %>
+                    <%= button_to "Like", news_items_path, params: { hacker_news_id: news_item.hacker_news_id, title: news_item.title, url: news_item.url, type: news_item.type, liked: false } %>
+                <% end %>
+            <% end %>
+        </li>
+    <% end %>
+</ul>
