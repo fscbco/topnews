@@ -22,3 +22,5 @@ gem 'uglifier'
 gem 'web-console', group: :development
 
 gem "jsbundling-rails", "~> 1.3"
+gem "sidekiq"
+gem "whenever", require: false
