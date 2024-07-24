@@ -9,18 +9,10 @@ class StoriesService
         new(user_id).get_stories_data
     end
 
-    def self.get_favorite_user_string(story)
-        new.get_favorite_user_string(story)
-    end
-
     def get_stories_data
+        # Fetch ids of current stories from api
         stories_ids = HackerNewsApi.get_current_stories_ids
         story_data(stories_ids).compact
-    end
-
-    def get_favorite_user_string(story)
-        user_names = story_favorite_by_users(story)
-        generate_favorite_user_string(user_names)
     end
 
     private
@@ -39,17 +31,23 @@ class StoriesService
             story: story,
             favorite: get_favorite_user_string(story),
             count: story_favorite_by_users(story).count,
-            favorite_by_user: story.users.find_by(id: @user_id).present?
+            favorite_by_user: favorite_by_user?(story)
         }
+    end
+
+    def get_favorite_user_string(story)
+        usernames = story_favorite_by_users(story)
+        generate_favorite_user_string(usernames)
     end
 
     # Return a story object or nil if story is not found and api request fail
     def find_or_fetch_story(story_id)
-        Story.find_by(story_id: story_id) || 
+        Story.find_by(external_story_id: story_id) || 
         fetch_and_create_story(story_id) || 
         nil
     end
 
+    # Call api to get story data and create story if successful
     def fetch_and_create_story(story_id)
         fetched_story_data = HackerNewsApi.get_story_details(story_id)
         return nil unless fetched_story_data
@@ -59,7 +57,7 @@ class StoriesService
 
     def create_story(data)
         story = Story.new
-        story.story_id = data['id']
+        story.external_story_id = data['id']
         story.title = data['title']
         story.by = data['by']
         story.url = data['url']
@@ -70,14 +68,18 @@ class StoriesService
         nil
     end
 
-    def generate_favorite_user_string(user_names)
-        count = user_names.count
-        output = user_names.first(3)
+    def generate_favorite_user_string(usernames)
+        count = usernames.count
+        output = usernames.first(3)
         output << " and #{count - 3} more" if count > 3
         output.join(", ")
     end
 
     def story_favorite_by_users(story)
         story.users.pluck(:first_name)
+    end
+
+    def favorite_by_user?(story)
+        story.users.find_by(id: @user_id).present?
     end
 end

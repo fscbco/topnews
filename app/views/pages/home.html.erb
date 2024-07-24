@@ -1,10 +1,11 @@
 <div id='main_component'>
     <div id='header'>
-        <div id="login_buttons">
+        <div id='login_buttons'>
             <% if @logged_in%>
-                <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+                <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'button'  %>
             <% else %>
-                <%= button_to "Login", new_user_session_path  %>
+                <%= button_to 'Register', user_registration_path, class: 'button' %>
+                <%= button_to 'Login', new_user_session_path, class: 'button' %>
             <% end %>
         </div>
         <span id='title'>
@@ -12,7 +13,9 @@
         </span>
     </div>
 
-    <% @stories_data.each.with_index do |story_data, index| %>
-        <%= render "story", story: story_data[:story], favorite: story_data[:favorite], count: story_data[:count], favorite_by_user: story_data[:favorite_by_user], index: index %>
-    <% end %>
+    <div id='story_box_container'>
+        <% @stories_data.each.with_index do |story_data, index| %>
+            <%= render 'story', index: index, **story_data %>
+        <% end %>
+    </div>
 </div>
