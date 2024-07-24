@@ -13,15 +13,15 @@ class StoryService
 
     def get_stories_data
         # Fetch ids of current stories from api
-        stories_ids = get_stories_ids_from_api
-        process_external_story_id_data(stories_ids).compact
+        external_stories_ids = get_stories_ids_from_api
+        process_external_story_id_data(external_stories_ids).compact
     end
 
     private
 
-    def process_external_story_id_data(stories_ids)
-        stories_ids.first(DEFAULT_NUMBER_OF_STORIES).map do |id| 
-            story = find_or_fetch_story(id)
+    def process_external_story_id_data(external_stories_ids)
+        external_stories_ids.first(DEFAULT_NUMBER_OF_STORIES).map do |external_stories_id| 
+            story = find_or_fetch_story(external_stories_id)
             next unless story
 
             generate_story_data_hash(story)

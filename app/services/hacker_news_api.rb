@@ -4,6 +4,8 @@ class HackerNewsApi
 
     class ApiInternalServiceError < StandardError; end
 
+    attr_accessor :retry_count
+
     def initialize
         @retry_count = RETRY_LIMIT
     end
@@ -37,14 +39,12 @@ class HackerNewsApi
         response = response(uri)
         handle_response(response) || default_return
     rescue
-        puts "There was an error when attempting to reach #{uri}."
         if @retry_count > 0
-            puts "Retrying request."
+            Rails.logger.info("Retrying request to #{uri}.")
             @retry_count -= 1
             retry 
         else
-            puts "Exceeded maximum retries. Default values returned."
-            Rails.logger.error("API request failed with code #{response.code}")
+            Rails.logger.error("Exceeded maximum retries. API request failed with code #{response.code}")
             default_return
         end
     end
@@ -60,9 +60,10 @@ class HackerNewsApi
     def handle_response(response)
         case response.code.to_i
         when 200..299
+            binding.pry
             JSON.parse(response.body)
         when 400..499
-            Rails.logger.info("API request failed with code #{response.code}. Bad Request Error, please check request.")
+            Rails.logger.error("API request failed with code #{response.code}. Bad Request Error, please check request.")
         when 500..599
             raise ApiInternalServiceError
         end
