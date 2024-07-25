@@ -1,0 +1,11 @@
+<div>
+<% @page_h.each do |k, v| %>
+  <% if k == 'text' %>
+    <%= v.html_safe %>
+  <% else %>
+    <p><%= k %>: <%= v %></p>
+  <% end %>
+<% end %>
+</div>
+
+<%= link_to 'Back to list', pages_path %>
