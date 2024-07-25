@@ -2,7 +2,6 @@ class FavoritesController < ApplicationController
     before_action :restrict_access
     
     def create
-        # binding.pry
         Favorite.find_or_create_by!(story_id: params[:story_id], user_id: current_user.id)
         redirect_to root_path
     end

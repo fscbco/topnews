@@ -7,7 +7,6 @@ RSpec.describe HackerNewsApi do
     describe '#new / initalize' do
         it 'is initalized with a retry count' do
             expect(service.retry_count).to eq(3)
-
         end
     end
 
@@ -57,7 +56,7 @@ RSpec.describe HackerNewsApi do
 
     describe '#get_current_stories_ids' do
         subject { service.get_current_stories_ids }
-        let(:uri) { URI"#{HackerNewsApi::BASE_URL}/v0/topstories.json" }
+        let(:uri) { URI("#{HackerNewsApi::BASE_URL}/v0/topstories.json") }
         let(:response) { service.send(:response, uri) }
         let(:mock_response_body) { '[1, 2, 3, 4, 5]' }
         let(:status) { 200 }
@@ -88,7 +87,7 @@ RSpec.describe HackerNewsApi do
         subject { service.get_story_details(external_story_id) }
         let(:story) { create(:story) }
         let(:external_story_id) { story.external_story_id }
-        let(:uri) { URI"#{HackerNewsApi::BASE_URL}/v0/item/#{external_story_id}.json" }
+        let(:uri) { URI("#{HackerNewsApi::BASE_URL}/v0/item/#{external_story_id}.json") }
         let(:response) { service.send(:response, uri) }
         let(:status) { 200 }
         let(:default_return) { {} }
