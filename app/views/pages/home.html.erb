@@ -1,1 +1,25 @@
-<h1>Welcome to Top News</h1>
+<div id='main_component'>
+    <div id='header'>
+        <div id='login_buttons'>
+            <% if @logged_in%>
+                <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'button'  %>
+            <% else %>
+                <%= button_to 'Register', user_registration_path, class: 'button' %>
+                <%= button_to 'Login', new_user_session_path, class: 'button' %>
+            <% end %>
+        </div>
+        <span id='title'>
+            Welcome to Top News
+        </span>
+
+        <%= link_to 'All', root_path, class: 'title_line' %>
+        |
+        <%= link_to 'Interesting', interesting_stories_path, class: 'title_line' %>
+    </div>
+
+    <div id='story_box_container'>
+        <% @stories_data.each.with_index do |story_data, index| %>
+            <%= render 'story', index: index, **story_data %>
+        <% end %>
+    </div>
+</div>

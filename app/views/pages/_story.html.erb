@@ -1,0 +1,22 @@
+<div class='story_box'>
+    <div class='top_row'>
+        <%= link_to '⬆', favorite_create_path(story_id: story.id), method: :post, class: "arrow #{favorite_by_user && 'favorited'}" %>
+        <%= "#{(index + 1).to_s.rjust(2, "0")}. " %> 
+        <%= link_to story.title, story.url, :target => "_blank", class:'title_line' %>
+    </div>
+
+    <div>
+    <span class= 'middle_row'>
+        <span class='counter'>
+            <%= count %>
+        </span>
+        <%= "by #{story.by} #{time_ago_in_words(story.time)} ago." %>
+    </span>
+    </div>
+    <div class='bottom_row'>
+        <%= link_to '⬇', favorite_destroy_path(story_id: story.id), method: :delete, class: "arrow"%>
+        <span id='<%= "comment_#{story.id}" %>' >
+            <%= "liked by: #{favorite}" if favorite.present? %>
+        <span>
+    </div>
+</div>
