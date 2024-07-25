@@ -8,4 +8,8 @@
 <% end %>
 </div>
 
+<%= turbo_frame_tag "page_vote" do %>
+  <%= render 'votes/vote', page: @page %>
+<% end %>
+<hr>
 <%= link_to 'Back to list', pages_path %>

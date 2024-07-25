@@ -1,0 +1,22 @@
+<% if user_signed_in? %>
+  <%= turbo_frame_tag "#{dom_id(page)}_vote_button" do %>
+    <% unless page.stars.exists?(user: current_user) %>
+      <%= button_to upvote_page_path(page), class: "btn btn-white !flex-col" do %>
+        &#9734;
+        <span><%= page.stars.size %></span>
+      <% end %>
+    <% else %>
+
+      <%= button_to downvote_page_path(page), class: "btn btn-white !flex-col" do %>
+        &#9733;
+        <span><%= page.stars.size %></span>
+      <% end %>
+    <% end %>
+
+    Upvoted by <%= page.users.map {|u| u.first_name }.to_sentence %>
+  <% end %>
+<% else %>
+  <div>
+    <span><%= page.stars.size %></span>
+  </div>
+<% end %>

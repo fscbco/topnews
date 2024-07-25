@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_page, only: [:show, :upvote, :downvote]
 
   def index
     pages_list = pages_fetch.list
@@ -15,23 +16,32 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.find(params[:id])
     @page_h = pages_fetch.get(@page.page_id)
   end
 
-  # def upvote
-  #   @page.increment(:votes)
-  #   @page.save
-  # end
+  def upvote
+    @page.stars.find_or_create_by(user: current_user)
+    respond_to do |format|
+      format.html { redirect_to @page }
+      format.turbo_stream
+    end
+  end
 
-  # def downvote
-  #   @page.decrement(:votes)
-  #   @page.save
-  # end
+  def downvote
+    @page.stars.destroy_by(user: current_user)
+    respond_to do |format|
+      format.html { redirect_to @page }
+      format.turbo_stream
+    end
+  end
 
   private
 
   def pages_fetch
     @pages_fetch ||= PagesFetch.new
+  end
+
+  def set_page
+    @page = Page.find(params[:id])
   end
 end

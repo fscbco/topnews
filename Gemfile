@@ -16,7 +16,16 @@ gem 'rspec-rails'
 gem 'sass-rails'
 gem 'selenium-webdriver', group: [:development, :test]
 gem 'spring', group: :development
-gem 'turbolinks'
+# gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+
+gem "turbo-rails"
+gem "stimulus-rails"
+gem "tailwindcss-rails"
+
+# Use Redis for Action Cable
+gem "redis", "~> 4.0"
+
+gem "importmap-rails", "~> 2.0"
