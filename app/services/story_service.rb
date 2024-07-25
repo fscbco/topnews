@@ -91,7 +91,7 @@ class StoryService
     end
 
     def favorite_by_user?(story)
-        story.users.find_by(id: @user).present?
+        story.users.find_by(id: @user&.id).present?
     end
 
     def get_stories_ids_from_api
