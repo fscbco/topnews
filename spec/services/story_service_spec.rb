@@ -18,7 +18,7 @@ RSpec.describe StoryService do
         ]
     end
 
-    describe '#new / initalize' do
+    describe '#new / initialize' do
         it 'can initialize with a user_id' do
             expect(service.user_id).to eq(user.id)
         end
@@ -70,11 +70,11 @@ RSpec.describe StoryService do
         subject { service.send(:find_or_fetch_story, story_id_for_lookup) }
         let(:story_id_for_lookup) { story_1.external_story_id}
 
-        it 'query database and return story if it exist' do
+        it 'query database and return story if it exists' do
             expect(subject).to eq(story_1)
         end
 
-        context 'if story does not exist' do
+        context 'when the story does not exist' do
             let(:story_id_for_lookup) { 'some random val' }
 
             it 'attempt to fetch the data from HackerNewsApi' do
@@ -146,7 +146,7 @@ RSpec.describe StoryService do
                 usernames.unshift('Tony')
             end
             
-            it 'returns only the first 3 usernames and additonal message' do
+            it 'returns only the first 3 usernames and additional message' do
                 expect(subject).to eq( "#{usernames.first(3).join(', ')}, and #{usernames.count - 3} more" )
             end
         end

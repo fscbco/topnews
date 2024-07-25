@@ -6,7 +6,7 @@ RSpec.describe Favorite do
     let(:story) { create(:story) }
     let(:attrs) { {user_id: user.id, story_id: story.id} }
 
-    it "should create a favorite assocation." do
+    it "should create a favorite association." do
       expect { described_class.create!(attrs) }.to change{ described_class.count }.by(1)
     end
 

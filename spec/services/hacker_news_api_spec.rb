@@ -4,8 +4,8 @@ require 'webmock/rspec'
 RSpec.describe HackerNewsApi do
     let(:service) { described_class.new }
 
-    describe '#new / initalize' do
-        it 'is initalized with a retry count' do
+    describe '#new / initialize' do
+        it 'is initialize with a retry count' do
             expect(service.retry_count).to eq(3)
         end
     end

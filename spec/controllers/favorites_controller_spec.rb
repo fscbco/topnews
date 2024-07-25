@@ -51,7 +51,7 @@ RSpec.describe FavoritesController, type: :request do
         end
     end
 
-    describe 'DELTE #destroy' do
+    describe 'DELETE #destroy' do
         subject { delete path, params: params  }
         let(:path) { '/favorite' }
         let(:params) { {story_id: story.id} }
