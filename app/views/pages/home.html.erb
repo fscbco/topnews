@@ -2,7 +2,7 @@
 
 <% if user_signed_in? %>
   <%= link_to 'Go to list', pages_path %>
-  <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" %>
 <% else %>
   <%= link_to 'Sign In', new_user_session_path %>
 <% end %>

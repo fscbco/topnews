@@ -2,8 +2,10 @@ class PagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_page, only: [:show, :upvote, :downvote]
 
+  PAGE_LIST_SIZE = 11
+
   def index
-    pages_list = pages_fetch.list
+    pages_list = pages_fetch.list.first(PAGE_LIST_SIZE)
     if Page.exists? && (pages_list - Page.last(500).pluck(:page_id)).empty?
     else
       pages_list.each do |page_id|
@@ -12,7 +14,7 @@ class PagesController < ApplicationController
           .update(title: page['title'])
       end
     end
-    @pages = Page.last(10)
+    @pages = Page.last(PAGE_LIST_SIZE)
   end
 
   def show

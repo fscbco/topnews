@@ -4,7 +4,7 @@ class PagesFetch
 
   def list
     body = URI.parse(top_stories_url_string).read
-    JSON(body).first(10)
+    JSON(body)
   end
 
   def get(id)
