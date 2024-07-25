@@ -12,8 +12,9 @@
             Welcome to Top News
         </span>
 
-        <%= link_to 'All', root_path %>
-        <%= link_to 'Interesting', interesting_stories_path %>
+        <%= link_to 'All', root_path, class: 'title_line' %>
+        |
+        <%= link_to 'Interesting', interesting_stories_path, class: 'title_line' %>
     </div>
 
     <div id='story_box_container'>

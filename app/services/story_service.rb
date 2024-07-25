@@ -53,7 +53,7 @@ class StoryService
 
     # Return a story object or nil if story is not found and api request fail
     def find_or_fetch_story(external_story_id)
-        Story.find_by(external_story_id: external_story_id) || 
+        Story.includes(:users).find_by(external_story_id: external_story_id) || 
         fetch_and_create_story(external_story_id) || 
         nil
     end
