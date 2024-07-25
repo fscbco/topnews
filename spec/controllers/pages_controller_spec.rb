@@ -20,4 +20,16 @@ RSpec.describe PagesController, type: :request do
             expect(response).to be_successful
         end 
     end
+
+    describe 'GET #interesting_stories' do
+        subject { get interesting_stories_path }
+
+        it 'renders the home page with correct data' do
+            subject
+
+            expect(response).to render_template(root_path)
+            expect(response).to be_successful
+        end 
+        
+    end
 end

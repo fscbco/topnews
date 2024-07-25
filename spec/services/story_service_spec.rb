@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe StoryService do
-    let(:service) { described_class.new(user_id) }
+    let(:service) { described_class.new(user) }
     let(:user) { create(:user) }
-    let(:user_id) { user.id }
     let!(:story_1) { create(:story) }
     let!(:story_2) { create(:story, external_story_id: 2) }
     let!(:story_3) { create(:story, external_story_id: 3) }
@@ -19,15 +18,15 @@ RSpec.describe StoryService do
     end
 
     describe '#new / initialize' do
-        it 'can initialize with a user_id' do
-            expect(service.user_id).to eq(user.id)
+        it 'can initialize with a user' do
+            expect(service.user).to eq(user)
         end
 
-        context 'when a user_id is not provided' do
-            let(:user_id) { nil }
+        context 'when a user is not provided' do
+            let(:user) { nil }
 
-            it 'can initialize without a user_id' do
-                expect(service.user_id).to be_nil
+            it 'can initialize without a user' do
+                expect(service.user).to be_nil
             end
         end
     end
@@ -48,6 +47,29 @@ RSpec.describe StoryService do
         it 'process the story ids' do
             expect(service).to receive(:process_external_story_id_data)
                 .with(hacker_news_api_stories_id_response)
+                .and_return(processed_data)
+                
+            expect(subject).to eq(processed_data)
+        end
+    end
+
+    describe '#get_interesting_stories' do
+        subject { service.get_interesting_stories }
+        let(:another_user) { create(:user, first_name: "tester", email: 'faker@l.c')}
+        let(:processed_data) do 
+            [
+                {story: story_1, favorite: 'foo, tester', count: 2, favorite_by_user: true}
+            ]
+        end
+
+        before do
+            Favorite.create!(user_id: user.id, story_id: story_1.id)
+            Favorite.create!(user_id: another_user.id, story_id: story_1.id)
+        end
+
+        it 'process the story ids' do
+            expect(service).to receive(:process_external_story_id_data)
+                .with([story_1.external_story_id])
                 .and_return(processed_data)
                 
             expect(subject).to eq(processed_data)
@@ -156,7 +178,7 @@ RSpec.describe StoryService do
         subject { service.send(:story_favorite_by_users, story_1) }
 
         before do
-            Favorite.create!(user_id: user_id, story_id: story_1.id)
+            Favorite.create!(user_id: user.id, story_id: story_1.id)
         end
 
         it 'returns a list of usernames that have favorited this story' do
@@ -169,7 +191,7 @@ RSpec.describe StoryService do
         let(:story_to_check) { story_1 }
 
         before do
-            Favorite.create!(user_id: user_id, story_id: story_1.id)
+            Favorite.create!(user_id: user.id, story_id: story_1.id)
         end
 
         it 'returns a true boolean when user did favorite this story' do

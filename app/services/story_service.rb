@@ -1,14 +1,18 @@
 class StoryService
     DEFAULT_NUMBER_OF_STORIES = 15
 
-    attr_reader :user_id
+    attr_reader :user
 
-    def initialize(user_id = nil)
-        @user_id = user_id
+    def initialize(user = nil)
+        @user = user
     end
 
-    def self.get_stories_data(user_id)
-        new(user_id).get_stories_data
+    def self.get_stories_data(user)
+        new(user).get_stories_data
+    end
+
+    def self.get_interesting_stories(user)
+        new(user).get_interesting_stories
     end
 
     def get_stories_data
@@ -17,11 +21,16 @@ class StoryService
         process_external_story_id_data(external_stories_ids).compact
     end
 
+    def get_interesting_stories
+        external_stories_ids = Story.joins(:favorites).distinct.pluck(:external_story_id)
+        process_external_story_id_data(external_stories_ids).compact
+    end
+
     private
 
     def process_external_story_id_data(external_stories_ids)
-        external_stories_ids.first(DEFAULT_NUMBER_OF_STORIES).map do |external_stories_id| 
-            story = find_or_fetch_story(external_stories_id)
+        external_stories_ids.first(DEFAULT_NUMBER_OF_STORIES).map do |external_story_id| 
+            story = find_or_fetch_story(external_story_id)
             next unless story
 
             generate_story_data_hash(story)
@@ -82,7 +91,7 @@ class StoryService
     end
 
     def favorite_by_user?(story)
-        story.users.find_by(id: @user_id).present?
+        story.users.find_by(id: @user).present?
     end
 
     def get_stories_ids_from_api
