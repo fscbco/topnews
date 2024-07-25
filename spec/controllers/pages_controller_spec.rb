@@ -13,13 +13,13 @@ RSpec.describe PagesController, type: :controller do
       let(:user) { create(:user) }
       let(:hacker_news) { instance_double(HackerNews) }
       let(:top_story_ids) { [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }
-      let(:story) { { "title" => "Test Story", "url" => "http://example.com" } }
+      let(:stories) { top_story_ids.map { |id| build(:story, hacker_news_id: id) } }
 
       before do
         sign_in user
         allow(HackerNews).to receive(:new).and_return(hacker_news)
         allow(hacker_news).to receive(:top_stories).and_return(top_story_ids)
-        allow(hacker_news).to receive(:item).and_return(story)
+        allow(Story).to receive(:find_or_create_by_hacker_news_ids).and_return(stories)
       end
 
       it "returns a successful response" do
@@ -32,9 +32,13 @@ RSpec.describe PagesController, type: :controller do
         expect(assigns(:top_stories).length).to eq(10)
       end
 
-      it "fetches top stories from HackerNews" do
+      it "fetches top story ids from HackerNews" do
         expect(hacker_news).to receive(:top_stories)
-        expect(hacker_news).to receive(:item).exactly(10).times
+        get :home
+      end
+
+      it "calls find_or_create_by_hacker_news_ids on Story with top story ids" do
+        expect(Story).to receive(:find_or_create_by_hacker_news_ids).with(top_story_ids)
         get :home
       end
     end
