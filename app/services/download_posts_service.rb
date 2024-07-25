@@ -35,6 +35,8 @@ class DownloadPostsService
         score: post['score'],
         post_author_id: post_author.id
       )
+    rescue StandardError => e
+      Rails.logger.error "Error downloading post #{post_id}: #{e.message}"
     end
   end
 end
