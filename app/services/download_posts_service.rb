@@ -24,7 +24,6 @@ class DownloadPostsService
       # make sure to only save stories
       next unless post['type'] == 'story'
 
-      puts "fetching: #{post_id}"
       post_author = PostAuthor.find_or_create_by! name: post['by']
 
       Post.find_or_create_by!(
