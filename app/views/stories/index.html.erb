@@ -1,23 +1,12 @@
-<%= @raw_articles.each do |raw_article| %>
-  <%#= check_box_tag raw_article['id'] %>
-  <%#= raw_article['title'] %> by
-  <%#= raw_article['author'] %>
-
-
-
-=> {"by"=>"__0x1__",
- "id"=>41060102,
- "score"=>123,
- "time"=>1721845442,
- "title"=>"Anyone can access deleted and private repository data on GitHub",
- "type"=>"story",
- "url"=>"https://trufflesecurity.com/blog/anyone-can-access-deleted-and-private-repo-data-github"}
-[2] pry(main)>
-
-
-
-ra
-
-
-
+<% @stories.each do |story| %>
+  <div>
+    ★☆🌟
+    <%= link_to story.title, story.url %>
+    posted <%= time_ago_in_words(story.posted_at) %> by
+    <%= story.post_author.name %>
+  </div>
 <% end %>
+
+
+
+<%= will_paginate @stories %>

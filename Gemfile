@@ -19,6 +19,7 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+gem 'will_paginate', '~> 4.0', '>= 4.0.1'
 
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.4'
