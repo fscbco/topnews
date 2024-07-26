@@ -6,15 +6,4 @@
   <div><%= StoriesHelper::NO_STAR %> Favorited by no one</div>
 </fieldset>
 <br/>
-<% @stories.each do |story| %>
-  <div>
-    <%= display_star(story.id) %>
-    <%= link_to story.title, story.url %>
-    posted <%= time_ago_in_words(story.posted_at) %> by
-    <%= story.post_author.name %>
-  </div>
-<% end %>
-
-
-
-<%= will_paginate @stories %>
+<%= render partial: 'shared/stories' %>

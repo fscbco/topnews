@@ -1,11 +1,3 @@
-<h3>My Favorites</h3>
+<h3>Favorites for <%= @user.email %></h3>
 
-<ul>
-  <% @stories.each do |story| %>
-    <li>
-      <%= link_to story.title, story.url %>
-      posted <%= time_ago_in_words(story.posted_at) %> by
-      <%= story.post_author.name %>
-    </li>
-  <% end %>
-</ul>
+<%= render partial: 'shared/stories' %>
