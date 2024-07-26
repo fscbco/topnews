@@ -1,19 +1,21 @@
 <% if user_signed_in? %>
   <%= turbo_frame_tag "#{dom_id(page)}_vote_button" do %>
-    <% unless page.stars.exists?(user: current_user) %>
-      <%= button_to upvote_page_path(page), class: "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" do %>
-        &#9734;
-        <span><%= page.stars.size %></span>
-      <% end %>
-    <% else %>
-
+    <% if page.stars.exists?(user: current_user) %>
       <%= button_to downvote_page_path(page), class: "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" do %>
         &#9733;
         <span><%= page.stars.size %></span>
       <% end %>
+
+    <% else %>
+      <%= button_to upvote_page_path(page), class: "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" do %>
+        &#9734;
+        <span><%= page.stars.size %></span>
+      <% end %>
     <% end %>
 
-    Upvoted by <%= page.users.map {|u| u.first_name }.to_sentence %>
+    <% if page.users.any? %>
+      Upvoted by <%= page.users.map {|u| u.first_name }.to_sentence %>
+    <% end %>
   <% end %>
 <% else %>
   <div>
