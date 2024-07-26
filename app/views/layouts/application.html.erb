@@ -14,6 +14,11 @@
     <p class="alert">
       <%= alert %>
     </p>
+    <div>
+      <b><%= link_to 'Home', root_path %></b> |
+      <b><%= link_to 'My Favorites', favorite_path(current_user.id) %></b> |
+      <b><%= link_to 'Favorites', favorites_path %></b>
+    </div>
     <%= yield %>
   </body>
 </html>
