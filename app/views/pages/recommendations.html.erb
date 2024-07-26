@@ -1,0 +1,16 @@
+<h1>Recent Recommendations</h1>
+
+<% @recent_stories.each do |story| %>
+  <div class="story">
+    <h2><%= story.title %></h2>
+
+    <h3>Recommended by:</h3>
+    <ul>
+      <% story.recommendations.map(&:user).uniq.each do |user| %>
+        <li><%= user.first_name %></li>
+      <% end %>
+    </ul>
+
+    <p>Last recommended: <%= time_ago_in_words(story.recommendations.maximum(:created_at)) %> ago</p>
+  </div>
+<% end %>
