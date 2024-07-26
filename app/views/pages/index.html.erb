@@ -3,7 +3,7 @@
 <% @pages.each do |page| %>
   <li class="flex items-center space-x-3 rtl:space-x-reverse">
       <%= link_to page['title'], page_path(page['id']) %>
-      <span class="font-semibold text-gray-900 dark:text-white">
+      <span class="font-semibold text-gray-900">
         ⭐️
         <%= turbo_frame_tag "#{dom_id(page)}_votes_count" do %>
           <%= page.votes %><br>
