@@ -8,8 +8,6 @@ class StoriesController < ApplicationController
     #           I decided to go with the current implementation
     @user_faves  = Favorite.where(user_id: current_user.id).pluck(:post_id)
     @other_faves = Favorite.where.not(user_id: current_user.id).pluck(:post_id)
-    page         = params[:page] || 1
-    per_page     = params[:per_page] || 10
     @stories     = Post.includes(:post_author).desc_stories.paginate(page:, per_page:)
   end
 end
