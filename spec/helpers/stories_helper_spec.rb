@@ -21,7 +21,7 @@ RSpec.describe StoriesHelper, type: :helper do
       let(:post_id) { 5 }
 
       it 'returns OTHER_STAR' do
-        expect(star).to eq(StoriesHelper::OTHER_STAR)
+        expect(star).to eq(link_to(StoriesHelper::OTHER_STAR, favorites_path(post_id:), method: :post))
       end
     end
 
@@ -29,7 +29,7 @@ RSpec.describe StoriesHelper, type: :helper do
       let(:post_id) { 7 }
 
       it 'returns NO_STAR' do
-        expect(star).to eq(StoriesHelper::NO_STAR)
+        expect(star).to eq(link_to(StoriesHelper::NO_STAR, favorites_path(post_id:), method: :post))
       end
     end
   end

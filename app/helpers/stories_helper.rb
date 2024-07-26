@@ -11,9 +11,9 @@ module StoriesHelper
     if @user_faves.include?(post_id) 
       USER_STAR
     elsif @other_faves.include?(post_id)
-      OTHER_STAR
+      link_to OTHER_STAR, favorites_path(post_id:), method: :post
     else
-      NO_STAR
+      link_to NO_STAR, favorites_path(post_id:), method: :post
     end
   end
 end
