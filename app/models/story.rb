@@ -7,10 +7,11 @@ class Story < ApplicationRecord
     story = find_by(hacker_news_id: hacker_news_id)
     return story if story
     data = HackerNews.new.item(hacker_news_id)
+    url = data["url"] || "https://news.ycombinator.com/item?id=#{hacker_news_id}"
     create!(
       hacker_news_id: hacker_news_id,
       title: data["title"],
-      url: data["url"]
+      url: url
     )
 
   rescue StandardError => e

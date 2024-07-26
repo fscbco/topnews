@@ -69,6 +69,15 @@ RSpec.describe Story, type: :model do
         expect(new_story.title).to eq(story_data["title"])
         expect(new_story.url).to eq(story_data["url"])
       end
+
+      context 'when the url is null' do
+        let(:story_data) { { "title" => "Test Story", "url" => nil } }
+
+        it 'creates a new story with a default url' do
+          new_story = Story.find_or_create_by_hacker_news_id(hacker_news_id)
+          expect(new_story.url).to eq("https://news.ycombinator.com/item?id=#{hacker_news_id}")
+        end
+      end
     end
 
     context 'when an error occurs' do
