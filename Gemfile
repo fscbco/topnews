@@ -25,10 +25,10 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.4'
   gem 'faker', '~> 3.4', '>= 3.4.2' # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
   gem 'pry-rails'
+  gem 'rspec-rails' # RSpec for Rails
 end
 
 group :test do
-  gem 'rspec-rails' # RSpec for Rails
   gem 'vcr', '~> 6.2' # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
   gem 'webmock'#, '~> 3.7', '>= 3.7.6'
 end
