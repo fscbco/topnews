@@ -29,6 +29,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'vcr', '~> 6.2' # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
   gem 'webmock'#, '~> 3.7', '>= 3.7.6'
 end
