@@ -5,5 +5,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  namespace :api, defaults: { format: :json } do
+    resources :stories, only: [:index]
+  end
+
   mount Sidekiq::Web => '/sidekiq'
 end

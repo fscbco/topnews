@@ -1,9 +1,11 @@
 import React from 'react';
+import StoriesList from './StoriesList';
 
 export default App = () => {
   return (
     <div>
-      <h1>React app rendered!</h1>
+      <h1>Welcome to TopNews</h1>
+      <StoriesList />
     </div>
   );
 }
