@@ -1,15 +1,36 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the StoriesHelper. For example:
-#
-# describe StoriesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe StoriesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#display_star' do
+    subject(:star) { helper.display_star(post_id) }
+
+    before do
+      @user_faves  = [1, 2, 3]
+      @other_faves = [4, 5, 6]
+    end
+
+    context 'when post_id is in user_faves' do
+      let(:post_id) { 2 }
+
+      it 'returns USER_STAR' do
+        expect(star).to eq(StoriesHelper::USER_STAR)
+      end
+    end
+
+    context 'when post_id is only in other_faves' do
+      let(:post_id) { 5 }
+
+      it 'returns OTHER_STAR' do
+        expect(star).to eq(StoriesHelper::OTHER_STAR)
+      end
+    end
+
+    context 'when post_id is not favorites by anyone' do
+      let(:post_id) { 7 }
+
+      it 'returns NO_STAR' do
+        expect(star).to eq(StoriesHelper::NO_STAR)
+      end
+    end
+  end
 end
