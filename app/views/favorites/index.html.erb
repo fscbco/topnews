@@ -1,0 +1,9 @@
+<h3>My Favorites</h3>
+
+<% @stories.each do |story| %>
+  <div>
+    <%= link_to story.title, story.url %>
+    posted <%= time_ago_in_words(story.posted_at) %> by
+    <%= story.post_author.name %>
+  </div>
+<% end %>
