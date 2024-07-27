@@ -1,6 +1,9 @@
 <h1>Welcome to Top News</h1>
 <ul>
 <% @top_stories.each do |story| %>
-  <li> <%= link_to story.title, story.url %> </li>
+  <li>
+    <%= button_to '(recommend)', recommendations_path(story_id: story.id), method: :post %>
+    <%= link_to story.title, story.url %>
+  </li>
 <% end %>
 </ul>

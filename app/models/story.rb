@@ -1,7 +1,9 @@
 class Story < ApplicationRecord
   validates :title, presence: true
-  validates :url, presence: true, uniqueness: true
   validates :hacker_news_id, presence: true, uniqueness: true
+
+  has_many :recommendations
+  has_many :recommending_users, through: :recommendations, source: :user
 
   def self.find_or_create_by_hacker_news_id(hacker_news_id)
     story = find_by(hacker_news_id: hacker_news_id)

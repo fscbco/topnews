@@ -1,0 +1,19 @@
+<h1>Recent Recommendations</h1>
+
+<ul>
+  <% @recent_stories.each do |story| %>
+    <li>
+      <div>
+        <%= link_to story.title, story.url %>
+      </div>
+      <div>
+        Recommended by:
+        <%= story.recommendations.limit(3).map { |r| r.user.first_name }.join(", ") %>
+      </div>
+      <div>
+        Last recommended: <%= time_ago_in_words(story.recommendations.maximum(:created_at)) %> ago
+      </div>
+
+    </li>
+  <% end %>
+</ul>
