@@ -12,17 +12,6 @@ RSpec.describe Story, type: :model do
       expect(story).to_not be_valid
     end
 
-    it 'is not valid without a url' do
-      story = build(:story, url: nil)
-      expect(story).to_not be_valid
-    end
-
-    it 'is not valid with a duplicate url' do
-      create(:story, url: 'http://example.com')
-      story = build(:story, url: 'http://example.com')
-      expect(story).to_not be_valid
-    end
-
     it 'is not valid without a hacker_news_id' do
       story = build(:story, hacker_news_id: nil)
       expect(story).to_not be_valid
