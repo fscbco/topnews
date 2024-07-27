@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :api, defaults: { format: :json } do
-    resources :stories, only: [:index]
+    resources :stories, only: [:index] do
+      resources :favorites, only: [:create, :destroy]
+    end
   end
 
   mount Sidekiq::Web => '/sidekiq'
