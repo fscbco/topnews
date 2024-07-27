@@ -18,9 +18,12 @@ class FavoritesController < ApplicationController
   end
 
   def all
+    @user_faves  = Favorite.where(user_id: current_user.id).pluck(:post_id)
+    @other_faves = Favorite.where.not(user_id: current_user.id).pluck(:post_id)
     # Rob Note: By using includes over a join, we can both avoid the N+1 query problem
     #           and avoid duplicates in the result set.
-    @stories = Post.includes(:post_author, favorites: :user)
+    @stories = Post.desc_stories
+                   .includes(:post_author, favorites: :user)
                    .where.not(favorites: { id: nil })
                    .paginate(page:, per_page:)
   end

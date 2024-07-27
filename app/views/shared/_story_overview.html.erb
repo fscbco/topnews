@@ -1,0 +1,4 @@
+<%= display_star(story_overview.id) %>
+<%= link_to story_overview.title, story_overview.url, target: :_blank %>
+posted <%= time_ago_in_words(story_overview.posted_at) %> by
+<%= story_overview.post_author.name %>
