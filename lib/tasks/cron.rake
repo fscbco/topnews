@@ -1,4 +1,4 @@
-# Run: rake cron:download_posts 
+# Run: rails cron:download_posts 
 # Description: can be executed from cronjob to update the posts from Hacker News
 
 namespace :cron do
