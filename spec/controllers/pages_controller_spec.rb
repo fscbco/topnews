@@ -43,4 +43,51 @@ RSpec.describe PagesController, type: :controller do
       end
     end
   end
+
+  describe "GET #recommendations" do
+    context "when user is not authenticated" do
+      it "redirects to the login page" do
+        get :recommendations
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context "when user is authenticated" do
+      let(:user) { create(:user) }
+      let!(:stories) do
+        10.times.map do |i|
+          create(:story).tap do |story|
+            create(:recommendation, story: story, created_at: i.days.ago)
+          end
+        end
+      end
+
+      before do
+        sign_in user
+      end
+
+      it "returns a successful response" do
+        get :recommendations
+        expect(response).to be_successful
+      end
+
+      it "assigns @recent_stories with 10 items" do
+        get :recommendations
+        expect(assigns(:recent_stories).length).to eq(10)
+      end
+
+      it "orders stories by latest recommendation" do
+        get :recommendations
+        expect(assigns(:recent_stories).to_a).to eq(stories.sort_by { |s| s.recommendations.maximum(:created_at) }.reverse)
+      end
+
+      it "limits the result to 10 stories" do
+        create_list(:story, 5) do |story|
+          create(:recommendation, story: story, created_at: 1.minute.ago)
+        end
+        get :recommendations
+        expect(assigns(:recent_stories).length).to eq(10)
+      end
+    end
+  end
 end
