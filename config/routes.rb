@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :favorites, only: [:create]
       resource :favorite, only: [:destroy]
     end
+
+    resources :favorited_stories, only: [:index]
   end
 
   mount Sidekiq::Web => '/sidekiq'

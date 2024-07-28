@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { List } from '@mui/material';
 import StoriesListItem from "./StoriesListItem";
 
-export default StoriesList = () => {
+export default StoriesList = ({ onToggleFavorite }) => {
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default StoriesList = () => {
           "X-CSRF-Token": document.querySelector("[name='csrf-token']").content,
         }
       },
-    );
+    ).then(onToggleFavorite);
   }
 
   const unfavoriteStory = (storyId) => {
@@ -32,12 +32,11 @@ export default StoriesList = () => {
           "X-CSRF-Token": document.querySelector("[name='csrf-token']").content,
         }
       },
-    );
+    ).then(onToggleFavorite);
   }
 
   return (
     <div>
-      <h2>Stories List</h2>
       <List>
         {stories.map((story) => (
           <StoriesListItem
