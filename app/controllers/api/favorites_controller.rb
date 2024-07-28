@@ -16,8 +16,14 @@ module Api
     end
 
     def destroy
-      @favorite = Favorite.find(params[:id])
-      @favorite.destroy
+      @favorite = Favorite.find_by(user_id: current_user.id, story_id: params[:story_id])
+
+      if @favorite.present?
+        @favorite.destroy
+        render json: @favorite, status: 204
+      else
+        render json: { error: "Favorite not found" }, status: 404
+      end
     end
   end
 end

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :stories, only: [:index] do
-      resources :favorites, only: [:create, :destroy]
+      resources :favorites, only: [:create]
+      resource :favorite, only: [:destroy]
     end
   end
 
