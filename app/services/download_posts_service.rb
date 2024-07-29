@@ -26,15 +26,14 @@ class DownloadPostsService
 
       post_author = PostAuthor.find_or_create_by! name: post['by']
 
-      Post.find_or_create_by!(
-        id: post['id'],
-        title: post['title'],
-        posted_at: Time.at(post['time']),
-        post_type: post['type'],
-        url: post['url'],
-        score: post['score'],
-        post_author_id: post_author.id
-      )
+      Post.find_or_create_by!(id: post['id']) do |p|
+        p.post_author_id = post_author.id
+        p.title = post['title']
+        p.posted_at = Time.at(post['time'])
+        p.post_type = post['type']
+        p.url = post['url']
+        p.score = post['score']
+      end
     rescue StandardError => e
       Rails.logger.error "Error downloading post #{post_id}: #{e.message}"
     end
