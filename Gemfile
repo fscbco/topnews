@@ -26,6 +26,7 @@ group :development, :test do
   gem 'faker', '~> 3.4', '>= 3.4.2' # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
   gem 'pry-rails'
   gem 'rspec-rails' # RSpec for Rails
+  gem 'shoulda-matchers', '~> 6.2' # Provides RSpec- and Minitest-compatible one-liners that test common Rails functionality. These tests would otherwise be much longer, more complex, and error-prone.
 end
 
 group :test do
