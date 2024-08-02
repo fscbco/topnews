@@ -1,0 +1,16 @@
+<% likers.prepend("Liked by: ") if likers.present? %>
+<li>
+  <div style="display:flex; gap:1em; margin-bottom:0.2em;">
+    <%=
+      button_to "👍",
+        like_story_path(story_id: story[:id]),
+        {
+          method: :post,
+          remote: true,
+          style: "background-color:#44a; cursor: pointer;",
+        }
+    %>
+    <a href="<%= story[:url]%>"><%= story[:title] %></a>
+    <div id="story_likes_<%= story[:id] =%>"><%= likers %></div>
+  </div>
+</li>

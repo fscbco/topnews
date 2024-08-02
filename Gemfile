@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby File.read('.ruby-version').chomp
 
+gem 'annotate', group: :development # reminds us of model schemas
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'coffee-rails'
@@ -17,6 +18,8 @@ gem 'sass-rails'
 gem 'selenium-webdriver', group: [:development, :test]
 gem 'spring', group: :development
 gem 'turbolinks'
+gem 'typhoeus' # parallelizes http requests
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
+gem "vcr", group: :test # mocks http requests
 gem 'web-console', group: :development

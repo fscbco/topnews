@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41119080.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 31 Jul 2024 19:13:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '334'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"by":"Brajeshwar","descendants":52,"id":41119080,"kids":[41120013,41122192,41121903,41119817,41120734,41121026,41119579,41119896,41119789,41120995,41119829],"score":125,"time":1722433249,"title":"How
+        great was the Great Oxidation Event?","type":"story","url":"https://eos.org/science-updates/how-great-was-the-great-oxidation-event"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://hacker-news.firebaseio.com/v0/item/41119080.json
+  recorded_at: Wed, 31 Jul 2024 19:13:44 GMT
+recorded_with: VCR 6.2.0
