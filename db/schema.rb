@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_03_012320) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "author"
+    t.integer "descendants"
+    t.integer "article_id"
+    t.integer "kids", default: [], array: true
+    t.integer "score"
+    t.integer "time"
+    t.string "title"
+    t.string "type"
+    t.string "url"
+    t.text "content"
+    t.boolean "bookmarked"
+    t.string "user_type", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_type", "user_id"], name: "index_articles_on_user"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"

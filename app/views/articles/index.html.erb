@@ -1,0 +1,12 @@
+<h1>All Articles (Article#index)</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <h2>[<%= article.id %>] <%= article.title %></h2>
+      <p><%= article.content %></p>
+      <p><%= article.url %></p>
+      <p>bookmarked: <%= article.bookmarked %></p>
+    </li>
+  <% end %>
+</ul>
