@@ -14,12 +14,14 @@
     <p class="alert">
       <%= alert %>
     </p>
-    <div>
-      <b><%= link_to 'Home', root_path %></b> |
-      <b><%= link_to 'My Favorites', user_favorites_path(current_user.id) %></b> |
-      <b><%= link_to 'All Favorites', all_favorites_path %></b> |
-      <b><%= link_to 'User Favorites', users_path %></b>
-    </div>
+    <% if current_user.present? %>
+      <div>
+        <b><%= link_to 'Home', root_path %></b> |
+        <b><%= link_to 'My Favorites', user_favorites_path(current_user.id) %></b> |
+        <b><%= link_to 'All Favorites', all_favorites_path %></b> |
+        <b><%= link_to 'User Favorites', users_path %></b>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
