@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'pages#index'
 
   authenticated :user do
     resources :pages, only: [:index, :show] do
