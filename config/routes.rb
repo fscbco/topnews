@@ -2,6 +2,13 @@ Rails.application.routes.draw do
   # Authentication routes
   devise_for :users
 
+  # users
+  #resources :users
+
+  get '/users', to: 'users#index'
+  # resources :users do
+  #   get 'bookmarked_articles', on: :collection
+  # end
 
   # Articles index page
   get 'articles', to: 'articles#index', as: 'articles'
@@ -36,4 +43,13 @@ Rails.application.routes.draw do
 
   # Unbookmark a specific article
   delete 'bookmarks/:article_id', to: 'bookmarks#destroy', as: 'unbookmark_article'
+
+
+  # resources :articles do
+  #   member do
+  #     post :bookmark
+  #     delete :unbookmark
+  #   end
+  # end
+
 end

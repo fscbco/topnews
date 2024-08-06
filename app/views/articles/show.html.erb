@@ -1,2 +1,47 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<% @article = Article.find(params[:id]) %>
+
+<!-- navigation -->
+
+<p>
+  <%= link_to "Back to Articles", articles_path %>
+
+  <span style="float:right;">
+    <% if current_user.bookmarked?(@article) %>
+      <%= link_to 'Unbookmark', unbookmark_article_path(@article), method: :delete, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to 'Bookmark', bookmark_article_path(@article), method: :post, class: "btn btn-secondary" %>
+    <% end %>
+  </span>
+</p>
+
+
+<!-- list of users who bookmarked this article -->
+
+<p>
+  Bookmarked by:
+  <% @article.bookmarked_users.each do |full_name| %>
+    <%= link_to full_name, users_path %>,
+  <% end %>
+</p>
+
+
+<!-- article metadata -->
+
+<div class="metadata">
+  <p>
+    Topnews: <%= @article.title %>
+
+    <span style="float:right;">
+      <%= @article.created_at.strftime("%B %d, %Y") %> by <%= @article.author %>
+    </span>
+  </p>
+</div>
+
+
+<!-- article iframe -->
+
+<div class="iframe-container">
+  <iframe src="<%= @article.url %>" width="100%" height="1000px">
+    <p>Your browser does not support iframes.</p>
+  </iframe>
+</div>

@@ -1,12 +1,56 @@
 <h1>All Articles (Article#index)</h1>
 
-<ul>
+
+
+<style>
+/* CSS rule to left justify table headers */
+th {
+    text-align: left;
+}
+</style>
+
+
+<table>
+  <tr>
+    <th> By </th>
+    <th> Title </th>
+    <th> Bookmarked </th>
+    <th> Bookmarked By </th>
+  </th>
+
   <% @articles.each do |article| %>
-    <li>
-      <h2>[<%= article.id %>] <%= article.title %></h2>
-      <p><%= article.content %></p>
-      <p><%= article.url %></p>
-      <p>bookmarked: <%= article.bookmarked %></p>
-    </li>
+
+    <tr>
+      <td> <%= article.author %> </td>
+      <td> <%= link_to article.title, article_path(article) %> </td>
+
+      <!-- bookmarked? -->
+      <td>
+        <span style="float:right;">
+          <% if current_user.bookmarked?(article) %>
+            <%= link_to 'Unbookmark', unbookmark_article_path(article), method: :delete, class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to 'Bookmark', bookmark_article_path(article), method: :post, class: "btn btn-secondary" %>
+          <% end %>
+        </span>
+      </td>
+
+
+      <!-- bookmarked by -->
+      <td>
+
+        <% article.bookmarked_users.each do |user| %>
+          <%= link_to user.full_name, users_path %>,
+        <% end %>
+      
+      </td>
+
+    </tr>
+
   <% end %>
-</ul>
+</table>
+
+
+<%#        <% article.bookmarked_users.each do |user| %> %>
+<%#          <%= link_to user.full_name, bookmarked_articles_user_path(user) %> %>
+<%#        <% end %> %>
