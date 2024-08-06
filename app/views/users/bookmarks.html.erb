@@ -1,0 +1,27 @@
+<h1><%= @user.full_name %>'s Bookmarks</h1>
+
+<style>
+/* left justify table headers */
+th {
+    text-align: left;
+}
+</style>
+
+<% if @bookmarks.empty? %>
+  <p>This user hasn't bookmarked any articles yet.</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookmarks.each do |article| %>
+        <tr>
+          <td> <%= link_to article.title, article.url, target: "_blank" %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

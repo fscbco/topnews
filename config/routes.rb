@@ -3,12 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   # users
-  #resources :users
-
   get '/users', to: 'users#index'
-  # resources :users do
-  #   get 'bookmarked_articles', on: :collection
-  # end
+  get '/users/:id/bookmarks', to: 'users#bookmarks'
 
   # Articles index page
   get 'articles', to: 'articles#index', as: 'articles'

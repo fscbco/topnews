@@ -1,9 +1,7 @@
 <h1>All Articles (Article#index)</h1>
 
-
-
 <style>
-/* CSS rule to left justify table headers */
+/* left justify table headers */
 th {
     text-align: left;
 }
@@ -22,7 +20,7 @@ th {
 
     <tr>
       <td> <%= article.author %> </td>
-      <td> <%= link_to article.title, article_path(article) %> </td>
+      <td> <%= link_to article.title, article.url, target: "_blank" %> </td>
 
       <!-- bookmarked? -->
       <td>
@@ -40,7 +38,7 @@ th {
       <td>
 
         <% article.bookmarked_users.each do |user| %>
-          <%= link_to user.full_name, users_path %>,
+          <%= link_to user.full_name, "/users/" + user.id.to_s + "/bookmarks" %>,
         <% end %>
       
       </td>
@@ -49,8 +47,3 @@ th {
 
   <% end %>
 </table>
-
-
-<%#        <% article.bookmarked_users.each do |user| %> %>
-<%#          <%= link_to user.full_name, bookmarked_articles_user_path(user) %> %>
-<%#        <% end %> %>
