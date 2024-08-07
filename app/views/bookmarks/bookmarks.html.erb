@@ -1,0 +1,9 @@
+<h1>Bookmarked Articles</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <a href="<%= article_url(article) %>"><%= article.title %></a>
+    </li>
+  <% end %>
+</ul>

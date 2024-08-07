@@ -21,3 +21,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
 gem 'rest-client'
+gem 'httparty'

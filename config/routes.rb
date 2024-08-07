@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/users/:id/bookmarks', to: 'users#bookmarks'
 
+
+  # Articles refresh
+  get 'articles/refresh', to: 'articles#refresh'
+
   # Articles index page
   get 'articles', to: 'articles#index', as: 'articles'
 
