@@ -22,3 +22,4 @@ gem 'uglifier'
 gem 'web-console', group: :development
 gem 'rest-client'
 gem 'httparty'
+gem 'shoulda-matchers', '~> 6.0'

@@ -1,0 +1,29 @@
+# Overall Design
+- Article index
+  - viewing articles
+  - bookmarking articles
+  - seeing who else bookmarked an article
+- User index
+  - viewing users in the system
+  - clicking on a user shows all of a user's bookmarks
+- Refresh articles - synchronous ActiveJob can take a while to
+  complete.  Delayed Job or other background service.
+- no ajax, all page refresh
+
+# FetchTopStoriesJob - runs on the following conditions:
+- rails initialization
+- at top of the hour
+- user access to /articles/refresh
+- putting this in the initializer makes it synchronous and not ideal,
+  better to use background worker
+- manual control: `rails console`: `FetchTopStoriesJob.perform_later`
+
+# Testing
+
+```bash
+rake db:test:purge
+rake db:test:prepare
+bundle exec rspec
+```
+
+Stuck on FactoryBot and signing in a user for testing.
