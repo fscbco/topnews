@@ -1,10 +1,8 @@
-require 'rest-client'
-
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   
   def index
-    @articles = Article.all[0..100]
+    @articles = Article.order(created_at: :desc)[0..100] # artificial limit
   end
   
   # def show

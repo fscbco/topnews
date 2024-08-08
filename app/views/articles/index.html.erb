@@ -36,13 +36,12 @@ th {
 
       <!-- bookmarked by -->
       <td>
-
-        <% article.bookmarked_users.each do |user| %>
-          <%= link_to user.full_name, "/users/" + user.id.to_s + "/bookmarks" %>,
-        <% end %>
-      
+        <%=
+          article.bookmarked_users.map { |user|
+            link_to user.full_name, "/users/#{user.id}/bookmarks", class: "user-link"
+          }.join(", ").html_safe
+        %>
       </td>
-
     </tr>
 
   <% end %>
