@@ -1,5 +1,4 @@
 {
   "name": "topnews",
-  "private": true,
-  "dependencies": {}
+  "packageManager": "yarn@3.6.0"
 }

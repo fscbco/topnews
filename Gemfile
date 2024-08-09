@@ -20,3 +20,19 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+
+gem 'bootsnap', require: false
+gem 'bootstrap', '~> 4.4.1'
+gem 'sassc-rails'
+gem 'excon'
+gem 'factory_bot_rails'
+gem 'shoulda-matchers'
+
+group :development, :test do
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+end
+
+group :test do
+  gem 'database_cleaner-active_record'
+end
