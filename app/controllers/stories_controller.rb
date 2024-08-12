@@ -8,10 +8,10 @@ class StoriesController < ApplicationController
       Rails.logger.info story['time']
       if story['type'] == 'story'
         s = Story.where(hackernewsid: story['id']).first_or_initialize
-        s.author = story['by']
-        s.title = story['title']
-        s.hn_created_at = Time.at(story['time'].to_i).to_datetime
-        s.url = story['url']
+        s.author = story['by'].blank? ? "BLANK" : story['by']
+        s.title = story['title'].blank? ? "BLANK" : story['title']
+        s.hn_created_at = story['time'].blank? ? "123456789" : Time.at(story['time'].to_i).to_datetime
+        s.url = story['url'].blank? ? "thiswillbebroken.url" : story['url']
         s.save!
       end
     end
