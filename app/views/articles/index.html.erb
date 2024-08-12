@@ -1,0 +1,48 @@
+<h3>The latest stories on Hacker News</h3>
+
+<style>
+/* left justify table headers */
+th {
+    text-align: left;
+}
+</style>
+
+
+<table>
+  <tr>
+    <th> By </th>
+    <th> Title </th>
+    <th> Bookmarked </th>
+    <th> Bookmarked By </th>
+  </th>
+
+  <% @articles.each do |article| %>
+
+    <tr>
+      <td> <%= article.author %> </td>
+      <td> <%= link_to article.title, article.url, target: "_blank" %> </td>
+
+      <!-- bookmarked? -->
+      <td>
+        <span style="float:right;">
+          <% if current_user.bookmarked?(article) %>
+            <%= link_to 'Unbookmark', unbookmark_article_path(article), method: :delete, class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to 'Bookmark', bookmark_article_path(article), method: :post, class: "btn btn-secondary" %>
+          <% end %>
+        </span>
+      </td>
+
+
+      <!-- bookmarked by -->
+      <td>
+        <%=
+          article.bookmarked_users.map { |user|
+            link_to user.full_name, "/users/#{user.id}/bookmarks", class: "user-link"
+          }.join(", ").html_safe
+        %>
+      </td>
+    </tr>
+
+  <% end %>
+</table>

@@ -2,16 +2,60 @@ require 'rails_helper'
 
 describe User do
   context "creating a new user" do
-    let(:attrs) do
-      { first_name: :foo, last_name: :bar, email: 'f@b.c', password: 'foobar123' }
+    it "is valid with valid attributes" do
+      expect(
+        User.new(
+          first_name: "John",
+          last_name: "Doe",
+          email: "john@doe.com",
+          password: "dlk2j213jf"
+        )
+      ).to be_valid
     end
 
-    it "should have first, last, email" do
-      expect { User.create(attrs) }.to change{ User.count }.by(1)
+    it "is invalid without a first name" do
+      expect(
+        User.new(
+          first_name: "",
+          last_name: "Doe",
+          email: "john@doe.com",
+          password: "dlk2j213jf"
+        )
+      ).to_not be_valid
     end
 
-    it "should require a password" do
-      expect(User.new(attrs.except(:password))).to be_invalid
+    it "is invalid without a last name" do
+      expect(
+        User.new(
+          first_name: "John",
+          last_name: "",
+          email: "john@doe.com",
+          password: "dlk2j213jf"
+        )
+      ).to_not be_valid
     end
+
+    it "is invalid without an email address" do
+      expect(
+        User.new(
+          first_name: "John",
+          last_name: "Doe",
+          email: "",
+          password: "dlk2j213jf"
+        )
+      ).to_not be_valid
+    end
+
+    it "is invalid without a password" do
+      expect(
+        User.new(
+          first_name: "John",
+          last_name: "Doe",
+          email: "john@doe.com",
+          password: ""
+        )
+      ).to_not be_valid
+    end
+
   end
 end
