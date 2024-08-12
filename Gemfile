@@ -19,4 +19,11 @@ gem 'spring', group: :development
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
+gem 'concurrent-ruby'
+gem 'kaminari'
 gem 'web-console', group: :development
+gem 'factory_bot_rails', '~> 6.2', group: [:development, :test]
+gem 'shoulda-matchers', '~> 5.3', group: [:development, :test]
+gem 'factory_bot', '~> 6.3', group: [:development, :test]
+gem 'rails-controller-testing', group: [:test]
+gem 'faker'

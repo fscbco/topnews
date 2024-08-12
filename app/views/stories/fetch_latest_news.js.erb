@@ -1,0 +1,11 @@
+document.getElementById('stories-list').innerHTML = '<%= j render 'stories_list', stories: @stories %>';
+document.querySelector('.pagination').outerHTML = '<%= j paginate @stories %>';
+
+var loadStatus = document.getElementById('load-status');
+loadStatus.textContent = 'Latest news loaded!';
+loadStatus.style.display = 'inline';
+
+// Hide the message after 3 seconds
+setTimeout(function() {
+  loadStatus.style.display = 'none';
+}, 3000);

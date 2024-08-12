@@ -1,0 +1,6 @@
+var storyId = <%= @story.hacker_news_id %>;
+var storyElement = document.querySelector('[data-story-id="' + storyId + '"]');
+storyElement.querySelector('.unstar-button').outerHTML = '<%= j button_to "Star", star_story_path(@story.hacker_news_id), method: :post, class: "star-button" %>';
+storyElement.querySelector('.fa-star').classList.remove('fas', 'starred');
+storyElement.querySelector('.fa-star').classList.add('far', 'unstarred');
+storyElement.querySelector('p:last-child').innerHTML = 'Starred by: <%= @story.starred_by_names %>';

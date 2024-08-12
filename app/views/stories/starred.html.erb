@@ -1,0 +1,18 @@
+<h1>Starred Stories</h1>
+
+<%= link_to 'Back to Top Stories', root_path %>
+
+<% if @starred_stories.any? %>
+  <p>Displaying <%= @starred_stories.count %> starred stories</p>
+
+  <% @starred_stories.each do |story| %>
+    <div class="story" data-story-id="<%= story.hacker_news_id %>">
+      <h2><%= link_to story.title, story.url, target: '_blank' %></h2>
+      <p>Points: <%= story.points %> | Comments: <%= story.comments_count %></p>
+      <%= render 'star_button', story: story, remote: true %>
+      <p>Starred by: <%= story.starred_by_names %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>No starred stories available at the moment. Please try again later.</p>
+<% end %>
