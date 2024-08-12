@@ -1,0 +1,7 @@
+<% if current_user.stories.include?(story) %>
+  <%= button_to 'Unstar', unstar_story_path(story.hacker_news_id), method: :delete, class: 'unstar-button', remote: true %>
+  <i class="fas fa-star starred"></i>
+<% else %>
+  <%= button_to 'Star', star_story_path(story.hacker_news_id), method: :post, class: 'star-button', remote: true %>
+  <i class="far fa-star unstarred"></i>
+<% end %>

@@ -1,0 +1,20 @@
+.story {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.starred {
+    color: gold;
+}
+
+.unstarred {
+    color: #ccc;
+}
+
+.star-button,
+.unstar-button {
+    display: inline-block;
+    margin-right: 10px;
+}
