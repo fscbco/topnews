@@ -15,7 +15,7 @@ When a team member signs in, they will see recent news stories and be able to st
 
 ## Requirements
 
-* Users should sign in. We have created a User model for you and pre-populated it with several users.
+* Users should sign in and out. We have created a User model for you and pre-populated it with several users.
 * Users should come to a page and see a list of current top Hacker News stories.
 * This list does not necessarily need to be the current live list, but it should be a recent and continuously updated list.
 * The number of stories displayed is up to you.
