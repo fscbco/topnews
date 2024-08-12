@@ -1,4 +1,4 @@
-# Top News: Internal Team News Feed
+d# Top News: Internal Team News Feed
 
 In order to evaluate your stengths as a developer, we are requesting you complete a brief take-home code challenge that involves some work on the full web stack. We expect this to take 2 to 4 hours of your time. After developing your solution, please submit a Pull Request on Github and we will discuss your code on a screenshare at the next interview.
 
@@ -25,3 +25,11 @@ When a team member signs in, they will see recent news stories and be able to st
 * As an internal tool for a small team, performance optimization is not a requirement.
 * Be prepared to discuss known performance shortcomings of your solution and potential improvements.
 * UX design here is of little importance. The design can be minimal or it can have zero design at all.
+
+
+## Implementation Details
+
+* Most of the logics are in /app/controllers/stories_controller.rb
+* By default, it looks up stories directly from database.
+* A "Load Latest News" button for loading new stories from the API asynchronously to improve performance
+* Tests created to cover happy paths.  
