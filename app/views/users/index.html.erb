@@ -1,0 +1,9 @@
+<h3>Users</h3>
+
+<uL>
+  <% @users.each do |user| %>
+    <li><%= link_to user.email, user_favorites_path(user.id) %></li>
+  <% end %>
+</ul>
+<%= will_paginate(@users) %>
+

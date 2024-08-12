@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe User do
+  it { should have_many(:posts) }
+  it { should have_many(:favorites) }
+  it { should have_many(:favorited_posts).through(:favorites) }
+
   context "creating a new user" do
     let(:attrs) do
       { first_name: :foo, last_name: :bar, email: 'f@b.c', password: 'foobar123' }

@@ -1,0 +1,9 @@
+<h3>Top Stories</h3>
+<fieldset>
+  <legend>Legend</legend>
+  <div><%= StoriesHelper::USER_STAR %> Favorited by current user</div>
+  <div><%= StoriesHelper::OTHER_STAR %> Favorited by other user</div>
+  <div><%= StoriesHelper::NO_STAR %> Favorited by no one</div>
+</fieldset>
+<br/>
+<%= render partial: 'shared/stories' %>

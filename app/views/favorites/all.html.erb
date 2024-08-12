@@ -1,0 +1,9 @@
+<% @stories.each do |story| %>
+  <ul>
+    <%= render :partial => 'shared/story_overview', object: story %>:
+    <% story.favorites.each do |favorite| %>
+      <li><%= favorite.user.email %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= will_paginate @stories %>
