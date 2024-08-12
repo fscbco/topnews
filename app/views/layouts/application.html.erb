@@ -8,12 +8,30 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <p class="notice">
+    <table width="100%">
+      <tr valign="top">
+        <td><%= link_to "home", '/' %>
+          <br /><b>stories liked by: </b>| 
+          <% users_nav.each do |u| %>
+            <%= link_to u.username, show_user_path(u.id) %> | 
+          <% end %>
+          
+          </td>
+        <td><% if user_signed_in? %> 
+    <div> Welcome <%= current_user.email %> <%= button_to "Sign out", destroy_user_session_path, method: :delete %> </div>
+<% else %>
+    <%= button_to "Sign in", new_user_session_path %> 
+<% end %></td></tr></table>
+
+    <p className=iii>
       <%= notice %>
     </p>
-    <p class="alert">
+    <p className=rrr>
       <%= alert %>
     </p>
-    <%= yield %>
+
+    <div className=ttt>
+      <%= yield %>
+    </div>
   </body>
 </html>

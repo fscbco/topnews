@@ -1,0 +1,28 @@
+<h1>Welcome to Top News</h1>
+<% if user_signed_in? %>
+    <table>
+    <% @stories.each do |story| %>
+    <tr>
+        <td>
+        <% if story.liked?(current_user) %>
+            <%= button_to "LIKED!", like_path(story), method: "put", disabled: true %>
+        <% else %>
+            <%= button_to "like", like_path(story), method: "put" %>
+        <% end %>
+        </td>
+        <td><a target="_hackernews" href="<%= story['url'] %>"><%= story['title'] %></a> by <%= story['author'] %> <%= time_ago_in_words(story['hn_created_at']) %> ago</td>
+    </tr>
+    <% if story.liked_by.count > 0 %>
+    <tr>
+        <td>liked by:</td>
+        <td>
+            <% story.liked_by.each do |lb| %>
+            <%= link_to lb.username, show_user_path(lb.id) %> &nbsp; &nbsp; 
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+    <% end %>
+    </table>
+<% end %>
+

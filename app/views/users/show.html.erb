@@ -1,0 +1,14 @@
+<%     Rails.logger.info @user %>
+
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<div><%= @user.email %></div>
+
+<p>&nbsp;</p>
+
+<h2>Hacker News stories liked by <%= @user.first_name %></h2>
+<table border='1'>
+<tr><td>Title</td><td>Author</td><td>Publication Date</td></tr>
+<% @user.liked_stories.each do |story| %>
+<tr><td><a target="_hackernews" href="<%= story['url'] %>"><%= story['title'] %></a></td><td><%= story['author'] %></td><td><%= time_ago_in_words(story['hn_created_at']) %> ago</td></tr>
+<% end %>
+</table>
