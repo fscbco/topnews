@@ -21,6 +21,8 @@ gem 'redis'
 
 
 group :development do
+  gem 'foreman', group: :development
+
   gem 'spring'
   gem 'web-console'
   gem 'listen'

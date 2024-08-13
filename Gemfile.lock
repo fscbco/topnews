@@ -106,6 +106,7 @@ GEM
       tzinfo
     execjs (2.9.1)
     ffi (1.17.0-x86_64-darwin)
+    foreman (0.88.1)
     fugit (1.11.0)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -286,6 +287,7 @@ DEPENDENCIES
   capybara
   coffee-rails
   devise
+  foreman
   jbuilder
   listen
   pg
