@@ -10,48 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_13_041304) do
+ActiveRecord::Schema[7.0].define(version: 20_240_813_041_304) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "news_details", force: :cascade do |t|
-    t.string "author"
-    t.integer "comment_count"
-    t.integer "hn_id"
-    t.string "url"
-    t.integer "score"
-    t.string "title"
-    t.string "story_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'news_details', force: :cascade do |t|
+    t.string 'author'
+    t.integer 'comment_count'
+    t.integer 'hn_id'
+    t.string 'url'
+    t.integer 'score'
+    t.string 'title'
+    t.string 'story_type'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "news_details_users", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "news_detail_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["news_detail_id"], name: "index_news_details_users_on_news_detail_id"
-    t.index ["user_id"], name: "index_news_details_users_on_user_id"
+  create_table 'news_details_users', id: false, force: :cascade do |t|
+    t.bigint 'user_id', null: false
+    t.bigint 'news_detail_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['news_detail_id'], name: 'index_news_details_users_on_news_detail_id'
+    t.index ['user_id'], name: 'index_news_details_users_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at", precision: nil
-    t.datetime "remember_created_at", precision: nil
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at", precision: nil
-    t.datetime "last_sign_in_at", precision: nil
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'first_name'
+    t.string 'last_name'
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at', precision: nil
+    t.datetime 'remember_created_at', precision: nil
+    t.integer 'sign_in_count', default: 0, null: false
+    t.datetime 'current_sign_in_at', precision: nil
+    t.datetime 'last_sign_in_at', precision: nil
+    t.inet 'current_sign_in_ip'
+    t.inet 'last_sign_in_ip'
+    t.datetime 'created_at', precision: nil, null: false
+    t.datetime 'updated_at', precision: nil, null: false
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
-
 end
