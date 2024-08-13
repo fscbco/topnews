@@ -1,0 +1,11 @@
+<h1> Liked Top Stories </h1>
+<%= link_to "Log out", destroy_user_session_path, method: :delete,  class: "btn btn-danger" %>
+
+<%= link_to "Recent Top Stories", news_details_path %>
+
+<ul>
+  <% @news_details.each do |news_detail| %>
+  <%=  render partial: "news_item", locals: {news_detail: news_detail} %>
+  <% end %>
+</ul>
+
