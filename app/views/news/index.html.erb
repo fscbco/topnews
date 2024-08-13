@@ -1,0 +1,34 @@
+<h1>Welcome to Top News</h1>
+
+<h2>Team Articles</h2>
+<ul>
+  <% @team_articles.each do |article| %> 
+      <!--  This is ugly - should be CSS styling instead, here & elsewhere -->
+      <div><%= button_to "Star", {action: "star", id: article.id, method: :post } %></div>
+      <div><%= link_to article.title, article.hn_url %></div>
+      <div><%= article.author.to_s + " " + article.hn_time.to_s %></div>
+      <div><%= article.users.pluck(:email) %></div>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Trending Articles</h2>
+<ul>
+  <% @articles.each do |article| %> 
+    <li>
+      <div><%= button_to "Star", {action: "star", id: article.id, method: :post } %></div>
+      <div><%= link_to article.title, article.hn_url %></div>
+      <div><%= article.author.to_s + " " + article.hn_time.to_s %></div>
+    </li>
+  <% end %>
+</ul>
+
+<h2>My Articles</h2>
+<ul>
+  <% @my_articles.each do |article| %> 
+      <div><%= button_to "Unstar", {action: "unstar", id: article.id, method: :post } %></div>
+      <div><%= link_to article.title, article.hn_url %></div>
+      <div><%= article.author.to_s + " " + article.hn_time.to_s %></div>
+    </li>
+  <% end %>
+</ul>

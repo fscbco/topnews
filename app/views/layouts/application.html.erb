@@ -14,6 +14,25 @@
     <p class="alert">
       <%= alert %>
     </p>
+    <p class="login"> 
+      <% if current_user %>
+        <%= "Welcome " + current_user.email + " !" %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <% else %>
+       <%= link_to 'Sign in', new_user_session_path %>
+      <!-- <%= form_with model:@login do |form| %>
+        text_field("Sign in") 
+        <%= form.label :login, "Sign in:" %>
+        <%= form.label :email, "Email" %>
+        <%= form.text_field :email %>
+        <%= form.label :password, "Password" %>
+        <%= form.text_field :password %>
+        <%= form.submit "Sign in" %>
+      <% end %> 
+      -->
+      <!-- <%= link_to 'Sign in', new_login_path, method: :create %>  -->
+      <% end %>
+    </p>
     <%= yield %>
   </body>
 </html>
