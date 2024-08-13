@@ -1,0 +1,7 @@
+<% method ||= :get %>
+
+<% if current_page?(path) %>
+  <span><%= title %><span>
+<% else %>
+  <%= link_to title, path, method: %>
+<% end %>

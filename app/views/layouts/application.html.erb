@@ -14,6 +14,13 @@
     <p class="alert">
       <%= alert %>
     </p>
+    <% if user_signed_in? %>
+      <nav>
+        <%= render "nav_link", title: "Top Stories", path: top_stories_path %>
+        <%= render "nav_link", title: "Starred Stories", path: starred_stories_path %>
+        <%= render "nav_link", title: "Log out", path: destroy_user_session_path, method: :delete %>
+      </nav>
+    <% end %>
     <%= yield %>
   </body>
 </html>
