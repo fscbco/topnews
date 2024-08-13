@@ -1,10 +1,5 @@
 class PagesController < ApplicationController
-  
-
   def index
-    ### top hacker news stories
+    ## not used
   end
-
-
-
 end
