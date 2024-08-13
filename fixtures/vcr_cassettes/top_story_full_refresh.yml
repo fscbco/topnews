@@ -1,0 +1,164 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/topstories.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 31 Jul 2024 22:02:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4501'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: "[41123155,41119080,41119443]"
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://hacker-news.firebaseio.com/v0/topstories.json
+  recorded_at: Wed, 31 Jul 2024 22:02:12 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41123155.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 31 Jul 2024 22:02:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '483'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"kgwgk","descendants":82,"id":41123155,"kids":[41123621,41123650,41123924],"score":227,"time":1722458071,"title":"Suspicious
+        data pattern in recent Venezuelan election","type":"story","url":"https://statmodeling.stat.columbia.edu/2024/07/31/suspicious-data-pattern-in-recent-venezuelan-election/"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://hacker-news.firebaseio.com/v0/item/41123155.json
+  recorded_at: Wed, 31 Jul 2024 22:02:13 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41119080.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 31 Jul 2024 22:02:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '352'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"Brajeshwar","descendants":63,"id":41119080,"kids":[41122732,41119817,41121903],"score":156,"time":1722433249,"title":"How
+        great was the Great Oxidation Event?","type":"story","url":"https://eos.org/science-updates/how-great-was-the-great-oxidation-event"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://hacker-news.firebaseio.com/v0/item/41119080.json
+  recorded_at: Wed, 31 Jul 2024 22:02:13 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41119443.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 31 Jul 2024 22:02:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '5657'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"darweenist","descendants":64,"id":41119443,"kids":[41122773,41121790,41123293],"score":86,"text":"Hey
+        HN! Dawson here from Martin (<a href=\"https:&#x2F;&#x2F;www.trymartin.com\">https:&#x2F;&#x2F;www.trymartin.com</a>).
+        Martin is a better Siri with an LLM brain and deeper integrations with everyday
+        apps.","time":1722435867,"title":"Launch HN: Martin
+        (YC S23) – Using LLMs to Make a Better Siri","type":"story"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://hacker-news.firebaseio.com/v0/item/41119443.json
+  recorded_at: Wed, 31 Jul 2024 22:02:13 GMT

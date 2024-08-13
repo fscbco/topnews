@@ -1,0 +1,126 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41119080.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 31 Jul 2024 20:48:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '343'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"Brajeshwar","descendants":63,"id":41119080,"kids":[41122732,41119817,41121903],"score":143,"time":1722433249,"title":"How
+        great was the Great Oxidation Event?","type":"story","url":"https://eos.org/science-updates/how-great-was-the-great-oxidation-event"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://hacker-news.firebaseio.com/v0/item/41119080.json
+  recorded_at: Wed, 31 Jul 2024 20:48:03 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41120254.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 31 Jul 2024 20:48:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '910'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"BerislavLopac","descendants":236,"id":41120254,"kids":[41123233,41121444,41123268],"score":212,"time":1722440995,"title":"I
+        prefer rST to Markdown","type":"story","url":"https://buttondown.email/hillelwayne/archive/why-i-prefer-rst-to-markdown/"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://hacker-news.firebaseio.com/v0/item/41120254.json
+  recorded_at: Wed, 31 Jul 2024 20:48:03 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41119443.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 31 Jul 2024 20:48:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '5612'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"darweenist","descendants":53,"id":41119443,"kids":[41122773,41122675,41121790],"score":73,"text":"Hey
+        HN! Dawson here from Martin (<a href=\"https:&#x2F;&#x2F;www.trymartin.com\">https:&#x2F;&#x2F;www.trymartin.com</a>).
+        Martin is a better Siri with an LLM brain and deeper integrations with everyday
+        apps.","time":1722435867,"title":"Launch HN: Martin
+        (YC S23) – Using LLMs to Make a Better Siri","type":"story"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://hacker-news.firebaseio.com/v0/item/41119443.json
+  recorded_at: Wed, 31 Jul 2024 20:48:03 GMT
+recorded_with: VCR 6.2.0

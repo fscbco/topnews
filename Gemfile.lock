@@ -68,6 +68,9 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
     bcrypt (3.1.18)
     bindex (0.8.1)
     builder (3.2.4)
@@ -101,6 +104,8 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     erubi (1.11.0)
+    ethon (0.16.0)
+      ffi (>= 1.15.0)
     execjs (2.8.1)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -239,10 +244,13 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
+    typhoeus (1.4.1)
+      ethon (>= 0.9.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    vcr (6.2.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -262,6 +270,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   byebug
   capybara
   coffee-rails
@@ -277,8 +286,10 @@ DEPENDENCIES
   selenium-webdriver
   spring
   turbolinks
+  typhoeus
   tzinfo-data
   uglifier
+  vcr
   web-console
 
 RUBY VERSION

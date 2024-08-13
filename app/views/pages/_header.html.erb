@@ -1,0 +1,17 @@
+<div style="display:flex; gap:1em">
+  <div>
+    <%= link_to "Top Stories", "/" %>
+  </div>
+  <div>
+    <%= link_to "Liked Stories", "/liked" %>
+  </div>
+  <div style="margin-left: auto;">
+    <%=
+      button_to(
+        "Sign out from #{current_user.email}",
+        destroy_user_session_path,
+        method: :delete
+      )
+    %>
+  </div>
+</div>
