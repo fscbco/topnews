@@ -27,6 +27,8 @@ group :development do
   gem 'spring'
   gem 'web-console'
   gem 'listen'
+  gem 'rubocop', require: false
+
 end
 
 group :development, :test do
