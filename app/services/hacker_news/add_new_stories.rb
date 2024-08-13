@@ -3,19 +3,18 @@ module HackerNews
    
 
     def call
-
       response = get_new_stories
 
       if response.class.name == 'Net::HTTPOK'
         ## get news item details.
         
-        story_ids = HackerNews::Base.new.get_new_stories
+        story_ids = get_new_stories
 
         story_ids = JSON.parse(response.body)      
-
+        most_recent_id = NewsDetail.most_recent_story.hn_id
         story_ids.each do |story_id|
-          break if story_id < NewsDetail.most_recent_story.hn_id
-          HackerNews::CreateItemDetail.new(story_ids).call
+          break if story_id <= most_recent_id
+          HackerNews::CreateItemDetail.new(story_id).call
 
         end
 
@@ -31,3 +30,5 @@ module HackerNews
   end
 
 end
+
+
