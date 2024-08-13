@@ -1,0 +1,876 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/topstories.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:21 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4501'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: "[41247023,41247083,41241942,41247238,41236718,41247275,41244468,41247601,41247193,41246211,41246181,41238102,41244423,41244847,41245073,41247211,41224128,41245901,41222528,41239800,41227011,41236273,41234964,41226548,41220549,41222655,41217058,41207987,41235462,41235789,41228513,41236275,41235038,41227172,41235733,41215649,41236430,41244172,41246961,41244648,41242979,41222101,41240755,41235259,41245902,41243931,41239913,41237275,41234713,41232446,41234636,41226538,41241825,41202134,41243703,41222577,41199092,41245688,41212297,41227987,41233811,41200881,41231141,41245815,41210745,41212072,41232621,41228278,41227179,41235677,41234877,41235662,41206168,41245836,41227772,41240680,41207838,41243901,41244919,41240556,41238632,41221718,41244798,41212566,41230546,41245032,41224225,41241124,41224689,41239670,41241637,41245262,41243992,41230344,41220188,41226039,41230033,41237583,41228630,41218722,41224286,41237149,41230994,41245452,41245504,41213902,41246439,41234174,41243147,41246177,41246922,41231490,41236745,41198931,41232259,41246985,41227792,41237204,41237000,41209900,41241647,41215727,41239096,41240640,41243551,41242202,41233924,41246655,41223902,41227369,41199320,41221252,41246413,41211507,41228113,41241431,41226802,41227061,41223934,41221501,41229049,41215626,41233206,41240641,41229328,41224853,41239031,41239635,41227350,41202841,41221218,41224557,41214693,41222759,41242943,41218314,41243877,41208343,41246015,41214762,41220059,41228935,41243697,41234219,41242400,41224253,41237259,41211091,41215679,41241532,41212103,41212271,41216560,41215593,41245053,41208506,41240300,41211889,41220079,41219080,41237542,41224316,41217319,41215201,41238732,41219962,41229236,41239287,41236439,41241657,41234289,41228022,41219562,41214259,41217136,41213053,41246288,41204368,41218206,41213561,41224780,41245823,41237363,41209688,41232354,41237446,41239749,41208988,41217903,41208704,41213064,41242174,41241373,41207569,41229029,41227142,41204228,41232827,41211540,41239741,41230169,41241090,41240344,41213711,41242198,41218737,41235721,41246917,41239739,41213442,41214307,41240510,41217162,41199567,41237018,41206908,41238836,41234490,41215724,41235940,41217758,41212193,41241915,41207417,41211039,41240869,41239642,41207048,41239496,41218928,41223774,41224623,41209452,41240450,41220532,41214180,41203306,41207182,41247648,41242259,41231145,41230794,41239596,41245702,41239968,41207793,41233321,41233309,41206465,41238020,41242091,41209994,41219440,41237864,41215631,41235614,41202694,41241328,41245779,41215489,41240636,41209181,41204881,41218811,41203509,41221829,41220775,41240421,41203475,41203269,41225357,41229597,41211519,41214900,41218696,41238037,41239940,41213151,41232046,41233675,41228325,41223907,41205176,41225816,41218600,41211741,41212773,41219122,41223327,41213387,41220284,41221399,41209966,41241056,41229306,41226958,41231964,41231123,41219788,41238843,41238820,41212364,41200605,41219723,41238592,41213082,41232067,41218916,41215166,41240562,41242361,41213347,41217037,41230267,41212899,41240037,41207355,41226754,41223835,41213618,41198491,41198776,41223143,41239859,41239828,41219005,41224070,41207415,41239718,41229600,41236946,41239417,41227165,41227149,41224741,41226982,41205141,41238756,41226200,41226035,41234863,41203928,41238557,41203368,41231735,41225796,41225295,41220097,41235424,41212976,41235326,41240716,41235152,41201555,41229196,41244949,41235318,41240099,41201922,41223288,41234633,41228191,41242280,41202064,41206025,41229109,41223101,41236847,41205554,41228579,41217517,41203909,41205439,41221603,41231028,41237057,41220143,41204622,41207221,41214229,41205834,41212616,41225856,41230039,41220806,41198151,41217855,41218733,41229595,41204159,41237111,41232799,41214966,41219304,41240240,41206443,41228535,41208934,41219779,41212555,41241973,41219501,41235262,41203307,41239904,41227072,41215126,41210700,41230512,41217857,41231465,41219284,41233722,41236912,41231358,41228568,41219981,41228534,41207608,41228499,41229573,41203075,41213580,41206746,41206024,41228862,41224260,41235072,41218828,41218794,41204552,41232654,41215147,41208148,41225797,41229718,41203274,41203024,41238824,41206850,41229160,41232007,41232131,41200754,41220393,41231808,41228181,41221239,41227876,41229100,41213742,41204642,41227431,41220131,41213496,41203559,41208416,41198333,41211215,41219660,41227515,41214587,41225567,41217097,41222862,41209658,41230172,41219518,41223726,41229422,41241682,41198748,41221078,41239254,41215154,41201451,41219385,41199474,41228284,41214609]"
+  recorded_at: Wed, 14 Aug 2024 16:45:21 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41247023.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:21 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '664'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"hadisafa","descendants":118,"id":41247023,"kids":[41247704,41247268,41247493,41248048,41247037,41248034,41247296,41247856,41248039,41247339,41247968,41247253,41247958,41247948,41247596,41247919,41247780,41247524,41247920,41247429,41247495,41247945,41247270,41247388,41247571,41247565,41247652,41247317,41247878,41247794,41247696,41247918,41247998,41247739,41247541,41247440,41247332,41247529,41247883,41247643,41247310,41247766,41247880,41247080,41247387,41247819,41247428,41247718,41247742,41247389,41247598,41247494,41247384,41247640],"score":350,"time":1723648206,"title":"Show
+        HN: If YouTube had actual channels","type":"story","url":"https://ytch.xyz"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:21 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41247083.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '243'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"FinTechFounder","descendants":7,"id":41247083,"kids":[41248042,41248054,41247860,41247957],"score":21,"time":1723648598,"title":"Kiota:
+        OpenAPI-Based HTTP Client Code Generator","type":"story","url":"https://github.com/microsoft/kiota"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:22 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41241942.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '335'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"wonger_","descendants":28,"id":41241942,"kids":[41246155,41245397,41245382,41246178,41247852,41246723,41247093,41245766,41245905,41246540,41245597,41246499,41247546],"score":121,"time":1723601957,"title":"Sort,
+        sweep, and prune: Collision detection algorithms","type":"story","url":"https://leanrada.com/notes/sweep-and-prune/"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:22 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41247238.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '194'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"kblissett","descendants":1,"id":41247238,"kids":[41247976],"score":12,"time":1723649446,"title":"A
+        Different Kind of Keyboard","type":"story","url":"https://ianthehenry.com/posts/peggi/"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:22 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41236718.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '407'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"croes","descendants":52,"id":41236718,"kids":[41246161,41245572,41245322,41246219,41245684,41245295,41246461,41247349,41246697,41245270,41245184],"score":100,"time":1723564977,"title":"Dune
+        Scientists Observe First Neutrinos with Prototype Detector at Fermilab","type":"story","url":"https://newscenter.lbl.gov/2024/08/12/dune-scientists-observe-first-neutrinos-with-prototype-detector-at-fermilab/"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:22 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41247275.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '212'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"signa11","descendants":0,"id":41247275,"score":4,"time":1723649644,"title":"Visual
+        Data Structures Cheat-Sheet","type":"story","url":"https://photonlines.substack.com/p/visual-data-structures-cheat-sheet"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:22 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41244468.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '229'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"sph","descendants":18,"id":41244468,"kids":[41245954,41245218,41246903,41245242,41244871,41246328],"score":99,"time":1723630324,"title":"The
+        Syndicated Actor Model","type":"story","url":"https://syndicate-lang.org/about/"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:22 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41247601.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '237'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"SeriesAce","descendants":0,"id":41247601,"score":4,"time":1723651423,"title":"Learn
+        Python 3 Spiders: Comprehensive Guide from Basics to Advanced Techniques","type":"story","url":"https://github.com/wistbean/learn_python3_spider"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:22 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41247193.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '270'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"jandeboevrie","descendants":1,"id":41247193,"kids":[41248027],"score":6,"time":1723649221,"title":"Some
+        thoughts on OpenSSH 9.8''s PerSourcePenalties feature","type":"story","url":"https://utcc.utoronto.ca/~cks/space/blog/sysadmin/OpenSSHPerSourcePenaltiesThings"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:22 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41246211.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '266'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"thunderbong","descendants":13,"id":41246211,"kids":[41247829,41247553,41247491,41247736],"score":28,"time":1723644222,"title":"Tmpmail:
+        Temporary email right from your terminal written in POSIX sh","type":"story","url":"https://github.com/sdushantha/tmpmail"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:22 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41246181.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '167'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"tiziano88","descendants":0,"id":41246181,"score":15,"time":1723644055,"title":"Project
+        Oak by Google","type":"story","url":"https://github.com/project-oak/oak"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:23 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41238102.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '920'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"tigerlily","descendants":263,"id":41238102,"kids":[41240719,41239461,41242339,41245027,41238776,41239059,41245477,41239007,41238832,41240657,41242450,41239780,41238849,41240120,41239537,41240072,41238604,41245202,41239621,41240196,41241727,41240624,41240239,41243459,41240429,41246152,41242690,41243266,41243724,41239341,41242134,41241908,41239952,41239541,41239144,41239961,41240005,41242699,41242514,41245608,41239815,41243754,41242491,41241895,41242076,41244119,41238773,41239404,41240737,41244341,41238540,41240306,41245375,41241436,41238764,41240242,41238712,41240201,41239185,41239775,41241259,41240683,41240606,41238432,41240123,41239902,41238886,41238590,41240319,41239510,41241296,41240765,41241080,41238791,41238634,41240691],"score":704,"time":1723573972,"title":"All
+        of Earth''s water in a single sphere (2019)","type":"story","url":"https://www.usgs.gov/media/images/all-earths-water-a-single-sphere"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:23 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41244423.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1264'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"martyndavies","descendants":13,"id":41244423,"kids":[41246088,41245929,41247371,41246505,41246005],"score":55,"text":"Hey,
+        I&#x27;m Martyn and I recently joined Zuplo. OpenAPI is a huge part of what
+        we do, but getting a document up to scratch out of the gate, especially if
+        you&#x27;re not super well versed in the actual specification and what you
+        should use and when.<p>So we built a suite of tools to help with this called
+        Rate My OpenAPI. It will score your OpenAPI document out of 100, as well as
+        giving you individual scores in 4 key areas; completeness, SDK generation,
+        security and documentation.<p>Along with the score, you also get details of
+        what the issues, or errors are, as well as guidance on what they actually
+        mean and why they&#x27;re important.<p>We exposed the API for it using Zuplo,
+        and then built a CLI, and a GitHub Action on top of that so that you can add
+        Rate My OpenAPI into your workflow however you like.<p>You can check it out
+        and use all of this right now, for free. I&#x27;ve already found it extremely
+        useful and I hope you do to.<p>Feedback is absolutely welcome!","time":1723629812,"title":"Show
+        HN: We made a tool to help developers improve OpenAPI specs","type":"story","url":"https://github.com/zuplo/rate-my-openapi"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:23 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41244847.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '442'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"gumby","descendants":82,"id":41244847,"kids":[41246821,41247457,41247723,41245128,41247836,41245690,41246073,41245182,41245394,41246930,41245074,41247461,41245338,41245323,41246269,41244891,41245277,41245369,41245175,41245191,41245275,41245458,41245141],"score":106,"time":1723634549,"title":"Larry
+        Tesler pioneered cut-and-paste, the one-button mouse, WYSIWIG (2005)","type":"story","url":"https://spectrum.ieee.org/of-modes-and-men"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:23 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41245073.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '228'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"jboula","id":41245073,"score":1,"time":1723636835,"title":"Circle
+        Medical (YC S15) Is Hiring Ruby/Rails Engineers in Montreal","type":"job","url":"https://jobs.lever.co/circlemedical/980b39bf-38a3-4b0d-802c-442394b48bf2"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:23 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41247211.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '3791'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJieSI6InBtb290IiwiZGVzY2VuZGFudHMiOjAsImlkIjo0MTI0NzIxMSwia2lkcyI6WzQxMjQ3OTcyXSwic2NvcmUiOjIsInRleHQiOiJXZeKAmXJlIFBldGVyIGFuZCBKaWF4aW4sIGFuZCB3ZeKAmXJlIGJ1aWxkaW5nIFByb21pICg8YSBocmVmPVwiaHR0cHM6JiN4MkY7JiN4MkY7d3d3LnVzZXByb21pLmNvbVwiPmh0dHBzOiYjeDJGOyYjeDJGO3d3dy51c2Vwcm9taS5jb208L2E+KS4gUHJvbWkgdXNlcyBBSSB0byBvcHRpbWl6ZSByZXRhaWwgZWNvbW1lcmNlIGRpc2NvdW50cyBhY3Jvc3MgcHJvZHVjdHMgYW5kIGN1c3RvbWVycyAodGhpbmsgbmV3IGN1c3RvbWVyIGRpc2NvdW50cywgY2xlYXJhbmNlIHNhbGVzLCBob2xpZGF5IHNhbGVzLCBldGMuKS48cD5IZXJl4oCZcyBhIHF1aWNrIHZpZGVvIG92ZXJ2aWV3OiA8YSBocmVmPVwiaHR0cHM6JiN4MkY7JiN4MkY7d3d3LnlvdXR1YmUuY29tJiN4MkY7d2F0Y2g/dj1TSFR3OVZIOGJDd1wiIHJlbD1cIm5vZm9sbG93XCI+aHR0cHM6JiN4MkY7JiN4MkY7d3d3LnlvdXR1YmUuY29tJiN4MkY7d2F0Y2g/dj1TSFR3OVZIOGJDdzwvYT48cD5EaXNjb3VudHMgaGF2ZSB0cmFkaXRpb25hbGx5IGJlZW4gYSBiaXQgb2YgdGhlIOKAmHdpbGQgd2VzdOKAmSBvZiBwcmljaW5nLiBPcHRpbWl6YXRpb24gdGVjaG5pcXVlcyBhdCBldmVuIHRoZSBsYXJnZXN0IG1lcmNoYW50cyBhcmUgaGVhdmlseSBtYW51YWwuIFByb2R1Y3QgbGV2ZWwgZGlzY291bnRpbmcgZGVjaXNpb25zIGFyZSBkaXN0cmlidXRlZCBhbW9uZyBvcGVyYXRpb25zIG9yIGNhdGVnb3J5IG1hbmFnZXJzLCBhbmQgc3RvcmUtd2lkZSBkaXNjb3VudHMgYXJlIG9mdGVuIHNldCBieSBtYXJrZXRlcnMuIFR5cGljYWxseSB0aGV5IHJlbHkgb24gb3JkZXIgaGlzdG9yeSwgbG9vayBhdCBjb21wZXRpdG9yIGRpc2NvdW50cywgb3IgZmluZCBwcmlvciBkaXNjb3VudCBwZXJmb3JtYW5jZSB0byBpbmZvcm0gdGhlaXIgZGVjaXNpb24uIEJ1dCB0aGVyZeKAmXMgbm90IGEgbG90IG9mIHNjaWVuY2UgYmVoaW5kIGNob29zaW5nIHRoZSBkaXNjb3VudCwgYW5kIHRlYW1zIGRvbuKAmXQgaGF2ZSB0aGUgdGltZSBvciBtZWFucyB0byBvcHRpbWl6ZSBpdCBhdCBhIGdyYW51bGFyIGxldmVsIC0gaS5lLiBieSBwcm9kdWN0IG9yIGN1c3RvbWVyIGdyb3Vwcy48cD5XZSBiZWxpZXZlIEFJIGNhbiBiZXR0ZXIgc29sdmUgdGhpcyBwcm9ibGVtIGJ5IHNldHRpbmcgdGhlIG1vc3QgYXBwcm9wcmlhdGUgZGlzY291bnQgdmFsdWUsIHZhcnlpbmcgdGhhdCBkaXNjb3VudCBhY3Jvc3MgcHJvZHVjdHMsIGFuZCBwZXJzb25hbGl6aW5nIHRoYXQgZGlzY291bnQgYWNyb3NzIHVzZXJzIGluIG9yZGVyIHRvIGFjaGlldmUgdmFyaW91cyBnb2Fscy4gQUkgbW9kZWxzIGNhbiBsZXZlcmFnZSBtb3JlIGRhdGEgKGUuZy4gaXRlbSBjb252ZXJzaW9uIHJhdGUsIHByb2ZpdCBtYXJnaW4sIGN1c3RvbWVyIHJlZmVycmFsIFVSTCwgZGV2aWNlIHR5cGUpIGFuZCB1cGRhdGUgbW9yZSBmcmVxdWVudGx5IHRoYW4gaXMgcmVhbGlzdGljYWxseSBwb3NzaWJsZSB0byBkbyBtYW51YWxseS48cD5PdXIgYXBwcm9hY2ggd2lsbCBhbHNvIGFsbG93IHVzIHRvIGdlbmVyYXRlIGRpc2NvdW50cyBmb3IgcmVsYXRpdmVseSBzbWFsbCBtZXJjaGFudHMuIFdlIHVzZSBtb2RlbHMgKGxheWVyaW5nIHRyYWRpdGlvbmFsIE5MUCBtb2RlbHMgYW5kIGN1c3RvbSBMTE1zKSB0byBidWlsZCBhIGxhcmdlLXNjYWxlIGtub3dsZWRnZSBncmFwaCB0byBnYXRoZXIgc2ltaWxhciBwcm9kdWN0cyBhY3Jvc3MgbWVyY2hhbnRzIGluIG9yZGVyIHRvIGJ1aWxkIHByb2ZpbGVzIGFyb3VuZCBkaWZmZXJlbnQgY2x1c3RlcnMgb2YgcHJvZHVjdHMuIFRob3NlIHByb2ZpbGVzIGhlbHAgdXMgYnVpbGQgc29sdXRpb25zIGNhdGVyaW5nIHRvd2FyZHMgc3Vic2NhbGUgc2hvcHMgd2hpY2ggdHJhZGl0aW9uYWxseSBkbyBub3QgaGF2ZSBhbiBvcHRpbWFsIHByaWNpbmcgc3RyYXRlZ3kuPHA+T3VyIGZpcnN0IEFJIHByb2R1Y3QgZm9jdXNlcyBvbiBsaXF1aWRhdGluZyBpbnZlbnRvcnksIGFuZCB1c2VzIGEgc3RvcmXigJlzIGhpc3RvcmljIHRyYW5zYWN0aW9uIGFuZCBzYWxlcyBkYXRhIHRvIGp1bXAgc3RhcnQgdHJhaW5pbmcgb3VyIG1vZGVsIGFuZCBnZW5lcmF0aW5nIGRpc2NvdW50cy4gT3VyIG1vZGVsIHByZWRpY3RzIHRoZSBkaXNjb3VudCByZXF1aXJlZCB0byBpbmNyZWFzZSBjb252ZXJzaW9uIHJhdGUgYnkgdGhlIHByb3BlciBhbW91bnQgdG8gbGlxdWlkYXRlIHRoZSBpbnZlbnRvcnkgYnkgdGhlIGRlc2lyZWQgdGltZWZyYW1lLiBXZSB0aGVuIG1vbml0b3IgdGhlIGNvbnZlcnNpb24gcmF0ZSBhbmQgKGlmIHdlIGhhdmUgc3RhdGlzdGljYWwgc2lnbmlmaWNhbmNlKSBtYWtlIGZyZXF1ZW50IGFkanVzdG1lbnRzIGFzIG5lZWRlZC48cD5XZeKAmXZlIGdvdCBhIGZ1bGwgcm9hZG1hcCBvZiBuZXcgbW9kZWwgYXBwcm9hY2hlcywgaW5jbHVkaW5nIHBlcnNvbmFsaXphdGlvbiBhbmQgbmV3IG9iamVjdGl2ZSBmdW5jdGlvbnMgKGUuZy4gcHJvZml0IGluc3RlYWQgb2YgbGlxdWlkYXRpb24pIHRvIGZpdCBtb3JlIGRpc2NvdW50IHVzZSBjYXNlcy48cD5Ib3cgd2UgZ290IGhlcmU6IEppYXhpbiBhbmQgSSBhcmUgY29taW5nIGZyb20gVWJlciwgd2hlcmUgSSBsZWQgcHJvZHVjdCBmb3IgdGhlIGRpc2NvdW50IHRlYW0gYWNyb3NzIEVhdHMgYW5kIFJpZGVzLiBXZSBsYXVuY2hlZCBzZXZlcmFsIGFuYWxvZ291cyBBSSBmZWF0dXJlcyBhdCBVYmVyIGFuZCBzYXcganVzdCBob3cgaW1wYWN0ZnVsIHRoZXkgY2FuIGJlIGZvciBzdHJ1Y3R1cmluZyBkaXNjb3VudHMuIEZvciBleGFtcGxlLCB3ZSBoYWQgaXNzdWVzIHdpdGggZGVwbG95aW5nIG91ciBNTCBtb2RlbHMgZm9yIGF1dG9tYXRlZCBkaXNjb3VudHMgaW4gc21hbGxlciBtYXJrZXRzIGJlY2F1c2Ugb2YgdGhlIHF1YW50aXR5IG9mIGRhdGEgcmVxdWlyZWQgdG8gdHJhaW4gdGhvc2UgbW9kZWxzLiBXZSBwaXZvdGVkIHRvIGEgJiN4Mjc7Z2xvYmFsIG1vZGVsJiN4Mjc7IHRoYXQgdXNlZCBkYXRhIGFjcm9zcyBjb3VudHJpZXMgdG8gc2lnbmlmaWNhbnRseSByZWR1Y2UgdGhlIGFtb3VudCBvZiBkYXRhIHJlcXVpcmVkIGluIGFueSBvbmUgY291bnRyeS4gVGhhdCBtb2RlbCBwZXJmb3JtZWQgZXZlbiBiZXR0ZXIgdGhhbiBjb3VudHJ5LXNwZWNpZmljIG1vZGVscywgc2hvd2luZyB1cyB0aGF0IHRoZXJlIHdlcmUgdmVyeSByZXByb2R1Y2UtYWJsZSB0cmVuZHMgaW4gaW1wcm92aW5nIGRpc2NvdW50IHBlcmZvcm1hbmNlLjxwPklmIHlvdSBydW4gb3Iga25vdyBzb21lb25lIHdobyBydW5zIGEgU2hvcGlmeSBzdG9yZSwgeW91IGNhbiBkb3dubG9hZCBhbmQgcGxheSBhcm91bmQgd2l0aCBvdXIgYXBwIGhlcmU6IDxhIGhyZWY9XCJodHRwczomI3gyRjsmI3gyRjthcHBzLnNob3BpZnkuY29tJiN4MkY7cHJvbWktZGlzY291bnRzXCIgcmVsPVwibm9mb2xsb3dcIj5odHRwczomI3gyRjsmI3gyRjthcHBzLnNob3BpZnkuY29tJiN4MkY7cHJvbWktZGlzY291bnRzPC9hPjxwPldl4oCZZCBsb3ZlIGZlZWRiYWNrLCB0aG91Z2h0cyBvbiBvdGhlciB1c2UgY2FzZXMgZm9yIGRpc2NvdW50cyArIEFJLCBxdWVzdGlvbnMsIGV0Yy4gTG9va2luZyBmb3J3YXJkIHRvIGhlYXJpbmcgZnJvbSB0aGUgY29tbXVuaXR5ISIsInRpbWUiOjE3MjM2NDkzMjMsInRpdGxlIjoiTGF1bmNoIEhOOiBQcm9taSAoWUMgUzI0KSDigJMgQUktcG93ZXJlZCBlY29tbWVyY2UgZGlzY291bnRzIiwidHlwZSI6InN0b3J5In0=
+  recorded_at: Wed, 14 Aug 2024 16:45:23 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41224128.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '326'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"woodruffw","descendants":32,"id":41224128,"kids":[41244890,41247172,41244823,41247449,41245895,41246401,41244572,41244720],"score":77,"time":1723469259,"title":"Approximating
+        sum types in Python with Pydantic","type":"story","url":"https://blog.yossarian.net/2024/08/12/Approximating-sum-types-in-Python-with-Pydantic"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:23 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41245901.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '249'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"Ygg2","descendants":4,"id":41245901,"kids":[41246467,41247427,41246285],"score":62,"time":1723642600,"title":"Re-fixing
+        Servo''s event-loop","type":"story","url":"https://medium.com/@polyglot_factotum/re-fixing-servos-event-loop-e00bdf267385"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:23 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41222528.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '234'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"boris_m","descendants":9,"id":41222528,"kids":[41246973,41247854],"score":21,"time":1723453288,"title":"From
+        Sets to Categories","type":"story","url":"https://abuseofnotation.github.io/category-theory-illustrated/02_category/"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:23 GMT
+- request:
+    method: get
+    uri: https://hacker-news.firebaseio.com/v0/item/41239800.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - hacker-news.firebaseio.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 14 Aug 2024 16:45:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '361'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"by":"melling","descendants":20,"id":41239800,"kids":[41246471,41240372,41242936,41242274,41241365,41243185],"score":123,"time":1723582810,"title":"ARPA-H
+        announces awards to develop novel technologies for precise tumor removal","type":"story","url":"https://arpa-h.gov/news-and-events/arpa-h-announces-awards-develop-novel-technologies-precise-tumor-removal"}'
+  recorded_at: Wed, 14 Aug 2024 16:45:23 GMT
+recorded_with: VCR 6.2.0
