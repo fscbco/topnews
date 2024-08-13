@@ -14,8 +14,9 @@ class PollHackerNewsJob
       end
     end
 
-    if NewsDetail.most_recent_story.hn_id < HackerNews::Base.new.newest_story_id        
-      HackerNews.add_new_stories
+    if NewsDetail.most_recent_story.hn_id < HackerNews::Base.new.newest_story_id  
+      puts "adding new story"    
+      HackerNews::AddNewStories.new.call  
     end
 
   end
