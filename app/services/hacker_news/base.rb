@@ -1,5 +1,6 @@
 module HackerNews
   class Base
+    Result = Struct.new(:success?, :data, :errors)
 
 
     def get_new_stories

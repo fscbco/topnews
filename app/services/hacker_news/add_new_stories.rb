@@ -1,34 +1,23 @@
 module HackerNews
   class AddNewStories < Base
    
+    attr_reader :story_ids
 
-    def call
-      response = get_new_stories
-
-      if response.class.name == 'Net::HTTPOK'
-        ## get news item details.
-        
-        story_ids = get_new_stories
-
-        story_ids = JSON.parse(response.body)      
-        most_recent_id = NewsDetail.most_recent_story.hn_id
-        story_ids.each do |story_id|
-          break if story_id <= most_recent_id
-          HackerNews::CreateItemDetail.new(story_id).call
-
-        end
-
-      else
-        ### do something on failure
-      end
-
-      
+    def initialize(story_ids)
+      @story_ids = story_ids
     end
 
-
-    
+    def call
+      
+      
+      story_ids.each do |story_id|
+       next if NewsDetail.find_by(hn_id: story_id)
+         
+        @result = HackerNews::CreateItemDetail.new(story_id).call       
+        break if !@result.success?       
+      end  
+      
+      @result || Result.new(false, nil, "No new stories added")
+    end
   end
-
 end
-
-

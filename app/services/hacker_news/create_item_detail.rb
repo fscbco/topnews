@@ -30,12 +30,24 @@ module HackerNews
 
     def create_story_detail(data)
 
+      
       data = JSON.parse(data)
-      @news_detail = NewsDetail.new(hn_id: data["id"], url: data["url"], 
-      author: data["by"], score: data["score"], title: data["title"], 
-      story_type: data["type"], comment_count: data["descendants"])
+      if data.present?
+        @news_detail = NewsDetail.new(hn_id: data["id"], url: data["url"], 
+        author: data["by"], score: data["score"], title: data["title"], 
+        story_type: data["type"], comment_count: data["descendants"])
 
-      @news_detail.save
+        if @news_detail.save
+          Result.new(true, nil, "")
+        else
+          Result.new(false, data["hn_id"], 'failed saving HN details')
+        end
+      else
+        Result.new(false, nil, 'failed saving HN details')
+      end
+      
+      
+      
     end
   end
 end
