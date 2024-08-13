@@ -35,9 +35,7 @@ module HackerNews
       author: data["by"], score: data["score"], title: data["title"], 
       story_type: data["type"], comment_count: data["descendants"])
 
-      @news_detail.save!
+      @news_detail.save
     end
-0
-
   end
 end

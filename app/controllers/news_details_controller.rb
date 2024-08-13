@@ -1,11 +1,11 @@
 class NewsDetailsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @news_details = NewsDetail.all
+    @news_details = NewsDetail.includes(:users).page(params[:page])
   end
 
   def liked_index
-    @news_details = NewsDetail.joins(:users).distinct
+    @news_details = NewsDetail.joins(:users).distinct.page(params[:page])
   end
 
   def upvote

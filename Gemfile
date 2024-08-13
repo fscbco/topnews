@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'sidekiq'
 gem 'sidekiq-scheduler', '~> 4.0'
 gem 'redis'
+gem 'kaminari'
  
 
 
