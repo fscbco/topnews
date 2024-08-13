@@ -1,0 +1,15 @@
+<h1> Recent Stories </h1>
+
+<%= paginate @news_details %>
+
+<%= link_to "Log out", destroy_user_session_path, method: :delete,  class: "btn btn-danger" %>
+<%= link_to "Liked Stories", liked_index_news_details_path %>
+
+<ul>
+  <% @news_details.each do |news_detail| %>
+  <%=  render partial: "news_item", locals: {news_detail: news_detail} %>
+  <% end %>
+</ul>
+
+<%= paginate @news_details %>
+

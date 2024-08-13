@@ -1,0 +1,4 @@
+poll_hacker_news_job:
+  every: ['5m', first_in: '0s']
+  class: PollHackerNewsJob
+  queue: default

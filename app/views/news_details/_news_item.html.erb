@@ -1,0 +1,19 @@
+<li>
+  
+  <%= news_detail.title %>
+  <%= link_to 'Article', news_detail.url %>
+  <p>Liked by:
+    <%= news_detail.users.pluck(:first_name).join(', ') %>
+  </p>
+
+
+<%= button_to 'Upvote', upvote_news_detail_path(news_detail, status: 'updated'), method: :patch, remote: true, class: 'update-button' %>
+<%= button_to 'Downvote', downvote_news_detail_path(news_detail, status: 'updated'), method: :patch, remote: true, class: 'update-button' %>
+
+  
+ 
+</li>
+
+
+
+ 
