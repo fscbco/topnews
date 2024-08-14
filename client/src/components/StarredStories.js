@@ -2,31 +2,49 @@ import React, { useState, useEffect } from 'react';
 import api from '../services/api';
 
 const StarredStories = () => {
-  const [starredStories, setStarredStories] = useState([]);
+  const [groupedStories, setGroupedStories] = useState([]);
+  const [currentUserEmail, setCurrentUserEmail] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchStarredStories();
+    fetchGroupedStories();
   }, []);
 
-  const fetchStarredStories = async () => {
+  const fetchGroupedStories = async () => {
     try {
       setIsLoading(true);
       const response = await api.get('/user_stories');
-      setStarredStories(response.data);
+      setGroupedStories(response.data.stories);
+      setCurrentUserEmail(response.data.current_user_email);
     } catch (error) {
-      console.error('Error fetching starred stories:', error);
-      setError('Failed to fetch starred stories. Please try again.');
+      console.error('Error fetching grouped stories:', error);
+      setError('Failed to fetch stories. Please try again.');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleUnstar = async (userStoryId) => {
+  const handleUnstar = async (storyId) => {
     try {
-      await api.delete(`/user_stories/${userStoryId}`);
-      setStarredStories(prevStories => prevStories.filter(story => story.id !== userStoryId));
+      await api.delete(`/user_stories/${storyId}`);
+      setGroupedStories(prevStories =>
+        prevStories.reduce((acc, story) => {
+          if (story.id === storyId) {
+            const updatedEmails = story.user_emails.filter(email => email !== currentUserEmail);
+            if (updatedEmails.length > 0) {
+              acc.push({
+                ...story,
+                user_emails: updatedEmails,
+                current_user_starred: false
+              });
+            }
+          } else {
+            acc.push(story);
+          }
+          return acc;
+        }, [])
+      );
     } catch (error) {
       console.error('Error unstarring story:', error);
     }
@@ -37,15 +55,18 @@ const StarredStories = () => {
 
   return (
     <div>
-      <h1>Your Starred Stories</h1>
-      {starredStories.length === 0 ? (
-        <p>You haven't starred any stories yet.</p>
+      <h1>All Starred Stories</h1>
+      {groupedStories.length === 0 ? (
+        <p>No stories have been starred yet.</p>
       ) : (
-        starredStories.map(userStory => (
-          <div key={userStory.id}>
-            <h2>{userStory.story.title}</h2>
-            <a href={userStory.story.url} target="_blank" rel="noopener noreferrer">Read more</a>
-            <button onClick={() => handleUnstar(userStory.id)}>Unstar</button>
+        groupedStories.map(story => (
+          <div key={story.id}>
+            <h2>{story.title}</h2>
+            <a href={story.url} target="_blank" rel="noopener noreferrer">Read more</a>
+            <p>Starred by: {story.user_emails.join(', ')}</p>
+            {story.current_user_starred && (
+              <button onClick={() => handleUnstar(story.id)}>Unstar</button>
+            )}
           </div>
         ))
       )}
