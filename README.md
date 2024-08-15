@@ -25,3 +25,52 @@ When a team member signs in, they will see recent news stories and be able to st
 * As an internal tool for a small team, performance optimization is not a requirement.
 * Be prepared to discuss known performance shortcomings of your solution and potential improvements.
 * UX design here is of little importance. The design can be minimal or it can have zero design at all.
+
+
+# Running the environment
+
+## Requirements
+
+```
+ruby 3.1.2
+postgres 14.4
+```
+
+Manage requirements using `asdf`:
+
+-  [`asdf` - Getting Started](https://asdf-vm.com/guide/getting-started.html)
+
+`asdf` requirements versions are specified in the file `.tool-versions` for `asdf`:
+
+```bash
+cat .tool-versions
+```
+
+## Setup
+
+```bash
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
+
+## Running the server
+
+```bash
+bundle exec rails server
+```
+
+# Running tests
+
+## Setup
+
+```bash
+bundle exec rake db:migrate RAILS_ENV=test
+```
+
+## Running tests
+
+```bash
+bundle exec rspec
+```
