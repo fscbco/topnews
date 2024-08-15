@@ -1,0 +1,8 @@
+<h1>Recommendations</h1>
+
+<% @stories.each do |story| %>
+  <div class="story"><%= link_to story.title, story.url %></div>
+  <div>Recommended by:
+    <%= story.recommendations.collect { |rec| rec.user.first_name ? rec.user.first_name : rec.user.email }.to_sentence %>
+  </div>
+<% end %>

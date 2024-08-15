@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_14_174335) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "recommendations", force: :cascade do |t|
+    t.integer "story_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["story_id", "user_id"], name: "index_recommendations_on_story_id_and_user_id", unique: true
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.integer "hn_story_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hn_story_id"], name: "hn_story_id_ix", unique: true
+  end
+
+  create_table "story_rankings", id: false, force: :cascade do |t|
+    t.integer "story_id"
+    t.integer "rank"
+    t.index ["story_id", "rank"], name: "index_story_rankings_on_story_id_and_rank", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"

@@ -1,0 +1,18 @@
+<h1>Top Stories</h1>
+<% if @stories.length == 0 %>
+  There are no stories here, run the `HackernewsJob.perform_now` Job to populate.
+  `rails runner "HackernewsJob.perform_now"`
+<% end %>
+
+<div class="topstories">
+  <% @stories.each do |story| %>
+    <div class="story">
+      <% if story.users.include?(current_user) %>
+        <%= link_to "❤️", unrecommend_url(story_id: story.id), method: :delete %>
+      <% else %>
+        <%= link_to "🤍", recommend_url(story_id: story.id), method: :post %>
+      <% end %>
+      <%= link_to story['title'], story['url'] %>
+    </div>
+  <% end %>
+</div>
