@@ -25,3 +25,51 @@ When a team member signs in, they will see recent news stories and be able to st
 * As an internal tool for a small team, performance optimization is not a requirement.
 * Be prepared to discuss known performance shortcomings of your solution and potential improvements.
 * UX design here is of little importance. The design can be minimal or it can have zero design at all.
+
+## Installation
+
+1. Clone the repository:
+<pre>
+git clone https://github.com/wali89/topnews.git
+cd topnews
+</pre>
+
+2. Backend setup:
+<pre>
+bundle install
+rails db:create db:migrate db:seed
+</pre>
+
+3. Set up environment variables: Create a .env file in the root directory and add the following:
+<pre>
+JWT_SECRET=your_jwt_secret_here
+</pre>
+
+4. Frontend setup:
+<pre>
+cd ../client
+npm install
+</pre>
+
+## Running the Application
+<pre>
+foreman start -f Procfile.dev
+</pre>
+
+## Running the test
+From the topnews project directory you can run the test suite with:
+<pre>
+rspec
+</pre>
+
+To run the frontend tests:
+<pre>
+cd ../client
+npm test
+</pre>
+
+## API Endpoints
+* POST /api/v1/login: Authenticate a user and receive a JWT
+* GET /api/v1/user_stories: Retrieve all user stories for the authenticated user
+* POST /api/v1/user_stories: Create a new user story
+* DELETE /api/v1/user_stories/:id: Delete a user story
