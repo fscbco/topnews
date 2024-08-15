@@ -73,4 +73,6 @@ bundle exec rake db:migrate RAILS_ENV=test
 
 ```bash
 bundle exec rspec
+# or
+bundle exec rspec --format documentation
 ```
