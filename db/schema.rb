@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_15_221329) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "url", null: false
+    t.integer "score"
+    t.string "by"
+    t.string "type"
+    t.string "_type"
+    t.string "external_id", null: false
+    t.datetime "time", precision: nil
+    t.jsonb "document"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["external_id"], name: "unique_external_id", unique: true
+  end
+
+  create_table "user_articles", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
+    t.index ["article_id", "user_id"], name: "index_user_articles_on_article_id_and_user_id"
+    t.index ["article_id"], name: "index_user_articles_on_article_id"
+    t.index ["user_id", "article_id"], name: "index_user_articles_on_user_id_and_article_id"
+    t.index ["user_id"], name: "index_user_articles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -33,4 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "user_articles", "articles"
+  add_foreign_key "user_articles", "users"
 end
