@@ -3,7 +3,7 @@ require_relative '../../lib/services/hacker_news/hacker_news.rb'
 class ArticlesController < ApplicationController
   TOP_ARTICLES = 10
   def index
-    get_top_stories
+    get_top_stories_ids
     get_top_stories_details
     @articles
   end
@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
 
   # TODO: Refactor this articles or story to articles conversion
   # into its hown service class
-  def get_top_stories
+  def get_top_stories_ids
     stories = hacker_news.topstories
     if stories
       @top_stories_ids = stories.take(TOP_ARTICLES)
@@ -29,6 +29,7 @@ class ArticlesController < ApplicationController
     return nil unless @top_stories_ids
 
     find_articles_by_stories_ids
+
     @articles.each do |article|
       if @top_stories_ids.include?(article.external_id)
         @top_stories_ids.delete(article.external_id)
