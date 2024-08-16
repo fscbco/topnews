@@ -1,0 +1,14 @@
+<h1>Team Articles</h1>
+
+<ul>
+  <% @user_articles.each do |ua| %>
+    <% article = ua.article %>
+    <% user = ua.user %>
+    <% picked_by = user.id == current_user.id ? "(You)" : "#{user.first_name} #{user.last_name}" %>
+    <!-- TODO: Move this to partial -->
+    <li>
+      <%= article.score %> | <%= article.title %> | <%= link_to "link", article.url, target: "_blank", rel: "alternate" %>
+      | Picked By: <%= picked_by %>
+    </li>
+  <% end %>
+</ul>

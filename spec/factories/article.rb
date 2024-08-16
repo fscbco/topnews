@@ -1,12 +1,11 @@
 FactoryBot.define do
   factory :article do
-    external_id { 41247023 }
-    # document: document,
-    title { "Show HN: If YouTube had actual channels" }
-    url { "https://ytch.xyz" }
+    sequence(:external_id) { |n| n }
+    sequence(:title) { |n| "Show HN: #{n}# Story" }
+    sequence(:url) { |n| "https://ytch#{n}.xyz" }
     type { "story" }
-    score { 2554 }
-    time { 1723648206 }
-    by { "hadisafa" }
+    score { rand(1..5000) }
+    time { Time.zone.now.to_i }
+    sequence(:by) { |n| "hadisafa#{n}" }
   end
 end
