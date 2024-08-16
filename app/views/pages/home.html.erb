@@ -1,10 +1,10 @@
 <h1>Welcome to Top News</h1>
 
-<% if user_signed_in? %>
-    Hi <%= "#{current_user.first_name} #{current_user.last_name}" %>.
-    You're logged in!
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-<% else %>
-    Not logged in.
-    <%= link_to "Sign in", new_user_session_path, class: 'nav-link' %>
-<% end %>
+<ul>
+  <li>
+    <%= link_to "TOP Articles", articles_path, method: :get %>
+  </li>
+  <li>
+    <%= link_to "Team Articles", articles_path, method: :get %>
+  </li>
+</ul>

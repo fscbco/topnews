@@ -5,6 +5,7 @@ RSpec.describe "Applications", type: :request do
     context 'without sign in user' do
       it 'redirects to sign in page' do
         get "/"
+        expect(response).to have_http_status(:redirect)
         expect(response).to redirect_to(:new_user_session)
 
         follow_redirect!
@@ -18,11 +19,7 @@ RSpec.describe "Applications", type: :request do
     end
 
     context 'with sign in user' do
-      let(:user) { create(:user) }
-
-      before do
-        sign_in user
-      end
+      include_context "signed in user"
 
       it 'renders the requested page' do
         get "/"
@@ -32,6 +29,8 @@ RSpec.describe "Applications", type: :request do
         expect(response.body).to include(user.first_name)
         expect(response.body).to include(user.last_name)
         expect(response.body).to include("Welcome to Top News")
+        expect(response.body).to include("TOP Articles")
+        expect(response.body).to include("Team Articles")
         expect(response.body).to include("Log out")
       end
     end
