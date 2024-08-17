@@ -1,0 +1,29 @@
+version: '3'
+services:
+  rails:
+    platform: linux/x86_64
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/topnews"
+    environment:
+      - "RAILS_ENV=development"
+    depends_on:
+      - postgres
+
+  postgres:
+    platform: linux/x86_64
+    image: postgres:14.4
+    volumes:
+      - "postgres:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: topnews_development
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER
+
+volumes:
+  postgres:
+

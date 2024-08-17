@@ -12,7 +12,8 @@ gem 'pg'
 gem 'pry-rails'
 gem 'puma'
 gem 'rails', '~> 7.0.3'
-gem 'rspec-rails'
+gem 'rspec-rails', group: [:development, :test]
+gem 'factory_bot_rails', group: [:development, :test]
 gem 'sass-rails'
 gem 'selenium-webdriver', group: [:development, :test]
 gem 'spring', group: :development

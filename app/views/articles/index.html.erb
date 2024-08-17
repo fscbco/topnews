@@ -1,0 +1,10 @@
+<h1>Articles TOP Feed</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= article.score %> | <%= article.title %> | <%= link_to "link", article.url, target: "_blank", rel: "alternate" %>
+      <%= link_to "pick", user_articles_path(article: article.as_json), { method: :post, remote: true } %>
+    </li>
+  <% end %>
+</ul>

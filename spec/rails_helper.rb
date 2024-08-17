@@ -7,6 +7,13 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+# Support add helper methods into rspec
+require 'support/factory_bot'
+require 'support/devise'
+# Require all spec/support/shared directory instead of individual files
+# require 'support/shared'
+Dir[Rails.root.join('spec/support/shared/*.rb')].each { |f| require f }
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

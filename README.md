@@ -25,3 +25,126 @@ When a team member signs in, they will see recent news stories and be able to st
 * As an internal tool for a small team, performance optimization is not a requirement.
 * Be prepared to discuss known performance shortcomings of your solution and potential improvements.
 * UX design here is of little importance. The design can be minimal or it can have zero design at all.
+
+
+# Running the environment (local)
+
+## Requirements
+
+```
+ruby 3.1.2
+postgres 14.4
+```
+
+Manage requirements using `asdf`:
+
+-  [`asdf` - Getting Started](https://asdf-vm.com/guide/getting-started.html)
+
+`asdf` requirements versions are specified in the file `.tool-versions` for `asdf`:
+
+```bash
+cat .tool-versions
+```
+
+## Setup
+
+```bash
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
+
+## Running the server
+
+```bash
+bundle exec rails server
+```
+
+# Running tests
+
+## Setup
+
+```bash
+bundle exec rails db:migrate RAILS_ENV=test
+```
+
+## Running tests
+
+```bash
+bundle exec rspec
+# or
+bundle exec rspec --format documentation
+```
+
+# Running the environment (Docker)
+
+Build image using multi-platform images
+
+```bash
+docker build --platform linux/amd64 .
+```
+
+## Development
+
+Run the environment
+
+```bash
+docker compose up
+```
+
+Stoping the environment
+
+```bash
+docker compose down -v
+```
+
+## Helpful commands
+
+Get services `CONTAINER_ID` or `NAMES`:
+
+```bash
+docker ps
+```
+
+Using the `CONTAINER_ID` or `NAMES` from the previous command,
+we can execute commands against our docker services
+
+First time commands:
+```bash
+docker exec -it <CONTAINER_ID> bundle exec rails db:create
+docker exec -it <CONTAINER_ID> bundle exec rails db:migrate
+docker exec -it <CONTAINER_ID> bundle exec rails db:seed
+```
+
+Rails console in container:
+```bash
+# This will be similar run against running server
+docker exec -it <CONTAINER_ID> bundle exec rails console
+```
+
+Rails console from service:
+```bash
+# This will be similar to running `bundle exec rails console`
+docker compose run rails bundle exec rails console
+```
+
+## Running tests
+
+First steps for setup
+```bash
+docker compose -f docker-compose.test.yml run test bundle exec rails db:test:prepare
+```
+
+### Running tests suite
+
+Running tests suite
+```bash
+docker compose -f docker-compose.test.yml run test bundle exec rspec --format documentation
+```
+
+Running tests in container
+```bash
+docker compose -f docker-compose.test.yml up
+```
+
