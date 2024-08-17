@@ -1,5 +1,17 @@
 {
   "name": "topnews",
   "private": true,
-  "dependencies": {}
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "build-dev": "esbuild app/javascript/*.* --bundle --loader:.js=jsx --outdir=app/assets/builds --watch"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.16.5",
+    "@mui/material": "^5.16.5",
+    "esbuild": "^0.23.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
 }
