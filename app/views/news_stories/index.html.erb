@@ -1,0 +1,31 @@
+<div class="content-wrapper">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1>Hacker News!</h1>
+      <div>
+        <% if user_signed_in? %>
+          <span class="me-3">Signed in as: <%= current_user.email %></span>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: "btn btn-outline-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <ul class="nav nav-tabs" id="storiesTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="all-news-tab" data-bs-toggle="tab" data-bs-target="#all-news" type="button" role="tab" aria-controls="all-news" aria-selected="true">All News</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pinned-news-tab" data-bs-toggle="tab" data-bs-target="#pinned-news" type="button" role="tab" aria-controls="pinned-news" aria-selected="false">Pinned News</button>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content flex-grow-1" id="storiesTabContent">
+    <div class="tab-pane fade show active" id="all-news" role="tabpanel" aria-labelledby="all-news-tab">
+      <%= render 'news_list', news_stories: @news_stories, pagy: @pagy_ns %>
+    </div>
+    <div class="tab-pane fade" id="pinned-news" role="tabpanel" aria-labelledby="pinned-news-tab">
+      <%= render 'news_list', news_stories: @pinned_news_stories, pagy: @pagy_ps %>
+    </div>
+  </div>
+</div>

@@ -20,3 +20,10 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+gem "font-awesome-sass"
+gem 'turbo-rails'
+gem 'kaminari'
+gem "sidekiq-scheduler", "~> 5.0"
+gem "sidekiq", "~> 7.3"
+
+gem "pagy", "~> 9.0.5"

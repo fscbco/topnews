@@ -1,0 +1,5 @@
+<% if params[:page] %>
+  document.querySelector('#all-news').innerHTML = '<%= j render "news_list", news_stories: @news_stories, pagy: @pagy_ns %>'
+<% elsif params[:page_pinned] %>
+  document.querySelector('#pinned-news').innerHTML = '<%= j render "news_list", news_stories: @pinned_news_stories, pagy: @pagy_ps %>'
+<% end %>
