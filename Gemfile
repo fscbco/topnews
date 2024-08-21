@@ -6,12 +6,13 @@ gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], group: [:development, :test
 gem 'capybara', group: [:development, :test]
 gem 'coffee-rails'
 gem 'devise'
+gem 'factory_bot_rails'
 gem 'jbuilder'
 gem 'listen', group: :development
 gem 'pg'
 gem 'pry-rails'
 gem 'puma'
-gem 'rails', '~> 7.0.3'
+gem 'rails', '~> 7.0.8'
 gem 'rspec-rails'
 gem 'sass-rails'
 gem 'selenium-webdriver', group: [:development, :test]

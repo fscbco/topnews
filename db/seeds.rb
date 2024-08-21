@@ -1,17 +1,17 @@
-User.find_or_initialize_by(email: 'DonaldGMiller@example.com').update({
+User.find_or_initialize_by(email: 'dmiller@example.com').update({
   first_name: 'Donald',
   last_name: 'Miller',
-  password: 'eeMaev2shai'
+  password: 'password'
 })
 
-User.find_or_initialize_by(email: 'LawrenceWGrant@example.com').update({
+User.find_or_initialize_by(email: 'lgrant@example.com').update({
   first_name: 'Lawrence',
   last_name: 'Grant',
-  password: 'ahR7iecai'
+  password: 'password'
 })
 
-User.find_or_initialize_by(email: 'MargeRWilliams@example.com').update({
+User.find_or_initialize_by(email: 'mwilliams@example.com').update({
   first_name: 'Marge',
   last_name: 'Williams',
-  password: 'Aechugh1ie'
+  password: 'password'
 })
