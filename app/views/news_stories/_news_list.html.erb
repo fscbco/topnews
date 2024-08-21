@@ -1,0 +1,6 @@
+<div class="container mt-3">
+  <ol class="stories-list">
+    <%= render partial: 'news_story', collection: news_stories, as: :news_story, locals: { start_count: pagy.from } %>
+  </ol>
+</div>
+<%== pagy_bootstrap_nav(pagy) %>

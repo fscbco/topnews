@@ -1,0 +1,21 @@
+<li data-story-id="<%= news_story.id %>" value="<%= start_count + news_story_counter %>">
+  <div>
+    <%= link_to news_story.title, news_story.url %>
+  </div>
+  <div>
+    <%= 'By: ' + news_story.by %>
+  </div>
+  <div>
+    <%= format_time(news_story.time) %>
+  </div>
+  <% unless news_story.pinned_by_id.nil?%>
+    <div>
+      <%= "Pinned By: " + news_story.fullname_of_pinner %>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to "#", onclick: "pinStory(#{news_story.id}, this, event)", class: "pin-button #{disable_unpinning(news_story)}", data: { turbolinks: false } do %>
+      <%= icon('fas', 'thumbtack', class: "#{thumbtack_class(news_story)}") %>
+    <% end %>
+  </div> 
+</li>

@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_16_175023) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "news_stories", id: :serial, force: :cascade do |t|
+    t.text "title"
+    t.string "url"
+    t.integer "score"
+    t.jsonb "descendants"
+    t.string "by"
+    t.bigint "pinned_by_id"
+    t.bigint "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "story_type"
+    t.index ["pinned_by_id"], name: "index_news_stories_on_pinned_by_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"

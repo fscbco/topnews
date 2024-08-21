@@ -1,0 +1,3 @@
+fetch_news_stories:
+  every: '30m'
+  class: FetchExternalDataJob
