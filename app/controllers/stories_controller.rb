@@ -1,23 +1,29 @@
 class StoriesController < ApplicationController
 
-  @@hacker_base= 'https://hacker-news.firebaseio.com/v0/'
-
   def index
-    top_story_ids = fetch_top_stories
-    @stories = fetch_story_details(top_story_ids.first(30))
-  end
+    top_story_ids = helpers.fetch_top_stories.first(10)
+    @stories = helpers.fetch_story_details(top_story_ids)
+    @flagged_story_ids = current_user.flags.pluck(:story_id)
 
-  private
-
-  def fetch_top_stories
-    response = HTTParty.get("#{@@hacker_base}topstories.json")
-    JSON.parse(response.body)
-  end
-
-  def fetch_story_details(story_ids)
-    story_ids.map do |id|
-      response = HTTParty.get("#{@@hacker_base}item/#{id}.json")
-      JSON.parse(response.body)
+    @stories.each do |story|
+      story_id = story['id']
+      story['flagged'] = @flagged_story_ids.member?(story_id)
     end
   end
+
+  def show
+    story_id = params[:id]
+    
+    flag = current_user.flags.find_by(story_id: story_id)
+    if flag
+      notice = 'Story was successfully unflagged.'
+      flag.destroy!
+    else
+      notice = 'Story was successfully flagged.'
+      Flag.create!(story_id: story_id, user_id: current_user.id)
+    end
+
+    redirect_to(stories_path, notice: notice)
+  end
+
 end
