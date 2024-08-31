@@ -20,3 +20,7 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+gem 'shoulda-matchers', '~> 6.0', group: :test
+gem 'factory_bot_rails', group: [:development, :test]
+gem 'typhoeus'
+gem 'rails-controller-testing', group: :test

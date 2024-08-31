@@ -1,0 +1,27 @@
+<h1>Welcome to Top News</h1>
+<% @latest_feed.stories.each do |story| %>
+    <%= link_to story['title'], story['url'], target: '_blank' %> 
+    <%= button_to 'FLAG', flag_add_path, params: {
+        url: URI::Parser.new.escape(story['url']),
+        title: URI::Parser.new.escape(story['title'])
+     } %>
+    <br />
+<% end %>
+
+<% if @flagged_stories.count > 0 %>
+    <h2>Flagged stories</h2>
+    <% @flagged_stories.each do |story| %>
+        <%= link_to story['title'], story['url'], target: '_blank' %>
+        <br />
+        Flagged by: <%= story.users.collect(&:full_name).join(',') %>
+        <br />
+        <% if story.users.includes(current_user) %>
+            <%= link_to '[Unflag]', flag_remove_path(story) %>
+            <br />
+        <% end %>
+    <% end %>
+<% end %>
+
+<br />&nbsp;<br />
+<%= render "devise/sign_out" %>
+

@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2018_02_28_212101) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_30_163814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feeds", force: :cascade do |t|
+    t.jsonb "stories"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "flagged_stories", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "flagged_stories_users", id: false, force: :cascade do |t|
+    t.bigint "flagged_story_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["flagged_story_id", "user_id"], name: "index_flagged_stories_users_on_flagged_story_id_and_user_id", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
