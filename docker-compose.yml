@@ -9,7 +9,6 @@ services:
       - 3000:3000
     depends_on:
       - db
-      - redis
 
   db:
     image: postgres:16.4
@@ -21,13 +20,6 @@ services:
       - 5432:5432
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
-
-  #redis:
-  #  image: redis:7.4
-  #  ports:
-  #    - 6379:6379
-  #  volumes:
-  #    - ./data/redis:/data
 
   chrome:
     image: selenium/standalone-chrome:latest # this version should match that of the selenium-webdriver gem (see Gemfile)
@@ -48,7 +40,6 @@ services:
       - HUB_URL=http://chrome:4444/wd/hub
     depends_on:
       - db
-      - redis
       - chrome
     profiles:
       - test
