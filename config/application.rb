@@ -16,5 +16,8 @@ module Topnews
     # -- all .rb files in that directory are automatically loaded.
 
     config.active_record.legacy_connection_handling = false
+
+    # Autoload Service 
+    config.autoload_paths << Rails.root.join('app/services')
   end
 end

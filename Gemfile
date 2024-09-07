@@ -21,3 +21,7 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'web-console', group: :development
+gem 'dotenv', groups: [:development, :test]
+gem 'faraday'
+gem 'rails-controller-testing', group: :test
+gem 'webmock', group: :test

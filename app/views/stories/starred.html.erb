@@ -1,0 +1,13 @@
+
+
+
+<% if @starred_stories.any? %>
+<h1 class="mb-4 text-4xl font-extrabold gap-5">Starred Stories</h1>
+<div class="grid grid-cols-1 gap-3">
+  <% @starred_stories.each do |story| %>
+    <%= render 'story', story: story, id: story[:hacker_news_id] %>
+  <% end %>
+</div>
+<% else %>
+<h1 class="mb-4 text-4xl font-extrabold gap-5 mt-10">Sorry there's no starred stories!</h1>
+<% end %> 

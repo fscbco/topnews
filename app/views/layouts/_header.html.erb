@@ -1,0 +1,16 @@
+<header>
+    <nav class="px-4 lg:px-6 py-2.5 bg-slate-700">
+        <div class="flex flex-wrap justify-between items-center mx-auto">
+            <%= link_to 'Shasheesh', root_path, class:"self-center text-xl font-semibold whitespace-nowrap text-white" %>
+            <%= link_to 'Starred Stories', starred_stories_path, class:"self-center font-semibold whitespace-nowrap text-white" %>
+            <div class="flex items-center lg:order-2">
+              <% if user_signed_in? %>
+                <span class="text-gray-400 mr-5">Welcome, <%= current_user.first_name %>!</span>
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"text-white bg-primary-700 hover:bg-primary-800 font-medium rounded-lg text-sm px-4 mr-2 bg-primary-600 hover:bg-primary-700" %>
+              <% else %>
+                <%= link_to 'Sign In', new_user_session_path, class:"animate text-white hover:bg-gray-50 animate focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800" %>
+              <% end %>
+            </div>
+        </div>
+    </nav>
+</header>

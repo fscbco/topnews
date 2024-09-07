@@ -1,0 +1,14 @@
+<div class="bg-white rounded-lg p-4 flex flex-col justify-between hover:shadow-md transition duration-500">
+  <div class="flex justify-between items-center">
+    <%= link_to story[:title], story[:url], target: '_blank', class: 'text-lg font-semibold text-gray-800 mb-2' %>
+    <%= render 'star_button', story: story, id: id %>
+  </div>
+
+  <% if story_starred_by_users(id) %>
+    <p class="text-sm font-semibold text-blue-500 mt-2">Starred by:
+      <% story_starred_by_users(id).each do |user| %>
+        <span class="text-gray-500 font-normal"><%= user.first_name %> <%= user.last_name %></span>
+      <% end %>
+    </p>
+  <% end %>
+</div>

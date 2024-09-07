@@ -1,0 +1,15 @@
+<h1 class="mb-4 text-4xl font-extrabold gap-5">Top Hacker News Stories</h1>
+<div class="grid grid-cols-1 gap-3">
+  <% @stories.each do |story| %>
+    <%= render 'story', story: story, id: story[:id] %>
+  <% end %>
+</div>
+
+<% if @current_user_starred_stories.present? %>
+  <h1 class="mb-4 text-4xl font-extrabold gap-5 mt-10">Your Starred Stories</h1>
+  <div class="grid grid-cols-1 gap-3">
+    <% @current_user_starred_stories.each do |story| %>
+      <%= render 'story', story: story, id: story[:hacker_news_id] %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+  <% if current_user.starred_stories.exists?(hacker_news_id: id) %>
+    <%= button_to unstar_stories_path(hacker_news_id: id), method: :delete, class: 'bg-green-500 text-white p-2 rounded-full hover:bg-red-600 transition flex items-center' do %>
+      <i class="fa-solid fa-star text-white unstar-btn"></i>
+      <span class="sr-only">Unstar</span>
+    <% end %>
+  <% else %>
+    <%= button_to star_stories_path(hacker_news_id: id, title: story[:title], url: story[:url]), method: :post, class: 'bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition flex items-center' do %>
+      <i class="fa-regular fa-star text-white star-btn"></i>
+      <span class="sr-only">Star</span>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= button_to new_user_session_path, class: 'bg-gray-300 text-white p-2 rounded-full hover:bg-gray-500 transition flex items-center' do %>
+    <i class="fa-regular fa-star text-white logged-out-star-button logged-out-star-btn"></i>
+    <span class="sr-only">Star</span>
+  <% end %>
+<% end %>
