@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     root to: 'pages#home'
   end
 
+  require 'sidekiq/web'
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :stories, only: [:index]
   get 'stories/index'
 end

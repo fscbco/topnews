@@ -14,11 +14,15 @@ gem 'pg'
 gem 'pry-rails'
 gem 'puma'
 gem 'rails', '~> 7.0.8'
+gem 'redis'
 gem 'rspec-rails'
 gem 'rubocop', group: 'development', require: false
 gem 'sass-rails'
 gem 'selenium-webdriver', group: %i[development test]
 gem 'sidekiq'
+gem 'sidekiq-cron', '~> 1.2'
+gem 'sidekiq-scheduler'
+gem 'sinatra', require: nil
 gem 'spring', group: :development
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

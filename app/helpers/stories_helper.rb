@@ -1,27 +1,36 @@
 module StoriesHelper
   def story_url(story)
-    story.respond_to?(:url) ? story.url : story[:url]
+    fetch_story_attribute(story, :url)
   end
 
   def story_title(story)
-    story.respond_to?(:title) ? story.title : story[:title]
+    fetch_story_attribute(story, :title)
   end
 
   def story_author(story)
-    story.respond_to?(:author) ? story.author : story[:author]
+    fetch_story_attribute(story, :author)
   end
 
   def story_type(story)
-    story.respond_to?(:story_type) ? story.story_type : story[:type]
+    fetch_story_attribute(story, :type)
   end
 
   def story_published_at(story)
-    if story.respond_to?(:published_at) && story.published_at
-      story.published_at.strftime("%Y-%m-%d %H:%M:%S")
-    elsif story[:published_at]
-      Time.at(story[:published_at]).strftime("%Y-%m-%d %H:%M:%S")
-    else
-      'Not available'
-    end
+    published_at = fetch_story_attribute(story, :published_at)
+
+    story_published_time = if published_at.is_a?(Integer)
+                             Time.at(published_at)
+                           else
+                             Time.parse(published_at.to_s)
+                           end
+
+    story_published_time.strftime('%B %d, %Y %I:%M %p %Z')
+  end
+
+
+  private
+
+  def fetch_story_attribute(story, attribute)
+    story.respond_to?(attribute) ? story.public_send(attribute) : story[attribute]
   end
 end
