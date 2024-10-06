@@ -10,10 +10,16 @@ Rails.application.routes.draw do
   end
 
   require 'sidekiq/web'
-  authenticate :user, lambda { |u| u.admin? } do
+  authenticate :user, lambda(&:admin?) do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  resources :stories, only: [:index]
+  resources :stories, only: [:index] do
+    member do
+      patch :star
+      patch :unstar
+    end
+  end
+
   get 'stories/index'
 end

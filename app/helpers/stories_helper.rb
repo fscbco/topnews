@@ -17,16 +17,21 @@ module StoriesHelper
 
   def story_published_at(story)
     published_at = fetch_story_attribute(story, :published_at)
-
     story_published_time = if published_at.is_a?(Integer)
                              Time.at(published_at)
                            else
                              Time.parse(published_at.to_s)
                            end
-
     story_published_time.strftime('%B %d, %Y %I:%M %p %Z')
   end
 
+  def story_starred?(story, user)
+    user.starred_stories.exists?(story_id: story[:id])
+  end
+
+  def story_starred_by(story)
+    (story[:starred_by] || []).map { |name| name.join(' ') }.join(', ')
+  end
 
   private
 

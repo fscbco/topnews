@@ -12,6 +12,7 @@ class StoryFetcherService
   def perform
     stories = fetch_top_stories
     store_stories_in_redis(stories)
+    store_stories_in_db(stories)
   end
 
   private
@@ -48,6 +49,19 @@ class StoryFetcherService
       stories.each do |story|
         $redis.rpush(STORY_LIST_KEY, story.to_json)
       end
+    end
+  end
+
+  def store_stories_in_db(stories)
+    stories.each do |story|
+      db_story = Story.find_or_initialize_by(id: story[:id])
+      db_story.update(
+        title: story[:title],
+        url: story[:url],
+        author: story[:author],
+        story_type: story[:type],
+        published_at: Time.at(story[:published_at])
+      )
     end
   end
 end
