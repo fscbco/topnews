@@ -1,19 +1,82 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-    <title>Top News</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <p class="notice">
-      <%= notice %>
-    </p>
-    <p class="alert">
-      <%= alert %>
-    </p>
-    <%= yield %>
-  </body>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+  <title>Top News</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+
+      .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #2d3748;
+          color: white;
+          padding: 1rem;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar a {
+          color: white;
+          text-decoration: none;
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          transition: background-color 0.3s, transform 0.2s ease;
+          display: inline-block;
+      }
+
+      .navbar a:hover {
+          transform: scale(1.05);
+      }
+
+      .sign-in {
+          background-color: #38a169;
+      }
+
+      .sign-in:hover {
+          background-color: #2f855a;
+      }
+
+      .sign-out {
+          background-color: #e53e3e;
+      }
+
+      .sign-out:hover {
+          background-color: #c53030;
+      }
+
+      .content {
+          padding: 1rem;
+      }
+
+      .menu {
+          margin-left: auto;
+      }
+  </style>
+</head>
+<body>
+<div class="navbar">
+  <h1>Top News</h1>
+  <div class="menu">
+    <% if user_signed_in? %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'sign-out' %>
+    <% else %>
+      <%= link_to 'Sign In', new_user_session_path, class: 'sign-in' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="content">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+</div>
+</body>
 </html>

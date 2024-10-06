@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Top Hacker News Stories</title>
+  <style>
+      body {
+          background: linear-gradient(to right, #38b2ac, #4299e1);
+          color: #ffffff;
+          font-family: Arial, sans-serif;
+          min-height: 100vh;
+          margin: 0;
+          padding: 0;
+      }
+
+      .container {
+          width: 100%;
+          padding: 1rem 2rem; /* Add padding to left and right */
+          background: rgba(255, 255, 255, 0.9);
+          color: #333;
+          box-sizing: border-box; /* Include padding and border in the element's total width and height */
+      }
+
+      h1 {
+          font-size: 2.5rem;
+          margin-bottom: 1.5rem;
+          text-align: center;
+      }
+
+      ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+      }
+
+      li {
+          padding: 1rem;
+          background: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          margin-bottom: 1.5rem;
+      }
+
+      h2 {
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+      }
+
+      a {
+          color: #3182ce;
+          text-decoration: none;
+      }
+
+      a:hover {
+          text-decoration: underline;
+      }
+
+      p, small {
+          margin: 0;
+          color: #555;
+      }
+
+      .author, .type {
+          margin-bottom: 0.5rem;
+      }
+
+      small {
+          display: block;
+          margin-top: 0.5rem;
+          font-size: 0.875rem;
+          color: #999;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Top Hacker News Stories</h1>
+  <ul>
+    <% if @stories.any? %>
+      <% @stories.each do |story| %>
+        <li>
+          <h2>
+            <a href="<%= story_url(story) %>" target="_blank" rel="noopener noreferrer">
+              <%= story_title(story) %>
+            </a>
+          </h2>
+          <p class="author">By: <%= story_author(story) %></p>
+          <small>Published at: <%= story_published_at(story) %></small>
+        </li>
+      <% end %>
+    <% else %>
+      <p>No stories available</p>
+    <% end %>
+  </ul>
+</div>
+</body>
+</html>
