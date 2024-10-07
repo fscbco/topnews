@@ -30,7 +30,8 @@ module StoriesHelper
   end
 
   def story_starred_by(story)
-    (story[:starred_by] || []).map { |name| name.join(' ') }.join(', ')
+    starred_stories = StarredStory.includes(:user).where(story_id: story[:id])
+    starred_stories.map { |star| "#{star.user.first_name} #{star.user.last_name}" }.join(', ')
   end
 
   private

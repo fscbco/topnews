@@ -1,15 +1,7 @@
-# config/sidekiq.yml
-#:scheduler:
-#  :schedule:
-#    fetch_and_store_stories:
-#      every: ["1m"]
-#      class: "FetchAndStoreStoriesWorker"
-#      queue: default
-
 :scheduler:
   :schedule:
     fetch_and_store_stories:
-      cron: "* * * * *"  # Every minute
+      cron: "* * * * *"  # Every minute for testing
       class: FetchAndStoreStoriesWorker
       queue: default
 

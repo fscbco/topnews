@@ -13,14 +13,25 @@
           min-height: 100vh;
           margin: 0;
           padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
       }
 
       .container {
-          width: 100%;
-          padding: 1rem 2rem; /* Add padding to left and right */
+          display: flex;
+          width: 100%; /* Full-width content */
+          max-width: 1200px; /* Optional max-width for readability */
+          padding: 1rem;
           background: rgba(255, 255, 255, 0.9);
           color: #333;
-          box-sizing: border-box; /* Include padding and border in the element's total width and height */
+          box-sizing: border-box;
+          gap: 2rem;
+          margin-top: 1rem; /* Gap between header and content */
+      }
+
+      .story-list {
+          flex: 1;
       }
 
       h1 {
@@ -86,72 +97,55 @@
 </head>
 <body>
 <div class="container">
-  <h1>Top Hacker News Stories</h1>
-  <ul>
-    <% if @stories.any? %>
-      <% @stories.each do |story| %>
-        <li>
-          <h2>
-            <a href="<%= story_url(story) %>" target="_blank" rel="noopener noreferrer">
-              <%= story_title(story) %>
-            </a>
-            <span class="star <%= 'starred' if story_starred?(story, current_user) %>" data-id="<%= story[:id] %>">
-              <%= story_starred?(story, current_user) ? '★' : '☆' %>
-            </span>
-          </h2>
-          <p class="author">By: <%= story_author(story) %></p>
-          <small>Published at: <%= story_published_at(story) %></small>
-          <small>Starred by: <%= story_starred_by(story) %></small>
-        </li>
+  <div class="story-list">
+    <h1>Top Hacker News Stories</h1>
+    <ul>
+      <% if @stories.any? %>
+        <% @stories.each do |story| %>
+          <li>
+            <h2>
+              <a href="<%= story_url(story) %>" target="_blank" rel="noopener noreferrer">
+                <%= story_title(story) %>
+              </a>
+              <span class="star <%= 'starred' if story_starred?(story, current_user) %>" data-id="<%= story[:id] %>">
+                <%= story_starred?(story, current_user) ? '★' : '☆' %>
+              </span>
+            </h2>
+            <p class="author">By: <%= story_author(story) %></p>
+            <small>Published at: <%= story_published_at(story) %></small>
+<!--            <small class="starred-by">Starred by: <%#= story_starred_by(story) %></small>-->
+          </li>
+        <% end %>
+      <% else %>
+        <p>No stories available</p>
       <% end %>
-    <% else %>
-      <p>No stories available</p>
-    <% end %>
-  </ul>
+    </ul>
+  </div>
+  <div class="story-list">
+    <h1>Starred Stories</h1>
+    <ul>
+      <% if @starred_stories.any? %>
+        <% @starred_stories.each do |story| %>
+          <li>
+            <h2>
+              <a href="<%= story_url(story) %>" target="_blank" rel="noopener noreferrer">
+                <%= story_title(story) %>
+              </a>
+            </h2>
+            <p class="author">By: <%= story_author(story) %></p>
+            <small>Published at: <%= story_published_at(story) %></small>
+            <small class="starred-by">Starred by: <%= story_starred_by(story) %></small>
+          </li>
+        <% end %>
+      <% else %>
+        <p>No starred stories available</p>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-        document.querySelectorAll('.star').forEach(starElement => {
-            starElement.addEventListener('click', async (event) => {
-                const storyId = starElement.getAttribute('data-id');
-                const isStarred = starElement.classList.contains('starred');
-                const response = await fetch(`/stories/${storyId}/${isStarred ? 'unstar' : 'star'}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-Token': csrfToken
-                    }
-                });
-
-                if (response.ok) {
-                    const json = await response.json();
-                    if (json.success) {
-                        starElement.classList.toggle('starred');
-                        starElement.textContent = starElement.classList.contains('starred') ? '★' : '☆';
-                        updateStarredBy(starElement, json.starred_by);
-                    } else {
-                        console.error(json.message || 'Failed to star/unstar the story');
-                    }
-                } else {
-                    console.error('Failed to star/unstar the story');
-                }
-            });
-        });
-
-        function updateStarredBy(starElement, starredBy) {
-            const storyNode = starElement.closest('li');
-            const starredByElement = storyNode.querySelector('.starred-by');
-            if (starredBy.length > 0) {
-                starredByElement.textContent = `Starred by: ${starredBy.join(', ')}`;
-            } else {
-                starredByElement.textContent = '';
-            }
-        }
-    });
+    
 </script>
-
 </body>
 </html>
