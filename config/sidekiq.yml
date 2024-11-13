@@ -1,0 +1,7 @@
+:scheduler:
+  :schedule:
+    fetch_and_store_stories:
+      cron: "* * * * *"  # Every minute for testing
+      class: FetchAndStoreStoriesWorker
+      queue: default
+

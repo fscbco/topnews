@@ -1,0 +1,151 @@
+<!-- app/views/stories/index.html.erb -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Top Hacker News Stories</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <style>
+      body {
+          background: linear-gradient(to right, #38b2ac, #4299e1);
+          color: #ffffff;
+          font-family: Arial, sans-serif;
+          min-height: 100vh;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+
+      .container {
+          display: flex;
+          width: 100%; /* Full-width content */
+          max-width: 1200px; /* Optional max-width for readability */
+          padding: 1rem;
+          background: rgba(255, 255, 255, 0.9);
+          color: #333;
+          box-sizing: border-box;
+          gap: 2rem;
+          margin-top: 1rem; /* Gap between header and content */
+      }
+
+      .story-list {
+          flex: 1;
+      }
+
+      h1 {
+          font-size: 2.5rem;
+          margin-bottom: 1.5rem;
+          text-align: center;
+      }
+
+      ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+      }
+
+      li {
+          padding: 1rem;
+          background: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          margin-bottom: 1.5rem;
+      }
+
+      h2 {
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+      }
+
+      a {
+          color: #3182ce;
+          text-decoration: none;
+      }
+
+      a:hover {
+          text-decoration: underline;
+      }
+
+      p, small {
+          margin: 0;
+          color: #555;
+      }
+
+      .author, .type {
+          margin-bottom: 0.5rem;
+      }
+
+      small {
+          display: block;
+          margin-top: 0.5rem;
+          font-size: 0.875rem;
+          color: #999;
+      }
+
+      .star {
+          font-size: 1.2rem;
+          cursor: pointer;
+          color: gold;
+      }
+
+      .starred {
+          color: gold;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="story-list">
+    <h1>Top Hacker News Stories</h1>
+    <ul>
+      <% if @stories.any? %>
+        <% @stories.each do |story| %>
+          <li>
+            <h2>
+              <a href="<%= story_url(story) %>" target="_blank" rel="noopener noreferrer">
+                <%= story_title(story) %>
+              </a>
+              <span class="star <%= 'starred' if story_starred?(story, current_user) %>" data-id="<%= story[:id] %>">
+                <%= story_starred?(story, current_user) ? '★' : '☆' %>
+              </span>
+            </h2>
+            <p class="author">By: <%= story_author(story) %></p>
+            <small>Published at: <%= story_published_at(story) %></small>
+<!--            <small class="starred-by">Starred by: <%#= story_starred_by(story) %></small>-->
+          </li>
+        <% end %>
+      <% else %>
+        <p>No stories available</p>
+      <% end %>
+    </ul>
+  </div>
+  <div class="story-list">
+    <h1>Starred Stories</h1>
+    <ul>
+      <% if @starred_stories.any? %>
+        <% @starred_stories.each do |story| %>
+          <li>
+            <h2>
+              <a href="<%= story_url(story) %>" target="_blank" rel="noopener noreferrer">
+                <%= story_title(story) %>
+              </a>
+            </h2>
+            <p class="author">By: <%= story_author(story) %></p>
+            <small>Published at: <%= story_published_at(story) %></small>
+            <small class="starred-by">Starred by: <%= story_starred_by(story) %></small>
+          </li>
+        <% end %>
+      <% else %>
+        <p>No starred stories available</p>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<script>
+    
+</script>
+</body>
+</html>
